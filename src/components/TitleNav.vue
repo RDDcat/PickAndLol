@@ -1,9 +1,36 @@
 <template>
-    <div class="title">
-        <div class="flex">
+    <div class="flex px-20 py-4 w-screen">
+        <!-- 로고 -->
+        <div class="flex font-bold">
             <img class="w-16 h-16" src="@/assets/logo.png">
-            Pick&LOL
+            <div class="flex my-auto mx-3 text-2xl">
+                Pick
+                <div class="text-red-600">&</div>
+                LOL
+            </div>
         </div>
+        <!-- 네비 -->
+        <div class="flex w-320 m-auto font-semibold">
+            <div class="text-red-600 w-24 text-center">
+                MY선수단
+            </div>
+            <div class="w-24 text-center">
+                일정
+            </div>
+            <div class="w-24 text-center">
+                선수랭킹
+            </div>
+            <div class="w-24 text-center">
+                유저랭킹
+            </div>
+        </div>
+        <!-- 로그인 회원가입 -->
+        <div class="flex font-bold">
+            <button class="btn btn-gray mx-2">
+                로그인
+            </button>
+        </div>
+
     </div>
 </template>
 <script>
@@ -24,13 +51,14 @@ export default {
 }
 </script>
 <style scoped>
-.title{
-    
+.btn {
+    @apply font-bold py-0 px-0 rounded-lg w-20 h-12 my-auto;
 }
-.title-logo img{
-    width: 3rem;
-    height: 3rem;
+.btn-gray {
+    @apply bg-gray-700 text-white;
 }
-
+.btn-gray:hover {
+    @apply bg-gray-900;
+}
 
 </style>
