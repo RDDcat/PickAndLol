@@ -1,24 +1,15 @@
-# pickandlol
+# 픽앤롤
 
-## Project setup
-```
-npm install
-```
+## 나만의 LCK 선수단을 구성
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## 주장을 선택
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 실제 경기 결과가 순위에 반영
+
+
+
+## 플레이해보세요
+
+[플레이 해보기](http://pickandlol.tasty-site.com)
