@@ -1,7 +1,7 @@
 <template>
     <div class="title">
-        <div class="title-logo">
-            <img src="@/assets/logo.png">
+        <div class="flex">
+            <img class="w-16 h-16" src="@/assets/logo.png">
             Pick&LOL
         </div>
     </div>
