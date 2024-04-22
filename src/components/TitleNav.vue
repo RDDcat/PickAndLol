@@ -5,7 +5,7 @@
             <img class="w-16 h-16" src="@/assets/logo.png">
             <div class="flex my-auto mx-3 text-2xl">
                 Pick
-                <div class="text-red-600">&</div>
+                <div class="text-red-600 text-sm">&</div>
                 LOL
             </div>
         </div>
