@@ -23,6 +23,7 @@
             <div class="w-24 text-center">
                 유저랭킹
             </div>
+            <i class="fa-solid fa-file"></i>
         </div>
         <!-- 로그인 회원가입 -->
         <div class="flex font-bold">
