@@ -2,7 +2,7 @@
 const modalStore = {
   state: {
     // 로그인 창
-    isLoginModal: false,
+    isLoginModal: true,
   },
 
   getters: {
@@ -10,9 +10,7 @@ const modalStore = {
   },
   
   mutations: {
-    CloseAll: (state) => {
-
-    },
+    
   },
 
   actions: {

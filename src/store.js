@@ -3,7 +3,7 @@ import VuexPersistence from 'vuex-persist';
 
 const vuexLocal = new VuexPersistence({
   storage: window.localStorage,
-  modules: [],
+  modules: ['modalStore', 'cacheStore'],
 });
 
 // 작성한 모듈을 가져오기
