@@ -2,7 +2,8 @@
 const modalStore = {
   state: {
     // 로그인 창
-    isLoginModal: true,
+    isLoginModal: false,
+    isGuideModal: true,
   },
 
   getters: {
