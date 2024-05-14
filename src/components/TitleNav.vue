@@ -27,7 +27,7 @@
         </div>
         <!-- 로그인 회원가입 -->
         <div class="flex font-bold">
-            <button class="btn btn-gray mx-2">
+            <button class="btn btn-gray mx-2" @click="$store.state.modalStore.isLoginModal=true">
                 로그인
             </button>
         </div>
