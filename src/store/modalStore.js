@@ -3,7 +3,15 @@ const modalStore = {
   state: {
     // 로그인 창
     isLoginModal: false,
-    isGuideModal: true,
+    isGuideModal: false,
+
+    // 네비게이션
+    isMain: true,
+    isTeam: false,
+    isSchedule: false,
+    isPlayerRanking: false,
+    isUserRanking: false,
+
   },
 
   getters: {

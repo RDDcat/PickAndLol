@@ -11,16 +11,16 @@
         </div>
         <!-- 네비 -->
         <div class="flex w-320 m-auto font-semibold">
-            <div class="text-red-600 w-24 text-center">
+            <div class="text-red-600 w-24 text-center" @click="nav(0)">
                 MY선수단
             </div>
-            <div class="w-24 text-center">
+            <div class="w-24 text-center" @click="nav(1)">
                 일정
             </div>
-            <div class="w-24 text-center">
+            <div class="w-24 text-center" @click="nav(2)">
                 선수랭킹
             </div>
-            <div class="w-24 text-center">
+            <div class="w-24 text-center" @click="nav(3)">
                 유저랭킹
             </div>
             <i class="fa-solid fa-file" @click="$store.state.modalStore.isGuideModal=true"></i>
@@ -47,6 +47,12 @@ export default {
         }
     },
     methods: {
+        nav(index){            
+            this.$store.state.modalStore.isTeam= index === 0
+            this.$store.state.modalStore.isSchedule= index === 1
+            this.$store.state.modalStore.isPlayerRanking= index === 2
+            this.$store.state.modalStore.isUserRanking= index === 3
+        },
 
     },
 }
