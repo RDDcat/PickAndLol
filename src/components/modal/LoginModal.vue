@@ -27,7 +27,7 @@
                     <img src="@/assets/button_google.png">
                 </div>
                 <div class="mx-auto mt-12 flex text-sm text-gray-400">
-                    로그인 진행시 <div class="underline text-gray-700">이용약관</div>과 <div class="underline text-gray-00">개인정보 취급방침</div>에 동의하게 됩니다.
+                    로그인 진행시&nbsp;<div class="underline text-gray-700">이용약관</div>과&nbsp;<div class="underline text-gray-700">개인정보 취급방침</div>에 동의하게 됩니다.
                 </div>
             </div>
         </div>        
