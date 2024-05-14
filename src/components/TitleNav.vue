@@ -23,7 +23,7 @@
             <div class="w-24 text-center" @click="nav(3)">
                 유저랭킹
             </div>
-            <i class="fa-solid fa-file" @click="$store.state.modalStore.isGuideModal=true"></i>
+            <i class="fa-regular fa-circle-question" @click="$store.state.modalStore.isGuideModal=true"></i>
         </div>
         <!-- 로그인 회원가입 -->
         <div class="flex font-bold">
