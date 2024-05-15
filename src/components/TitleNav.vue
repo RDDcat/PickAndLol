@@ -1,7 +1,7 @@
 <template>
     <div class="flex px-20 py-4 w-screen">
         <!-- 로고 -->
-        <div class="flex font-bold">
+        <div class="flex font-bold w-52">
             <img class="w-16 h-16" src="@/assets/logo.png">
             <div class="flex my-auto mx-3 text-2xl">
                 Pick
@@ -26,8 +26,8 @@
             <i class="fa-regular fa-circle-question" @click="$store.state.modalStore.isGuideModal=true"></i>
         </div>
         <!-- 로그인 회원가입 -->
-        <div class="flex font-bold">
-            <button class="btn btn-gray mx-2" @click="$store.state.modalStore.isLoginModal=true">
+        <div class="flex font-bold w-52">
+            <button class="btn btn-gray mx-auto" @click="$store.state.modalStore.isLoginModal=true">
                 로그인
             </button>
         </div>
