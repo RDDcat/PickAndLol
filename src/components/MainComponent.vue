@@ -22,10 +22,20 @@
         </div>
 
         <!-- 선수단 네비 -->
+        <div class="w-"></div>
 
-        <!-- 선수 카드 -->
-        <div class="w-24 h-32">
-
+        <!-- 선수 카드 그리드 -->
+        <div class="mx-auto my-8 grid grid-cols-5 gap-10">
+            <div v-for="player, index in players" :key="index">
+                <!-- 선수 카드 -->
+                <div class="w-52 h-80 bg-red-400 rounded-lg shadow-sm">
+                    znd
+                </div>
+                <!-- 선택하기 버튼 -->
+                <div class="w-52 h-12">
+                    선택하기
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -38,7 +48,7 @@ export default {
     },
     data(){
         return {
-
+            players:[0,1,2,3,4,5,6,7,8,9],
         }
     },
     methods: {
