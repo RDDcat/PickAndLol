@@ -1,5 +1,5 @@
 <template>
-    <div class="absolute bg-red-950 opacity-90 w-screen h-screen flex">
+    <div class="absolute bg-red-950 bg-opacity-90 w-screen h-screen flex z-40">
         <!--  -->
         <div class="m-auto w-[30rem] h-[36rem] relative">
             <!-- back -->
