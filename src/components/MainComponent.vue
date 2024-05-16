@@ -38,7 +38,7 @@
                     <div class="mx-auto">
                         {{player.stat}}
                     </div>
-                    <img class="mx-auto mt-auto w-40 h-52 object-cover" src="@/assets/player/chovy.png" alt="">
+                    <img class="mx-auto mt-auto w-40 h-52 object-cover" :src="player.img" alt="">
 
                 </div>
                 <!-- 선택하기 버튼 -->
@@ -62,9 +62,9 @@ export default {
         return {
             players:[
                     {rank:1, line:"MID", name:"Chovy", stat:1000, img: "./assets/player/chovy.png"},
-                    {rank:2, line:"MID", name:"Faker", stat:900, img: "./assets/player/chovy.png"},
-                    {rank:3, line:"MID", name:"Chovy", stat:1000, img: "./assets/player/chovy.png"},
-                    {rank:4, line:"MID", name:"Chovy", stat:1000, img: "./assets/player/chovy.png"},
+                    {rank:2, line:"MID", name:"Faker", stat:900, img: "./assets/player/faker.png"},
+                    {rank:3, line:"MID", name:"Zeka", stat:700, img: "./assets/player/zeka.png"},
+                    {rank:4, line:"MID", name:"Showmaker", stat:800, img: "./assets/player/showmaker.png"},
                     {rank:1, line:"MID", name:"Chovy", stat:1000, img: "./assets/player/chovy.png"},
                     {rank:1, line:"MID", name:"Chovy", stat:1000, img: "./assets/player/chovy.png"},
                     {rank:1, line:"MID", name:"Chovy", stat:1000, img: "./assets/player/chovy.png"},
