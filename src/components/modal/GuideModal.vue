@@ -6,8 +6,8 @@
                 x
             </div>
             <!-- 상단 -->
-            <div class="mx-auto mt-20">
-                가이드라인
+            <div class="mx-auto mt-20 w-full">
+                <spline-viewer url="https://prod.spline.design/Iltiz2S3Ob47CyIw/scene.splinecode"></spline-viewer>
             </div>
         </div>
     </div>
