@@ -28,13 +28,25 @@
         <div class="mx-auto my-8 grid grid-cols-5 gap-10">
             <div v-for="player, index in players" :key="index">
                 <!-- 선수 카드 -->
-                <div class="w-52 h-80 bg-red-400 rounded-lg shadow-sm">
-                    znd
+                <div class="w-52 h-80 flex flex-col rounded-lg shadow-lg hover:shadow-2xl">
+                    <div class="font-base mx-auto">
+                        {{player.rank}}
+                    </div>
+                    <div class="font-bold mx-auto">
+                        {{player.name}}
+                    </div>
+                    <div class="mx-auto">
+                        {{player.stat}}
+                    </div>
+                    <img class="mx-auto mt-auto w-40 h-52 object-cover" src="@/assets/player/chovy.png" alt="">
+
                 </div>
                 <!-- 선택하기 버튼 -->
-                <div class="w-52 h-12">
-                    선택하기
-                </div>
+                <button class="w-52 h-12 my-3 inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-400 via-red-500 to-red-600 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200">
+                    <span class="relative w-52  px-5 py-3 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                        선택하기
+                    </span>
+                </button>
             </div>
         </div>
     </div>
@@ -48,7 +60,17 @@ export default {
     },
     data(){
         return {
-            players:[0,1,2,3,4,5,6,7,8,9],
+            players:[
+                    {rank:1, line:"MID", name:"Chovy", stat:1000, img: "./assets/player/chovy.png"},
+                    {rank:2, line:"MID", name:"Faker", stat:900, img: "./assets/player/chovy.png"},
+                    {rank:3, line:"MID", name:"Chovy", stat:1000, img: "./assets/player/chovy.png"},
+                    {rank:4, line:"MID", name:"Chovy", stat:1000, img: "./assets/player/chovy.png"},
+                    {rank:1, line:"MID", name:"Chovy", stat:1000, img: "./assets/player/chovy.png"},
+                    {rank:1, line:"MID", name:"Chovy", stat:1000, img: "./assets/player/chovy.png"},
+                    {rank:1, line:"MID", name:"Chovy", stat:1000, img: "./assets/player/chovy.png"},
+                    {rank:1, line:"MID", name:"Chovy", stat:1000, img: "./assets/player/chovy.png"},
+                    {rank:1, line:"MID", name:"Chovy", stat:1000, img: "./assets/player/chovy.png"},
+                    {rank:1, line:"MID", name:"Chovy", stat:1000, img: "./assets/player/chovy.png"}],
         }
     },
     methods: {
