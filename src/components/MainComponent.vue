@@ -26,7 +26,7 @@
 
         <!-- 선수 카드 그리드 -->
         <div class="mx-auto my-8 grid grid-cols-5 gap-10">
-            <div v-for="player, index in players" :key="index">
+            <div v-for="player, index in $store.state.cacheStore.players" :key="index">
                 <!-- 선수 카드 -->
                 <div class="w-52 h-80 flex flex-col rounded-lg shadow-lg hover:shadow-2xl">
                     <div class="font-base mx-auto">
@@ -35,8 +35,10 @@
                     <div class="font-bold mx-auto">
                         {{player.name}}
                     </div>
-                    <div class="mx-auto">
-                        {{player.stat}}
+                    <div class="mx-auto flex">
+                        <div class="my-auto font-medium text-gray-500">{{player.line}} </div>
+                        <img class="object-cover mx-2" :src="'./assets/logo/color_'+player.team+'.png'" alt="">
+                        <div class="my-auto font-medium text-red-600">STAT {{player.stat}} </div>
                     </div>
                     <img class="mx-auto mt-auto w-40 h-52 object-cover" :src="player.img" alt="">
 
@@ -60,17 +62,7 @@ export default {
     },
     data(){
         return {
-            players:[
-                    {rank:1, line:"MID", name:"Chovy", stat:1000, img: "./assets/player/chovy.png"},
-                    {rank:2, line:"MID", name:"Faker", stat:900, img: "./assets/player/faker.png"},
-                    {rank:3, line:"MID", name:"Zeka", stat:700, img: "./assets/player/zeka.png"},
-                    {rank:4, line:"MID", name:"Showmaker", stat:800, img: "./assets/player/showmaker.png"},
-                    {rank:1, line:"MID", name:"Chovy", stat:1000, img: "./assets/player/chovy.png"},
-                    {rank:1, line:"MID", name:"Chovy", stat:1000, img: "./assets/player/chovy.png"},
-                    {rank:1, line:"MID", name:"Chovy", stat:1000, img: "./assets/player/chovy.png"},
-                    {rank:1, line:"MID", name:"Chovy", stat:1000, img: "./assets/player/chovy.png"},
-                    {rank:1, line:"MID", name:"Chovy", stat:1000, img: "./assets/player/chovy.png"},
-                    {rank:1, line:"MID", name:"Chovy", stat:1000, img: "./assets/player/chovy.png"}],
+            
         }
     },
     methods: {
