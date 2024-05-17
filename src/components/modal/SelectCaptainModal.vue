@@ -68,7 +68,10 @@
 
             <!-- 선택하기 버튼 -->
             <div class="mx-auto mt-14">
-                <button type="button" class="text-red-600 bg-gradient-to-r from-gray-100 via-white to-gray-100 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-10 py-2.5 text-center">선택하기</button>
+                <button type="button" class="text-red-600 bg-gradient-to-r from-gray-100 via-white to-gray-100 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-10 py-2.5 text-center"
+                    @click="select()">
+                    선택하기
+                </button>
             </div>
         </div>
     </div>
@@ -86,7 +89,11 @@ export default {
         }
     },
     methods: {
+        select(){
+            console.log('주장 선수 선택')
 
+            this.$store.state.modalStore.isSelectCaptainModal = false
+        }
     },
 }
 </script>
