@@ -2,6 +2,7 @@
   <!-- 모달리스트 -->
   <LoginModal v-if="$store.state.modalStore.isLoginModal"/>
   <GuideModal v-if="$store.state.modalStore.isGuideModal"/>
+  <SelectCaptainModal v-if="$store.state.modalStore.isSelectCaptainModal"/>
 
   <!-- 네비게이션 -->
   <TitleNav />
@@ -19,6 +20,7 @@
 <script>
 import LoginModal from '@/components/modal/LoginModal.vue'
 import GuideModal from '@/components/modal/GuideModal.vue'
+import SelectCaptainModal from '@/components/modal/SelectCaptainModal.vue'
 
 import TitleNav from '@/components/TitleNav.vue'
 import MainComponent from '@/components/MainComponent.vue'
@@ -32,6 +34,7 @@ export default {
   components: {
     LoginModal,
     GuideModal,
+    SelectCaptainModal,
     TitleNav,
     MainComponent,
     TeamComponent,

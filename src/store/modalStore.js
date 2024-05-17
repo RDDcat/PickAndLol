@@ -4,6 +4,7 @@ const modalStore = {
     // 로그인 창
     isLoginModal: false,
     isGuideModal: false,
+    isSelectCaptainModal: false,
 
     // 네비게이션
     isMain: true,
