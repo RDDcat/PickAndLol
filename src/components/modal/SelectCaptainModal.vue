@@ -16,36 +16,51 @@
             <div class="mx-auto mt-16 flex flex-col">
                 <div class="grid grid-cols-5">
                     <!-- top -->
-                    <div class="flex flex-col w-48 h-72">
+                    <div class="flex flex-col w-48 h-72 ">
                         <img class="m-auto" src="@/assets/icon/top_white.png">
-                        <img class="mx-auto" src="@/assets/player/perfect_circle.png">
+                        <img class="mx-auto my-4 rounded-full w-36 h-36 object-cover hover:ring-red-400 hover:ring-4" 
+                            :class="click===1?'outline-none ring-red-500 ring-4':''" 
+                            src="@/assets/player/perfect_circle.png"
+                            @click="click=1">
                         <div class="text-center text-white text-xl">PerfecT</div>
                     </div>
                     <!-- jug -->
                     <div class="flex flex-col w-48 h-72">
                         <img class="m-auto" src="@/assets/icon/jug_white.png">
-                        <img class="mx-auto" src="@/assets/player/canyon_circle.png">
+                        <img class="mx-auto my-4 rounded-full w-36 h-36 object-cover hover:ring-red-400 hover:ring-4" 
+                            :class="click===2?'outline-none ring-red-500 ring-4':''" 
+                            src="@/assets/player/canyon_circle.png"
+                            @click="click=2">
                         <div class="text-center text-white text-xl">Canyon</div>
                     </div>
 
                     <!-- mid -->
                     <div class="flex flex-col w-48 h-72">
                         <img class="m-auto" src="@/assets/icon/mid_white.png">
-                        <img class="mx-auto" src="@/assets/player/faker_circle.png">
+                        <img class="mx-auto my-4 rounded-full w-36 h-36 object-cover hover:ring-red-400 hover:ring-4" 
+                            :class="click===3?'outline-none ring-red-500 ring-4':''" 
+                            src="@/assets/player/faker_circle.png"
+                            @click="click=3">
                         <div class="text-center text-white text-xl">Faker</div>
                     </div>
 
                     <!-- bot -->
                     <div class="flex flex-col w-48 h-72">
                         <img class="m-auto" src="@/assets/icon/bot_white.png">
-                        <img class="mx-auto" src="@/assets/player/viper_circle.png">
+                        <img class="mx-auto my-4 rounded-full w-36 h-36 object-cover hover:ring-red-400 hover:ring-4" 
+                            :class="click===4?'outline-none ring-red-500 ring-4':''" 
+                            src="@/assets/player/viper_circle.png"
+                            @click="click=4">
                         <div class="text-center text-white text-xl">Viper</div>
                     </div>
 
                     <!-- sup -->
                     <div class="flex flex-col w-48 h-72">
                         <img class="m-auto" src="@/assets/icon/sup_white.png">
-                        <img class="mx-auto" src="@/assets/player/keria_circle.png">
+                        <img class="mx-auto my-4 rounded-full w-36 h-36 object-cover hover:ring-red-400 hover:ring-4" 
+                            :class="click===5?'outline-none ring-red-500 ring-4':''" 
+                            src="@/assets/player/keria_circle.png"
+                            @click="click=5">
                         <div class="text-center text-white text-xl">Keria</div>
                     </div>
                 </div>
@@ -67,7 +82,7 @@ export default {
     },
     data(){
         return {
-
+            click: 0,
         }
     },
     methods: {
