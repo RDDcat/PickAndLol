@@ -23,8 +23,31 @@
             <button type="button" class="text-white bg-gradient-to-r from-red-600 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-400 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-40">저장하기</button>
         </div>
 
-        <!-- 선수단 네비 -->
-        <div class="w-"></div>
+        <!-- 선수 필터 -->
+        <div class="mx-auto flex flex-col">
+            <!-- 팀 별 필터 -->
+            <div class="grid grid-cols-11 gap-10 mx-auto my-4">
+                <!-- 팀 -->
+                <div v-for="team, index in teams" :key="index">
+                    <img class="m-auto" :src="team.img">
+                    <div class="m-auto my-2 text-center text-xs text-gray-700">
+                        {{team.name}}
+                    </div>
+                </div>
+            </div>
+            <!-- 라인 별 필터 -->
+            <div class="grid grid-cols-6 gap-4 my-4 mr-auto">
+                <!-- 라인 -->
+                <div v-for="line, index in lines" :key="index">
+                    <button type="button" class="flex text-gray-600 focus:text-white bg-gray-200 hover:bg-red-200 focus:outline-none focus:bg-red-500 rounded-full px-6 py-3">
+                        <img class="m-auto" :src="line.img">
+                        <div class="flex my-auto ml-2 mr-2 text-center text-sm ">
+                            {{line.name}}
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
 
         <!-- 선수 카드 그리드 -->
         <div class="mx-auto my-8 grid grid-cols-5 gap-10">
@@ -64,7 +87,27 @@ export default {
     },
     data(){
         return {
-            
+            teams:[
+                {name:'전체', img:'./assets/logo/lck.png'}, 
+                {name:'젠지', img:'./assets/logo/GEN.png'}, 
+                {name:'T1', img:'./assets/logo/SKT.png'}, 
+                {name:'KT', img:'./assets/logo/KT.png'}, 
+                {name:'한화생명', img:'./assets/logo/HLE.png'}, 
+                {name:'DK', img:'./assets/logo/DK.png'}, 
+                {name:'피어엑스', img:'./assets/logo/FOX.png'}, 
+                {name:'광동', img:'./assets/logo/KDF.png'}, 
+                {name:'OK저축은행', img:'./assets/logo/BRO.png'}, 
+                {name:'DRX', img:'./assets/logo/DRX.png'}, 
+                {name:'농심', img:'./assets/logo/NS.png'}, 
+            ],
+            lines:[
+                {name:'전체', img:'./assets/icon/total_icon.png'}, 
+                {name:'TOP', img:'./assets/icon/top_icon.png'}, 
+                {name:'JUG', img:'./assets/icon/jug_icon.png'}, 
+                {name:'MID', img:'./assets/icon/mid_icon.png'}, 
+                {name:'BOT', img:'./assets/icon/bot_icon.png'}, 
+                {name:'SUP', img:'./assets/icon/sup_icon.png'}, 
+            ],
         }
     },
     methods: {
