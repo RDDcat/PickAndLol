@@ -1,6 +1,11 @@
 <template>
-    <!-- 유저 랭킹 페이지 -->
-    <div class="sample">유저랭킹</div>
+    <!-- 선수 랭킹 페이지 -->
+    <div class="flex">
+        <!-- 타이틀 -->
+        <div class="mx-auto my-4">
+            2024 LCK 서머 유저 랭킹
+        </div>
+    </div>
 </template>
 <script>
 
