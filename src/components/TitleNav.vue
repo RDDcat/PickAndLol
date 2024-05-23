@@ -48,8 +48,8 @@ export default {
     },
     methods: {
         nav(index){            
-            this.$store.state.modalStore.isMain= false
-            this.$store.state.modalStore.isTeam= index === 0
+            // this.$store.state.modalStore.isMain= false
+            this.$store.state.modalStore.isMain= index === 0
             this.$store.state.modalStore.isSchedule= index === 1
             this.$store.state.modalStore.isPlayerRanking= index === 2
             this.$store.state.modalStore.isUserRanking= index === 3
