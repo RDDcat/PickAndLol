@@ -7,7 +7,7 @@
         </div>
 
         <!--  -->
-        <div class="flex min-w-[50rem] h-16 bg-red-600 shadow-lg rounded mx-auto">
+        <div class="flex min-w-[64rem] h-16 bg-red-600 shadow-lg rounded-lg mx-auto">
             <div class="text-white flex my-auto px-4">
                 나의 랭킹 <div class="text-sm my-auto">&nbsp; 축하드립니다</div>
             </div>
@@ -20,6 +20,51 @@
                 내 기록 상세보기
             </button>
         </div>
+
+        <!-- 테이블 -->
+        <div class="relative overflow-x-auto w-[64rem] mx-auto my-4">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-2 py-3">
+                            유저 순위
+                        </th>
+                        <th scope="col" class="px-20 py-3">
+                            팀명
+                        </th>
+                        <th scope="col" class="px-1 py-3">
+                            이번주 획득 점수
+                        </th>
+                        <th scope="col" class="px-1 py-3">
+                            이번시즌 획득 점수
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" v-for="user, index in users" :key="index">
+                        <th scope="row" class="flex px-2 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <div class="my-auto mx-2"> {{index+1}} </div>
+                            &nbsp; 
+                            <img class="my-auto w-14 h-14 object-cover rounded-full" :src="user.img">
+                            &nbsp; 
+                            <div class="my-auto">{{user.name}}</div>
+                        </th>
+                        <td class="px-20 py-4">
+                            {{user.teamName}}
+                        </td>
+                        <td class="px-1 py-4">
+                            {{user.teamName}}
+                        </td>
+                        <td class="px-1 py-4">
+                            {{user.teamName}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 페이징 -->
+
 
 
 
@@ -37,6 +82,21 @@ export default {
             name:'내이름',
             img:'./assets/player/faker.png',
             rank:'6위',
+
+            users:[
+                {name:'내이름', teamName:'내리그', img:'./assets/player/faker.png', rank:'6위', weekGained:133 ,seasonGained: 42},
+                {name:'내이름', teamName:'내리그', img:'./assets/player/faker.png', rank:'6위', weekGained:133 ,seasonGained: 42},
+                {name:'내이름', teamName:'내리그', img:'./assets/player/faker.png', rank:'6위', weekGained:133 ,seasonGained: 42},
+                {name:'내이름', teamName:'내리그', img:'./assets/player/faker.png', rank:'6위', weekGained:133 ,seasonGained: 42},
+                {name:'내이름', teamName:'내리그', img:'./assets/player/faker.png', rank:'6위', weekGained:133 ,seasonGained: 42},
+                {name:'내이름', teamName:'내리그', img:'./assets/player/faker.png', rank:'6위', weekGained:133 ,seasonGained: 42},
+                {name:'내이름', teamName:'내리그', img:'./assets/player/faker.png', rank:'6위', weekGained:133 ,seasonGained: 42},
+                {name:'내이름', teamName:'내리그', img:'./assets/player/faker.png', rank:'6위', weekGained:133 ,seasonGained: 42},
+                {name:'내이름', teamName:'내리그', img:'./assets/player/faker.png', rank:'6위', weekGained:133 ,seasonGained: 42},
+                {name:'내이름', teamName:'내리그', img:'./assets/player/faker.png', rank:'6위', weekGained:133 ,seasonGained: 42},
+                {name:'내이름', teamName:'내리그', img:'./assets/player/faker.png', rank:'6위', weekGained:133 ,seasonGained: 42},
+                {name:'내이름', teamName:'내리그', img:'./assets/player/faker.png', rank:'6위', weekGained:133 ,seasonGained: 42},
+            ],
 
         }
     },
