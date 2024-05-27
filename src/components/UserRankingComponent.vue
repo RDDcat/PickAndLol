@@ -40,8 +40,8 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" v-for="user, index in users" :key="index">
+                <tbody v-for="user, index in users" :key="index" >
+                    <tr class=" bg-white border-b dark:bg-gray-800 dark:border-gray-700" @click="tableNav=index">
                         <th scope="row" class="flex px-2 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             <div class="my-auto mx-2"> {{index+1}} </div>
                             &nbsp; 
@@ -59,6 +59,27 @@
                             {{user.teamName}}
                         </td>
                     </tr>
+                    <div class="w-[64rem] flex h-44" v-if="index===tableNav">
+                        <!-- 제목 & 선수단 -->
+                        <div class="w-1/2 ">
+                            <!-- 제목 -->
+                            선수단 & 라운드별 점수 변화도
+                                
+                            <!-- 선수단 -->
+                            <div class="relative flex">
+                                <img class="absolute" src="" alt="">
+                                <img class="absolute" src="" alt="">
+                                <div class="mx-auto">
+                                    페이커
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 그래프 -->                        
+                        <div class="w-1/2 h-full bg-gray-200">
+                            그래프
+                        </div>
+                    </div>
                 </tbody>
             </table>
         </div>
@@ -79,6 +100,8 @@ export default {
     },
     data(){
         return {
+            tableNav:0,
+
             name:'내이름',
             img:'./assets/player/faker.png',
             rank:'6위',

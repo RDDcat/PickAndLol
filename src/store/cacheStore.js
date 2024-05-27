@@ -14,6 +14,8 @@ const cacheStore = {
         {rank:1, line:"MID", name:"Chovy", stat:1000, team: "BRO", img: "./assets/player/chovy.png"},
         {rank:1, line:"MID", name:"Chovy", stat:1000, team: "BRO", img: "./assets/player/chovy.png"},
         {rank:1, line:"MID", name:"Chovy", stat:1000, team: "BRO", img: "./assets/player/chovy.png"}],
+
+    playerRankingNav:0,
         
   },
   
