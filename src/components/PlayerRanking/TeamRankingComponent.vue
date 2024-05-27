@@ -1,36 +1,75 @@
 <template>
     <!-- 테이블 -->
-    <table class="table-auto my-4 pt-2">
-        <thead>
-            <th>
-                팀 순위
-            </th>
-            <th>
-                승
-            </th>
-            <th>
-                패
-            </th>
-            <th>
-                득실차
-            </th>
-            <th>
-                승률
-            </th>
-            <th>
-                KDA
-            </th>
-            <th>
-                킬
-            </th>
-            <th>
-                데스
-            </th>
-            <th>
-                어시스트
-            </th>
-        </thead>
-    </table>
+    <div class="relative overflow-x-auto w-[64rem] mx-auto my-4">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-4 py-3">
+                        팀 순위
+                    </th>
+                    <th scope="col" class="px-1 py-3">
+                        승
+                    </th>
+                    <th scope="col" class="px-1 py-3">
+                        패
+                    </th>
+                    <th scope="col" class="px-1 py-3">
+                        득실차
+                    </th>
+                    <th scope="col" class="px-1 py-3">
+                        승률
+                    </th>
+                    <th scope="col" class="px-1 py-3">
+                        KDA
+                    </th>
+                    <th scope="col" class="px-1 py-3">
+                        킬
+                    </th>
+                    <th scope="col" class="px-1 py-3">
+                        데스
+                    </th>
+                    <th scope="col" class="px-1 py-3">
+                        어시스트
+                    </th>
+                </tr>
+            </thead>
+            <tbody v-for="team, index in teams" :key="index" >
+                <tr class=" bg-white border-b dark:bg-gray-800 dark:border-gray-700" @click="tableNav=index">
+                    <th scope="row" class="flex px-4 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <div class="my-auto mx-2"> {{index+1}} </div>
+                        &nbsp; 
+                        <img class="my-auto w-14 h-14 object-cover rounded-full" :src="team.img">
+                        &nbsp; 
+                        <div class="my-auto">{{team.name}}</div>
+                    </th>
+                    <td class="px-1 py-4">
+                        {{ team.win }}
+                    </td>
+                    <td class="px-1 py-4">
+                        {{ team.lose }}
+                    </td>
+                    <td class="px-1 py-4">
+                        {{ team.gainLose }}
+                    </td>
+                    <td class="px-1 py-4">
+                        {{ team.winRate }}
+                    </td>
+                    <td class="px-1 py-4">
+                        {{ team.kda }}
+                    </td>
+                    <td class="px-1 py-4">
+                        {{ team.kill }}
+                    </td>
+                    <td class="px-1 py-4">
+                        {{ team.death }}
+                    </td>
+                    <td class="px-1 py-4">
+                        {{ team.assist }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </template>
 <script>
 
@@ -41,6 +80,19 @@ export default {
     },
     data(){
         return {
+            teams:[
+                {name:'젠지', img:'./assets/logo/color_GEN.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
+                {name:'T1', img:'./assets/logo/color_SKT.png', win: 12, lose:2, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
+                {name:'한화생명', img:'./assets/logo/color_HLE.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
+                {name:'DK', img:'./assets/logo/color_DK.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
+                {name:'KT', img:'./assets/logo/color_KT.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
+                {name:'광동', img:'./assets/logo/color_KDF.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
+                {name:'DRX', img:'./assets/logo/color_FOX.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
+                {name:'피어엑스', img:'./assets/logo/color_FOX.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
+                {name:'OK저축은행', img:'./assets/logo/color_BRO.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
+                {name:'농심', img:'./assets/logo/color_NS.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
+            ],
+
 
         }
     },
