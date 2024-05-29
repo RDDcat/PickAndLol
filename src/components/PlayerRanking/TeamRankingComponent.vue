@@ -38,7 +38,7 @@
                     <th scope="row" class="flex px-4 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         <div class="my-auto mx-2"> {{index+1}} </div>
                         &nbsp; 
-                        <img class="my-auto w-14 h-14 object-cover rounded-full" :src="team.img">
+                        <img class="my-auto mr-2 w-10 h-10 object-cover rounded-full" :src="team.img">
                         &nbsp; 
                         <div class="my-auto">{{team.name}}</div>
                     </th>
