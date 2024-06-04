@@ -87,7 +87,7 @@ export default {
                 {name:'DK', img:'./assets/logo/color_DK.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
                 {name:'KT', img:'./assets/logo/color_KT.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
                 {name:'광동', img:'./assets/logo/color_KDF.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
-                {name:'DRX', img:'./assets/logo/color_FOX.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
+                {name:'DRX', img:'./assets/logo/color_DRX.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
                 {name:'피어엑스', img:'./assets/logo/color_FOX.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
                 {name:'OK저축은행', img:'./assets/logo/color_BRO.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
                 {name:'농심', img:'./assets/logo/color_NS.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },

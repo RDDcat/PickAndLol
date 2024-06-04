@@ -17,37 +17,41 @@
         </div>
 
         <!-- 일정 -->
-        <!-- 일정 타이틀 -->
-        <div class="w-full h-16 flex bg-gray-100 rounded-lg">
-            <div class="px-4 my-auto">
-                06월 12일 (수)
+        <div v-for="data, index in $store.state.cacheStore.schedule" :key="index">
+            <!-- 일정 타이틀 -->
+            <div class="w-full h-16 flex bg-gray-100 rounded-lg">
+                <div class="px-4 my-auto">
+                    {{data.month}}월 {{data.day}}일 ({{data.date}})
+                </div>
             </div>
-        </div>
-        <!-- 일정 내용 -->
-        <div class="w-full h-16 flex border-b-2">
-            <div class="w-full px-4 my-auto flex">
-                21:00
-                <div class="my-auto text-sm text-gray-500 px-2">
-                    정규시즌 1R
-                </div>
-                <!-- 경기 결과 -->
-                <div class="mx-auto w-96 flex">
-                    <div class="text-lg mx-4 my-auto">
-                        한화생명e스포츠                        
+            <!-- 일정 내용 -->
+            <div class="my-2 w-full h-16 flex border-b-1" v-for="game, index in data.games" :key="index">
+                <div class="w-full px-4 my-auto flex">
+                    {{game.time}}
+                    <div class="my-auto text-sm text-gray-500 px-2">
+                        {{game.round}}
                     </div>
-                    <div class="mx-6 my-auto text-sm text-red-600">
-                        예정
+                    <!-- 경기 결과 -->
+                    <div class="mx-auto flex">
+                        <div class="text-base mx-4 my-auto">
+                            {{game.home.name}}
+                        </div>
+                        <img class="my-auto w-8 h-8 object-cover" :src="game.home.img" alt="">
+                        <div class="mx-6 my-auto text-sm text-red-600">
+                            예정
+                        </div>
+                        <img class="my-auto w-8 h-8 object-cover" :src="game.away.img" alt="">
+                        <div class="text-lg mx-4 my-auto">
+                            {{game.away.name}}
+                        </div>
                     </div>
-                    <div class="text-lg mx-4 my-auto">
-                        피어엑스
+                    <!-- 경기 위치 -->
+                    <div class="my-auto px-2">
+                        {{game.stadium}}
                     </div>
                 </div>
-                <!-- 경기 위치 -->
-                <div class="my-auto px-2">
-                    서울 LoL Park
-                </div>
-
             </div>
+            <div class="my-8"></div>
         </div>
 
     </div>

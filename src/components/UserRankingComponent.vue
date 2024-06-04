@@ -64,6 +64,7 @@
                             선수별 라운드 점수 변화도
                         </th>
                         <td class="px-20 py-4">
+                            
                         </td>
                         <td class="px-1 py-4">
                         </td>
