@@ -4,7 +4,7 @@
 const cacheStore = {
   state: {
     players:
-      [{rank:1, line:"MID", name:"Chovy", stat:1000, team: "GEN", img: "./assets/player/chovy.png"},
+        [{rank:1, line:"MID", name:"Chovy", stat:1000, team: "GEN", img: "./assets/player/chovy.png"},
         {rank:2, line:"MID", name:"Faker", stat:900, team: "SKT", img: "./assets/player/faker.png"},
         {rank:3, line:"MID", name:"Zeka", stat:700, team: "HLE", img: "./assets/player/zeka.png"},
         {rank:4, line:"MID", name:"Showmaker", stat:800, team: "DK", img: "./assets/player/showmaker.png"},
@@ -24,10 +24,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "DK",
                     name:'DK 디플러스 기아',
                     img:'./assets/logo/color_DK.png'
                 },
                 away:{
+                    team: "HLE",
                     name:'HLE 한화생명e스포츠',
                     img:'./assets/logo/color_HLE.png'
                 }
@@ -35,10 +37,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "NS",
                     name:'NS 농심 레드포스',
                     img:'./assets/logo/color_NS.png'
                 },
                 away:{
+                    team: "FOX",
                     name:'FOX BNK 피어엑스',
                     img:'./assets/logo/color_FOX.png'
                 }
@@ -51,10 +55,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "KT",
                     name:'KT 롤스터',
                     img:'./assets/logo/color_KT.png'
                 },
                 away:{
+                    team: "KDF",
                     name:'KDF 광동 프릭스',
                     img:'./assets/logo/color_KDF.png'
                 }
@@ -62,10 +68,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "BRO",
                     name:'BRO OK저축은행 브리온',
                     img:'./assets/logo/color_BRO.png'
                 },
                 away:{
+                    team: "DRX",
                     name:'DRX',
                     img:'./assets/logo/color_DRX.png'
                 }
@@ -78,10 +86,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "GEN",
                     name:'GEN 젠지',
                     img:'./assets/logo/color_GEN.png'
                 },
                 away:{
+                    team: "FOX",
                     name:'FOX BNK 피어엑스',
                     img:'./assets/logo/color_FOX.png'
                 }
@@ -89,10 +99,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "T1",
                     name:'SKT T1',
                     img:'./assets/logo/color_SKT.png'
                 },
                 away:{
+                    team: "NS",
                     name:'NS 농심 레드포스',
                     img:'./assets/logo/color_NS.png'
                 }
@@ -105,10 +117,12 @@ const cacheStore = {
             {
                 time: "15:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "BRO",
                     name:'BRO OK저축은행 브리온',
                     img:'./assets/logo/color_BRO.png'
                 },
                 away:{
+                    team: "KDF",
                     name:'KDF 광동 프릭스',
                     img:'./assets/logo/color_KDF.png'
                 }
@@ -116,10 +130,12 @@ const cacheStore = {
             {
                 time: "17:30", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "KT",
                     name:'KT 롤스터',
                     img:'./assets/logo/color_KT.png'
                 },
                 away:{
+                    team: "DK",
                     name:'DK 디플러스 기아',
                     img:'./assets/logo/color_DK.png'
                 }
@@ -132,10 +148,12 @@ const cacheStore = {
             {
                 time: "15:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "DRX",
                     name:'DRX',
                     img:'./assets/logo/color_DRX.png'
                 },
                 away:{
+                    team: "HLE",
                     name:'HLE 한화생명e스포츠',
                     img:'./assets/logo/color_HLE.png'
                 }
@@ -143,11 +161,13 @@ const cacheStore = {
             {
                 time: "17:30", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "GEN",
                     name:'GEN 젠지',
                     img:'./assets/logo/color_GEN.png'
                 },
                 away:{
-                    name:'SKT T1',
+                    team: "T1",
+                    name:'T1',
                     img:'./assets/logo/color_SKT.png'
                 }
             }
@@ -159,10 +179,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "NS",
                     name:'NS 농심 레드포스',
                     img:'./assets/logo/color_NS.png'
                 },
                 away:{
+                    team: "KDF",
                     name:'KDF 광동 프릭스',
                     img:'./assets/logo/color_KDF.png'
                 }
@@ -170,10 +192,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "DK",
                     name:'DK 디플러스 기아',
                     img:'./assets/logo/color_DK.png'
                 },
                 away:{
+                    team: "T1",
                     name:'T1',
                     img:'./assets/logo/color_SKT.png'
                 }
@@ -186,10 +210,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "KT",
                     name:'KT 롤스터',
                     img:'./assets/logo/color_KT.png'
                 },
                 away:{
+                    team: "GEN",
                     name:'GEN 젠지',
                     img:'./assets/logo/color_GEN.png'
                 }
@@ -197,10 +223,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "DRX",
                     name:'DRX',
                     img:'./assets/logo/color_DRX.png'
                 },
                 away:{
+                    team: "FOX",
                     name:'FOX BNK 피어엑스',
                     img:'./assets/logo/color_FOX.png'
                 }
@@ -213,10 +241,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "BRO",
                     name:'BRO OK저축은행 브리온',
                     img:'./assets/logo/color_BRO.png'
                 },
                 away:{
+                                        team: "HLE",
                     name:'HLE 한화생명e스포츠',
                     img:'./assets/logo/color_HLE.png'
                 }
@@ -224,10 +254,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "T1",
                     name:'T1',
                     img:'./assets/logo/color_SKT.png'
                 },
                 away:{
+                    team: "KDF",
                     name:'KDF 광동 프릭스',
                     img:'./assets/logo/color_KDF.png'
                 }
@@ -240,10 +272,12 @@ const cacheStore = {
             {
                 time: "15:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "NS",
                     name:'NS 농심 레드포스',
                     img:'./assets/logo/color_NS.png'
                 },
                 away:{
+                    team: "DRX",
                     name:'DRX',
                     img:'./assets/logo/color_DRX.png'
                 }
@@ -251,10 +285,12 @@ const cacheStore = {
             {
                 time: "17:30", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "FOX",
                     name:'FOX BNK 피어엑스',
                     img:'./assets/logo/color_FOX.png'
                 },
                 away:{
+                    team: "DK",
                     name:'DK 디플러스 기아',
                     img:'./assets/logo/color_DK.png'
                 }
@@ -267,10 +303,12 @@ const cacheStore = {
             {
                 time: "15:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "GEN",
                     name:'GEN 젠지',
                     img:'./assets/logo/color_GEN.png'
                 },
                 away:{
+                    team: "BRO",
                     name:'BRO OK저축은행 브리온',
                     img:'./assets/logo/color_BRO.png'
                 }
@@ -278,10 +316,12 @@ const cacheStore = {
             {
                 time: "17:30", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                                        team: "HLE",
                     name:'HLE 한화생명e스포츠',
                     img:'./assets/logo/color_HLE.png'
                 },
                 away:{
+                    team: "KT",
                     name:'KT 롤스터',
                     img:'./assets/logo/color_KT.png'
                 }
@@ -294,10 +334,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "T1",
                     name:'T1',
                     img:'./assets/logo/color_SKT.png'
                 },
                 away:{
+                    team: "DRX",
                     name:'DRX',
                     img:'./assets/logo/color_DRX.png'
                 }
@@ -305,10 +347,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "GEN",
                     name:'GEN 젠지',
                     img:'./assets/logo/color_GEN.png'
                 },
                 away:{
+                                        team: "HLE",
                     name:'HLE 한화생명e스포츠',
                     img:'./assets/logo/color_HLE.png'
                 }
@@ -321,10 +365,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "DK",
                     name:'DK 디플러스 기아',
                     img:'./assets/logo/color_DK.png'
                 },
                 away:{
+                    team: "NS",
                     name:'NS 농심 레드포스',
                     img:'./assets/logo/color_NS.png'
                 }
@@ -332,10 +378,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "KT",
                     name:'KT 롤스터',
                     img:'./assets/logo/color_KT.png'
                 },
                 away:{
+                    team: "BRO",
                     name:'BRO OK저축은행 브리온',
                     img:'./assets/logo/color_BRO.png'
                 }
@@ -348,10 +396,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "KDF",
                     name:'KDF 광동 프릭스',
                     img:'./assets/logo/color_KDF.png'
                 },
                 away:{
+                    team: "FOX",
                     name:'FOX BNK 피어엑스',
                     img:'./assets/logo/color_FOX.png'
                 }
@@ -359,10 +409,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "GEN",
                     name:'GEN 젠지',
                     img:'./assets/logo/color_GEN.png'
                 },
                 away:{
+                    team: "DRX",
                     name:'DRX',
                     img:'./assets/logo/color_DRX.png'
                 }
@@ -375,10 +427,12 @@ const cacheStore = {
             {
                 time: "15:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "T1",
                     name:'T1',
                     img:'./assets/logo/color_SKT.png'
                 },
                 away:{
+                    team: "KT",
                     name:'KT 롤스터',
                     img:'./assets/logo/color_KT.png'
                 }
@@ -386,10 +440,12 @@ const cacheStore = {
             {
                 time: "17:30", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                                        team: "HLE",
                     name:'HLE 한화생명e스포츠',
                     img:'./assets/logo/color_HLE.png'
                 },
                 away:{
+                    team: "NS",
                     name:'NS 농심 레드포스',
                     img:'./assets/logo/color_NS.png'
                 }
@@ -402,10 +458,12 @@ const cacheStore = {
             {
                 time: "15:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "BRO",
                     name:'BRO OK저축은행 브리온',
                     img:'./assets/logo/color_BRO.png'
                 },
                 away:{
+                    team: "FOX",
                     name:'FOX BNK 피어엑스',
                     img:'./assets/logo/color_FOX.png'
                 }
@@ -413,10 +471,12 @@ const cacheStore = {
             {
                 time: "17:30", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "KDF",
                     name:'KDF 광동 프릭스',
                     img:'./assets/logo/color_KDF.png'
                 },
                 away:{
+                    team: "DK",
                     name:'DK 디플러스 기아',
                     img:'./assets/logo/color_DK.png'
                 }
@@ -429,10 +489,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "T1",
                     name:'T1',
                     img:'./assets/logo/color_SKT.png'
                 },
                 away:{
+                    team: "BRO",
                     name:'BRO OK저축은행 브리온',
                     img:'./assets/logo/color_BRO.png'
                 }
@@ -440,10 +502,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "NS",
                     name:'NS 농심 레드포스',
                     img:'./assets/logo/color_NS.png'
                 },
                 away:{
+                    team: "KT",
                     name:'KT 롤스터',
                     img:'./assets/logo/color_KT.png'
                 }
@@ -456,10 +520,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "DRX",
                     name:'DRX',
                     img:'./assets/logo/color_DRX.png'
                 },
                 away:{
+                    team: "DK",
                     name:'DK 디플러스 기아',
                     img:'./assets/logo/color_DK.png'
                 }
@@ -467,10 +533,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "KDF",
                     name:'KDF 광동 프릭스',
                     img:'./assets/logo/color_KDF.png'
                 },
                 away:{
+                    team: "GEN",
                     name:'GEN 젠지',
                     img:'./assets/logo/color_GEN.png'
                 }
@@ -483,10 +551,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "FOX",
                     name:'FOX BNK 피어엑스',
                     img:'./assets/logo/color_FOX.png'
                 },
                 away:{
+                    team: "KT",
                     name:'KT 롤스터',
                     img:'./assets/logo/color_KT.png'
                 }
@@ -494,10 +564,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                                        team: "HLE",
                     name:'HLE 한화생명e스포츠',
                     img:'./assets/logo/color_HLE.png'
                 },
                 away:{
+                    team: "T1",
                     name:'T1',
                     img:'./assets/logo/color_SKT.png'
                 }
@@ -510,10 +582,12 @@ const cacheStore = {
             {
                 time: "15:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "DK",
                     name:'DK 디플러스 기아',
                     img:'./assets/logo/color_DK.png'
                 },
                 away:{
+                    team: "GEN",
                     name:'GEN 젠지',
                     img:'./assets/logo/color_GEN.png'
                 }
@@ -521,10 +595,12 @@ const cacheStore = {
             {
                 time: "17:30", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "BRO",
                     name:'BRO OK저축은행 브리온',
                     img:'./assets/logo/color_BRO.png'
                 },
                 away:{
+                    team: "NS",
                     name:'NS 농심 레드포스',
                     img:'./assets/logo/color_NS.png'
                 }
@@ -537,10 +613,12 @@ const cacheStore = {
             {
                 time: "15:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "KDF",
                     name:'KDF 광동 프릭스',
                     img:'./assets/logo/color_KDF.png'
                 },
                 away:{
+                    team: "DRX",
                     name:'DRX',
                     img:'./assets/logo/color_DRX.png'
                 }
@@ -548,10 +626,12 @@ const cacheStore = {
             {
                 time: "17:30", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "FOX",
                     name:'FOX BNK 피어엑스',
                     img:'./assets/logo/color_FOX.png'
                 },
                 away:{
+                                        team: "HLE",
                     name:'HLE 한화생명e스포츠',
                     img:'./assets/logo/color_HLE.png'
                 }
@@ -564,10 +644,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "DK",
                     name:'DK 디플러스 기아',
                     img:'./assets/logo/color_DK.png'
                 },
                 away:{
+                    team: "BRO",
                     name:'BRO OK저축은행 브리온',
                     img:'./assets/logo/color_BRO.png'
                 }
@@ -575,10 +657,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                                        team: "HLE",
                     name:'HLE 한화생명e스포츠',
                     img:'./assets/logo/color_HLE.png'
                 },
                 away:{
+                    team: "KDF",
                     name:'KDF 광동 프릭스',
                     img:'./assets/logo/color_KDF.png'
                 }
@@ -591,10 +675,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "FOX",
                     name:'FOX BNK 피어엑스',
                     img:'./assets/logo/color_FOX.png'
                 },
                 away:{
+                    team: "T1",
                     name:'T1',
                     img:'./assets/logo/color_SKT.png'
                 }
@@ -602,10 +688,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "NS",
                     name:'NS 농심 레드포스',
                     img:'./assets/logo/color_NS.png'
                 },
                 away:{
+                    team: "GEN",
                     name:'GEN 젠지',
                     img:'./assets/logo/color_GEN.png'
                 }
@@ -618,10 +706,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "DRX",
                     name:'DRX',
                     img:'./assets/logo/color_DRX.png'
                 },
                 away:{
+                    team: "KT",
                     name:'KT 롤스터',
                     img:'./assets/logo/color_KT.png'
                 }
@@ -629,10 +719,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "KDF",
                     name:'KDF 광동 프릭스',
                     img:'./assets/logo/color_KDF.png'
                 },
                 away:{
+                    team: "BRO",
                     name:'BRO OK저축은행 브리온',
                     img:'./assets/logo/color_BRO.png'
                 }
@@ -645,10 +737,12 @@ const cacheStore = {
             {
                 time: "15:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "T1",
                     name:'T1',
                     img:'./assets/logo/color_SKT.png'
                 },
                 away:{
+                                        team: "HLE",
                     name:'HLE 한화생명e스포츠',
                     img:'./assets/logo/color_HLE.png'
                 }
@@ -656,10 +750,12 @@ const cacheStore = {
             {
                 time: "17:30", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "GEN",
                     name:'GEN 젠지',
                     img:'./assets/logo/color_GEN.png'
                 },
                 away:{
+                    team: "DK",
                     name:'DK 디플러스 기아',
                     img:'./assets/logo/color_DK.png'
                 }
@@ -672,10 +768,12 @@ const cacheStore = {
             {
                 time: "15:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "KT",
                     name:'KT 롤스터',
                     img:'./assets/logo/color_KT.png'
                 },
                 away:{
+                    team: "FOX",
                     name:'FOX BNK 피어엑스',
                     img:'./assets/logo/color_FOX.png'
                 }
@@ -683,10 +781,12 @@ const cacheStore = {
             {
                 time: "17:30", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "DRX",
                     name:'DRX',
                     img:'./assets/logo/color_DRX.png'
                 },
                 away:{
+                    team: "NS",
                     name:'NS 농심 레드포스',
                     img:'./assets/logo/color_NS.png'
                 }
@@ -699,10 +799,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "FOX",
                     name:'FOX BNK 피어엑스',
                     img:'./assets/logo/color_FOX.png'
                 },
                 away:{
+                    team: "NS",
                     name:'NS 농심 레드포스',
                     img:'./assets/logo/color_NS.png'
                 }
@@ -710,10 +812,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "BRO",
                     name:'BRO OK저축은행 브리온',
                     img:'./assets/logo/color_BRO.png'
                 },
                 away:{
+                    team: "GEN",
                     name:'GEN 젠지',
                     img:'./assets/logo/color_GEN.png'
                 }
@@ -726,11 +830,13 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "KDF",
                     name:'KDF 광동 프릭스',
                     img:'./assets/logo/color_KDF.png'
 
                 },
                 away:{
+                                        team: "HLE",
                     name:'HLE 한화생명e스포츠',
                     img:'./assets/logo/color_HLE.png'
                 }
@@ -738,10 +844,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "DK",
                     name:'DK 디플러스 기아',
                     img:'./assets/logo/color_DK.png'
                 },
                 away:{
+                    team: "DRX",
                     name:'DRX',
                     img:'./assets/logo/color_DRX.png'
                 }
@@ -754,10 +862,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "FOX",
                     name:'FOX BNK 피어엑스',
                     img:'./assets/logo/color_FOX.png'
                 },
                 away:{
+                    team: "BRO",
                     name:'BRO OK저축은행 브리온',
                     img:'./assets/logo/color_BRO.png'
                 }
@@ -765,10 +875,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "KT",
                     name:'KT 롤스터',
                     img:'./assets/logo/color_KT.png'
                 },
                 away:{
+                    team: "T1",
                     name:'T1',
                     img:'./assets/logo/color_SKT.png'
                 }
@@ -781,10 +893,12 @@ const cacheStore = {
             {
                 time: "15:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                                        team: "HLE",
                     name:'HLE 한화생명e스포츠',
                     img:'./assets/logo/color_HLE.png'
                 },
                 away:{
+                    team: "DK",
                     name:'DK 디플러스 기아',
                     img:'./assets/logo/color_DK.png'
                 }
@@ -792,10 +906,12 @@ const cacheStore = {
             {
                 time: "17:30", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "GEN",
                     name:'GEN 젠지',
                     img:'./assets/logo/color_GEN.png'
                 },
                 away:{
+                    team: "KDF",
                     name:'KDF 광동 프릭스',
                     img:'./assets/logo/color_KDF.png'
                 }
@@ -808,10 +924,12 @@ const cacheStore = {
             {
                 time: "15:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "DRX",
                     name:'DRX',
                     img:'./assets/logo/color_DRX.png'
                 },
                 away:{
+                    team: "T1",
                     name:'T1',
                     img:'./assets/logo/color_SKT.png'
                 }
@@ -819,10 +937,12 @@ const cacheStore = {
             {
                 time: "17:30", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "KT",
                     name:'KT 롤스터',
                     img:'./assets/logo/color_KT.png'
                 },
                 away:{
+                    team: "NS",
                     name:'NS 농심 레드포스',
                     img:'./assets/logo/color_NS.png'
                 }
@@ -835,10 +955,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "T1",
                     name:'T1',
                     img:'./assets/logo/color_SKT.png'
                 },
                 away:{
+                    team: "DK",
                     name:'DK 디플러스 기아',
                     img:'./assets/logo/color_DK.png'
                 }
@@ -846,10 +968,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "KT",
                     name:'KT 롤스터',
                     img:'./assets/logo/color_KT.png'
                 },
                 away:{
+                                        team: "HLE",
                     name:'HLE 한화생명e스포츠',
                     img:'./assets/logo/color_HLE.png'
                 }
@@ -862,10 +986,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "DRX",
                     name:'DRX',
                     img:'./assets/logo/color_DRX.png'
                 },
                 away:{
+                    team: "BRO",
                     name:'BRO OK저축은행 브리온',
                     img:'./assets/logo/color_BRO.png'
                 }
@@ -873,10 +999,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "FOX",
                     name:'FOX BNK 피어엑스',
                     img:'./assets/logo/color_FOX.png'
                 },
                 away:{
+                    team: "GEN",
                     name:'GEN 젠지',
                     img:'./assets/logo/color_GEN.png'
                 }
@@ -889,10 +1017,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "NS",
                     name:'NS 농심 레드포스',
                     img:'./assets/logo/color_NS.png'
                 },
                 away:{
+                                        team: "HLE",
                     name:'HLE 한화생명e스포츠',
                     img:'./assets/logo/color_HLE.png'
                 }
@@ -900,10 +1030,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "DK",
                     name:'DK 디플러스 기아',
                     img:'./assets/logo/color_DK.png'
                 },
                 away:{
+                    team: "KDF",
                     name:'KDF 광동 프릭스',
                     img:'./assets/logo/color_KDF.png'
                 }
@@ -916,10 +1048,12 @@ const cacheStore = {
             {
                 time: "15:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "T1",
                     name:'T1',
                     img:'./assets/logo/color_SKT.png'
                 },
                 away:{
+                    team: "GEN",
                     name:'GEN 젠지',
                     img:'./assets/logo/color_GEN.png'
                 }
@@ -927,10 +1061,12 @@ const cacheStore = {
             {
                 time: "17:30", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "FOX",
                     name:'FOX BNK 피어엑스',
                     img:'./assets/logo/color_FOX.png'
                 },
                 away:{
+                    team: "DRX",
                     name:'DRX',
                     img:'./assets/logo/color_DRX.png'
                 }
@@ -943,10 +1079,12 @@ const cacheStore = {
             {
                 time: "15:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "BRO",
                     name:'BRO OK저축은행 브리온',
                     img:'./assets/logo/color_BRO.png'
                 },
                 away:{
+                    team: "KT",
                     name:'KT 롤스터',
                     img:'./assets/logo/color_KT.png'
                 }
@@ -954,10 +1092,12 @@ const cacheStore = {
             {
                 time: "17:30", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "KDF",
                     name:'KDF 광동 프릭스',
                     img:'./assets/logo/color_KDF.png'
                 },
                 away:{
+                    team: "KT",
                     name:'KT 롤스터',
                     img:'./assets/logo/color_KT.png'
                 }
@@ -970,10 +1110,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "DRX",
                     name:'DRX',
                     img:'./assets/logo/color_DRX.png'
                 },
                 away:{
+                    team: "GEN",
                     name:'GEN 젠지',
                     img:'./assets/logo/color_GEN.png'
                 }
@@ -981,10 +1123,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                                        team: "HLE",
                     name:'HLE 한화생명e스포츠',
                     img:'./assets/logo/color_HLE.png'
                 },
                 away:{
+                    team: "BRO",
                     name:'BRO OK저축은행 브리온',
                     img:'./assets/logo/color_BRO.png'
                 }
@@ -997,10 +1141,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                                        team: "HLE",
                     name:'HLE 한화생명e스포츠',
                     img:'./assets/logo/color_HLE.png'
                 },
                 away:{
+                    team: "BRO",
                     name:'BRO OK저축은행 브리온',
                     img:'./assets/logo/color_BRO.png'
                 }
@@ -1008,10 +1154,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "DK",
                     name:'DK 디플러스 기아',
                     img:'./assets/logo/color_DK.png'
                 },
                 away:{
+                    team: "FOX",
                     name:'FOX BNK 피어엑스',
                     img:'./assets/logo/color_FOX.png'
                 }
@@ -1024,10 +1172,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "GEN",
                     name:'GEN 젠지',
                     img:'./assets/logo/color_GEN.png'
                 },
                 away:{
+                    team: "KT",
                     name:'KT 롤스터',
                     img:'./assets/logo/color_KT.png'
                 }
@@ -1035,10 +1185,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "NS",
                     name:'NS 농심 레드포스',
                     img:'./assets/logo/color_NS.png'
                 },
                 away:{
+                    team: "T1",
                     name:'T1',
                     img:'./assets/logo/color_SKT.png'
                 }
@@ -1051,10 +1203,12 @@ const cacheStore = {
             {
                 time: "15:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "FOX",
                     name:'FOX BNK 피어엑스',
                     img:'./assets/logo/color_FOX.png'
                 },
                 away:{
+                    team: "KDF",
                     name:'KDF 광동 프릭스',
                     img:'./assets/logo/color_KDF.png'
                 }
@@ -1062,10 +1216,12 @@ const cacheStore = {
             {
                 time: "17:30", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                                        team: "HLE",
                     name:'HLE 한화생명e스포츠',
                     img:'./assets/logo/color_HLE.png'
                 },
                 away:{
+                    team: "DRX",
                     name:'DRX',
                     img:'./assets/logo/color_DRX.png'
                 }
@@ -1078,10 +1234,12 @@ const cacheStore = {
             {
                 time: "15:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "NS",
                     name:'NS 농심 레드포스',
                     img:'./assets/logo/color_NS.png'
                 },
                 away:{
+                    team: "DK",
                     name:'DK 디플러스 기아',
                     img:'./assets/logo/color_DK.png'
                 }
@@ -1089,10 +1247,12 @@ const cacheStore = {
             {
                 time: "17:30", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "BRO",
                     name:'BRO OK저축은행 브리온',
                     img:'./assets/logo/color_BRO.png'
                 },
                 away:{
+                    team: "T1",
                     name:'T1',
                     img:'./assets/logo/color_SKT.png'
                 }
@@ -1105,10 +1265,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "KT",
                     name:'KT 롤스터',
                     img:'./assets/logo/color_KT.png'
                 },
                 away:{
+                    team: "DRX",
                     name:'DRX',
                     img:'./assets/logo/color_DRX.png'
                 }
@@ -1116,10 +1278,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "KDF",
                     name:'KDF 광동 프릭스',
                     img:'./assets/logo/color_KDF.png'
                 },
                 away:{
+                    team: "T1",
                     name:'T1',
                     img:'./assets/logo/color_SKT.png'
                 }
@@ -1132,10 +1296,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                                        team: "HLE",
                     name:'HLE 한화생명e스포츠',
                     img:'./assets/logo/color_HLE.png'
                 },
                 away:{
+                    team: "FOX",
                     name:'FOX BNK 피어엑스',
                     img:'./assets/logo/color_FOX.png'
                 }
@@ -1143,10 +1309,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "BRO",
                     name:'BRO OK저축은행 브리온',
                     img:'./assets/logo/color_BRO.png'
                 },
                 away:{
+                    team: "DK",
                     name:'DK 디플러스 기아',
                     img:'./assets/logo/color_DK.png'
                 }
@@ -1159,10 +1327,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "DRX",
                     name:'DRX',
                     img:'./assets/logo/color_DRX.png'
                 },
                 away:{
+                    team: "KDF",
                     name:'KDF 광동 프릭스',
                     img:'./assets/logo/color_KDF.png'
                 }
@@ -1170,10 +1340,12 @@ const cacheStore = {
             {
                 time: "19:30", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "GEN",
                     name:'GEN 젠지',
                     img:'./assets/logo/color_GEN.png'
                 },
                 away:{
+                    team: "NS",
                     name:'NS 농심 레드포스',
                     img:'./assets/logo/color_NS.png'
                 }
@@ -1186,10 +1358,12 @@ const cacheStore = {
             {
                 time: "15:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "DK",
                     name:'DK 디플러스 기아',
                     img:'./assets/logo/color_DK.png'
                 },
                 away:{
+                    team: "KT",
                     name:'KT 롤스터',
                     img:'./assets/logo/color_KT.png'
                 }
@@ -1197,10 +1371,12 @@ const cacheStore = {
             {
                 time: "17:30", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "T1",
                     name:'T1',
                     img:'./assets/logo/color_SKT.png'
                 },
                 away:{
+                    team: "FOX",
                     name:'FOX BNK 피어엑스',
                     img:'./assets/logo/color_FOX.png'
                 }
@@ -1213,10 +1389,12 @@ const cacheStore = {
             {
                 time: "15:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "NS",
                     name:'NS 농심 레드포스',
                     img:'./assets/logo/color_NS.png'
                 },
                 away:{
+                    team: "BRO",
                     name:'BRO OK저축은행 브리온',
                     img:'./assets/logo/color_BRO.png'
                 }
@@ -1224,10 +1402,12 @@ const cacheStore = {
             {
                 time: "17:30", round: "정규시즌 2R", stadium:"서울 LOL PARK",
                 home:{
+                                        team: "HLE",
                     name:'HLE 한화생명e스포츠',
                     img:'./assets/logo/color_HLE.png'
                 },
                 away:{
+                    team: "GEN",
                     name:'GEN 젠지',
                     img:'./assets/logo/color_GEN.png'
                 }
@@ -1240,10 +1420,12 @@ const cacheStore = {
             {
                 time: "17:00", round: "플레이오프 1R", stadium:"서울 LOL PARK",
                 home:{
+                    team: "NS",
                     name:'NS 농심 레드포스',
                     img:'./assets/logo/color_NS.png'
                 },
                 away:{
+                    team: "BRO",
                     name:'BRO OK저축은행 브리온',
                     img:'./assets/logo/color_BRO.png'
                 }

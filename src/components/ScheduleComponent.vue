@@ -6,11 +6,12 @@
         <!-- 월 필터 -->
 
         <!-- 팀 별 필터 -->
-        <div class="grid grid-cols-11 gap-10 mx-auto my-4">
+        <div class="grid grid-cols-11 gap-10 my-4">
             <!-- 팀 -->
             <div v-for="team, index in teams" :key="index">
-                <img class="m-auto" :src="team.img">
-                <div class="m-auto my-2 text-center text-xs text-gray-700">
+                <img class="m-auto w-12 h-12 object-cover" :src="team.colorImg" v-if="selected==index">
+                <img class="m-auto w-12 h-12 object-cover" :src="team.img" v-if="selected!=index" @click="selected=index">
+                <div class="m-auto my-2 text-center text-xs text-gray-700 whitespace-nowrap">
                     {{team.name}}
                 </div>
             </div>
@@ -34,7 +35,7 @@
                     <!-- 경기 결과 -->
                     <div class="mx-auto flex">
                         <div class="flex w-64">
-                            <div class="text-base ml-auto my-auto">
+                            <div class="text-sm ml-auto my-auto">
                                 {{game.home.name}}
                             </div>
                             <img class="my-auto ml-4 w-8 h-8 object-cover" :src="game.home.img" alt="">
@@ -44,13 +45,13 @@
                         </div>
                         <div class="flex w-64">
                             <img class="my-auto mr-4 w-8 h-8 object-cover" :src="game.away.img" alt="">
-                            <div class="text-lg mr-auto my-auto">
+                            <div class="text-sm mr-auto my-auto">
                                 {{game.away.name}}
                             </div>
                         </div>
                     </div>
                     <!-- 경기 위치 -->
-                    <div class="my-auto px-2">
+                    <div class="my-auto px-2 text-gray-500">
                         {{game.stadium}}
                     </div>
                 </div>
@@ -69,18 +70,20 @@ export default {
     },
     data(){
         return {
+            selected:0,
+
             teams:[
-                {name:'전체', img:'./assets/logo/lck.png'}, 
-                {name:'젠지', img:'./assets/logo/GEN.png'}, 
-                {name:'T1', img:'./assets/logo/SKT.png'}, 
-                {name:'KT', img:'./assets/logo/KT.png'}, 
-                {name:'한화생명', img:'./assets/logo/HLE.png'}, 
-                {name:'DK', img:'./assets/logo/DK.png'}, 
-                {name:'피어엑스', img:'./assets/logo/FOX.png'}, 
-                {name:'광동', img:'./assets/logo/KDF.png'}, 
-                {name:'OK저축은행', img:'./assets/logo/BRO.png'}, 
-                {name:'DRX', img:'./assets/logo/DRX.png'}, 
-                {name:'농심', img:'./assets/logo/NS.png'}, 
+                {name:'전체', img:'./assets/logo/lck.png', colorImg:'./assets/logo/lck.png',}, 
+                {name:'젠지', img:'./assets/logo/GEN.png', colorImg:'./assets/logo/color_GEN.png',}, 
+                {name:'T1', img:'./assets/logo/SKT.png', colorImg:'./assets/logo/color_SKT.png',}, 
+                {name:'KT', img:'./assets/logo/KT.png', colorImg:'./assets/logo/color_KT.png',}, 
+                {name:'한화생명', img:'./assets/logo/HLE.png', colorImg:'./assets/logo/color_HLE.png',}, 
+                {name:'DK', img:'./assets/logo/DK.png', colorImg:'./assets/logo/color_DK.png',}, 
+                {name:'피어엑스', img:'./assets/logo/FOX.png', colorImg:'./assets/logo/color_FOX.png',}, 
+                {name:'광동', img:'./assets/logo/KDF.png', colorImg:'./assets/logo/color_KDF.png',}, 
+                {name:'OK저축은행', img:'./assets/logo/BRO.png', colorImg:'./assets/logo/color_BRO.png',}, 
+                {name:'DRX', img:'./assets/logo/DRX.png', colorImg:'./assets/logo/color_DRX.png',}, 
+                {name:'농심', img:'./assets/logo/NS.png', colorImg:'./assets/logo/color_NS.png',}, 
             ],
         }
     },
