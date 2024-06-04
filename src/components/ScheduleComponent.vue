@@ -33,16 +33,20 @@
                     </div>
                     <!-- 경기 결과 -->
                     <div class="mx-auto flex">
-                        <div class="text-base mx-4 my-auto">
-                            {{game.home.name}}
+                        <div class="flex w-64">
+                            <div class="text-base ml-auto my-auto">
+                                {{game.home.name}}
+                            </div>
+                            <img class="my-auto ml-4 w-8 h-8 object-cover" :src="game.home.img" alt="">
                         </div>
-                        <img class="my-auto w-8 h-8 object-cover" :src="game.home.img" alt="">
                         <div class="mx-6 my-auto text-sm text-red-600">
                             예정
                         </div>
-                        <img class="my-auto w-8 h-8 object-cover" :src="game.away.img" alt="">
-                        <div class="text-lg mx-4 my-auto">
-                            {{game.away.name}}
+                        <div class="flex w-64">
+                            <img class="my-auto mr-4 w-8 h-8 object-cover" :src="game.away.img" alt="">
+                            <div class="text-lg mr-auto my-auto">
+                                {{game.away.name}}
+                            </div>
                         </div>
                     </div>
                     <!-- 경기 위치 -->
