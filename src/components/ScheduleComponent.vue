@@ -10,7 +10,7 @@
             <!-- 팀 -->
             <div v-for="team, index in teams" :key="index">
                 <img class="m-auto w-12 h-12 object-cover" :src="team.colorImg" v-if="selected==index">
-                <img class="m-auto w-12 h-12 object-cover" :src="team.img" v-if="selected!=index" @click="selected=index">
+                <img class="m-auto w-12 h-12 object-cover" :src="team.img" v-if="selected!=index" @click="selected=index; selectedTeam=team.team">
                 <div class="m-auto my-2 text-center text-xs text-gray-700 whitespace-nowrap">
                     {{team.name}}
                 </div>
@@ -20,13 +20,17 @@
         <!-- 일정 -->
         <div v-for="data, index in $store.state.cacheStore.schedule" :key="index">
             <!-- 일정 타이틀 -->
-            <div class="w-full h-16 flex bg-gray-100 rounded-lg">
+            <div class="w-full h-16 flex bg-gray-100 rounded-lg" 
+                v-if="data.games.some(game => game.home.team === selectedTeam || game.away.team === selectedTeam || selected ===0)">
                 <div class="px-4 my-auto">
                     {{data.month}}월 {{data.day}}일 ({{data.date}})
                 </div>
             </div>
             <!-- 일정 내용 -->
-            <div class="my-2 w-full h-16 flex border-b-1" v-for="game, index in data.games" :key="index">
+            <div v-for="game, index in data.games" :key="index">
+            <div class="my-2 w-full h-16 flex border-b-1" 
+                v-if="game.home.team===selectedTeam||game.away.team===selectedTeam||selected===0">
+
                 <div class="w-full px-4 my-auto flex">
                     {{game.time}}
                     <div class="my-auto text-sm text-gray-500 px-2">
@@ -56,7 +60,7 @@
                     </div>
                 </div>
             </div>
-            <div class="my-8"></div>
+        </div>
         </div>
 
     </div>
@@ -71,19 +75,20 @@ export default {
     data(){
         return {
             selected:0,
+            selectedTeam:'LCK',
 
             teams:[
-                {name:'전체', img:'./assets/logo/lck.png', colorImg:'./assets/logo/lck.png',}, 
-                {name:'젠지', img:'./assets/logo/GEN.png', colorImg:'./assets/logo/color_GEN.png',}, 
-                {name:'T1', img:'./assets/logo/SKT.png', colorImg:'./assets/logo/color_SKT.png',}, 
-                {name:'KT', img:'./assets/logo/KT.png', colorImg:'./assets/logo/color_KT.png',}, 
-                {name:'한화생명', img:'./assets/logo/HLE.png', colorImg:'./assets/logo/color_HLE.png',}, 
-                {name:'DK', img:'./assets/logo/DK.png', colorImg:'./assets/logo/color_DK.png',}, 
-                {name:'피어엑스', img:'./assets/logo/FOX.png', colorImg:'./assets/logo/color_FOX.png',}, 
-                {name:'광동', img:'./assets/logo/KDF.png', colorImg:'./assets/logo/color_KDF.png',}, 
-                {name:'OK저축은행', img:'./assets/logo/BRO.png', colorImg:'./assets/logo/color_BRO.png',}, 
-                {name:'DRX', img:'./assets/logo/DRX.png', colorImg:'./assets/logo/color_DRX.png',}, 
-                {name:'농심', img:'./assets/logo/NS.png', colorImg:'./assets/logo/color_NS.png',}, 
+                {name:'전체', team:'LCK', img:'./assets/logo/lck.png', colorImg:'./assets/logo/lck.png',}, 
+                {name:'젠지', team:'GEN', img:'./assets/logo/GEN.png', colorImg:'./assets/logo/color_GEN.png',}, 
+                {name:'T1', team:'T1', img:'./assets/logo/SKT.png', colorImg:'./assets/logo/color_SKT.png',}, 
+                {name:'KT', team:'KT', img:'./assets/logo/KT.png', colorImg:'./assets/logo/color_KT.png',}, 
+                {name:'한화생명', team:'HLE', img:'./assets/logo/HLE.png', colorImg:'./assets/logo/color_HLE.png',}, 
+                {name:'DK', team:'DK', img:'./assets/logo/DK.png', colorImg:'./assets/logo/color_DK.png',}, 
+                {name:'피어엑스', team:'FOX', img:'./assets/logo/FOX.png', colorImg:'./assets/logo/color_FOX.png',}, 
+                {name:'광동', team:'KDF', img:'./assets/logo/KDF.png', colorImg:'./assets/logo/color_KDF.png',}, 
+                {name:'OK저축은행', team:'BRO', img:'./assets/logo/BRO.png', colorImg:'./assets/logo/color_BRO.png',}, 
+                {name:'DRX', team:'DRX', img:'./assets/logo/DRX.png', colorImg:'./assets/logo/color_DRX.png',}, 
+                {name:'농심', team:'NS', img:'./assets/logo/NS.png', colorImg:'./assets/logo/color_NS.png',}, 
             ],
         }
     },
