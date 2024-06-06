@@ -68,6 +68,17 @@ const cacheStore = {
     
     playerRankingNav:0,
 
+    myTeam:{
+        allowed:false,
+        players:{
+            top:{name:"", team:"", img: ""},
+            jug:{name:"", team:"", img: ""},
+            mid:{name:"", team:"", img: ""},
+            bot:{name:"", team:"", img: ""},
+            sup:{name:"", team:"", img: ""},
+        }
+    },
+
     schedule:[
     {
         month:6, day:12, date:"수", 

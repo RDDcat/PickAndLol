@@ -1,29 +1,40 @@
 <template>
     <!-- 선수단 등록 페이지 -->
     <div class="w-full flex flex-col">
-        <!-- 선수 라인 선택지 -->
-        <div class="w-full flex flex-col">
-            <!-- 이미지 컨테이너 (지도좌표) -->
-            <div class="relative flex mx-auto">
-                <img class="mx-auto w-96" src="@/assets/map.png" alt="">
-                <img class="absolute left-6 top-6 w-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/top.png">
-                <img class="absolute left-20 top-24 w-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/jug.png">
-                <img class="absolute left-40 top-40 w-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/mid.png">
-                <img class="absolute right-20 bottom-20 w-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/bot.png">
-                <img class="absolute right-8 bottom-8 w-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/sup.png">
+        <!-- 히어로 페이지 -->
+        <div class="w-full flex">
+            <!-- 선수 라인 선택지 -->
+            <div class="w-full flex flex-col">
+                <!-- 이미지 컨테이너 (지도좌표) -->
+                <div class="relative flex mx-auto">
+                    <img class="mx-auto w-96" src="@/assets/map.png" alt="">
+                    <img v-if="!$store.state.cacheStore.myTeam.players.top.name" class="absolute left-6 top-6 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/top.png">
+                    <img v-if="$store.state.cacheStore.myTeam.players.top.name" class="absolute left-6 top-6 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.top.img">
+                    <img v-if="!$store.state.cacheStore.myTeam.players.jug.name" class="absolute left-20 top-24 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/jug.png">
+                    <img v-if="$store.state.cacheStore.myTeam.players.jug.name" class="absolute left-20 top-24 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.jug.img">
+                    <img v-if="!$store.state.cacheStore.myTeam.players.mid.name" class="absolute left-40 top-40 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/mid.png">
+                    <img v-if="$store.state.cacheStore.myTeam.players.mid.name" class="absolute left-40 top-40 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.mid.img">
+                    <img v-if="!$store.state.cacheStore.myTeam.players.bot.name" class="absolute right-20 bottom-20 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/bot.png">
+                    <img v-if="$store.state.cacheStore.myTeam.players.bot.name" class="absolute right-20 bottom-20 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.bot.img">
+                    <img v-if="!$store.state.cacheStore.myTeam.players.sup.name" class="absolute right-8 bottom-8 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/sup.png">
+                    <img v-if="$store.state.cacheStore.myTeam.players.sup.name" class="absolute right-8 bottom-8 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.sup.img">
+                </div>
+
+                <!-- 버튼 -->
+                <div class="mx-auto my-8">
+                    <button 
+                        class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 w-36 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-400 via-red-500 to-red-600 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200"
+                        @click="$store.state.modalStore.isSelectCaptainModal=true">
+                        <span class="relative w-36 px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                            주장 설정하기
+                        </span>
+                    </button>
+                    <button type="button" class="text-white bg-gradient-to-r from-red-600 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-400 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-40">저장하기</button>
+                </div>
             </div>
 
-            <!-- 버튼 -->
-            <div class="mx-auto my-8">
-                <button 
-                    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 w-36 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-400 via-red-500 to-red-600 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200"
-                    @click="$store.state.modalStore.isSelectCaptainModal=true">
-                    <span class="relative w-36 px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                        주장 설정하기
-                    </span>
-                </button>
-                <button type="button" class="text-white bg-gradient-to-r from-red-600 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-400 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-40">저장하기</button>
-            </div>
+            <!--  -->
+
         </div>
 
         <!--  -->
@@ -78,7 +89,8 @@
 
                 </div>
                 <!-- 선택하기 버튼 -->
-                <button class="w-52 h-12 my-3 inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-400 via-red-500 to-red-600 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200">
+                <button @click="click(player.name)"
+                    class="w-52 h-12 my-3 inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-400 via-red-500 to-red-600 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200">
                     <span class="relative w-52  px-5 py-3 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                         선택하기
                     </span>
@@ -120,6 +132,41 @@ export default {
         }
     },
     methods: {
+        submit(){
+            console.log('submit')
+        },
+        click(name){
+            let players = this.$store.state.cacheStore.players
+            for(let player in players){
+                if(players[player].name===name){
+                    if(players[player].line === 'TOP'){
+                        this.$store.state.cacheStore.myTeam.players.top.name = players[player].name
+                        this.$store.state.cacheStore.myTeam.players.top.team = players[player].team
+                        this.$store.state.cacheStore.myTeam.players.top.img = players[player].img
+                    }
+                    else if(players[player].line === 'JUG'){
+                        this.$store.state.cacheStore.myTeam.players.jug.name = players[player].name
+                        this.$store.state.cacheStore.myTeam.players.jug.team = players[player].team
+                        this.$store.state.cacheStore.myTeam.players.jug.img = players[player].img
+                    }
+                    else if(players[player].line === 'MID'){
+                        this.$store.state.cacheStore.myTeam.players.mid.name = players[player].name
+                        this.$store.state.cacheStore.myTeam.players.mid.team = players[player].team
+                        this.$store.state.cacheStore.myTeam.players.mid.img = players[player].img
+                    }
+                    else if(players[player].line === 'BOT'){
+                        this.$store.state.cacheStore.myTeam.players.bot.name = players[player].name
+                        this.$store.state.cacheStore.myTeam.players.bot.team = players[player].team
+                        this.$store.state.cacheStore.myTeam.players.bot.img = players[player].img
+                    }
+                    else if(players[player].line === 'SUP'){
+                        this.$store.state.cacheStore.myTeam.players.sup.name = players[player].name
+                        this.$store.state.cacheStore.myTeam.players.sup.team = players[player].team
+                        this.$store.state.cacheStore.myTeam.players.sup.img = players[player].img
+                    }
+                }
+            }
+        },
 
     },
 }
