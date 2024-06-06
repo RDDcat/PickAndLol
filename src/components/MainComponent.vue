@@ -108,6 +108,9 @@ export default {
     },
     data(){
         return {
+            vpFlag: false,
+            playerRuleFlag: false,
+
             teams:[
                 {name:'전체', img:'./assets/logo/lck.png'}, 
                 {name:'젠지', img:'./assets/logo/GEN.png'}, 
@@ -133,7 +136,16 @@ export default {
     },
     methods: {
         submit(){
+            // 예외처리
             console.log('submit')
+            if(this.playerRuleFlag){
+                console.log('playerRuleFlag')
+            }
+            if(this.vpFlag){
+                console.log('vpFlag')
+            }
+            // 서버 전송
+
         },
         click(name){
             let players = this.$store.state.cacheStore.players
