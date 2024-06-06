@@ -81,16 +81,16 @@ export default {
     data(){
         return {
             teams:[
-                {name:'젠지', img:'./assets/logo/color_GEN.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
-                {name:'T1', img:'./assets/logo/color_SKT.png', win: 12, lose:2, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
-                {name:'한화생명', img:'./assets/logo/color_HLE.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
-                {name:'DK', img:'./assets/logo/color_DK.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
-                {name:'KT', img:'./assets/logo/color_KT.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
-                {name:'광동', img:'./assets/logo/color_KDF.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
-                {name:'DRX', img:'./assets/logo/color_DRX.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
-                {name:'피어엑스', img:'./assets/logo/color_FOX.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
-                {name:'OK저축은행', img:'./assets/logo/color_BRO.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
-                {name:'농심', img:'./assets/logo/color_NS.png', win: 13, lose:1, gainLose:22, winRate: 0.93, kda:6.35, kill:453, death:237, assist:1052 },
+                {name:'젠지', img:'./assets/logo/color_GEN.png', win: 0, lose:0, gainLose:0, winRate: 0, kda:0, kill:0, death:0, assist:0 },
+                {name:'T1', img:'./assets/logo/color_SKT.png', win: 0, lose:0, gainLose:0, winRate: 0, kda:0, kill:0, death:0, assist:0 },
+                {name:'한화생명', img:'./assets/logo/color_HLE.png', win: 0, lose:0, gainLose:0, winRate: 0, kda:0, kill:0, death:0, assist:0 },
+                {name:'DK', img:'./assets/logo/color_DK.png', win: 0, lose:0, gainLose:0, winRate: 0, kda:0, kill:0, death:0, assist:0 },
+                {name:'KT', img:'./assets/logo/color_KT.png', win: 0, lose:0, gainLose:0, winRate: 0, kda:0, kill:0, death:0, assist:0 },
+                {name:'광동', img:'./assets/logo/color_KDF.png', win: 0, lose:0, gainLose:0, winRate: 0, kda:0, kill:0, death:0, assist:0 },
+                {name:'DRX', img:'./assets/logo/color_DRX.png', win: 0, lose:0, gainLose:0, winRate: 0, kda:0, kill:0, death:0, assist:0 },
+                {name:'피어엑스', img:'./assets/logo/color_FOX.png', win: 0, lose:0, gainLose:0, winRate: 0, kda:0, kill:0, death:0, assist:0 },
+                {name:'OK저축은행', img:'./assets/logo/color_BRO.png', win: 0, lose:0, gainLose:0, winRate: 0., kda:0, kill:0, death:0, assist:0 },
+                {name:'농심', img:'./assets/logo/color_NS.png', win: 0, lose:0, gainLose:0, winRate: 0, kda:0, kill:0, death:0, assist:0 },
             ],
 
 

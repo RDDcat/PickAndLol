@@ -53,7 +53,7 @@
         <div class="mx-auto my-8 grid grid-cols-5 gap-10">
             <div v-for="player, index in $store.state.cacheStore.players" :key="index">
                 <!-- 선수 카드 -->
-                <div class="w-52 h-80 flex flex-col rounded-lg shadow-lg hover:shadow-2xl">
+                <div class="relative w-52 h-80 flex flex-col rounded-lg shadow-lg hover:shadow-2xl">
                     <div class="font-base mx-auto">
                         {{player.rank}}
                     </div>
@@ -63,9 +63,13 @@
                     <div class="mx-auto flex">
                         <div class="my-auto font-medium text-gray-500">{{player.line}} </div>
                         <img class="object-cover mx-2" :src="'./assets/logo/color_'+player.team+'.png'" alt="">
-                        <div class="my-auto font-medium text-red-600">STAT {{player.stat}} </div>
+                        <div class="flex my-auto font-medium text-red-600">
+                            {{player.vp}}
+                            <img class="ml-1 w-5 h-5" src="@/assets/icon/vp.png">
+                        </div>
                     </div>
-                    <img class="mx-auto mt-auto w-40 h-52 object-cover" :src="player.img" alt="">
+                    <div class="absolute right-4 bottom-4 rounded-lg z-0 w-44 h-52 bg-gray-100"></div>
+                    <img class="rounded-lg z-10 mx-auto mt-auto mb-3 w-44 h-52 object-cover" :src="player.img">
 
                 </div>
                 <!-- 선택하기 버튼 -->
