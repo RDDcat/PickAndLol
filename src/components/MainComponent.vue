@@ -215,7 +215,8 @@
             <div class="grid grid-cols-11 gap-10 mx-auto my-4">
                 <!-- 팀 -->
                 <div v-for="team, index in teams" :key="index">
-                    <img class="m-auto" :src="team.img">
+                    <img class="m-auto w-12 h-12 object-cover" :src="team.colorImg" v-if="team.team==$store.state.cacheStore.mainTeamNav">
+                    <img class="m-auto w-12 h-12 object-cover" :src="team.img" v-if="team.team!=$store.state.cacheStore.mainTeamNav" @click="teamFilter(team.team)">
                     <div class="m-auto my-2 text-center text-xs text-gray-700">
                         {{team.name}}
                     </div>
@@ -225,7 +226,9 @@
             <div class="grid grid-cols-6 gap-4 my-4 mr-auto">
                 <!-- 라인 -->
                 <div v-for="line, index in lines" :key="index">
-                    <button type="button" class="flex text-gray-600 focus:text-white bg-gray-200 hover:bg-red-200 focus:outline-none focus:bg-red-500 rounded-full px-6 py-3">
+                    <button @click="lineFilter(line.name)"
+                        type="button" class="flex text-gray-600 bg-gray-200 hover:bg-red-200 rounded-full px-6 py-3"
+                        :class="$store.state.cacheStore.mainLineNav===line.name?'text-white bg-red-500 outline-none':''">
                         <img class="m-auto" :src="line.img">
                         <div class="flex my-auto ml-2 mr-2 text-center text-sm ">
                             {{line.name}}
@@ -236,10 +239,12 @@
         </div>
 
         <!-- 선수 카드 그리드 -->
-        <div class="mx-auto my-8 grid grid-cols-5 gap-10">
-            <div v-for="player, index in $store.state.cacheStore.players" :key="index">
+        <div class="mx-auto grid grid-cols-5 gap-10">
+            <template v-for="player, index in $store.state.cacheStore.players" :key="index">
+                <div v-if="(this.$store.state.cacheStore.mainLineNav === player.line || this.$store.state.cacheStore.mainLineNav==='전체') &&
+                        (this.$store.state.cacheStore.mainTeamNav=== player.team || this.$store.state.cacheStore.mainTeamNav=== 'LCK')">
                 <!-- 선수 카드 -->
-                <div class="relative w-52 h-80 flex flex-col rounded-lg shadow-lg hover:shadow-2xl">
+                <div class="relative w-52 h-72 flex flex-col rounded-lg shadow-lg hover:shadow-2xl">
                     <div class="font-base mx-auto">
                         {{player.rank}}
                     </div>
@@ -248,7 +253,7 @@
                     </div>
                     <div class="mx-auto flex">
                         <div class="my-auto font-medium text-gray-500">{{player.line}} </div>
-                        <img class="object-cover mx-2" :src="'./assets/logo/color_'+player.team+'.png'" alt="">
+                        <img class="object-cover mx-2" :src="'./assets/logo/color_'+player.team+'.png'">
                         <div class="flex my-auto font-medium text-red-600">
                             {{player.vp}}
                             <img class="ml-1 w-5 h-5" src="@/assets/icon/vp.png">
@@ -259,13 +264,16 @@
 
                 </div>
                 <!-- 선택하기 버튼 -->
-                <button @click="click(player.name)"
+                <button v-if="(this.$store.state.cacheStore.mainLineNav === player.line || this.$store.state.cacheStore.mainLineNav==='전체') &&
+                        (this.$store.state.cacheStore.mainTeamNav=== player.team || this.$store.state.cacheStore.mainTeamNav=== 'LCK')"
+                    @click="click(player.name)"
                     class="w-52 h-12 my-3 inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-400 via-red-500 to-red-600 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200">
                     <span class="relative w-52  px-5 py-3 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                         선택하기
                     </span>
                 </button>
-            </div>
+                </div>
+            </template>
         </div>
     </div>
 </template>
@@ -283,20 +291,20 @@ export default {
             oneFromOneFlag: 0,
             vpFlag: 0,
 
-            announce: '선수단이 다 구성되지 않았습니다.',
+            selected:0,
 
             teams:[
-                {name:'전체', img:'./assets/logo/lck.png'}, 
-                {name:'젠지', img:'./assets/logo/GEN.png'}, 
-                {name:'T1', img:'./assets/logo/SKT.png'}, 
-                {name:'KT', img:'./assets/logo/KT.png'}, 
-                {name:'한화생명', img:'./assets/logo/HLE.png'}, 
-                {name:'DK', img:'./assets/logo/DK.png'}, 
-                {name:'피어엑스', img:'./assets/logo/FOX.png'}, 
-                {name:'광동', img:'./assets/logo/KDF.png'}, 
-                {name:'OK저축은행', img:'./assets/logo/BRO.png'}, 
-                {name:'DRX', img:'./assets/logo/DRX.png'}, 
-                {name:'농심', img:'./assets/logo/NS.png'}, 
+                {name:'전체', team:'LCK', img:'./assets/logo/lck.png', colorImg:'./assets/logo/lck.png',}, 
+                {name:'젠지', team:'GEN', img:'./assets/logo/GEN.png', colorImg:'./assets/logo/color_GEN.png',}, 
+                {name:'T1', team:'T1', img:'./assets/logo/SKT.png', colorImg:'./assets/logo/color_SKT.png',}, 
+                {name:'KT', team:'KT', img:'./assets/logo/KT.png', colorImg:'./assets/logo/color_KT.png',}, 
+                {name:'한화생명', team:'HLE', img:'./assets/logo/HLE.png', colorImg:'./assets/logo/color_HLE.png',}, 
+                {name:'DK', team:'DK', img:'./assets/logo/DK.png', colorImg:'./assets/logo/color_DK.png',}, 
+                {name:'피어엑스', team:'FOX', img:'./assets/logo/FOX.png', colorImg:'./assets/logo/color_FOX.png',}, 
+                {name:'광동', team:'KDF', img:'./assets/logo/KDF.png', colorImg:'./assets/logo/color_KDF.png',}, 
+                {name:'OK저축은행', team:'BRO', img:'./assets/logo/BRO.png', colorImg:'./assets/logo/color_BRO.png',}, 
+                {name:'DRX', team:'DRX', img:'./assets/logo/DRX.png', colorImg:'./assets/logo/color_DRX.png',}, 
+                {name:'농심', team:'NS', img:'./assets/logo/NS.png', colorImg:'./assets/logo/color_NS.png',}, 
             ],
             lines:[
                 {name:'전체', img:'./assets/icon/total_icon.png'}, 
@@ -325,6 +333,14 @@ export default {
                 console.log('vpFlag')
             }
             // 서버 전송
+
+        },
+        lineFilter(name){
+            this.$store.state.cacheStore.mainLineNav = name
+
+        },
+        teamFilter(name){
+            this.$store.state.cacheStore.mainTeamNav = name
 
         },
         click(name){

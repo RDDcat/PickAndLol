@@ -4,11 +4,11 @@
 const cacheStore = {
   state: {
     players:[
-        {vp:50, line:"TOP", name:"Zeus", stat:0, team:"SKT", img: "./assets/player/T1_Zeus.svg"},
-        {vp:50, line:"JUG", name:"Owner", stat:0, team:"SKT", img: "./assets/player/T1_Oner.svg"},
-        {vp:700, line:"MID", name:"Faker", stat:0, team:"SKT", img: "./assets/player/T1_Faker.svg"},
-        {vp:150, line:"BOT", name:"Gumayusi", stat:0, team:"SKT", img: "./assets/player/T1_Gumayusi.svg"},
-        {vp:100, line:"SUP", name:"Keria", stat:0, team:"SKT", img: "./assets/player/T1_Keria.svg"},
+        {vp:50, line:"TOP", name:"Zeus", stat:0, team:"T1", img: "./assets/player/T1_Zeus.svg"},
+        {vp:50, line:"JUG", name:"Owner", stat:0, team:"T1", img: "./assets/player/T1_Oner.svg"},
+        {vp:300, line:"MID", name:"Faker", stat:0, team:"T1", img: "./assets/player/T1_Faker.svg"},
+        {vp:150, line:"BOT", name:"Gumayusi", stat:0, team:"T1", img: "./assets/player/T1_Gumayusi.svg"},
+        {vp:100, line:"SUP", name:"Keria", stat:0, team:"T1", img: "./assets/player/T1_Keria.svg"},
 
         {vp:200, line:"TOP", name:"Kiin", stat:0, team:"GEN", img: "./assets/player/GEN_Kiin.svg"},
         {vp:280, line:"JUG", name:"Canyon", stat:0, team:"GEN", img: "./assets/player/GEN_Canyon.svg"},
@@ -25,7 +25,7 @@ const cacheStore = {
         {vp:150, line:"TOP", name:"Doran", stat:0, team:"HLE", img: "./assets/player/HLE_Doran.svg"},
         {vp:150, line:"JUG", name:"Peanut", stat:0, team:"HLE", img: "./assets/player/HLE_Peanut.svg"},
         {vp:250, line:"MID", name:"Zeka", stat:0, team:"HLE", img: "./assets/player/HLE_Zeka.svg"},
-        {vp:400, line:"BOT", name:"Viper", stat:0, team:"HLE", img: "./assets/player/HLE_Viper.svg"},
+        {vp:300, line:"BOT", name:"Viper", stat:0, team:"HLE", img: "./assets/player/HLE_Viper.svg"},
         {vp:25, line:"SUP", name:"Delight", stat:0, team:"HLE", img: "./assets/player/HLE_Delight.svg"},
 
         {vp:120, line:"TOP", name:"Kingen", stat:0, team:"DK", img: "./assets/player/DK_Kingen.svg"},
@@ -67,6 +67,8 @@ const cacheStore = {
     ],
     
     playerRankingNav:0,
+    mainTeamNav:'LCK',
+    mainLineNav:'전체',
 
     myTeam:{
         allowed:false,
