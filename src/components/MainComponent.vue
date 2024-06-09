@@ -1,6 +1,55 @@
 <template>
     <!-- 선수단 등록 페이지 -->
     <div class="w-full flex flex-col">
+        <!-- 공지 -->
+        <div class="w-1/2  bg-red-100 rounded-lg mx-auto mb-1">
+            <!-- 공지 내용물 -->
+            <!-- 선수단 전부 선택 -->
+            <div v-if="selectAllFlag"
+                class="flex w-full py-2 px-4">
+                <!-- ! 아이콘 -->
+                <img class="my-auto mx-4 w-6 h-6 object-cover" src="@/assets/icon/error.png">
+
+                <!-- 에러 텍스트 -->
+                <div class="p-2 w-4/5 my-auto text-base text-gray-600 text-ellipsis break-words">
+                    선수단이 다 구성되지 않았습니다.
+                </div>
+            </div>
+            <!-- 응원 팀에 2명 이상 -->
+            <div v-if="moreThanTwoFlag"
+                class="flex w-full py-2 px-4">
+                <!-- ! 아이콘 -->
+                <img class="my-auto mx-4 w-6 h-6 object-cover" src="@/assets/icon/error.png">
+
+                <!-- 에러 텍스트 -->
+                <div class="p-2 w-4/5 my-auto text-base text-gray-600 text-ellipsis break-words">
+                    응원팀의 선수는 최대 2명까지 내 선수단에 포함할 수 있습니다.
+                </div>
+            </div>
+            <!--  팀에 1명 이상 넣을 수 없음 -->
+            <div v-if="oneFromOneFlag"
+                class="flex w-full py-2 px-4">
+                <!-- ! 아이콘 -->
+                <img class="my-auto mx-4 w-6 h-6 object-cover" src="@/assets/icon/error.png">
+
+                <!-- 에러 텍스트 -->
+                <div class="p-2 w-4/5 my-auto text-base text-gray-600 text-ellipsis break-words">
+                    응원팀을 제외한 나머지 팀에서는 선수를 1명씩 선정해야 합니다.
+                </div>
+            </div>
+            <!--  토탈 금액이 넘어섬 -->
+            <div v-if="vpFlag"
+                class="flex w-full py-2 px-4">
+                <!-- ! 아이콘 -->
+                <img class="my-auto mx-4 w-6 h-6 object-cover" src="@/assets/icon/error.png">
+
+                <!-- 에러 텍스트 -->
+                <div class="p-2 w-4/5 my-auto text-base text-gray-600 text-ellipsis break-words">
+                    vp 포인트의 총합은 350을 넘을 수 없습니다.
+                </div>
+            </div>
+        </div>
+
         <!-- 히어로 페이지 -->
         <div class="w-full flex">
             <!-- 선수 라인 선택지 -->
@@ -38,23 +87,6 @@
                 <!-- 제목 -->
                 <div class="w-full px-8 mt-3 mb-4 text-lg text-gray-700">
                     2024 LOL 챔피언스 코리아 서머
-                </div>
-                <!-- 공지 -->
-                <div class="w-1/2  bg-red-100 rounded-lg">
-                    <!-- 공지 내용물 -->
-                    <div class="flex w-full py-2 px-4">
-                        <!-- ! 아이콘 -->
-                        <img class="my-auto mx-4 w-6 h-6 object-cover" src="@/assets/icon/error.png">
-
-                        <!-- 텍스트 -->
-                        <div class="p-2 w-4/5 my-auto text-base text-gray-600 text-ellipsis break-words">
-                            {{announce}}
-                        </div>
-
-                        <!-- x 마크 -->
-                        <!-- <div class="my-auto ml-auto mr-4">x</div> -->
-
-                    </div>
                 </div>
 
                 <!-- 내 선수단 리스트 -->
@@ -246,8 +278,10 @@ export default {
     },
     data(){
         return {
-            vpFlag: false,
-            playerRuleFlag: false,
+            selectAllFlag: 0,
+            moreThanTwoFlag: 0,
+            oneFromOneFlag: 0,
+            vpFlag: 0,
 
             announce: '선수단이 다 구성되지 않았습니다.',
 
@@ -301,29 +335,37 @@ export default {
                         this.$store.state.cacheStore.myTeam.players.top.name = players[player].name
                         this.$store.state.cacheStore.myTeam.players.top.team = players[player].team
                         this.$store.state.cacheStore.myTeam.players.top.img = players[player].img
+                        this.$store.state.cacheStore.myTeam.players.top.vp = players[player].vp
                     }
                     else if(players[player].line === 'JUG'){
                         this.$store.state.cacheStore.myTeam.players.jug.name = players[player].name
                         this.$store.state.cacheStore.myTeam.players.jug.team = players[player].team
                         this.$store.state.cacheStore.myTeam.players.jug.img = players[player].img
+                        this.$store.state.cacheStore.myTeam.players.jug.vp = players[player].vp
                     }
                     else if(players[player].line === 'MID'){
                         this.$store.state.cacheStore.myTeam.players.mid.name = players[player].name
                         this.$store.state.cacheStore.myTeam.players.mid.team = players[player].team
                         this.$store.state.cacheStore.myTeam.players.mid.img = players[player].img
+                        this.$store.state.cacheStore.myTeam.players.mid.vp = players[player].vp
                     }
                     else if(players[player].line === 'BOT'){
                         this.$store.state.cacheStore.myTeam.players.bot.name = players[player].name
                         this.$store.state.cacheStore.myTeam.players.bot.team = players[player].team
                         this.$store.state.cacheStore.myTeam.players.bot.img = players[player].img
+                        this.$store.state.cacheStore.myTeam.players.bot.vp = players[player].vp
                     }
                     else if(players[player].line === 'SUP'){
                         this.$store.state.cacheStore.myTeam.players.sup.name = players[player].name
                         this.$store.state.cacheStore.myTeam.players.sup.team = players[player].team
                         this.$store.state.cacheStore.myTeam.players.sup.img = players[player].img
+                        this.$store.state.cacheStore.myTeam.players.sup.vp = players[player].vp
                     }
                 }
             }
+            // 토탈 vp 계산
+            this.$store.state.cacheStore.myTeam.totalVP = this.$store.state.cacheStore.myTeam.players.top.vp + this.$store.state.cacheStore.myTeam.players.jug.vp + this.$store.state.cacheStore.myTeam.players.mid.vp + this.$store.state.cacheStore.myTeam.players.bot.vp + this.$store.state.cacheStore.myTeam.players.sup.vp
+
         },
 
     },
