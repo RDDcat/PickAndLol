@@ -266,10 +266,15 @@
                 <!-- 선택하기 버튼 -->
                 <button v-if="(this.$store.state.cacheStore.mainLineNav === player.line || this.$store.state.cacheStore.mainLineNav==='전체') &&
                         (this.$store.state.cacheStore.mainTeamNav=== player.team || this.$store.state.cacheStore.mainTeamNav=== 'LCK')"
-                    @click="click(player.name)"
+                    @click="click(player.name);"
                     class="w-52 h-12 my-3 inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-400 via-red-500 to-red-600 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200">
                     <span class="relative w-52  px-5 py-3 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                        선택하기
+                        {{ this.$store.state.cacheStore.myTeam.players.top.name ===player.name ||
+                        this.$store.state.cacheStore.myTeam.players.jug.name ===player.name ||
+                        this.$store.state.cacheStore.myTeam.players.mid.name ===player.name ||
+                        this.$store.state.cacheStore.myTeam.players.bot.name ===player.name ||
+                        this.$store.state.cacheStore.myTeam.players.sup.name ===player.name
+                        ? '선택됨' : '선택하기'}}
                     </span>
                 </button>
                 </div>
