@@ -34,9 +34,9 @@
             </div>
 
             <!-- 히어로 우측 -->
-            <div class="w-1/2 flex flex-col">
+            <div class="w-1/2 flex flex-col pl-12">
                 <!-- 제목 -->
-                <div class="w-full px-8 mt-8 mb-4 text-lg text-gray-700">
+                <div class="w-full px-8 mt-3 mb-4 text-lg text-gray-700">
                     2024 LOL 챔피언스 코리아 서머
                 </div>
                 <!-- 공지 -->
