@@ -42,12 +42,12 @@
                 <!-- 공지 -->
                 <div class="w-1/2  bg-red-100 rounded-lg">
                     <!-- 공지 내용물 -->
-                    <div class="flex w-full h-full p-4">
+                    <div class="flex w-full py-2 px-4">
                         <!-- ! 아이콘 -->
                         <img class="my-auto mx-4 w-6 h-6 object-cover" src="@/assets/icon/error.png">
 
                         <!-- 텍스트 -->
-                        <div class="p-2 my-auto text-base text-gray-600">
+                        <div class="p-2 w-4/5 my-auto text-base text-gray-600 text-ellipsis break-words">
                             {{announce}}
                         </div>
 
@@ -80,7 +80,7 @@
                             <!-- 아이콘 -->
                             <img class="my-auto mr-4 w-6 h-6" src="@/assets/icon/top_icon.png">
                             <!-- 선수 초상화 -->
-                            <img class="my-auto w-10 h-10" :src="$store.state.cacheStore.myTeam.players.top.img">
+                            <img class="my-auto w-10 h-10 rounded-full" :src="$store.state.cacheStore.myTeam.players.top.img">
                             <!-- 선수 이름 -->
                             <div class="my-auto ml-6 text-base">
                                 {{$store.state.cacheStore.myTeam.players.top.name ?$store.state.cacheStore.myTeam.players.top.name : '-'}}
@@ -99,7 +99,7 @@
                             <!-- 아이콘 -->
                             <img class="my-auto mr-4 w-6 h-6" src="@/assets/icon/jug_icon.png">
                             <!-- 선수 초상화 -->
-                            <img class="my-auto w-10 h-10" :src="$store.state.cacheStore.myTeam.players.jug.img">
+                            <img class="my-auto w-10 h-10 rounded-full" :src="$store.state.cacheStore.myTeam.players.jug.img">
                             <!-- 선수 이름 -->
                             <div class="my-auto ml-6 text-base">
                                 {{$store.state.cacheStore.myTeam.players.jug.name ?$store.state.cacheStore.myTeam.players.jug.name : '-'}}
@@ -118,7 +118,7 @@
                             <!-- 아이콘 -->
                             <img class="my-auto mr-4 w-6 h-6" src="@/assets/icon/mid_icon.png">
                             <!-- 선수 초상화 -->
-                            <img class="my-auto w-10 h-10" :src="$store.state.cacheStore.myTeam.players.mid.img">
+                            <img class="my-auto w-10 h-10 rounded-full" :src="$store.state.cacheStore.myTeam.players.mid.img">
                             <!-- 선수 이름 -->
                             <div class="my-auto ml-6 text-base">
                                 {{$store.state.cacheStore.myTeam.players.mid.name ?$store.state.cacheStore.myTeam.players.mid.name : '-'}}
@@ -137,7 +137,7 @@
                             <!-- 아이콘 -->
                             <img class="my-auto mr-4 w-6 h-6" src="@/assets/icon/bot_icon.png">
                             <!-- 선수 초상화 -->
-                            <img class="my-auto w-10 h-10" :src="$store.state.cacheStore.myTeam.players.bot.img">
+                            <img class="my-auto w-10 h-10 rounded-full" :src="$store.state.cacheStore.myTeam.players.bot.img">
                             <!-- 선수 이름 -->
                             <div class="my-auto ml-6 text-base">
                                 {{$store.state.cacheStore.myTeam.players.bot.name ?$store.state.cacheStore.myTeam.players.bot.name : '-'}}
@@ -156,7 +156,7 @@
                             <!-- 아이콘 -->
                             <img class="my-auto mr-4 w-6 h-6" src="@/assets/icon/sup_icon.png">
                             <!-- 선수 초상화 -->
-                            <img class="my-auto w-10 h-10a" :src="$store.state.cacheStore.myTeam.players.sup.img">
+                            <img class="my-auto w-10 h-10 rounded-full" :src="$store.state.cacheStore.myTeam.players.sup.img">
                             <!-- 선수 이름 -->
                             <div class="my-auto ml-6 text-base">
                                 {{$store.state.cacheStore.myTeam.players.sup.name ?$store.state.cacheStore.myTeam.players.sup.name : '-'}}
