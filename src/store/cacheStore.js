@@ -70,12 +70,13 @@ const cacheStore = {
 
     myTeam:{
         allowed:false,
+        totalVP:0,
         players:{
-            top:{name:"", team:"", img: ""},
-            jug:{name:"", team:"", img: ""},
-            mid:{name:"", team:"", img: ""},
-            bot:{name:"", team:"", img: ""},
-            sup:{name:"", team:"", img: ""},
+            top:{name:"", team:"", vp:0, img: "./assets/logo.png"},
+            jug:{name:"", team:"", vp:0, img: "./assets/logo.png"},
+            mid:{name:"", team:"", vp:0, img: "./assets/logo.png"},
+            bot:{name:"", team:"", vp:0, img: "./assets/logo.png"},
+            sup:{name:"", team:"", vp:0, img: "./assets/logo.png"},
         }
     },
 

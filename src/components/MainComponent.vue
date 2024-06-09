@@ -4,9 +4,9 @@
         <!-- 히어로 페이지 -->
         <div class="w-full flex">
             <!-- 선수 라인 선택지 -->
-            <div class="w-full flex flex-col">
+            <div class="w-1/2 flex flex-col">
                 <!-- 이미지 컨테이너 (지도좌표) -->
-                <div class="relative flex mx-auto">
+                <div class="relative flex ml-auto mr-12">
                     <img class="mx-auto w-96" src="@/assets/map.png" alt="">
                     <img v-if="!$store.state.cacheStore.myTeam.players.top.name" class="absolute left-6 top-6 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/top.png">
                     <img v-if="$store.state.cacheStore.myTeam.players.top.name" class="absolute left-6 top-6 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.top.img">
@@ -21,7 +21,7 @@
                 </div>
 
                 <!-- 버튼 -->
-                <div class="mx-auto my-8">
+                <div class="ml-auto mr-20 my-8">
                     <button 
                         class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 w-36 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-400 via-red-500 to-red-600 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200"
                         @click="$store.state.modalStore.isSelectCaptainModal=true">
@@ -33,7 +33,145 @@
                 </div>
             </div>
 
-            <!--  -->
+            <!-- 히어로 우측 -->
+            <div class="w-1/2 flex flex-col">
+                <!-- 제목 -->
+                <div class="w-full px-8 mt-8 mb-4 text-lg text-gray-700">
+                    2024 LOL 챔피언스 코리아 서머
+                </div>
+                <!-- 공지 -->
+                <div class="w-1/2  bg-red-100 rounded-lg">
+                    <!-- 공지 내용물 -->
+                    <div class="flex w-full h-full p-4">
+                        <!-- ! 아이콘 -->
+                        <img class="my-auto mx-4 w-6 h-6 object-cover" src="@/assets/icon/error.png">
+
+                        <!-- 텍스트 -->
+                        <div class="p-2 my-auto text-base text-gray-600">
+                            {{announce}}
+                        </div>
+
+                        <!-- x 마크 -->
+                        <!-- <div class="my-auto ml-auto mr-4">x</div> -->
+
+                    </div>
+                </div>
+
+                <!-- 내 선수단 리스트 -->
+                <div class="w-1/2 flex flex-col shadow-md">
+                    <!-- 선수단 타이틀 -->
+                    <div class="flex my-1 h-12 bg-gray-50">
+                        <!-- 타이틀 텍스트 -->
+                        <div class="my-auto ml-6 text-lg text-gray-800">
+                            내 선수단
+                        </div>
+                        <!-- 토탈 vp 포인트 -->
+                        <div class="flex ml-auto my-auto mr-4">
+                            <div class="text-red-600 mr-1">
+                                {{$store.state.cacheStore.myTeam.totalVP}}
+                            </div>
+                            <img class="w-5 h-5 object-cover" src="@/assets/icon/vp.png">
+                        </div>
+                    </div>
+                    <!-- 선수단 리스트 -->
+                    <div class="w-full my-6 flex flex-col">
+                        <!-- 탑 -->
+                        <div class="my-2 px-4 flex w-full">
+                            <!-- 아이콘 -->
+                            <img class="my-auto mr-4 w-6 h-6" src="@/assets/icon/top_icon.png">
+                            <!-- 선수 초상화 -->
+                            <img class="my-auto w-10 h-10" :src="$store.state.cacheStore.myTeam.players.top.img">
+                            <!-- 선수 이름 -->
+                            <div class="my-auto ml-6 text-base">
+                                {{$store.state.cacheStore.myTeam.players.top.name ?$store.state.cacheStore.myTeam.players.top.name : '-'}}
+                            </div>
+                            <!-- 선수 vp 포인트 -->
+                            <div class="flex ml-auto my-auto mr-2">
+                                <div class="text-red-600 mr-1">
+                                    {{$store.state.cacheStore.myTeam.players.top.vp}}
+                                </div>
+                                <img class="w-4 h-4 object-cover" src="@/assets/icon/vp.png">
+                            </div>
+                        </div>
+
+                        <!-- 정글 -->
+                        <div class="my-2 px-4 flex w-full">
+                            <!-- 아이콘 -->
+                            <img class="my-auto mr-4 w-6 h-6" src="@/assets/icon/jug_icon.png">
+                            <!-- 선수 초상화 -->
+                            <img class="my-auto w-10 h-10" :src="$store.state.cacheStore.myTeam.players.jug.img">
+                            <!-- 선수 이름 -->
+                            <div class="my-auto ml-6 text-base">
+                                {{$store.state.cacheStore.myTeam.players.jug.name ?$store.state.cacheStore.myTeam.players.jug.name : '-'}}
+                            </div>
+                            <!-- 선수 vp 포인트 -->
+                            <div class="flex ml-auto my-auto mr-2">
+                                <div class="text-red-600 mr-1">
+                                    {{$store.state.cacheStore.myTeam.players.jug.vp}}
+                                </div>
+                                <img class="w-4 h-4 object-cover" src="@/assets/icon/vp.png">
+                            </div>
+                        </div>
+
+                        <!-- 미드 -->
+                        <div class="my-2 px-4 flex w-full">
+                            <!-- 아이콘 -->
+                            <img class="my-auto mr-4 w-6 h-6" src="@/assets/icon/mid_icon.png">
+                            <!-- 선수 초상화 -->
+                            <img class="my-auto w-10 h-10" :src="$store.state.cacheStore.myTeam.players.mid.img">
+                            <!-- 선수 이름 -->
+                            <div class="my-auto ml-6 text-base">
+                                {{$store.state.cacheStore.myTeam.players.mid.name ?$store.state.cacheStore.myTeam.players.mid.name : '-'}}
+                            </div>
+                            <!-- 선수 vp 포인트 -->
+                            <div class="flex ml-auto my-auto mr-2">
+                                <div class="text-red-600 mr-1">
+                                    {{$store.state.cacheStore.myTeam.players.mid.vp}}
+                                </div>
+                                <img class="w-4 h-4 object-cover" src="@/assets/icon/vp.png">
+                            </div>
+                        </div>
+
+                        <!-- 바텀 -->
+                        <div class="my-2 px-4 flex w-full">
+                            <!-- 아이콘 -->
+                            <img class="my-auto mr-4 w-6 h-6" src="@/assets/icon/bot_icon.png">
+                            <!-- 선수 초상화 -->
+                            <img class="my-auto w-10 h-10" :src="$store.state.cacheStore.myTeam.players.bot.img">
+                            <!-- 선수 이름 -->
+                            <div class="my-auto ml-6 text-base">
+                                {{$store.state.cacheStore.myTeam.players.bot.name ?$store.state.cacheStore.myTeam.players.bot.name : '-'}}
+                            </div>
+                            <!-- 선수 vp 포인트 -->
+                            <div class="flex ml-auto my-auto mr-2">
+                                <div class="text-red-600 mr-1">
+                                    {{$store.state.cacheStore.myTeam.players.bot.vp}}
+                                </div>
+                                <img class="w-4 h-4 object-cover" src="@/assets/icon/vp.png">
+                            </div>
+                        </div>
+
+                        <!-- 서폿 -->
+                        <div class="my-2 px-4 flex w-full">
+                            <!-- 아이콘 -->
+                            <img class="my-auto mr-4 w-6 h-6" src="@/assets/icon/sup_icon.png">
+                            <!-- 선수 초상화 -->
+                            <img class="my-auto w-10 h-10a" :src="$store.state.cacheStore.myTeam.players.sup.img">
+                            <!-- 선수 이름 -->
+                            <div class="my-auto ml-6 text-base">
+                                {{$store.state.cacheStore.myTeam.players.sup.name ?$store.state.cacheStore.myTeam.players.sup.name : '-'}}
+                            </div>
+                            <!-- 선수 vp 포인트 -->
+                            <div class="flex ml-auto my-auto mr-2">
+                                <div class="text-red-600 mr-1">
+                                    {{$store.state.cacheStore.myTeam.players.sup.vp}}
+                                </div>
+                                <img class="w-4 h-4 object-cover" src="@/assets/icon/vp.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
 
@@ -111,6 +249,8 @@ export default {
             vpFlag: false,
             playerRuleFlag: false,
 
+            announce: '선수단이 다 구성되지 않았습니다.',
+
             teams:[
                 {name:'전체', img:'./assets/logo/lck.png'}, 
                 {name:'젠지', img:'./assets/logo/GEN.png'}, 
@@ -135,6 +275,12 @@ export default {
         }
     },
     methods: {
+        valid(){
+            // playerRuleFlag Validation
+
+            // vpFlag Validation
+            
+        },
         submit(){
             // 예외처리
             console.log('submit')
