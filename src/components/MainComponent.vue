@@ -57,16 +57,16 @@
                 <!-- 이미지 컨테이너 (지도좌표) -->
                 <div class="relative flex ml-auto mr-12">
                     <img class="mx-auto w-96" src="@/assets/map.png" alt="">
-                    <img v-if="!$store.state.cacheStore.myTeam.players.top.name" class="absolute left-6 top-6 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/top.png">
-                    <img v-if="$store.state.cacheStore.myTeam.players.top.name" class="absolute left-6 top-6 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.top.img">
-                    <img v-if="!$store.state.cacheStore.myTeam.players.jug.name" class="absolute left-20 top-24 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/jug.png">
-                    <img v-if="$store.state.cacheStore.myTeam.players.jug.name" class="absolute left-20 top-24 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.jug.img">
-                    <img v-if="!$store.state.cacheStore.myTeam.players.mid.name" class="absolute left-40 top-40 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/mid.png">
-                    <img v-if="$store.state.cacheStore.myTeam.players.mid.name" class="absolute left-40 top-40 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.mid.img">
-                    <img v-if="!$store.state.cacheStore.myTeam.players.bot.name" class="absolute right-20 bottom-20 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/bot.png">
-                    <img v-if="$store.state.cacheStore.myTeam.players.bot.name" class="absolute right-20 bottom-20 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.bot.img">
-                    <img v-if="!$store.state.cacheStore.myTeam.players.sup.name" class="absolute right-8 bottom-8 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/sup.png">
-                    <img v-if="$store.state.cacheStore.myTeam.players.sup.name" class="absolute right-8 bottom-8 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.sup.img">
+                    <img @click="$store.state.cacheStore.mainLineNav='TOP'" v-if="!$store.state.cacheStore.myTeam.players.top.name" class="absolute left-6 top-6 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/top.png">
+                    <img @click="$store.state.cacheStore.mainLineNav='TOP'" v-if="$store.state.cacheStore.myTeam.players.top.name" class="absolute left-6 top-6 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.top.img">
+                    <img @click="$store.state.cacheStore.mainLineNav='JUG'" v-if="!$store.state.cacheStore.myTeam.players.jug.name" class="absolute left-20 top-24 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/jug.png">
+                    <img @click="$store.state.cacheStore.mainLineNav='JUG'" v-if="$store.state.cacheStore.myTeam.players.jug.name" class="absolute left-20 top-24 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.jug.img">
+                    <img @click="$store.state.cacheStore.mainLineNav='MID'" v-if="!$store.state.cacheStore.myTeam.players.mid.name" class="absolute left-40 top-40 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/mid.png">
+                    <img @click="$store.state.cacheStore.mainLineNav='MID'" v-if="$store.state.cacheStore.myTeam.players.mid.name" class="absolute left-40 top-40 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.mid.img">
+                    <img @click="$store.state.cacheStore.mainLineNav='BOT'" v-if="!$store.state.cacheStore.myTeam.players.bot.name" class="absolute right-20 bottom-20 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/bot.png">
+                    <img @click="$store.state.cacheStore.mainLineNav='BOT'" v-if="$store.state.cacheStore.myTeam.players.bot.name" class="absolute right-20 bottom-20 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.bot.img">
+                    <img @click="$store.state.cacheStore.mainLineNav='SUP'" v-if="!$store.state.cacheStore.myTeam.players.sup.name" class="absolute right-8 bottom-8 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/sup.png">
+                    <img @click="$store.state.cacheStore.mainLineNav='SUP'" v-if="$store.state.cacheStore.myTeam.players.sup.name" class="absolute right-8 bottom-8 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.sup.img">
                 </div>
 
                 <!-- 버튼 -->
