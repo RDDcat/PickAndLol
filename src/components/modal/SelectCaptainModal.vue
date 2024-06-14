@@ -1,6 +1,6 @@
 <template>
     <!-- 주장 설정 모달 -->
-    <div class="absolute flex bg-red-950 bg-opacity-90 backdrop-blur-sm w-screen h-screen z-40">
+    <div class="absolute flex bg-red-950 bg-opacity-90 backdrop-blur-sm w-screen min-h-full z-40">
         <div class="relative mx-auto mt-24 flex flex-col max-w-[70rem]">
             <!-- back -->
             <div class="absolute right-4 top-4 text-white" @click="$store.state.modalStore.isSelectCaptainModal = false">
@@ -20,18 +20,18 @@
                         <img class="m-auto" src="@/assets/icon/top_white.png">
                         <img class="mx-auto my-4 rounded-full w-36 h-36 object-cover hover:ring-red-400 hover:ring-4" 
                             :class="click===1?'outline-none ring-red-500 ring-4':''" 
-                            src="@/assets/player/perfect_circle.png"
+                            :src="$store.state.cacheStore.myTeam.players.top.img"
                             @click="click=1">
-                        <div class="text-center text-white text-xl">PerfecT</div>
+                        <div class="text-center text-white text-xl">{{$store.state.cacheStore.myTeam.players.top.name}}</div>
                     </div>
                     <!-- jug -->
                     <div class="flex flex-col w-48 h-72">
                         <img class="m-auto" src="@/assets/icon/jug_white.png">
                         <img class="mx-auto my-4 rounded-full w-36 h-36 object-cover hover:ring-red-400 hover:ring-4" 
                             :class="click===2?'outline-none ring-red-500 ring-4':''" 
-                            src="@/assets/player/canyon_circle.png"
+                            :src="$store.state.cacheStore.myTeam.players.jug.img"
                             @click="click=2">
-                        <div class="text-center text-white text-xl">Canyon</div>
+                        <div class="text-center text-white text-xl">{{$store.state.cacheStore.myTeam.players.jug.name}}</div>
                     </div>
 
                     <!-- mid -->
@@ -39,9 +39,9 @@
                         <img class="m-auto" src="@/assets/icon/mid_white.png">
                         <img class="mx-auto my-4 rounded-full w-36 h-36 object-cover hover:ring-red-400 hover:ring-4" 
                             :class="click===3?'outline-none ring-red-500 ring-4':''" 
-                            src="@/assets/player/faker_circle.png"
+                            :src="$store.state.cacheStore.myTeam.players.mid.img"
                             @click="click=3">
-                        <div class="text-center text-white text-xl">Faker</div>
+                        <div class="text-center text-white text-xl">{{$store.state.cacheStore.myTeam.players.mid.name}}</div>
                     </div>
 
                     <!-- bot -->
@@ -49,9 +49,9 @@
                         <img class="m-auto" src="@/assets/icon/bot_white.png">
                         <img class="mx-auto my-4 rounded-full w-36 h-36 object-cover hover:ring-red-400 hover:ring-4" 
                             :class="click===4?'outline-none ring-red-500 ring-4':''" 
-                            src="@/assets/player/viper_circle.png"
+                            :src="$store.state.cacheStore.myTeam.players.bot.img"
                             @click="click=4">
-                        <div class="text-center text-white text-xl">Viper</div>
+                        <div class="text-center text-white text-xl">{{$store.state.cacheStore.myTeam.players.bot.name}}</div>
                     </div>
 
                     <!-- sup -->
@@ -59,9 +59,9 @@
                         <img class="m-auto" src="@/assets/icon/sup_white.png">
                         <img class="mx-auto my-4 rounded-full w-36 h-36 object-cover hover:ring-red-400 hover:ring-4" 
                             :class="click===5?'outline-none ring-red-500 ring-4':''" 
-                            src="@/assets/player/keria_circle.png"
+                            :src="$store.state.cacheStore.myTeam.players.sup.img"
                             @click="click=5">
-                        <div class="text-center text-white text-xl">Keria</div>
+                        <div class="text-center text-white text-xl">{{$store.state.cacheStore.myTeam.players.sup.name}}</div>
                     </div>
                 </div>
             </div>
@@ -90,8 +90,17 @@ export default {
     },
     methods: {
         select(){
-            console.log('주장 선수 선택')
-
+            if(this.click===1 && !this.$store.state.cacheStore.myTeam.players.top.name){
+                this.$store.state.cacheStore.myTeam.players.top.isMvp = true
+            } else if(this.click===2 && !this.$store.state.cacheStore.myTeam.players.jug.name){
+                this.$store.state.cacheStore.myTeam.players.jug.isMvp = true
+            } else if(this.click===3 && !this.$store.state.cacheStore.myTeam.players.mid.name){
+                this.$store.state.cacheStore.myTeam.players.mid.isMvp = true
+            } else if(this.click===4 && !this.$store.state.cacheStore.myTeam.players.bot.name){
+                this.$store.state.cacheStore.myTeam.players.bot.isMvp = true
+            } else if(this.click===5 && !this.$store.state.cacheStore.myTeam.players.sup.name){
+                this.$store.state.cacheStore.myTeam.players.sup.isMvp = true
+            }
             this.$store.state.modalStore.isSelectCaptainModal = false
         }
     },

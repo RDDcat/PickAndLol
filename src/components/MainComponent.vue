@@ -95,7 +95,9 @@
                             주장 설정하기
                         </span>
                     </button>
-                    <button type="button" class="text-white bg-gradient-to-r from-red-600 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-400 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-40">저장하기</button>
+                    <button @click="submit"
+                        type="button" 
+                        class="text-white bg-gradient-to-r from-red-600 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-400 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-40">저장하기</button>
                 </div>
             </div>
 
@@ -308,11 +310,11 @@ export default {
     },
     data(){
         return {
-            selectAllFlag: 1,
-            moreThanTwoFlag: 1,
-            oneFromOneFlag: 1,
-            vpFlag: 1,
-            mvpFlag: 1,
+            selectAllFlag: false,
+            moreThanTwoFlag: false,
+            oneFromOneFlag: false,
+            vpFlag: false,
+            mvpFlag: false,
 
             selected:0,
 
@@ -341,20 +343,55 @@ export default {
     },
     methods: {
         valid(){
-            // playerRuleFlag Validation
+            // selectAllFlag Validation            
+            if(!this.$store.state.cacheStore.myTeam.players.top.name ||
+                !this.$store.state.cacheStore.myTeam.players.jug.name ||
+                !this.$store.state.cacheStore.myTeam.players.mid.name ||
+                !this.$store.state.cacheStore.myTeam.players.bot.name ||
+                !this.$store.state.cacheStore.myTeam.players.sup.name ){
+                this.selectAllFlag = true
+            } else{
+                this.selectAllFlag = false
+            }
+
+            // moreThanTwoFlag Validation
+            if(!this.$store.state.cacheStore.myTeam.players.top.name){
+                this.moreThanTwoFlag = true
+            } else{
+                this.moreThanTwoFlag = false
+            }
+            
+            // oneFromOneFlag Validation
+            if(!this.$store.state.cacheStore.myTeam.players.top.name){
+                this.oneFromOneFlag = true
+            } else{
+                this.oneFromOneFlag = false
+            }
 
             // vpFlag Validation
+            if(!this.$store.state.cacheStore.myTeam.players.top.name){
+                this.vpFlag = true
+            } else{
+                this.vpFlag = false
+            }
             
+            // mvpFlag Validation
+            if(!this.$store.state.cacheStore.myTeam.players.top.isMvp &&
+                !this.$store.state.cacheStore.myTeam.players.jug.isMvp &&
+                !this.$store.state.cacheStore.myTeam.players.mid.isMvp &&
+                !this.$store.state.cacheStore.myTeam.players.bot.isMvp &&
+                !this.$store.state.cacheStore.myTeam.players.sup.isMvp ){
+                this.mvpFlag = true
+            } else{
+                this.mvpFlag = false
+            }
+
+
         },
         submit(){
             // 예외처리
             console.log('submit')
-            if(this.playerRuleFlag){
-                console.log('playerRuleFlag')
-            }
-            if(this.vpFlag){
-                console.log('vpFlag')
-            }
+            this.valid()
             // 서버 전송
 
         },
