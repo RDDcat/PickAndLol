@@ -407,7 +407,12 @@ export default {
             } else{
                 this.vpFlag = false
             }
-            
+            console.log(!this.$store.state.cacheStore.myTeam.players.top.isMvp &&
+                !this.$store.state.cacheStore.myTeam.players.jug.isMvp &&
+                !this.$store.state.cacheStore.myTeam.players.mid.isMvp &&
+                !this.$store.state.cacheStore.myTeam.players.bot.isMvp &&
+                !this.$store.state.cacheStore.myTeam.players.sup.isMvp)
+            console.log(this.$store.state.cacheStore.myTeam.players)
             // mvpFlag Validation
             if(!this.$store.state.cacheStore.myTeam.players.top.isMvp &&
                 !this.$store.state.cacheStore.myTeam.players.jug.isMvp &&

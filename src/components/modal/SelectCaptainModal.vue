@@ -90,15 +90,15 @@ export default {
     },
     methods: {
         select(){
-            if(this.click===1 && !this.$store.state.cacheStore.myTeam.players.top.name){
+            if(this.click===1 && this.$store.state.cacheStore.myTeam.players.top.name){
                 this.$store.state.cacheStore.myTeam.players.top.isMvp = true
-            } else if(this.click===2 && !this.$store.state.cacheStore.myTeam.players.jug.name){
+            } else if(this.click===2 && this.$store.state.cacheStore.myTeam.players.jug.name){
                 this.$store.state.cacheStore.myTeam.players.jug.isMvp = true
-            } else if(this.click===3 && !this.$store.state.cacheStore.myTeam.players.mid.name){
+            } else if(this.click===3 && this.$store.state.cacheStore.myTeam.players.mid.name){
                 this.$store.state.cacheStore.myTeam.players.mid.isMvp = true
-            } else if(this.click===4 && !this.$store.state.cacheStore.myTeam.players.bot.name){
+            } else if(this.click===4 && this.$store.state.cacheStore.myTeam.players.bot.name){
                 this.$store.state.cacheStore.myTeam.players.bot.isMvp = true
-            } else if(this.click===5 && !this.$store.state.cacheStore.myTeam.players.sup.name){
+            } else if(this.click===5 && this.$store.state.cacheStore.myTeam.players.sup.name){
                 this.$store.state.cacheStore.myTeam.players.sup.isMvp = true
             }
             this.$store.state.modalStore.isSelectCaptainModal = false
