@@ -44,8 +44,15 @@
                             </div>
                             <img class="my-auto ml-4 w-8 h-8 object-cover" :src="game.home.img" alt="">
                         </div>
-                        <div class="mx-6 my-auto text-sm text-red-600">
+                        <!-- 경기 예정일때 텍스트 -->
+                        <div v-if="game.state==='no'" 
+                            class="mx-6 my-auto text-sm text-red-600" >
                             예정
+                        </div>
+                        <!-- 경기 결과 점수 -->
+                        <div v-if="game.state==='yes'" 
+                            class="mx-6 my-auto text-sm text-gray-600" >
+                            {{game.result.score.home}} : {{game.result.score.away}}
                         </div>
                         <div class="flex w-64">
                             <img class="my-auto mr-4 w-8 h-8 object-cover" :src="game.away.img" alt="">
