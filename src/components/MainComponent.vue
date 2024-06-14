@@ -16,6 +16,18 @@
                     <div class="text-sm">5명을 채워 선수단을 구성해주세요.</div> 
                 </div>
             </div>
+            <!-- 응원팀 선택 -->
+            <div v-if="selectTeamFlag"
+                class="flex w-full py-2 px-4">
+                <!-- ! 아이콘 -->
+                <img class="my-auto mx-4 w-6 h-6 object-cover" src="@/assets/icon/error.png">
+
+                <!-- 에러 텍스트 -->
+                <div class="p-2 w-4/5 my-auto text-base text-gray-600 text-ellipsis break-words">
+                    <div class="text-red-600">응원팀을 선택해주세요. </div> 
+                    <div class="text-sm">당신의 최애의 팀을 알려주세요.</div> 
+                </div>
+            </div>
             <!-- 응원 팀에 2명 이상 -->
             <div v-if="moreThanTwoFlag"
                 class="flex w-full py-2 px-4">
@@ -311,6 +323,7 @@ export default {
     data(){
         return {
             selectAllFlag: false,
+            selectTeamFlag: false,
             moreThanTwoFlag: false,
             oneFromOneFlag: false,
             vpFlag: false,
@@ -353,6 +366,14 @@ export default {
             } else{
                 this.selectAllFlag = false
             }
+
+            // selectTeamFlag Validation
+            if(!this.$store.state.cacheStore.myTeam.players.team){
+                this.selectTeamFlag = true
+            } else{
+                this.selectTeamFlag = false
+            }
+
 
             // moreThanTwoFlag Validation
             if(!this.$store.state.cacheStore.myTeam.players.top.name){
