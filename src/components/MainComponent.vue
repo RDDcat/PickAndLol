@@ -62,7 +62,7 @@
                 <!-- 에러 텍스트 -->
                 <div class="p-2 w-4/5 my-auto text-base text-gray-600 text-ellipsis break-words">
                     <div class="text-red-600">지출할 수 있는 금액을 초과했습니다. </div> 
-                    <div class="text-sm">선수단을 다시 구성해주세요.</div>                     
+                    <div class="text-sm">최대 지출 가능 vp는 {{limitVp}} 입니다.</div>                     
                 </div>
             </div>
             <!--  주장 선택이 안됨 -->
@@ -330,6 +330,7 @@ export default {
             mvpFlag: false,
 
             selected:0,
+            limitVp:350,
 
             teams:[
                 {name:'전체', team:'LCK', img:'./assets/logo/lck.png', colorImg:'./assets/logo/lck.png',}, 
@@ -368,7 +369,7 @@ export default {
             }
 
             // selectTeamFlag Validation
-            if(!this.$store.state.cacheStore.myTeam.players.team){
+            if(!this.$store.state.cacheStore.myTeam.team){
                 this.selectTeamFlag = true
             } else{
                 this.selectTeamFlag = false
@@ -376,21 +377,32 @@ export default {
 
 
             // moreThanTwoFlag Validation
-            if(!this.$store.state.cacheStore.myTeam.players.top.name){
+            let count=0;
+            for(let index in this.$store.state.cacheStore.myTeam.players){
+                if(this.$store.state.cacheStore.myTeam.players[index].team===this.$store.state.cacheStore.myTeam.team){
+                    count++
+                }
+            }
+            if(count>2){
                 this.moreThanTwoFlag = true
             } else{
                 this.moreThanTwoFlag = false
             }
             
             // oneFromOneFlag Validation
-            if(!this.$store.state.cacheStore.myTeam.players.top.name){
+            let hold=[]
+            for(let index in this.$store.state.cacheStore.myTeam.players){
+                hold.push(this.$store.state.cacheStore.myTeam.players[index].team);
+            }
+            let uniqueTeams = new Set(hold);
+            if(uniqueTeams.size<4){
                 this.oneFromOneFlag = true
             } else{
                 this.oneFromOneFlag = false
             }
 
             // vpFlag Validation
-            if(!this.$store.state.cacheStore.myTeam.players.top.name){
+            if(this.$store.state.cacheStore.myTeam.totalVP > this.limitVp){
                 this.vpFlag = true
             } else{
                 this.vpFlag = false
