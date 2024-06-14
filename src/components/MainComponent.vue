@@ -1,6 +1,6 @@
 <template>
     <!-- 선수단 등록 페이지 -->
-    <div class="w-full flex flex-col">
+    <div class="w-full flex flex-col mb-12">
         <!-- 공지 -->
         <div class="w-1/2  bg-red-100 rounded-lg mx-auto mb-1">
             <!-- 공지 내용물 -->
@@ -312,13 +312,14 @@
             </template>
         </div>
     </div>
+    <FooterComponent/>
 </template>
 <script>
-
+import FooterComponent from '@/components/footer/FooterComponent'
 
 export default {
     components: {
-
+        FooterComponent
     },
     data(){
         return {
