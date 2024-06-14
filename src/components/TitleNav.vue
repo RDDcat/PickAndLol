@@ -18,10 +18,10 @@
                 일정
             </div>
             <div class="w-24 text-center" :class="index===2?'text-red-600':''" @click="nav(2)">
-                선수랭킹
+                분석
             </div>
             <div class="w-24 text-center" :class="index===3?'text-red-600':''" @click="nav(3)">
-                유저랭킹
+                랭킹
             </div>
             <i class="fa-regular fa-circle-question" @click="$store.state.modalStore.isGuideModal=true"></i>
         </div>
