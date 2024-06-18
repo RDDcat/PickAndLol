@@ -31,6 +31,8 @@
                 로그인
             </button>
         </div>
+        <div class="flex font-bold w-52" v-if="$store.state.cacheStore.userId!==0">
+        </div>
 
     </div>
 </template>
