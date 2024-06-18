@@ -8,10 +8,10 @@
         <!-- 네비게이션 -->
         <div class="w-full mx-auto my-2 flex">
             <div class="w-16 text-center text-gray-600" :class="$store.state.cacheStore.playerRankingNav===0?'text-red-600':''" @click="$store.state.cacheStore.playerRankingNav=0">
-                팀랭킹
+                팀
             </div>
             <div class="w-16 text-center text-gray-600" :class="$store.state.cacheStore.playerRankingNav===1?'text-red-600':''" @click="$store.state.cacheStore.playerRankingNav=1">
-                개인랭킹
+                개인
             </div>
         </div>
 
