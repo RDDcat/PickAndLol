@@ -3,6 +3,7 @@
 // cacheStore 저장안함
 const cacheStore = {
   state: {
+    userId:0,
     players:[
         {vp:50, line:"TOP", name:"Zeus", stat:0, team:"T1", img: "./assets/player/T1_Zeus.svg"},
         {vp:50, line:"JUG", name:"Owner", stat:0, team:"T1", img: "./assets/player/T1_Oner.svg"},
@@ -71,8 +72,10 @@ const cacheStore = {
     mainLineNav:'전체',
 
     myTeam:{
+        name:"",
         allowed:false,
         totalVP:0,
+        team:"",
         players:{
             top:{isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"},
             jug:{isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"},

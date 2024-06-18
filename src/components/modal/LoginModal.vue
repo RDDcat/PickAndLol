@@ -24,7 +24,7 @@
                     <div class="font-bold">MY 선수단 순위권</div>에 도전하세요
                 </div>
                 <div class="mx-auto mt-8">
-                    <img src="@/assets/button_google.png">
+                    <img @click='login' src="@/assets/button_google.png">
                 </div>
                 <div class="mx-auto mt-12 flex text-sm text-gray-400">
                     로그인 진행시&nbsp;<div class="underline text-gray-700">이용약관</div>과&nbsp;<div class="underline text-gray-700">개인정보 취급방침</div>에 동의하게 됩니다.
@@ -34,7 +34,7 @@
     </div>
 </template>
 <script>
-
+// import axios from "axios"
 
 export default {
     components: {
@@ -46,6 +46,15 @@ export default {
         }
     },
     methods: {
+        login(){
+            // window.location.href ="https://accounts.google.com/o/oauth2/auth?client_id=94560297607-at6vc76ph2jqecqp43bd8o8oa6j5fbjs.apps.googleusercontent.com&redirect_uri=http://localhost:8080/login/oauth2/code/google&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile";
+            window.location.href = "http://localhost:8080/oauth2/authorization/google"
+            // axios.get('http://localhost:8080',{
+            //     headers: {
+
+            //     },
+            // });
+        }
 
     },
 }

@@ -26,7 +26,7 @@
             <i class="fa-regular fa-circle-question" @click="$store.state.modalStore.isGuideModal=true"></i>
         </div>
         <!-- 로그인 회원가입 -->
-        <div class="flex font-bold w-52">
+        <div class="flex font-bold w-52" v-if="$store.state.cacheStore.userId===0">
             <button class="btn btn-gray mx-auto" @click="$store.state.modalStore.isLoginModal=true">
                 로그인
             </button>
