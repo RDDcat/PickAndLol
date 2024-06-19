@@ -84,7 +84,9 @@ const cacheStore = {
             mid:{isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"},
             bot:{isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"},
             sup:{isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"},
-        }
+        },
+        totalStat:0,
+        weekStat:0,
     },
 
     schedule:[

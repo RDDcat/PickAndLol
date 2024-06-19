@@ -7,7 +7,7 @@
         </div>
 
         <!--  -->
-        <div class="flex min-w-[64rem] h-16 bg-red-600 shadow-lg rounded-lg mx-auto">
+        <div class="flex min-w-[64rem] h-16 bg-red-600 shadow-lg rounded-lg mx-auto" v-if="0">
             <div class="text-white flex my-auto px-4">
                 나의 랭킹 <div class="text-sm my-auto">&nbsp; 축하드립니다</div>
             </div>
@@ -45,18 +45,18 @@
                         <th scope="row" class="flex px-2 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             <div class="my-auto mx-2"> {{index+1}} </div>
                             &nbsp; 
-                            <img class="my-auto w-14 h-14 object-cover rounded-full" :src="user.img">
+                            <img class="my-auto w-14 h-14 object-cover rounded-full" :src="user.teamLogo">
                             &nbsp; 
                             <div class="my-auto">{{user.name}}</div>
                         </th>
                         <td class="px-20 py-4">
-                            {{user.teamName}}
+                            {{user.name}}
                         </td>
                         <td class="px-1 py-4">
-                            {{user.teamName}}
+                            {{user.weekStat}}
                         </td>
                         <td class="px-1 py-4">
-                            {{user.teamName}}
+                            {{user.totalStat}}
                         </td>
                     </tr>
                     <tr class=" bg-white border-b dark:bg-gray-800 dark:border-gray-700" v-if="index===tableNav">
@@ -83,6 +83,7 @@
     </div>
 </template>
 <script>
+import api from '@/api/api'
 
 
 export default {
@@ -98,18 +99,7 @@ export default {
             rank:'6위',
 
             users:[
-                {name:'내이름', teamName:'내리그', img:'./assets/player/faker.png', rank:'6위', weekGained:133 ,seasonGained: 42},
-                {name:'내이름', teamName:'내리그', img:'./assets/player/faker.png', rank:'6위', weekGained:133 ,seasonGained: 42},
-                {name:'내이름', teamName:'내리그', img:'./assets/player/faker.png', rank:'6위', weekGained:133 ,seasonGained: 42},
-                {name:'내이름', teamName:'내리그', img:'./assets/player/faker.png', rank:'6위', weekGained:133 ,seasonGained: 42},
-                {name:'내이름', teamName:'내리그', img:'./assets/player/faker.png', rank:'6위', weekGained:133 ,seasonGained: 42},
-                {name:'내이름', teamName:'내리그', img:'./assets/player/faker.png', rank:'6위', weekGained:133 ,seasonGained: 42},
-                {name:'내이름', teamName:'내리그', img:'./assets/player/faker.png', rank:'6위', weekGained:133 ,seasonGained: 42},
-                {name:'내이름', teamName:'내리그', img:'./assets/player/faker.png', rank:'6위', weekGained:133 ,seasonGained: 42},
-                {name:'내이름', teamName:'내리그', img:'./assets/player/faker.png', rank:'6위', weekGained:133 ,seasonGained: 42},
-                {name:'내이름', teamName:'내리그', img:'./assets/player/faker.png', rank:'6위', weekGained:133 ,seasonGained: 42},
-                {name:'내이름', teamName:'내리그', img:'./assets/player/faker.png', rank:'6위', weekGained:133 ,seasonGained: 42},
-                {name:'내이름', teamName:'내리그', img:'./assets/player/faker.png', rank:'6위', weekGained:133 ,seasonGained: 42},
+                
             ],
 
         }
@@ -117,6 +107,19 @@ export default {
     methods: {
 
     },
+    mounted(){
+        api.getRank()
+        .then(response=>{
+            console.log(response.data)
+            console.log(JSON.parse(response.data[0].data))
+            for(let index in response.data){
+                this.users.push( JSON.parse(response.data[index].data))
+            }
+        })
+        .catch(function (e){
+            console.log(e);
+        });
+    }
 }
 </script>
 <style scoped>

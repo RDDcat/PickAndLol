@@ -551,7 +551,7 @@ export default {
         if(this.$route.query.id){
             this.$store.state.cacheStore.userId = this.$route.query.id
             
-            
+            // 팀 데이터 sync 넣기
         }
     }
 }
