@@ -550,6 +550,7 @@ export default {
     mounted(){
         if(this.$route.query.id){
             this.$store.state.cacheStore.userId = this.$route.query.id
+            this.$store.state.cacheStore.myTeam.name = this.$route.query.name
             
             // 팀 데이터 sync 넣기
         }

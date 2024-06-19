@@ -63,8 +63,12 @@
                         <th scope="row" class="flex px-2 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             선수별 라운드 점수 변화도
                         </th>
-                        <td class="px-20 py-4">
-                            
+                        <td class="px-20 py-4 flex">
+                            <img class="rounded-full w-8" :src="user.players.top.img">
+                            <img class="rounded-full w-8" :src="user.players.jug.img">
+                            <img class="rounded-full w-8" :src="user.players.mid.img">
+                            <img class="rounded-full w-8" :src="user.players.bot.img">
+                            <img class="rounded-full w-8" :src="user.players.sup.img">
                         </td>
                         <td class="px-1 py-4">
                         </td>
