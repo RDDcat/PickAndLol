@@ -14,7 +14,7 @@ export default {
         });
     },
     // 랭킹 전체 조회
-    getPet: function(){
+    getRank: function(){
         return axios.get(BASE_URL + `rank`,{
             headers: {
 
@@ -22,7 +22,7 @@ export default {
         });
     },
     // 마이팀 저장
-    postPet: function(body){
+    postTeam: function(body){
         console.log(body);
         return axios.post(BASE_URL + 'save', body,{
             headers: {

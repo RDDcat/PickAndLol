@@ -99,7 +99,7 @@
                 </div>
 
                 <!-- 버튼 -->
-                <div class="ml-auto mr-20 my-8">
+                <div class="ml-auto mr-20 my-8" v-if="!$store.state.cacheStore.isSave">
                     <button 
                         class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 w-36 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-400 via-red-500 to-red-600 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200"
                         @click="$store.state.modalStore.isSelectCaptainModal=true">
@@ -114,7 +114,7 @@
             </div>
 
             <!-- 히어로 우측 -->
-            <div class="max-w-2/3 flex flex-col pl-12">
+            <div v-if="!$store.state.cacheStore.isSave" class="max-w-2/3 flex flex-col pl-12">
                 <!-- 제목 -->
                 <div class="w-full px-8 mt-3 mb-4 text-lg text-gray-700">
                     2024 LOL 챔피언스 코리아 서머
@@ -332,7 +332,8 @@
 
                 </div>
                 <!-- 선택하기 버튼 -->
-                <button v-if="(this.$store.state.cacheStore.mainLineNav === player.line || this.$store.state.cacheStore.mainLineNav==='전체') &&
+                <button v-if="!$store.state.cacheStore.isSave &&
+                        (this.$store.state.cacheStore.mainLineNav === player.line || this.$store.state.cacheStore.mainLineNav==='전체') &&
                         (this.$store.state.cacheStore.mainTeamNav=== player.team || this.$store.state.cacheStore.mainTeamNav=== 'LCK')"
                     @click="click(player.name);"
                     class="w-52 h-12 my-3 inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-400 via-red-500 to-red-600 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200">
@@ -353,6 +354,8 @@
 </template>
 <script>
 import FooterComponent from '@/components/footer/FooterComponent'
+
+import api from '@/api/api'
 
 export default {
     components: {
@@ -451,12 +454,12 @@ export default {
             } else{
                 this.vpFlag = false
             }
-            console.log(!this.$store.state.cacheStore.myTeam.players.top.isMvp &&
-                !this.$store.state.cacheStore.myTeam.players.jug.isMvp &&
-                !this.$store.state.cacheStore.myTeam.players.mid.isMvp &&
-                !this.$store.state.cacheStore.myTeam.players.bot.isMvp &&
-                !this.$store.state.cacheStore.myTeam.players.sup.isMvp)
-            console.log(this.$store.state.cacheStore.myTeam.players)
+            // console.log(!this.$store.state.cacheStore.myTeam.players.top.isMvp &&
+            //     !this.$store.state.cacheStore.myTeam.players.jug.isMvp &&
+            //     !this.$store.state.cacheStore.myTeam.players.mid.isMvp &&
+            //     !this.$store.state.cacheStore.myTeam.players.bot.isMvp &&
+            //     !this.$store.state.cacheStore.myTeam.players.sup.isMvp)
+            // console.log(this.$store.state.cacheStore.myTeam.players)
             // mvpFlag Validation
             if(!this.$store.state.cacheStore.myTeam.players.top.isMvp &&
                 !this.$store.state.cacheStore.myTeam.players.jug.isMvp &&
@@ -472,9 +475,26 @@ export default {
         },
         submit(){
             // 예외처리
-            console.log('submit')
-            this.valid()
+            // this.valid()
             // 서버 전송
+            console.log(this.$store.state.cacheStore.userId)
+            console.log(this.$store.state.cacheStore.myTeam)
+            let body = {
+                oauthId:this.$store.state.cacheStore.userId,
+                data:JSON.stringify(this.$store.state.cacheStore.myTeam)
+            }
+            console.log('body',body)
+            api.postTeam(body)
+            .then(response=>{
+                console.log(response)
+                this.$store.state.cacheStore.isSave=true
+            })
+            .catch(function (e){
+                console.log(e);
+            });
+
+        
+
 
         },
         lineFilter(name){
@@ -527,6 +547,13 @@ export default {
         },
 
     },
+    mounted(){
+        if(this.$route.query.id){
+            this.$store.state.cacheStore.userId = this.$route.query.id
+            
+            
+        }
+    }
 }
 </script>
 <style scoped>

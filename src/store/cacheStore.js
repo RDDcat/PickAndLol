@@ -4,6 +4,7 @@
 const cacheStore = {
   state: {
     userId:0,
+    isSave:false,
     players:[
         {vp:50, line:"TOP", name:"Zeus", stat:0, team:"T1", img: "./assets/player/T1_Zeus.svg"},
         {vp:50, line:"JUG", name:"Owner", stat:0, team:"T1", img: "./assets/player/T1_Oner.svg"},

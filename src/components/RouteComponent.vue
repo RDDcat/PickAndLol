@@ -36,7 +36,7 @@ export default {
 
     },
     mounted(){
-        if(!this.$route.query.id){
+        if(this.$route.query.id){
             this.$store.state.cacheStore.userId = this.$route.query.id
         }
     }
