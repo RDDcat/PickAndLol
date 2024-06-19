@@ -76,6 +76,7 @@ const cacheStore = {
         allowed:false,
         totalVP:0,
         team:"",
+        teamLogo:"./assets/logo.png",
         players:{
             top:{isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"},
             jug:{isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"},

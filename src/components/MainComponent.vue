@@ -114,19 +114,56 @@
             </div>
 
             <!-- 히어로 우측 -->
-            <div class="w-1/2 flex flex-col pl-12">
+            <div class="max-w-2/3 flex flex-col pl-12">
                 <!-- 제목 -->
                 <div class="w-full px-8 mt-3 mb-4 text-lg text-gray-700">
                     2024 LOL 챔피언스 코리아 서머
                 </div>
 
-                <!-- 내 선수단 리스트 -->
-                <div class="w-1/2 flex flex-col shadow-md">
-                    <!-- 선수단 타이틀 -->
-                    <div class="flex my-1 h-12 bg-gray-50">
+                <!-- step1 응원팀 선정 -->
+                <div class="w-full flex flex-col shadow-md">
+                    <!-- 타이틀 -->
+                    <div class="flex my-1 h-12 bg-gray-50" @click="step=0">
                         <!-- 타이틀 텍스트 -->
-                        <div class="my-auto ml-6 text-lg text-gray-800">
-                            내 선수단
+                        <div class="flex my-auto ml-6 text-sm text-gray-600">
+                            step1. 
+                            <div class="ml-2 text-base text-gray-800">응원팀 선정</div>
+                        </div>
+                        <!-- 토탈 vp 포인트 -->
+                        <div class="flex ml-auto my-auto mr-4">
+                            <img class="w-6 h-6 object-cover" :src="$store.state.cacheStore.myTeam.teamLogo">
+                        </div>
+                    </div>
+                    <!-- 선수단 리스트 -->
+                    <div class="w-full my-6 flex flex-col" v-show="step===0">
+                        <!-- 1열 -->
+                        <div class="my-2 px-4 flex w-full">
+                            <img class="rounded-full bg-gray-50 mx-auto" src="@/assets/logo/color_T1.png" @click="selectTeam('T1')">
+                            <img class="rounded-full bg-gray-50 mx-auto" src="@/assets/logo/color_GEN.png" @click="selectTeam('GEN')" >
+                            <img class="rounded-full bg-gray-50 mx-auto" src="@/assets/logo/color_DK.png" @click="selectTeam('DK')">
+                            <img class="rounded-full bg-gray-50 mx-auto" src="@/assets/logo/color_KDF.png" @click="selectTeam('KDF')">
+                            <img class="rounded-full bg-gray-50 mx-auto" src="@/assets/logo/color_DRX.png" @click="selectTeam('DRX')">
+                        </div>
+                        <!-- 2열 -->
+                        <div class="my-2 px-4 flex w-full">
+                            <img class="rounded-full bg-gray-50 mx-auto" src="@/assets/logo/color_NS.png" @click="selectTeam('NS')">
+                            <img class="rounded-full bg-gray-50 mx-auto" src="@/assets/logo/color_FOX.png" @click="selectTeam('FOX')">
+                            <img class="rounded-full bg-gray-50 mx-auto" src="@/assets/logo/color_HLE.png" @click="selectTeam('HLE')">
+                            <img class="rounded-full bg-gray-50 mx-auto" src="@/assets/logo/color_KT.png" @click="selectTeam('KT')">
+                            <img class="rounded-full bg-gray-50 mx-auto" src="@/assets/logo/color_BRO.png" @click="selectTeam('BRO')">
+                        </div>
+                    </div>
+
+                
+                </div>
+                <!-- step2 내 선수단 리스트 -->
+                <div class="w-full flex flex-col shadow-md">
+                    <!-- 선수단 타이틀 -->
+                    <div class="flex my-1 h-12 bg-gray-50" @click="step=1">
+                        <!-- 타이틀 텍스트 -->
+                        <div class="flex my-auto ml-6 text-sm text-gray-600">
+                            step2. 
+                            <div class="ml-2 text-base text-gray-800">내 선수단</div>
                         </div>
                         <!-- 토탈 vp 포인트 -->
                         <div class="flex ml-auto my-auto mr-4">
@@ -137,7 +174,7 @@
                         </div>
                     </div>
                     <!-- 선수단 리스트 -->
-                    <div class="w-full my-6 flex flex-col">
+                    <div class="w-full my-6 flex flex-col" v-show="step===1">
                         <!-- 탑 -->
                         <div class="my-2 px-4 flex w-full">
                             <!-- 아이콘 -->
@@ -233,7 +270,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                    </div>
             </div>
 
         </div>
@@ -330,6 +367,8 @@ export default {
             vpFlag: false,
             mvpFlag: false,
 
+            step:0,
+
             selected:0,
             limitVp:350,
 
@@ -357,6 +396,10 @@ export default {
         }
     },
     methods: {
+        selectTeam(name){
+            this.$store.state.cacheStore.myTeam.team=name
+            this.$store.state.cacheStore.myTeam.teamLogo='./assets/logo/color_'+name+'.png'
+        },
         valid(){
             // selectAllFlag Validation            
             if(!this.$store.state.cacheStore.myTeam.players.top.name ||
