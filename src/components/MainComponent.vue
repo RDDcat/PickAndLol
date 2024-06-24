@@ -553,6 +553,13 @@ export default {
             this.$store.state.cacheStore.myTeam.name = this.$route.query.name
             
             // 팀 데이터 sync 넣기
+            api.getSync(this.$store.state.cacheStore.userId)
+            .then(response=>{
+                console.log(response)
+            })
+            .catch(function (e){
+                console.log(e);
+            });
         }
     }
 }

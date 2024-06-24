@@ -21,6 +21,14 @@ export default {
             },
         });
     },
+    // 랭킹 전체 조회
+    getSync: function(id){
+        return axios.get(BASE_URL + `sync/${id}`,{
+            headers: {
+
+            },
+        });
+    },
     // 마이팀 저장
     postTeam: function(body){
         console.log(body);
