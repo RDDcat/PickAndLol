@@ -8,6 +8,7 @@
     <ScheduleComponent v-if="$store.state.modalStore.isSchedule"/>
     <PlayerRankingComponent v-if="$store.state.modalStore.isPlayerRanking"/>
     <UserRankingComponent v-if="$store.state.modalStore.isUserRanking"/>
+    <GuideComponent v-if="$store.state.modalStore.isGuideComponent"/>
 </template>
 <script>
 import TitleNav from '@/components/TitleNav.vue'
@@ -16,6 +17,7 @@ import TeamComponent from '@/components/TeamComponent.vue'
 import ScheduleComponent from '@/components/ScheduleComponent.vue'
 import PlayerRankingComponent from '@/components/PlayerRankingComponent.vue'
 import UserRankingComponent from '@/components/UserRankingComponent.vue'
+import GuideComponent from '@/components/GuideComponent.vue'
 
 export default {
     components: {
@@ -25,6 +27,7 @@ export default {
         ScheduleComponent,
         PlayerRankingComponent,
         UserRankingComponent,
+        GuideComponent,
 
     },
     data(){

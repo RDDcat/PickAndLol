@@ -12,6 +12,7 @@ const modalStore = {
     isSchedule: false,
     isPlayerRanking: false,
     isUserRanking: false,
+    isGuideComponent: false,
 
   },
 

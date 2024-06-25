@@ -23,7 +23,7 @@
             <div class="w-24 text-center" :class="index===3?'text-red-600':''" @click="nav(3)">
                 랭킹
             </div>
-            <i class="fa-regular fa-circle-question" @click="$store.state.modalStore.isGuideModal=true"></i>
+            <i class="fa-regular fa-circle-question" @click="nav(4)"></i>
         </div>
         <!-- 로그인 회원가입 -->
         <div class="flex font-bold w-52" v-if="$store.state.cacheStore.userId===0">
@@ -57,6 +57,7 @@ export default {
             this.$store.state.modalStore.isSchedule= index === 1
             this.$store.state.modalStore.isPlayerRanking= index === 2
             this.$store.state.modalStore.isUserRanking= index === 3
+            this.$store.state.modalStore.isGuideComponent= index === 4
         },
 
     },
