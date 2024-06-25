@@ -1,6 +1,6 @@
 <template>
     <!-- 주장 설정 모달 -->
-    <div class="absolute flex bg-red-950 bg-opacity-90 backdrop-blur-sm w-screen min-h-full z-40">
+    <div class="fixed overscroll-contain flex bg-red-950 bg-opacity-90 backdrop-blur-sm w-screen h-[200vw] z-40">
         <div class="relative mx-auto mt-24 flex flex-col max-w-[70rem]">
             <!-- back -->
             <div class="absolute right-4 top-4 text-white" @click="$store.state.modalStore.isSelectCaptainModal = false">

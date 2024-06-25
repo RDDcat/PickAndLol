@@ -312,7 +312,7 @@
                 <div v-if="(this.$store.state.cacheStore.mainLineNav === player.line || this.$store.state.cacheStore.mainLineNav==='전체') &&
                         (this.$store.state.cacheStore.mainTeamNav=== player.team || this.$store.state.cacheStore.mainTeamNav=== 'LCK')">
                 <!-- 선수 카드 -->
-                <div class="relative w-52 h-72 flex flex-col rounded-lg shadow-lg hover:shadow-2xl">
+                <div @click="this.$store.state.modalStore.isPlayerModal=true" class="relative w-52 h-72 flex flex-col rounded-lg shadow-lg hover:shadow-2xl">
                     <div class="font-base mx-auto">
                         {{player.rank}}
                     </div>
