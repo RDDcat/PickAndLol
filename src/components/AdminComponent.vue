@@ -1234,6 +1234,11 @@
 
         </div>
     </div>
+    <div @click="console.log('submit 제출')" class="flex mx-auto mt-10 rounded-lg w-60 h-12 bg-red-300 ">
+        <div class="m-auto">
+            제출하기
+        </div>
+    </div>
     <div class="h-56"></div>
 </template>
 <script>
