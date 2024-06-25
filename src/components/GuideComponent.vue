@@ -14,7 +14,7 @@
             </div>
 
             <!-- 타이틀 -->
-            <div class="mx-auto mt-80 text-white text-lg z-10">
+            <div class="mx-auto mt-28 text-white text-lg z-10">
                 MY 선수단 구성하기
             </div>
             <div class="mx-auto text-white text-sm z-10">
