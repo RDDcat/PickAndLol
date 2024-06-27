@@ -2,7 +2,7 @@
     <div class="flex px-20 py-4 w-screen">
         <!-- 로고 -->
         <div class="flex font-bold w-52">
-            <img class="w-16 h-16" src="@/assets/logo.png">
+            <img class="w-16 h-16" src="@/assets/logo-beta.png">
             <div class="flex my-auto mx-3 text-2xl">
                 Pick
                 <div class="text-red-600 text-sm">&</div>

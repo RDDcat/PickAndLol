@@ -179,7 +179,7 @@ const cacheStore = {
                 home:{
                     team: "T1",
                     name:'SKT T1',
-                    img:'./assets/logo/color_SKT.png'
+                    img:'./assets/logo/color_T1.png'
                 },
                 away:{
                     team: "NS",
@@ -250,7 +250,7 @@ const cacheStore = {
                 away:{
                     team: "T1",
                     name:'T1',
-                    img:'./assets/logo/color_SKT.png'
+                    img:'./assets/logo/color_T1.png'
                 }
             }
         ]
@@ -283,7 +283,7 @@ const cacheStore = {
                 away:{
                     team: "T1",
                     name:'T1',
-                    img:'./assets/logo/color_SKT.png'
+                    img:'./assets/logo/color_T1.png'
                 }
             }
         ]
@@ -344,7 +344,7 @@ const cacheStore = {
                 home:{
                     team: "T1",
                     name:'T1',
-                    img:'./assets/logo/color_SKT.png'
+                    img:'./assets/logo/color_T1.png'
                 },
                 away:{
                     team: "KDF",
@@ -429,7 +429,7 @@ const cacheStore = {
                 home:{
                     team: "T1",
                     name:'T1',
-                    img:'./assets/logo/color_SKT.png'
+                    img:'./assets/logo/color_T1.png'
                 },
                 away:{
                     team: "DRX",
@@ -528,7 +528,7 @@ const cacheStore = {
                 home:{
                     team: "T1",
                     name:'T1',
-                    img:'./assets/logo/color_SKT.png'
+                    img:'./assets/logo/color_T1.png'
                 },
                 away:{
                     team: "KT",
@@ -594,7 +594,7 @@ const cacheStore = {
                 home:{
                     team: "T1",
                     name:'T1',
-                    img:'./assets/logo/color_SKT.png'
+                    img:'./assets/logo/color_T1.png'
                 },
                 away:{
                     team: "BRO",
@@ -679,7 +679,7 @@ const cacheStore = {
                 away:{
                     team: "T1",
                     name:'T1',
-                    img:'./assets/logo/color_SKT.png'
+                    img:'./assets/logo/color_T1.png'
                 }
             }
         ]
@@ -797,7 +797,7 @@ const cacheStore = {
                 away:{
                     team: "T1",
                     name:'T1',
-                    img:'./assets/logo/color_SKT.png'
+                    img:'./assets/logo/color_T1.png'
                 }
             },
             {
@@ -858,7 +858,7 @@ const cacheStore = {
                 home:{
                     team: "T1",
                     name:'T1',
-                    img:'./assets/logo/color_SKT.png'
+                    img:'./assets/logo/color_T1.png'
                 },
                 away:{
                                         team: "HLE",
@@ -1010,7 +1010,7 @@ const cacheStore = {
                 away:{
                     team: "T1",
                     name:'T1',
-                    img:'./assets/logo/color_SKT.png'
+                    img:'./assets/logo/color_T1.png'
                 }
             }
         ]
@@ -1062,7 +1062,7 @@ const cacheStore = {
                 away:{
                     team: "T1",
                     name:'T1',
-                    img:'./assets/logo/color_SKT.png'
+                    img:'./assets/logo/color_T1.png'
                 }
             },
             {
@@ -1090,7 +1090,7 @@ const cacheStore = {
                 home:{
                     team: "T1",
                     name:'T1',
-                    img:'./assets/logo/color_SKT.png'
+                    img:'./assets/logo/color_T1.png'
                 },
                 away:{
                     team: "DK",
@@ -1189,7 +1189,7 @@ const cacheStore = {
                 home:{
                     team: "T1",
                     name:'T1',
-                    img:'./assets/logo/color_SKT.png'
+                    img:'./assets/logo/color_T1.png'
                 },
                 away:{
                     team: "GEN",
@@ -1340,7 +1340,7 @@ const cacheStore = {
                 away:{
                     team: "T1",
                     name:'T1',
-                    img:'./assets/logo/color_SKT.png'
+                    img:'./assets/logo/color_T1.png'
                 }
             }
         ]
@@ -1406,7 +1406,7 @@ const cacheStore = {
                 away:{
                     team: "T1",
                     name:'T1',
-                    img:'./assets/logo/color_SKT.png'
+                    img:'./assets/logo/color_T1.png'
                 }
             }
         ]
@@ -1439,7 +1439,7 @@ const cacheStore = {
                 away:{
                     team: "T1",
                     name:'T1',
-                    img:'./assets/logo/color_SKT.png'
+                    img:'./assets/logo/color_T1.png'
                 }
             }
         ]
@@ -1533,7 +1533,7 @@ const cacheStore = {
                 home:{
                     team: "T1",
                     name:'T1',
-                    img:'./assets/logo/color_SKT.png'
+                    img:'./assets/logo/color_T1.png'
                 },
                 away:{
                     team: "FOX",
