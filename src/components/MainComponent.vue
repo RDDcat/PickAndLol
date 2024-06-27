@@ -508,7 +508,8 @@ export default {
         },
         submit(){
             // 예외처리
-            // this.valid()
+            this.valid()
+            if(this.selectAllFlag || this.selectTeamFlag || this.moreThanTwoFlag || this.oneFromOneFlag || this.vpFlag  || this.mvpFlag)  return
             // 서버 전송
             console.log(this.$store.state.cacheStore.userId)
             console.log(this.$store.state.cacheStore.myTeam)
