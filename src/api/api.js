@@ -17,6 +17,7 @@ export default {
     getRank: function(){
         return axios.get(BASE_URL + `rank`,{
             headers: {
+                withCredentials: true,
 
             },
         });
@@ -25,6 +26,7 @@ export default {
     getSync: function(id){
         return axios.get(BASE_URL + `sync/${id}`,{
             headers: {
+                withCredentials: true,
 
             },
         });
@@ -34,6 +36,7 @@ export default {
         console.log(body);
         return axios.post(BASE_URL + 'save', body,{
             headers: {
+                withCredentials: true,
 
             },
         });
