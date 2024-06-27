@@ -129,16 +129,11 @@
             </div>
 
             <!-- 히어로 우측 -->
-            <div v-if="!$store.state.cacheStore.isSave" class="max-w-2/3 flex flex-col pl-12">
+            <div v-if="!$store.state.cacheStore.isSave" class="min-w-[26rem] max-w-2/3 flex flex-col pl-12">
                 <!-- 제목 -->
-                <div class="w-full px-8 mt-3 mb-4 text-lg text-gray-700">
+                <div class="w-full mt-3 mb-4 text-lg text-gray-700">
                     2024 LOL 챔피언스 코리아 서머
                 </div>
-                {{this.$store.state.cacheStore.myTeam.players.top.isMvp}}
-                {{this.$store.state.cacheStore.myTeam.players.jgl.isMvp}}
-                {{this.$store.state.cacheStore.myTeam.players.mid.isMvp}}
-                {{this.$store.state.cacheStore.myTeam.players.adc.isMvp}}
-                {{this.$store.state.cacheStore.myTeam.players.sup.isMvp}}
 
                 <!-- step1 응원팀 선정 -->
                 <div class="w-full flex flex-col shadow-md">
