@@ -92,8 +92,8 @@
                     <img @click="$store.state.cacheStore.mainLineNav='JUG'" v-if="$store.state.cacheStore.myTeam.players.jug.name" class="absolute left-20 top-24 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.jug.img">
                     <img @click="$store.state.cacheStore.mainLineNav='MID'" v-if="!$store.state.cacheStore.myTeam.players.mid.name" class="absolute left-40 top-40 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/mid.png">
                     <img @click="$store.state.cacheStore.mainLineNav='MID'" v-if="$store.state.cacheStore.myTeam.players.mid.name" class="absolute left-40 top-40 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.mid.img">
-                    <img @click="$store.state.cacheStore.mainLineNav='BOT'" v-if="!$store.state.cacheStore.myTeam.players.bot.name" class="absolute right-20 bottom-20 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/bot.png">
-                    <img @click="$store.state.cacheStore.mainLineNav='BOT'" v-if="$store.state.cacheStore.myTeam.players.bot.name" class="absolute right-20 bottom-20 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.bot.img">
+                    <img @click="$store.state.cacheStore.mainLineNav='ADC'" v-if="!$store.state.cacheStore.myTeam.players.adc.name" class="absolute right-20 bottom-20 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/adc.png">
+                    <img @click="$store.state.cacheStore.mainLineNav='ADC'" v-if="$store.state.cacheStore.myTeam.players.adc.name" class="absolute right-20 bottom-20 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.adc.img">
                     <img @click="$store.state.cacheStore.mainLineNav='SUP'" v-if="!$store.state.cacheStore.myTeam.players.sup.name" class="absolute right-8 bottom-8 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/sup.png">
                     <img @click="$store.state.cacheStore.mainLineNav='SUP'" v-if="$store.state.cacheStore.myTeam.players.sup.name" class="absolute right-8 bottom-8 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.sup.img">
                 </div>
@@ -131,26 +131,26 @@
                         </div>
                         <!-- 토탈 vp 포인트 -->
                         <div class="flex ml-auto my-auto mr-4">
-                            <img class="w-6 h-6 object-cover" :src="$store.state.cacheStore.myTeam.teamLogo">
+                            <img class="w-6 h-6 object-cover rounded-full" :src="$store.state.cacheStore.myTeam.teamLogo">
                         </div>
                     </div>
                     <!-- 선수단 리스트 -->
                     <div class="w-full my-6 flex flex-col" v-show="step===0">
                         <!-- 1열 -->
                         <div class="my-2 px-4 flex w-full">
-                            <img class="rounded-full bg-gray-50 mx-auto" src="@/assets/logo/color_T1.png" @click="selectTeam('T1')">
-                            <img class="rounded-full bg-gray-50 mx-auto" src="@/assets/logo/color_GEN.png" @click="selectTeam('GEN')" >
-                            <img class="rounded-full bg-gray-50 mx-auto" src="@/assets/logo/color_DK.png" @click="selectTeam('DK')">
-                            <img class="rounded-full bg-gray-50 mx-auto" src="@/assets/logo/color_KDF.png" @click="selectTeam('KDF')">
-                            <img class="rounded-full bg-gray-50 mx-auto" src="@/assets/logo/color_DRX.png" @click="selectTeam('DRX')">
+                            <img class="rounded-full bg-gray-50 mx-auto hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_T1.png" @click="selectTeam('T1')">
+                            <img class="rounded-full bg-gray-50 mx-auto hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_GEN.png" @click="selectTeam('GEN')" >
+                            <img class="rounded-full bg-gray-50 mx-auto hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_DK.png" @click="selectTeam('DK')">
+                            <img class="rounded-full bg-gray-50 mx-auto hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_KDF.png" @click="selectTeam('KDF')">
+                            <img class="rounded-full bg-gray-50 mx-auto hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_DRX.png" @click="selectTeam('DRX')">
                         </div>
                         <!-- 2열 -->
                         <div class="my-2 px-4 flex w-full">
-                            <img class="rounded-full bg-gray-50 mx-auto" src="@/assets/logo/color_NS.png" @click="selectTeam('NS')">
-                            <img class="rounded-full bg-gray-50 mx-auto" src="@/assets/logo/color_FOX.png" @click="selectTeam('FOX')">
-                            <img class="rounded-full bg-gray-50 mx-auto" src="@/assets/logo/color_HLE.png" @click="selectTeam('HLE')">
-                            <img class="rounded-full bg-gray-50 mx-auto" src="@/assets/logo/color_KT.png" @click="selectTeam('KT')">
-                            <img class="rounded-full bg-gray-50 mx-auto" src="@/assets/logo/color_BRO.png" @click="selectTeam('BRO')">
+                            <img class="rounded-full bg-gray-50 mx-auto hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_NS.png" @click="selectTeam('NS')">
+                            <img class="rounded-full bg-gray-50 mx-auto hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_FOX.png" @click="selectTeam('FOX')">
+                            <img class="rounded-full bg-gray-50 mx-auto hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_HLE.png" @click="selectTeam('HLE')">
+                            <img class="rounded-full bg-gray-50 mx-auto hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_KT.png" @click="selectTeam('KT')">
+                            <img class="rounded-full bg-gray-50 mx-auto hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_BRO.png" @click="selectTeam('BRO')">
                         </div>
                     </div>
 
@@ -235,17 +235,17 @@
                         <!-- 바텀 -->
                         <div class="my-2 px-4 flex w-full">
                             <!-- 아이콘 -->
-                            <img class="my-auto mr-4 w-6 h-6" src="@/assets/icon/bot_icon.png">
+                            <img class="my-auto mr-4 w-6 h-6" src="@/assets/icon/adc_icon.png">
                             <!-- 선수 초상화 -->
-                            <img class="my-auto w-10 h-10 rounded-full" :src="$store.state.cacheStore.myTeam.players.bot.img">
+                            <img class="my-auto w-10 h-10 rounded-full" :src="$store.state.cacheStore.myTeam.players.adc.img">
                             <!-- 선수 이름 -->
                             <div class="my-auto ml-6 text-base">
-                                {{$store.state.cacheStore.myTeam.players.bot.name ?$store.state.cacheStore.myTeam.players.bot.name : '-'}}
+                                {{$store.state.cacheStore.myTeam.players.adc.name ?$store.state.cacheStore.myTeam.players.adc.name : '-'}}
                             </div>
                             <!-- 선수 vp 포인트 -->
                             <div class="flex ml-auto my-auto mr-2">
                                 <div class="text-red-600 mr-1">
-                                    {{$store.state.cacheStore.myTeam.players.bot.vp}}
+                                    {{$store.state.cacheStore.myTeam.players.adc.vp}}
                                 </div>
                                 <img class="w-4 h-4 object-cover" src="@/assets/icon/vp.png">
                             </div>
@@ -341,7 +341,7 @@
                         {{ this.$store.state.cacheStore.myTeam.players.top.name ===player.name ||
                         this.$store.state.cacheStore.myTeam.players.jug.name ===player.name ||
                         this.$store.state.cacheStore.myTeam.players.mid.name ===player.name ||
-                        this.$store.state.cacheStore.myTeam.players.bot.name ===player.name ||
+                        this.$store.state.cacheStore.myTeam.players.adc.name ===player.name ||
                         this.$store.state.cacheStore.myTeam.players.sup.name ===player.name
                         ? '선택됨' : '선택하기'}}
                     </span>
@@ -393,7 +393,7 @@ export default {
                 {name:'TOP', img:'./assets/icon/top_icon.png'}, 
                 {name:'JUG', img:'./assets/icon/jug_icon.png'}, 
                 {name:'MID', img:'./assets/icon/mid_icon.png'}, 
-                {name:'BOT', img:'./assets/icon/bot_icon.png'}, 
+                {name:'ADC', img:'./assets/icon/adc_icon.png'}, 
                 {name:'SUP', img:'./assets/icon/sup_icon.png'}, 
             ],
         }
@@ -408,7 +408,7 @@ export default {
             if(!this.$store.state.cacheStore.myTeam.players.top.name ||
                 !this.$store.state.cacheStore.myTeam.players.jug.name ||
                 !this.$store.state.cacheStore.myTeam.players.mid.name ||
-                !this.$store.state.cacheStore.myTeam.players.bot.name ||
+                !this.$store.state.cacheStore.myTeam.players.adc.name ||
                 !this.$store.state.cacheStore.myTeam.players.sup.name ){
                 this.selectAllFlag = true
             } else{
@@ -457,14 +457,14 @@ export default {
             // console.log(!this.$store.state.cacheStore.myTeam.players.top.isMvp &&
             //     !this.$store.state.cacheStore.myTeam.players.jug.isMvp &&
             //     !this.$store.state.cacheStore.myTeam.players.mid.isMvp &&
-            //     !this.$store.state.cacheStore.myTeam.players.bot.isMvp &&
+            //     !this.$store.state.cacheStore.myTeam.players.adc.isMvp &&
             //     !this.$store.state.cacheStore.myTeam.players.sup.isMvp)
             // console.log(this.$store.state.cacheStore.myTeam.players)
             // mvpFlag Validation
             if(!this.$store.state.cacheStore.myTeam.players.top.isMvp &&
                 !this.$store.state.cacheStore.myTeam.players.jug.isMvp &&
                 !this.$store.state.cacheStore.myTeam.players.mid.isMvp &&
-                !this.$store.state.cacheStore.myTeam.players.bot.isMvp &&
+                !this.$store.state.cacheStore.myTeam.players.adc.isMvp &&
                 !this.$store.state.cacheStore.myTeam.players.sup.isMvp ){
                 this.mvpFlag = true
             } else{
@@ -527,11 +527,11 @@ export default {
                         this.$store.state.cacheStore.myTeam.players.mid.img = players[player].img
                         this.$store.state.cacheStore.myTeam.players.mid.vp = players[player].vp
                     }
-                    else if(players[player].line === 'BOT'){
-                        this.$store.state.cacheStore.myTeam.players.bot.name = players[player].name
-                        this.$store.state.cacheStore.myTeam.players.bot.team = players[player].team
-                        this.$store.state.cacheStore.myTeam.players.bot.img = players[player].img
-                        this.$store.state.cacheStore.myTeam.players.bot.vp = players[player].vp
+                    else if(players[player].line === 'ADC'){
+                        this.$store.state.cacheStore.myTeam.players.adc.name = players[player].name
+                        this.$store.state.cacheStore.myTeam.players.adc.team = players[player].team
+                        this.$store.state.cacheStore.myTeam.players.adc.img = players[player].img
+                        this.$store.state.cacheStore.myTeam.players.adc.vp = players[player].vp
                     }
                     else if(players[player].line === 'SUP'){
                         this.$store.state.cacheStore.myTeam.players.sup.name = players[player].name
@@ -542,7 +542,7 @@ export default {
                 }
             }
             // 토탈 vp 계산
-            this.$store.state.cacheStore.myTeam.totalVP = this.$store.state.cacheStore.myTeam.players.top.vp + this.$store.state.cacheStore.myTeam.players.jug.vp + this.$store.state.cacheStore.myTeam.players.mid.vp + this.$store.state.cacheStore.myTeam.players.bot.vp + this.$store.state.cacheStore.myTeam.players.sup.vp
+            this.$store.state.cacheStore.myTeam.totalVP = this.$store.state.cacheStore.myTeam.players.top.vp + this.$store.state.cacheStore.myTeam.players.jug.vp + this.$store.state.cacheStore.myTeam.players.mid.vp + this.$store.state.cacheStore.myTeam.players.adc.vp + this.$store.state.cacheStore.myTeam.players.sup.vp
 
         },
 

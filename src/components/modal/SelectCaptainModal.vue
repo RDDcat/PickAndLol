@@ -44,14 +44,14 @@
                         <div class="text-center text-white text-xl">{{$store.state.cacheStore.myTeam.players.mid.name}}</div>
                     </div>
 
-                    <!-- bot -->
+                    <!-- adc -->
                     <div class="flex flex-col w-48 h-72">
-                        <img class="m-auto" src="@/assets/icon/bot_white.png">
+                        <img class="m-auto" src="@/assets/icon/adc_white.png">
                         <img class="mx-auto my-4 rounded-full w-36 h-36 object-cover hover:ring-red-400 hover:ring-4" 
                             :class="click===4?'outline-none ring-red-500 ring-4':''" 
-                            :src="$store.state.cacheStore.myTeam.players.bot.img"
+                            :src="$store.state.cacheStore.myTeam.players.adc.img"
                             @click="click=4">
-                        <div class="text-center text-white text-xl">{{$store.state.cacheStore.myTeam.players.bot.name}}</div>
+                        <div class="text-center text-white text-xl">{{$store.state.cacheStore.myTeam.players.adc.name}}</div>
                     </div>
 
                     <!-- sup -->
@@ -96,8 +96,8 @@ export default {
                 this.$store.state.cacheStore.myTeam.players.jug.isMvp = true
             } else if(this.click===3 && this.$store.state.cacheStore.myTeam.players.mid.name){
                 this.$store.state.cacheStore.myTeam.players.mid.isMvp = true
-            } else if(this.click===4 && this.$store.state.cacheStore.myTeam.players.bot.name){
-                this.$store.state.cacheStore.myTeam.players.bot.isMvp = true
+            } else if(this.click===4 && this.$store.state.cacheStore.myTeam.players.adc.name){
+                this.$store.state.cacheStore.myTeam.players.adc.isMvp = true
             } else if(this.click===5 && this.$store.state.cacheStore.myTeam.players.sup.name){
                 this.$store.state.cacheStore.myTeam.players.sup.isMvp = true
             }

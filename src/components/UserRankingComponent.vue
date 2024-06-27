@@ -67,7 +67,7 @@
                             <img class="rounded-full w-8" :src="user.players.top.img">
                             <img class="rounded-full w-8" :src="user.players.jug.img">
                             <img class="rounded-full w-8" :src="user.players.mid.img">
-                            <img class="rounded-full w-8" :src="user.players.bot.img">
+                            <img class="rounded-full w-8" :src="user.players.adc.img">
                             <img class="rounded-full w-8" :src="user.players.sup.img">
                         </td>
                         <td class="px-1 py-4">

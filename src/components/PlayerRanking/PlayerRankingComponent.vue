@@ -20,7 +20,7 @@
 
     <!-- 선수 순위 -->
     
-    a
+    
 
 
 
@@ -39,7 +39,7 @@ export default {
                 {name:'TOP', img:'./assets/icon/top_icon.png'}, 
                 {name:'JUG', img:'./assets/icon/jug_icon.png'}, 
                 {name:'MID', img:'./assets/icon/mid_icon.png'}, 
-                {name:'BOT', img:'./assets/icon/bot_icon.png'}, 
+                {name:'ADC', img:'./assets/icon/adc_icon.png'}, 
                 {name:'SUP', img:'./assets/icon/sup_icon.png'}, 
             ],
 
