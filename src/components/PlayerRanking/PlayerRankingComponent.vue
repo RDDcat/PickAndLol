@@ -37,7 +37,7 @@ export default {
             lines:[
                 {name:'전체', img:'./assets/icon/total_icon.png'}, 
                 {name:'TOP', img:'./assets/icon/top_icon.png'}, 
-                {name:'JUG', img:'./assets/icon/jug_icon.png'}, 
+                {name:'JGL', img:'./assets/icon/jgl_icon.png'}, 
                 {name:'MID', img:'./assets/icon/mid_icon.png'}, 
                 {name:'ADC', img:'./assets/icon/adc_icon.png'}, 
                 {name:'SUP', img:'./assets/icon/sup_icon.png'}, 

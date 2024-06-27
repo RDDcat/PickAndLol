@@ -88,8 +88,8 @@
                     <img class="mx-auto w-96" src="@/assets/map.png" alt="">
                     <img @click="$store.state.cacheStore.mainLineNav='TOP'" v-if="!$store.state.cacheStore.myTeam.players.top.name" class="absolute left-6 top-6 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/top.png">
                     <img @click="$store.state.cacheStore.mainLineNav='TOP'" v-if="$store.state.cacheStore.myTeam.players.top.name" class="absolute left-6 top-6 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.top.img">
-                    <img @click="$store.state.cacheStore.mainLineNav='JUG'" v-if="!$store.state.cacheStore.myTeam.players.jug.name" class="absolute left-20 top-24 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/jug.png">
-                    <img @click="$store.state.cacheStore.mainLineNav='JUG'" v-if="$store.state.cacheStore.myTeam.players.jug.name" class="absolute left-20 top-24 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.jug.img">
+                    <img @click="$store.state.cacheStore.mainLineNav='JGL'" v-if="!$store.state.cacheStore.myTeam.players.jgl.name" class="absolute left-20 top-24 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/jgl.png">
+                    <img @click="$store.state.cacheStore.mainLineNav='JGL'" v-if="$store.state.cacheStore.myTeam.players.jgl.name" class="absolute left-20 top-24 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.jgl.img">
                     <img @click="$store.state.cacheStore.mainLineNav='MID'" v-if="!$store.state.cacheStore.myTeam.players.mid.name" class="absolute left-40 top-40 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/mid.png">
                     <img @click="$store.state.cacheStore.mainLineNav='MID'" v-if="$store.state.cacheStore.myTeam.players.mid.name" class="absolute left-40 top-40 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.mid.img">
                     <img @click="$store.state.cacheStore.mainLineNav='ADC'" v-if="!$store.state.cacheStore.myTeam.players.adc.name" class="absolute right-20 bottom-20 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/adc.png">
@@ -197,17 +197,17 @@
                         <!-- 정글 -->
                         <div class="my-2 px-4 flex w-full">
                             <!-- 아이콘 -->
-                            <img class="my-auto mr-4 w-6 h-6" src="@/assets/icon/jug_icon.png">
+                            <img class="my-auto mr-4 w-6 h-6" src="@/assets/icon/jgl_icon.png">
                             <!-- 선수 초상화 -->
-                            <img class="my-auto w-10 h-10 rounded-full" :src="$store.state.cacheStore.myTeam.players.jug.img">
+                            <img class="my-auto w-10 h-10 rounded-full" :src="$store.state.cacheStore.myTeam.players.jgl.img">
                             <!-- 선수 이름 -->
                             <div class="my-auto ml-6 text-base">
-                                {{$store.state.cacheStore.myTeam.players.jug.name ?$store.state.cacheStore.myTeam.players.jug.name : '-'}}
+                                {{$store.state.cacheStore.myTeam.players.jgl.name ?$store.state.cacheStore.myTeam.players.jgl.name : '-'}}
                             </div>
                             <!-- 선수 vp 포인트 -->
                             <div class="flex ml-auto my-auto mr-2">
                                 <div class="text-red-600 mr-1">
-                                    {{$store.state.cacheStore.myTeam.players.jug.vp}}
+                                    {{$store.state.cacheStore.myTeam.players.jgl.vp}}
                                 </div>
                                 <img class="w-4 h-4 object-cover" src="@/assets/icon/vp.png">
                             </div>
@@ -339,7 +339,7 @@
                     class="w-52 h-12 my-3 inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-400 via-red-500 to-red-600 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200">
                     <span class="relative w-52  px-5 py-3 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                         {{ this.$store.state.cacheStore.myTeam.players.top.name ===player.name ||
-                        this.$store.state.cacheStore.myTeam.players.jug.name ===player.name ||
+                        this.$store.state.cacheStore.myTeam.players.jgl.name ===player.name ||
                         this.$store.state.cacheStore.myTeam.players.mid.name ===player.name ||
                         this.$store.state.cacheStore.myTeam.players.adc.name ===player.name ||
                         this.$store.state.cacheStore.myTeam.players.sup.name ===player.name
@@ -391,7 +391,7 @@ export default {
             lines:[
                 {name:'전체', img:'./assets/icon/total_icon.png'}, 
                 {name:'TOP', img:'./assets/icon/top_icon.png'}, 
-                {name:'JUG', img:'./assets/icon/jug_icon.png'}, 
+                {name:'JGL', img:'./assets/icon/jgl_icon.png'}, 
                 {name:'MID', img:'./assets/icon/mid_icon.png'}, 
                 {name:'ADC', img:'./assets/icon/adc_icon.png'}, 
                 {name:'SUP', img:'./assets/icon/sup_icon.png'}, 
@@ -406,7 +406,7 @@ export default {
         valid(){
             // selectAllFlag Validation            
             if(!this.$store.state.cacheStore.myTeam.players.top.name ||
-                !this.$store.state.cacheStore.myTeam.players.jug.name ||
+                !this.$store.state.cacheStore.myTeam.players.jgl.name ||
                 !this.$store.state.cacheStore.myTeam.players.mid.name ||
                 !this.$store.state.cacheStore.myTeam.players.adc.name ||
                 !this.$store.state.cacheStore.myTeam.players.sup.name ){
@@ -455,14 +455,14 @@ export default {
                 this.vpFlag = false
             }
             // console.log(!this.$store.state.cacheStore.myTeam.players.top.isMvp &&
-            //     !this.$store.state.cacheStore.myTeam.players.jug.isMvp &&
+            //     !this.$store.state.cacheStore.myTeam.players.jgl.isMvp &&
             //     !this.$store.state.cacheStore.myTeam.players.mid.isMvp &&
             //     !this.$store.state.cacheStore.myTeam.players.adc.isMvp &&
             //     !this.$store.state.cacheStore.myTeam.players.sup.isMvp)
             // console.log(this.$store.state.cacheStore.myTeam.players)
             // mvpFlag Validation
             if(!this.$store.state.cacheStore.myTeam.players.top.isMvp &&
-                !this.$store.state.cacheStore.myTeam.players.jug.isMvp &&
+                !this.$store.state.cacheStore.myTeam.players.jgl.isMvp &&
                 !this.$store.state.cacheStore.myTeam.players.mid.isMvp &&
                 !this.$store.state.cacheStore.myTeam.players.adc.isMvp &&
                 !this.$store.state.cacheStore.myTeam.players.sup.isMvp ){
@@ -515,11 +515,11 @@ export default {
                         this.$store.state.cacheStore.myTeam.players.top.img = players[player].img
                         this.$store.state.cacheStore.myTeam.players.top.vp = players[player].vp
                     }
-                    else if(players[player].line === 'JUG'){
-                        this.$store.state.cacheStore.myTeam.players.jug.name = players[player].name
-                        this.$store.state.cacheStore.myTeam.players.jug.team = players[player].team
-                        this.$store.state.cacheStore.myTeam.players.jug.img = players[player].img
-                        this.$store.state.cacheStore.myTeam.players.jug.vp = players[player].vp
+                    else if(players[player].line === 'JGL'){
+                        this.$store.state.cacheStore.myTeam.players.jgl.name = players[player].name
+                        this.$store.state.cacheStore.myTeam.players.jgl.team = players[player].team
+                        this.$store.state.cacheStore.myTeam.players.jgl.img = players[player].img
+                        this.$store.state.cacheStore.myTeam.players.jgl.vp = players[player].vp
                     }
                     else if(players[player].line === 'MID'){
                         this.$store.state.cacheStore.myTeam.players.mid.name = players[player].name
@@ -542,7 +542,7 @@ export default {
                 }
             }
             // 토탈 vp 계산
-            this.$store.state.cacheStore.myTeam.totalVP = this.$store.state.cacheStore.myTeam.players.top.vp + this.$store.state.cacheStore.myTeam.players.jug.vp + this.$store.state.cacheStore.myTeam.players.mid.vp + this.$store.state.cacheStore.myTeam.players.adc.vp + this.$store.state.cacheStore.myTeam.players.sup.vp
+            this.$store.state.cacheStore.myTeam.totalVP = this.$store.state.cacheStore.myTeam.players.top.vp + this.$store.state.cacheStore.myTeam.players.jgl.vp + this.$store.state.cacheStore.myTeam.players.mid.vp + this.$store.state.cacheStore.myTeam.players.adc.vp + this.$store.state.cacheStore.myTeam.players.sup.vp
 
         },
 

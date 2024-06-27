@@ -225,38 +225,38 @@
             <!-- 정글 선수 정보 입력 -->
             <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700">
             <div class="max-w-xl mx-auto">
-                <label class="block mb-2 text-sm font-medium text-gray-900 ">정글 이름 : {{home.jug_player.name}}</label>
-                <input type="text" v-model="home.jug_player.name" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <label class="block mb-2 text-sm font-medium text-gray-900 ">정글 이름 : {{home.jgl_player.name}}</label>
+                <input type="text" v-model="home.jgl_player.name" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
             
                 <!-- 퍼스트 블러드 달성 -->
                 <label class="inline-flex items-center cursor-pointer mt-4">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 dark:text-gray-300">퍼스트 블러드 달성</span>
-                    <input v-model="home.jug_player.isFirstBlood" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="home.jgl_player.isFirstBlood" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- 퍼스트 블러드 당함 -->
                 <label class="inline-flex items-center cursor-pointer mt-1">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 dark:text-gray-300">퍼스트 블러드 당함</span>
-                    <input v-model="home.jug_player.isFirstBlooded" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="home.jgl_player.isFirstBlooded" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- MOM(POG) 선정 -->
                 <label class="inline-flex items-center cursor-pointer mt-1">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 dark:text-gray-300">MOM(POG) 선정</span>
-                    <input v-model="home.jug_player.isMOM" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="home.jgl_player.isMOM" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- 전령 실패 -->
                 <div class="flex">
                     <label class="block mb-1 text-sm font-medium text-gray-900 mt-3 mr-2">전령 실패 횟수</label>
                     <div class="relative flex items-center">
-                        <button type="button" @click="home.jug_player.failureHerald===0?home.jug_player.failureHerald=0:home.jug_player.failureHerald--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <button type="button" @click="home.jgl_player.failureHerald===0?home.jgl_player.failureHerald=0:home.jgl_player.failureHerald--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
                             </svg>
                         </button>
-                        <input type="text" class="flex-shrink-0 text-gray-900 dark:text-white border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="home.jug_player.failureHerald" required />
-                        <button type="button" @click="home.jug_player.failureHerald++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <input type="text" class="flex-shrink-0 text-gray-900 dark:text-white border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="home.jgl_player.failureHerald" required />
+                        <button type="button" @click="home.jgl_player.failureHerald++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
                             </svg>
@@ -267,13 +267,13 @@
                 <div class="flex">
                     <label class="block mb-1 text-sm font-medium text-gray-900 mt-3 mr-2">솔로킬</label>
                     <div class="relative flex items-center">
-                        <button type="button" @click="home.jug_player.soloKill===0?home.jug_player.soloKill=0:home.jug_player.soloKill--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <button type="button" @click="home.jgl_player.soloKill===0?home.jgl_player.soloKill=0:home.jgl_player.soloKill--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
                             </svg>
                         </button>
-                        <input type="text" class="flex-shrink-0 text-gray-900 dark:text-white border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="home.jug_player.soloKill" required />
-                        <button type="button" @click="home.jug_player.soloKill++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <input type="text" class="flex-shrink-0 text-gray-900 dark:text-white border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="home.jgl_player.soloKill" required />
+                        <button type="button" @click="home.jgl_player.soloKill++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
                             </svg>
@@ -287,13 +287,13 @@
                         <label class="block mb-1 text-sm font-medium text-gray-300">(**솔로킬과 중복 카운트)</label>
                     </div>
                     <div class="relative flex items-center">
-                        <button type="button" @click="home.jug_player.lineSoloKill===0?home.jug_player.lineSoloKill=0:home.jug_player.lineSoloKill--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <button type="button" @click="home.jgl_player.lineSoloKill===0?home.jgl_player.lineSoloKill=0:home.jgl_player.lineSoloKill--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
                             </svg>
                         </button>
-                        <input type="text" class="flex-shrink-0 text-gray-900 dark:text-white border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="home.jug_player.lineSoloKill" required />
-                        <button type="button" @click="home.jug_player.lineSoloKill++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <input type="text" class="flex-shrink-0 text-gray-900 dark:text-white border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="home.jgl_player.lineSoloKill" required />
+                        <button type="button" @click="home.jgl_player.lineSoloKill++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
                             </svg>
@@ -303,21 +303,21 @@
                 <!-- 킬 -->
                 <form class="max-w-xl mx-auto">
                     <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">kill 킬</label>
-                    <input v-model="home.jug_player.kill" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" :placeholder="home.jug_player.kill" required />
+                    <input v-model="home.jgl_player.kill" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" :placeholder="home.jgl_player.kill" required />
                 </form>
                 <!-- 데스 -->
                 <form class="max-w-xl mx-auto">
                     <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">death 데스</label>
-                    <input v-model="home.jug_player.death" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" :placeholder="home.jug_player.kill" required />
+                    <input v-model="home.jgl_player.death" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" :placeholder="home.jgl_player.kill" required />
                 </form>
                 <!-- 어시스트 -->
                 <form class="max-w-xl mx-auto">
                     <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">assist 어시스트</label>
-                    <input v-model="home.jug_player.assist" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" :placeholder="home.jug_player.kill" required />
+                    <input v-model="home.jgl_player.assist" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" :placeholder="home.jgl_player.kill" required />
                 </form>
 
                 <label class="inline-flex items-center cursor-pointer mt-3">
-                    {{home.jug_player}}
+                    {{home.jgl_player}}
                 </label>
             </div>
 
@@ -839,38 +839,38 @@
             <!-- 정글 선수 정보 입력 -->
             <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700">
             <div class="max-w-xl mx-auto">
-                <label class="block mb-2 text-sm font-medium text-gray-900 ">정글 이름 : {{away.jug_player.name}}</label>
-                <input type="text" v-model="away.jug_player.name" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <label class="block mb-2 text-sm font-medium text-gray-900 ">정글 이름 : {{away.jgl_player.name}}</label>
+                <input type="text" v-model="away.jgl_player.name" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
             
                 <!-- 퍼스트 블러드 달성 -->
                 <label class="inline-flex items-center cursor-pointer mt-4">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 dark:text-gray-300">퍼스트 블러드 달성</span>
-                    <input v-model="away.jug_player.isFirstBlood" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="away.jgl_player.isFirstBlood" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- 퍼스트 블러드 당함 -->
                 <label class="inline-flex items-center cursor-pointer mt-1">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 dark:text-gray-300">퍼스트 블러드 당함</span>
-                    <input v-model="away.jug_player.isFirstBlooded" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="away.jgl_player.isFirstBlooded" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- MOM(POG) 선정 -->
                 <label class="inline-flex items-center cursor-pointer mt-1">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 dark:text-gray-300">MOM(POG) 선정</span>
-                    <input v-model="away.jug_player.isMOM" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="away.jgl_player.isMOM" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- 전령 실패 -->
                 <div class="flex">
                     <label class="block mb-1 text-sm font-medium text-gray-900 mt-3 mr-2">전령 실패 횟수</label>
                     <div class="relative flex items-center">
-                        <button type="button" @click="away.jug_player.failureHerald===0?away.jug_player.failureHerald=0:away.jug_player.failureHerald--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <button type="button" @click="away.jgl_player.failureHerald===0?away.jgl_player.failureHerald=0:away.jgl_player.failureHerald--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
                             </svg>
                         </button>
-                        <input type="text" class="flex-shrink-0 text-gray-900 dark:text-white border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="away.jug_player.failureHerald" required />
-                        <button type="button" @click="away.jug_player.failureHerald++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <input type="text" class="flex-shrink-0 text-gray-900 dark:text-white border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="away.jgl_player.failureHerald" required />
+                        <button type="button" @click="away.jgl_player.failureHerald++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
                             </svg>
@@ -881,13 +881,13 @@
                 <div class="flex">
                     <label class="block mb-1 text-sm font-medium text-gray-900 mt-3 mr-2">솔로킬</label>
                     <div class="relative flex items-center">
-                        <button type="button" @click="away.jug_player.soloKill===0?away.jug_player.soloKill=0:away.jug_player.soloKill--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <button type="button" @click="away.jgl_player.soloKill===0?away.jgl_player.soloKill=0:away.jgl_player.soloKill--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
                             </svg>
                         </button>
-                        <input type="text" class="flex-shrink-0 text-gray-900 dark:text-white border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="away.jug_player.soloKill" required />
-                        <button type="button" @click="away.jug_player.soloKill++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <input type="text" class="flex-shrink-0 text-gray-900 dark:text-white border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="away.jgl_player.soloKill" required />
+                        <button type="button" @click="away.jgl_player.soloKill++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
                             </svg>
@@ -901,13 +901,13 @@
                         <label class="block mb-1 text-sm font-medium text-gray-300">(**솔로킬과 중복 카운트)</label>
                     </div>
                     <div class="relative flex items-center">
-                        <button type="button" @click="away.jug_player.lineSoloKill===0?away.jug_player.lineSoloKill=0:away.jug_player.lineSoloKill--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <button type="button" @click="away.jgl_player.lineSoloKill===0?away.jgl_player.lineSoloKill=0:away.jgl_player.lineSoloKill--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
                             </svg>
                         </button>
-                        <input type="text" class="flex-shrink-0 text-gray-900 dark:text-white border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="away.jug_player.lineSoloKill" required />
-                        <button type="button" @click="away.jug_player.lineSoloKill++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <input type="text" class="flex-shrink-0 text-gray-900 dark:text-white border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="away.jgl_player.lineSoloKill" required />
+                        <button type="button" @click="away.jgl_player.lineSoloKill++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
                             </svg>
@@ -917,21 +917,21 @@
                 <!-- 킬 -->
                 <form class="max-w-xl mx-auto">
                     <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">kill 킬</label>
-                    <input v-model="away.jug_player.kill" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" :placeholder="away.jug_player.kill" required />
+                    <input v-model="away.jgl_player.kill" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" :placeholder="away.jgl_player.kill" required />
                 </form>
                 <!-- 데스 -->
                 <form class="max-w-xl mx-auto">
                     <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">death 데스</label>
-                    <input v-model="away.jug_player.death" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" :placeholder="away.jug_player.kill" required />
+                    <input v-model="away.jgl_player.death" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" :placeholder="away.jgl_player.kill" required />
                 </form>
                 <!-- 어시스트 -->
                 <form class="max-w-xl mx-auto">
                     <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">assist 어시스트</label>
-                    <input v-model="away.jug_player.assist" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" :placeholder="away.jug_player.kill" required />
+                    <input v-model="away.jgl_player.assist" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" :placeholder="away.jgl_player.kill" required />
                 </form>
 
                 <label class="inline-flex items-center cursor-pointer mt-3">
-                    {{away.jug_player}}
+                    {{away.jgl_player}}
                 </label>
             </div>
 
@@ -1270,7 +1270,7 @@ export default {
                     death:0,
                     assist:0,
                 },
-                jug_player:{
+                jgl_player:{
                     name:'',
                     isFirstBlood:false,
                     isFirstBlooded:false,
@@ -1339,7 +1339,7 @@ export default {
                     death:0,
                     assist:0,
                 },
-                jug_player:{
+                jgl_player:{
                     name:'',
                     isFirstBlood:false,
                     isFirstBlooded:false,

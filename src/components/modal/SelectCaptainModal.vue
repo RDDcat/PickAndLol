@@ -24,14 +24,14 @@
                             @click="click=1">
                         <div class="text-center text-white text-xl">{{$store.state.cacheStore.myTeam.players.top.name}}</div>
                     </div>
-                    <!-- jug -->
+                    <!-- jgl -->
                     <div class="flex flex-col w-48 h-72">
-                        <img class="m-auto" src="@/assets/icon/jug_white.png">
+                        <img class="m-auto" src="@/assets/icon/jgl_white.png">
                         <img class="mx-auto my-4 rounded-full w-36 h-36 object-cover hover:ring-red-400 hover:ring-4" 
                             :class="click===2?'outline-none ring-red-500 ring-4':''" 
-                            :src="$store.state.cacheStore.myTeam.players.jug.img"
+                            :src="$store.state.cacheStore.myTeam.players.jgl.img"
                             @click="click=2">
-                        <div class="text-center text-white text-xl">{{$store.state.cacheStore.myTeam.players.jug.name}}</div>
+                        <div class="text-center text-white text-xl">{{$store.state.cacheStore.myTeam.players.jgl.name}}</div>
                     </div>
 
                     <!-- mid -->
@@ -92,8 +92,8 @@ export default {
         select(){
             if(this.click===1 && this.$store.state.cacheStore.myTeam.players.top.name){
                 this.$store.state.cacheStore.myTeam.players.top.isMvp = true
-            } else if(this.click===2 && this.$store.state.cacheStore.myTeam.players.jug.name){
-                this.$store.state.cacheStore.myTeam.players.jug.isMvp = true
+            } else if(this.click===2 && this.$store.state.cacheStore.myTeam.players.jgl.name){
+                this.$store.state.cacheStore.myTeam.players.jgl.isMvp = true
             } else if(this.click===3 && this.$store.state.cacheStore.myTeam.players.mid.name){
                 this.$store.state.cacheStore.myTeam.players.mid.isMvp = true
             } else if(this.click===4 && this.$store.state.cacheStore.myTeam.players.adc.name){
