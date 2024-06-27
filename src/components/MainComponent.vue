@@ -198,7 +198,10 @@
                         <!-- 탑 -->
                         <div class="my-2 px-4 flex w-full">
                             <!-- 아이콘 -->
-                            <img class="my-auto mr-4 w-6 h-6" src="@/assets/icon/top_icon.png">
+                            <div class="relative my-auto mr-4 ">
+                                <img v-if="$store.state.cacheStore.myTeam.players.top.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
+                                <img class="w-6 h-6" src="@/assets/icon/top_icon.png">
+                            </div>
                             <!-- 선수 초상화 -->
                             <img class="my-auto w-10 h-10 rounded-full" :src="$store.state.cacheStore.myTeam.players.top.img">
                             <!-- 선수 이름 -->
@@ -217,7 +220,10 @@
                         <!-- 정글 -->
                         <div class="my-2 px-4 flex w-full">
                             <!-- 아이콘 -->
-                            <img class="my-auto mr-4 w-6 h-6" src="@/assets/icon/jgl_icon.png">
+                            <div class="relative my-auto mr-4 ">
+                                <img v-if="$store.state.cacheStore.myTeam.players.jgl.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
+                                <img class="w-6 h-6" src="@/assets/icon/jgl_icon.png">
+                            </div>
                             <!-- 선수 초상화 -->
                             <img class="my-auto w-10 h-10 rounded-full" :src="$store.state.cacheStore.myTeam.players.jgl.img">
                             <!-- 선수 이름 -->
@@ -236,7 +242,10 @@
                         <!-- 미드 -->
                         <div class="my-2 px-4 flex w-full">
                             <!-- 아이콘 -->
-                            <img class="my-auto mr-4 w-6 h-6" src="@/assets/icon/mid_icon.png">
+                            <div class="relative my-auto mr-4 ">
+                                <img v-if="$store.state.cacheStore.myTeam.players.mid.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
+                                <img class="w-6 h-6" src="@/assets/icon/mid_icon.png">
+                            </div>
                             <!-- 선수 초상화 -->
                             <img class="my-auto w-10 h-10 rounded-full" :src="$store.state.cacheStore.myTeam.players.mid.img">
                             <!-- 선수 이름 -->
@@ -255,7 +264,10 @@
                         <!-- 바텀 -->
                         <div class="my-2 px-4 flex w-full">
                             <!-- 아이콘 -->
-                            <img class="my-auto mr-4 w-6 h-6" src="@/assets/icon/adc_icon.png">
+                            <div class="relative my-auto mr-4 ">
+                                <img v-if="$store.state.cacheStore.myTeam.players.adc.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
+                                <img class="w-6 h-6" src="@/assets/icon/adc_icon.png">
+                            </div>
                             <!-- 선수 초상화 -->
                             <img class="my-auto w-10 h-10 rounded-full" :src="$store.state.cacheStore.myTeam.players.adc.img">
                             <!-- 선수 이름 -->
@@ -274,7 +286,10 @@
                         <!-- 서폿 -->
                         <div class="my-2 px-4 flex w-full">
                             <!-- 아이콘 -->
-                            <img class="my-auto mr-4 w-6 h-6" src="@/assets/icon/sup_icon.png">
+                            <div class="relative my-auto mr-4 ">
+                                <img v-if="$store.state.cacheStore.myTeam.players.sup.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
+                                <img class="w-6 h-6" src="@/assets/icon/sup_icon.png">
+                            </div>
                             <!-- 선수 초상화 -->
                             <img class="my-auto w-10 h-10 rounded-full" :src="$store.state.cacheStore.myTeam.players.sup.img">
                             <!-- 선수 이름 -->
