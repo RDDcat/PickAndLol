@@ -202,7 +202,7 @@
                             <img class="my-auto w-10 h-10 rounded-full" :src="$store.state.cacheStore.myTeam.players.top.img">
                             <!-- 선수 이름 -->
                             <div class="my-auto ml-6 text-base">
-                                {{$store.state.cacheStore.myTeam.players.top.name ?$store.state.cacheStore.myTeam.players.top.name : '-'}}
+                                {{$store.state.cacheStore.myTeam.players.top.name ? $store.state.cacheStore.myTeam.players.top.team+' '+$store.state.cacheStore.myTeam.players.top.name : '-'}}
                             </div>
                             <!-- 선수 vp 포인트 -->
                             <div class="flex ml-auto my-auto mr-2">
@@ -224,7 +224,7 @@
                             <img class="my-auto w-10 h-10 rounded-full" :src="$store.state.cacheStore.myTeam.players.jgl.img">
                             <!-- 선수 이름 -->
                             <div class="my-auto ml-6 text-base">
-                                {{$store.state.cacheStore.myTeam.players.jgl.name ?$store.state.cacheStore.myTeam.players.jgl.name : '-'}}
+                                {{$store.state.cacheStore.myTeam.players.jgl.name ?$store.state.cacheStore.myTeam.players.jgl.team+' '+$store.state.cacheStore.myTeam.players.jgl.name  : '-'}}
                             </div>
                             <!-- 선수 vp 포인트 -->
                             <div class="flex ml-auto my-auto mr-2">
@@ -246,7 +246,7 @@
                             <img class="my-auto w-10 h-10 rounded-full" :src="$store.state.cacheStore.myTeam.players.mid.img">
                             <!-- 선수 이름 -->
                             <div class="my-auto ml-6 text-base">
-                                {{$store.state.cacheStore.myTeam.players.mid.name ?$store.state.cacheStore.myTeam.players.mid.name : '-'}}
+                                {{$store.state.cacheStore.myTeam.players.mid.name ?$store.state.cacheStore.myTeam.players.mid.team+' '+$store.state.cacheStore.myTeam.players.mid.name : '-'}}
                             </div>
                             <!-- 선수 vp 포인트 -->
                             <div class="flex ml-auto my-auto mr-2">
@@ -268,7 +268,7 @@
                             <img class="my-auto w-10 h-10 rounded-full" :src="$store.state.cacheStore.myTeam.players.adc.img">
                             <!-- 선수 이름 -->
                             <div class="my-auto ml-6 text-base">
-                                {{$store.state.cacheStore.myTeam.players.adc.name ?$store.state.cacheStore.myTeam.players.adc.name : '-'}}
+                                {{$store.state.cacheStore.myTeam.players.adc.name ?$store.state.cacheStore.myTeam.players.adc.team+' '+$store.state.cacheStore.myTeam.players.adc.name : '-'}}
                             </div>
                             <!-- 선수 vp 포인트 -->
                             <div class="flex ml-auto my-auto mr-2">
@@ -290,7 +290,7 @@
                             <img class="my-auto w-10 h-10 rounded-full" :src="$store.state.cacheStore.myTeam.players.sup.img">
                             <!-- 선수 이름 -->
                             <div class="my-auto ml-6 text-base">
-                                {{$store.state.cacheStore.myTeam.players.sup.name ?$store.state.cacheStore.myTeam.players.sup.name : '-'}}
+                                {{$store.state.cacheStore.myTeam.players.sup.name ?$store.state.cacheStore.myTeam.players.sup.team+' '+$store.state.cacheStore.myTeam.players.sup.name : '-'}}
                             </div>
                             <!-- 선수 vp 포인트 -->
                             <div class="flex ml-auto my-auto mr-2">
