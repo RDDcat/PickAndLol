@@ -1,7 +1,7 @@
 import axios from "axios";
 import store from "@/store";
 
-const BASE_URL = "http://localhost:8080/"
+const BASE_URL = "http://43.206.241.211:8080/"
 
 export default {
     // sample
