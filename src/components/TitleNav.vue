@@ -1,5 +1,5 @@
 <template>
-    <div class="flex px-20 py-4 w-screen">
+    <div class="flex px-20 py-4 w-full">
         <!-- 로고 -->
         <div class="flex font-bold w-52">
             <img class="w-16 h-16" src="@/assets/logo-beta.png">
