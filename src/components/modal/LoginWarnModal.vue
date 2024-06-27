@@ -11,7 +11,7 @@
             </div>
             <!-- 로그인 버튼 -->
             <div @click="login"
-                class="flex mt-10 mx-auto px-4 py-2 text-red-600 bg-white rounded-lg text-2xl hover:bg-red-50" >
+                class="flex mt-10 mx-auto px-6 py-2 text-red-600 bg-white rounded-lg text-xl hover:bg-red-50" >
                 로그인하러 가기
             </div>
         </div>        
