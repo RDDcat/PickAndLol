@@ -86,16 +86,31 @@
                 <!-- 이미지 컨테이너 (지도좌표) -->
                 <div class="relative flex ml-auto mr-12">
                     <img class="mx-auto w-96" src="@/assets/map.png" alt="">
-                    <img @click="$store.state.cacheStore.mainLineNav='TOP'" v-if="!$store.state.cacheStore.myTeam.players.top.name" class="absolute left-6 top-6 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/top.png">
-                    <img @click="$store.state.cacheStore.mainLineNav='TOP'" v-if="$store.state.cacheStore.myTeam.players.top.name" class="absolute left-6 top-6 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.top.img">
-                    <img @click="$store.state.cacheStore.mainLineNav='JGL'" v-if="!$store.state.cacheStore.myTeam.players.jgl.name" class="absolute left-20 top-24 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/jgl.png">
-                    <img @click="$store.state.cacheStore.mainLineNav='JGL'" v-if="$store.state.cacheStore.myTeam.players.jgl.name" class="absolute left-20 top-24 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.jgl.img">
-                    <img @click="$store.state.cacheStore.mainLineNav='MID'" v-if="!$store.state.cacheStore.myTeam.players.mid.name" class="absolute left-40 top-40 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/mid.png">
-                    <img @click="$store.state.cacheStore.mainLineNav='MID'" v-if="$store.state.cacheStore.myTeam.players.mid.name" class="absolute left-40 top-40 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.mid.img">
-                    <img @click="$store.state.cacheStore.mainLineNav='ADC'" v-if="!$store.state.cacheStore.myTeam.players.adc.name" class="absolute right-20 bottom-20 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/adc.png">
-                    <img @click="$store.state.cacheStore.mainLineNav='ADC'" v-if="$store.state.cacheStore.myTeam.players.adc.name" class="absolute right-20 bottom-20 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.adc.img">
-                    <img @click="$store.state.cacheStore.mainLineNav='SUP'" v-if="!$store.state.cacheStore.myTeam.players.sup.name" class="absolute right-8 bottom-8 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" src="@/assets/sup.png">
-                    <img @click="$store.state.cacheStore.mainLineNav='SUP'" v-if="$store.state.cacheStore.myTeam.players.sup.name" class="absolute right-8 bottom-8 w-16 h-16 hover:ring-2 hover:ring-red-400 rounded-full" :src="$store.state.cacheStore.myTeam.players.sup.img">
+                    <div class="absolute left-6 top-6">
+                        <img @click="$store.state.cacheStore.mainLineNav='TOP'" v-if="!$store.state.cacheStore.myTeam.players.top.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/top.png">
+                        <img @click="$store.state.cacheStore.mainLineNav='TOP'" v-if="$store.state.cacheStore.myTeam.players.top.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="$store.state.cacheStore.myTeam.players.top.img">
+                        <div v-if="$store.state.cacheStore.myTeam.players.top.isMvp" class="absolute -left-1 top-12 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
+                    </div>
+                    <div class="absolute left-20 top-24">
+                        <img @click="$store.state.cacheStore.mainLineNav='JGL'" v-if="!$store.state.cacheStore.myTeam.players.jgl.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/jgl.png">
+                        <img @click="$store.state.cacheStore.mainLineNav='JGL'" v-if="$store.state.cacheStore.myTeam.players.jgl.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="$store.state.cacheStore.myTeam.players.jgl.img">
+                        <div v-if="$store.state.cacheStore.myTeam.players.jgl.isMvp" class="absolute -left-1 top-12 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
+                    </div>
+                    <div class="absolute left-40 top-40">
+                        <img @click="$store.state.cacheStore.mainLineNav='MID'" v-if="!$store.state.cacheStore.myTeam.players.mid.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/mid.png">
+                        <img @click="$store.state.cacheStore.mainLineNav='MID'" v-if="$store.state.cacheStore.myTeam.players.mid.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="$store.state.cacheStore.myTeam.players.mid.img">
+                        <div v-if="$store.state.cacheStore.myTeam.players.mid.isMvp" class="absolute -left-1 top-12 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
+                    </div>
+                    <div class="absolute right-24 bottom-20">
+                        <img @click="$store.state.cacheStore.mainLineNav='ADC'" v-if="!$store.state.cacheStore.myTeam.players.adc.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/adc.png">
+                        <img @click="$store.state.cacheStore.mainLineNav='ADC'" v-if="$store.state.cacheStore.myTeam.players.adc.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="$store.state.cacheStore.myTeam.players.adc.img">
+                        <div v-if="$store.state.cacheStore.myTeam.players.adc.isMvp" class="absolute -left-1 top-12 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
+                    </div>
+                    <div class="absolute right-8 bottom-8">
+                        <img @click="$store.state.cacheStore.mainLineNav='SUP'" v-if="!$store.state.cacheStore.myTeam.players.sup.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/sup.png">
+                        <img @click="$store.state.cacheStore.mainLineNav='SUP'" v-if="$store.state.cacheStore.myTeam.players.sup.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="$store.state.cacheStore.myTeam.players.sup.img">
+                        <div v-if="$store.state.cacheStore.myTeam.players.sup.isMvp" class="absolute -left-1 top-12 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
+                    </div>
                 </div>
 
                 <!-- 버튼 -->
@@ -119,6 +134,11 @@
                 <div class="w-full px-8 mt-3 mb-4 text-lg text-gray-700">
                     2024 LOL 챔피언스 코리아 서머
                 </div>
+                {{this.$store.state.cacheStore.myTeam.players.top.isMvp}}
+                {{this.$store.state.cacheStore.myTeam.players.jgl.isMvp}}
+                {{this.$store.state.cacheStore.myTeam.players.mid.isMvp}}
+                {{this.$store.state.cacheStore.myTeam.players.adc.isMvp}}
+                {{this.$store.state.cacheStore.myTeam.players.sup.isMvp}}
 
                 <!-- step1 응원팀 선정 -->
                 <div class="w-full flex flex-col shadow-md">
@@ -510,30 +530,35 @@ export default {
             for(let player in players){
                 if(players[player].name===name){
                     if(players[player].line === 'TOP'){
+                        this.$store.state.cacheStore.myTeam.players.top.isMvp = false
                         this.$store.state.cacheStore.myTeam.players.top.name = players[player].name
                         this.$store.state.cacheStore.myTeam.players.top.team = players[player].team
                         this.$store.state.cacheStore.myTeam.players.top.img = players[player].img
                         this.$store.state.cacheStore.myTeam.players.top.vp = players[player].vp
                     }
                     else if(players[player].line === 'JGL'){
+                        this.$store.state.cacheStore.myTeam.players.jgl.isMvp = false
                         this.$store.state.cacheStore.myTeam.players.jgl.name = players[player].name
                         this.$store.state.cacheStore.myTeam.players.jgl.team = players[player].team
                         this.$store.state.cacheStore.myTeam.players.jgl.img = players[player].img
                         this.$store.state.cacheStore.myTeam.players.jgl.vp = players[player].vp
                     }
                     else if(players[player].line === 'MID'){
+                        this.$store.state.cacheStore.myTeam.players.mid.isMvp = false
                         this.$store.state.cacheStore.myTeam.players.mid.name = players[player].name
                         this.$store.state.cacheStore.myTeam.players.mid.team = players[player].team
                         this.$store.state.cacheStore.myTeam.players.mid.img = players[player].img
                         this.$store.state.cacheStore.myTeam.players.mid.vp = players[player].vp
                     }
                     else if(players[player].line === 'ADC'){
+                        this.$store.state.cacheStore.myTeam.players.adc.isMvp = false
                         this.$store.state.cacheStore.myTeam.players.adc.name = players[player].name
                         this.$store.state.cacheStore.myTeam.players.adc.team = players[player].team
                         this.$store.state.cacheStore.myTeam.players.adc.img = players[player].img
                         this.$store.state.cacheStore.myTeam.players.adc.vp = players[player].vp
                     }
                     else if(players[player].line === 'SUP'){
+                        this.$store.state.cacheStore.myTeam.players.sup.isMvp = false
                         this.$store.state.cacheStore.myTeam.players.sup.name = players[player].name
                         this.$store.state.cacheStore.myTeam.players.sup.team = players[player].team
                         this.$store.state.cacheStore.myTeam.players.sup.img = players[player].img
