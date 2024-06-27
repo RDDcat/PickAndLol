@@ -3,8 +3,10 @@ const modalStore = {
   state: {
     // 로그인 창
     isLoginModal: false,
+    isLoginWarnModal: false,
     isGuideModal: false,
     isSelectCaptainModal: false,
+    isPlayerModal: false,
 
     // 네비게이션
     isMain: true,

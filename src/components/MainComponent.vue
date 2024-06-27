@@ -1,4 +1,5 @@
 <template>
+    <LoginWarnModal v-if="$store.state.modalStore.isLoginWarnModal"/>
     <!-- 선수단 등록 페이지 -->
     <div class="w-full flex flex-col mb-12">
         <!-- 공지 -->
@@ -384,12 +385,14 @@
 </template>
 <script>
 import FooterComponent from '@/components/footer/FooterComponent'
+import LoginWarnModal from '@/components/modal/LoginWarnModal.vue'
 
 import api from '@/api/api'
 
 export default {
     components: {
-        FooterComponent
+        FooterComponent,
+        LoginWarnModal,
     },
     data(){
         return {
@@ -596,6 +599,14 @@ export default {
                 console.log(e);
             });
         }
+
+        // 비 로그인시 모달로 막기
+        if(this.$store.state.cacheStore.userId===0){
+            this.$store.state.modalStore.isLoginWarnModal=true
+        }
+    },
+    unmounted(){
+        this.$store.state.modalStore.isLoginWarnModal=false
     }
 }
 </script>

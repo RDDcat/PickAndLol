@@ -1,5 +1,5 @@
 <template>
-    <div class="flex px-20 py-4 w-full">
+    <div class="flex px-20 py-4 w-full z-30 bg-white" :class="$store.state.modalStore.isLoginWarnModal?'fixed':''">
         <!-- 로고 -->
         <div class="flex font-bold w-52">
             <img class="w-16 h-16" src="@/assets/logo-beta.png">
