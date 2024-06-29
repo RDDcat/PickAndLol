@@ -48,7 +48,7 @@ export default {
     methods: {
         login(){
             // window.location.href ="https://accounts.google.com/o/oauth2/auth?client_id=94560297607-at6vc76ph2jqecqp43bd8o8oa6j5fbjs.apps.googleusercontent.com&redirect_uri=http://localhost:8080/login/oauth2/code/google&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile";
-            window.location.href = "http://43.206.241.211:8080/oauth2/authorization/google"
+            window.location.href = "http://ec2-43-206-241-211.ap-northeast-1.compute.amazonaws.com:8080/oauth2/authorization/google"
             // axios.get('http://localhost:8080',{
             //     headers: {
 
