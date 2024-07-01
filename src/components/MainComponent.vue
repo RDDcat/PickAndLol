@@ -132,7 +132,7 @@
                     </button>
                     <button @click="submit"
                         type="button" 
-                        class="text-white bg-gradient-to-r from-red-600 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-400  shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-40">저장하기</button>
+                        class="text-white bg-gradient-to-r from-red-600 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-400  shadow-lg shadow-red-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-40">저장하기</button>
                 </div>
             </div>
 
@@ -368,7 +368,13 @@
                         (this.$store.state.cacheStore.mainTeamNav=== player.team || this.$store.state.cacheStore.mainTeamNav=== 'LCK')"
                     @click="click(player.name);"
                     class="w-52 h-12 my-3 inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-400 via-red-500 to-red-600 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200">
-                    <span class="relative w-52  px-5 py-3 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
+                    <span class="relative w-52  px-5 py-3 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-gray-100"
+                        :class="this.$store.state.cacheStore.myTeam.players.top.name ===player.name ||
+                        this.$store.state.cacheStore.myTeam.players.jgl.name ===player.name ||
+                        this.$store.state.cacheStore.myTeam.players.mid.name ===player.name ||
+                        this.$store.state.cacheStore.myTeam.players.adc.name ===player.name ||
+                        this.$store.state.cacheStore.myTeam.players.sup.name ===player.name
+                        ? 'bg-opacity-0 group-hover:bg-opacity-0' : ''">
                         {{ this.$store.state.cacheStore.myTeam.players.top.name ===player.name ||
                         this.$store.state.cacheStore.myTeam.players.jgl.name ===player.name ||
                         this.$store.state.cacheStore.myTeam.players.mid.name ===player.name ||
@@ -561,6 +567,31 @@ export default {
         },
         click(name){
             let players = this.$store.state.cacheStore.players
+            console.log(this.$store.state.cacheStore.myTeam.players.top.name)
+            console.log(name)
+            console.log(this.$store.state.cacheStore.myTeam.players.top.name===name)
+            if(this.$store.state.cacheStore.myTeam.players.top.name===name){
+                this.$store.state.cacheStore.myTeam.players.top={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
+                return
+            }
+            if(this.$store.state.cacheStore.myTeam.players.jgl.name===name){
+                this.$store.state.cacheStore.myTeam.players.jgl={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
+                return
+            }
+            if(this.$store.state.cacheStore.myTeam.players.mid.name===name){
+                this.$store.state.cacheStore.myTeam.players.mid={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
+                return
+            }
+            if(this.$store.state.cacheStore.myTeam.players.adc.name===name){
+                this.$store.state.cacheStore.myTeam.players.adc={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
+                return
+            }
+            if(this.$store.state.cacheStore.myTeam.players.sup.name===name){
+                this.$store.state.cacheStore.myTeam.players.sup={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
+                return
+            }
+
+
             for(let player in players){
                 if(players[player].name===name){
                     if(players[player].line === 'TOP'){
