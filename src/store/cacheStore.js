@@ -63,8 +63,20 @@ const cacheStore = {
         {vp:50, line:"TOP", name:"DuDu", stat:0, team:"KDF", img: "./assets/player/KDF_DuDu.svg"},
         {vp:75, line:"JGL", name:"Cuzz", stat:0, team:"KDF", img: "./assets/player/KDF_Cuzz.svg"},
         {vp:15, line:"MID", name:"BuLLDoG", stat:0, team:"KDF", img: "./assets/player/KDF_BuLLDoG.svg"},
-        {vp:6, line:"ADC", name:"Bull", stat:0, team:"KDF", img: "./assets/player/KDF_Bull.svg"},
+        {vp:6, line:"ADC", name:"Leaper", stat:0, team:"KDF", img: "./assets/logo.png"},
+        {vp:6, line:"SUP", name:"Andil", stat:0, team:"KDF", img: "./assets/logo.png"},
         {vp:6, line:"SUP", name:"Quantum", stat:0, team:"KDF", img: "./assets/player/KDF_Quantum.svg"},
+        {vp:6, line:"ADC", name:"Bull", stat:0, team:"KDF", img: "./assets/player/KDF_Bull.svg"},
+
+        {vp:7, line:"TOP", name:"Frog", stat:0, team:"DRX", img: "./assets/logo.png"},
+        {vp:8, line:"MID", name:"kyeahoo", stat:0, team:"DRX", img: "./assets/logo.png"},
+        {vp:6, line:"JGL", name:"Raptor", stat:0, team:"FOX", img: "./assets/logo.png"},
+        {vp:6, line:"SUP", name:"Duro", stat:0, team:"FOX", img: "./assets/logo.png"},
+        {vp:6, line:"MID", name:"Pullbae", stat:0, team:"BRO", img: "./assets/logo.png"},
+        {vp:6, line:"JGL", name:"DDoiv", stat:0, team:"BRO", img: "./assets/logo.png"},
+        {vp:6, line:"ADC", name:"Samver", stat:0, team:"BRO", img: "./assets/logo.png"},
+        {vp:6, line:"TOP", name:"Migile", stat:0, team:"NS", img: "./assets/logo.png"},
+        {vp:7, line:"TOP", name:"Casting", stat:0, team:"KT", img: "./assets/logo.png"},
 
     ],
     
