@@ -50,7 +50,7 @@
 
                 <!-- 에러 텍스트 -->
                 <div class="p-2 w-4/5 my-auto text-base text-gray-600 text-ellipsis break-words">
-                    <div class="text-red-600">주장이 선택되지 않았습니다. </div> 
+                    <div class="text-red-600">다양한 팀의 선수들을 선택해주세요. </div> 
                     <div class="text-sm">응원팀을 제외한 나머지 팀에서는 선수를 1명씩 선정해야 합니다.</div> 
                 </div>
             </div>
@@ -158,7 +158,7 @@
                                 <img :class="this.$store.state.cacheStore.myTeam.team===team.team?'ring-red-500 ring-2 bg-red-50':''" 
                                     class="w-11 h-11 object-contain rounded-full bg-gray-50 mx-3 hover:ring-red-400 hover:ring-2" :src="team.colorImg" @click="selectTeam(team.team)">
                                 <div :class="this.$store.state.cacheStore.myTeam.team===team.team?'text-gray-900':''" 
-                                    class="text-sm text-gray-500 mx-auto mt-1">{{team.team}}</div>
+                                    class="text-xs text-gray-500 mx-auto mt-1">{{team.team}}</div>
                             </div>
                         </div>
                     </div>
