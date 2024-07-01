@@ -137,9 +137,9 @@
                 </div>
 
                 <!-- step1 응원팀 선정 -->
-                <div class="w-3/5 flex flex-col shadow-md">
+                <div class="w-3/5 flex flex-col shadow-md rounded-md ">
                     <!-- 타이틀 -->
-                    <div class="flex my-1 h-12 bg-gray-50" @click="step=0">
+                    <div class="flex h-12 bg-gray-50" :class="step===0?'bg-red-100 rounded-t-md':'rounded-md'" @click="clickStep(0)">
                         <!-- 타이틀 텍스트 -->
                         <div class="flex my-auto ml-6 text-sm text-gray-600">
                             step1. 
@@ -166,9 +166,9 @@
                 
                 </div>
                 <!-- step2 내 선수단 리스트 -->
-                <div class="w-3/5 flex flex-col shadow-md">
+                <div class="mt-1 w-3/5 flex flex-col shadow-md rounded-md ">
                     <!-- 선수단 타이틀 -->
-                    <div class="flex my-1 h-12 bg-gray-50" @click="step=1">
+                    <div class="flex h-12 bg-gray-50" :class="step===1?'bg-red-100 rounded-t-md':'rounded-md'" @click="clickStep(1)">
                         <!-- 타이틀 텍스트 -->
                         <div class="flex my-auto ml-6 text-sm text-gray-600">
                             step2. 
@@ -437,6 +437,14 @@ export default {
         }
     },
     methods: {
+        clickStep(num){
+            console.log(this.step, num)
+            if(this.step === num){
+                this.step=9
+                return
+            } 
+            this.step=num
+        },
         selectTeam(name){
             this.$store.state.cacheStore.myTeam.team=name
             this.$store.state.cacheStore.myTeam.teamLogo='./assets/logo/color_'+name+'.png'
