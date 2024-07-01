@@ -9,8 +9,8 @@
         <div class="grid grid-cols-11 gap-10 my-4">
             <!-- 팀 -->
             <div v-for="team, index in teams" :key="index">
-                <img class="m-auto w-12 h-12 object-cover" :src="team.colorImg" v-if="selected==index">
-                <img class="m-auto w-12 h-12 object-cover" :src="team.img" v-if="selected!=index" @click="selected=index; selectedTeam=team.team">
+                <img class="m-auto w-12 h-12 object-cover" :src="team.colorImg" v-if="selected==index" @click="filterTeam(teams[0], 0)">
+                <img class="m-auto w-12 h-12 object-cover" :src="team.img" v-if="selected!=index" @click="filterTeam(team, index)">
                 <div class="m-auto my-2 text-center text-xs text-gray-700 whitespace-nowrap">
                     {{team.name}}
                 </div>
@@ -100,6 +100,10 @@ export default {
         }
     },
     methods: {
+        filterTeam(team, index){
+            this.selected=index
+            this.selectedTeam=team.team
+        },
 
     },
 }
