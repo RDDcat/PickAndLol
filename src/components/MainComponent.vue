@@ -355,7 +355,7 @@
                     <button @click="lineFilter(line.name)"
                         type="button" class="flex text-gray-600 bg-gray-200 hover:bg-red-200 rounded-full px-6 py-3"
                         :class="$store.state.cacheStore.mainLineNav===line.name?'text-white bg-red-500 outline-none':''">
-                        <img class="m-auto" :src="line.img">
+                        <img class="m-auto " :src="line.img">
                         <div class="flex my-auto ml-2 mr-2 text-center text-sm ">
                             {{line.name}}
                         </div>
@@ -379,7 +379,7 @@
                     </div>
                     <div class="mx-auto flex">
                         <div class="my-auto font-medium text-gray-500">{{player.line}} </div>
-                        <img class="object-cover mx-2" :src="'./assets/logo/color_'+player.team+'.png'">
+                        <img class="object-cover mx-2 w-6 h-6" :src="'./assets/logo/color_'+player.team+'.png'">
                         <div class="flex my-auto font-medium text-red-600">
                             {{player.vp}}
                             <img class="ml-1 w-5 h-5" src="@/assets/icon/vp.png">
