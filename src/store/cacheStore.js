@@ -77,6 +77,7 @@ const cacheStore = {
         {vp:6, line:"ADC", name:"Samver", stat:0, team:"BRO", img: "./assets/logo.png"},
         {vp:6, line:"TOP", name:"Migile", stat:0, team:"NS", img: "./assets/logo.png"},
         {vp:7, line:"TOP", name:"Casting", stat:0, team:"KT", img: "./assets/logo.png"},
+        {vp:10, line:"SUP", name:"GuGer", stat:0, team:"NS", img: "./assets/logo.png"},
 
     ],
     
