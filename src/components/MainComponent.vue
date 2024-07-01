@@ -3,6 +3,13 @@
     <!-- 선수단 등록 페이지 -->
     <div class="w-full flex flex-col mb-12">
         <!-- 공지 -->
+        <div class="flex w-1/3 py-2 bg-gray-100 rounded-b-lg mx-auto">
+            <div class="mx-auto text-sm text-gray-500">
+                변경가능시간 : 매일 밤 자정 00:00 ~ 17:00
+            </div>
+        </div>
+        
+        <!-- 에러 공지 -->
         <div class="w-1/2  bg-red-100 rounded-lg mx-auto mb-1">
             <!-- 공지 내용물 -->
             <!-- 선수단 전부 선택 -->
