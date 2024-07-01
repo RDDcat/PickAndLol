@@ -130,7 +130,7 @@
             </div>
 
             <!-- 히어로 우측 -->
-            <div v-if="!$store.state.cacheStore.isSave" class="min-w-[26rem] max-w-2/3 flex flex-col pl-12">
+            <div v-if="!$store.state.cacheStore.isSave" class="w-3/5 max-w-[58rem] flex flex-col pl-12">
                 <!-- 제목 -->
                 <div class="w-full mt-3 mb-4 text-lg text-gray-700">
                     2024 LOL 챔피언스 코리아 서머
@@ -200,7 +200,7 @@
                 
                 </div>
                 <!-- step2 내 선수단 리스트 -->
-                <div class="w-full flex flex-col shadow-md">
+                <div class="w-3/5 flex flex-col shadow-md">
                     <!-- 선수단 타이틀 -->
                     <div class="flex my-1 h-12 bg-gray-50" @click="step=1">
                         <!-- 타이틀 텍스트 -->
