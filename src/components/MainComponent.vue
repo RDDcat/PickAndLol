@@ -137,7 +137,7 @@
                 </div>
 
                 <!-- step1 응원팀 선정 -->
-                <div class="w-full flex flex-col shadow-md">
+                <div class="w-3/5 flex flex-col shadow-md">
                     <!-- 타이틀 -->
                     <div class="flex my-1 h-12 bg-gray-50" @click="step=0">
                         <!-- 타이틀 텍스트 -->
@@ -153,20 +153,47 @@
                     <!-- 선수단 리스트 -->
                     <div class="w-full my-6 flex flex-col" v-show="step===0">
                         <!-- 1열 -->
-                        <div class="my-2 px-4 flex w-full">
-                            <img class="rounded-full bg-gray-50 mx-auto hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_T1.png" @click="selectTeam('T1')">
-                            <img class="rounded-full bg-gray-50 mx-auto hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_GEN.png" @click="selectTeam('GEN')" >
-                            <img class="rounded-full bg-gray-50 mx-auto hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_DK.png" @click="selectTeam('DK')">
-                            <img class="rounded-full bg-gray-50 mx-auto hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_KDF.png" @click="selectTeam('KDF')">
-                            <img class="rounded-full bg-gray-50 mx-auto hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_DRX.png" @click="selectTeam('DRX')">
-                        </div>
-                        <!-- 2열 -->
-                        <div class="my-2 px-4 flex w-full">
-                            <img class="rounded-full bg-gray-50 mx-auto hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_NS.png" @click="selectTeam('NS')">
-                            <img class="rounded-full bg-gray-50 mx-auto hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_FOX.png" @click="selectTeam('FOX')">
-                            <img class="rounded-full bg-gray-50 mx-auto hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_HLE.png" @click="selectTeam('HLE')">
-                            <img class="rounded-full bg-gray-50 mx-auto hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_KT.png" @click="selectTeam('KT')">
-                            <img class="rounded-full bg-gray-50 mx-auto hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_BRO.png" @click="selectTeam('BRO')">
+                        <div class="px-4 flex w-full flex-wrap">
+                            <div class="my-2 flex flex-col">
+                                <img class="w-11 h-11 object-contain rounded-full bg-gray-50 mx-3 hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_T1.png" @click="selectTeam('T1')">
+                                <div class="text-sm text-gray-500 mx-auto mt-1">T1</div>
+                            </div>
+                            <div class="my-2 flex flex-col">
+                                <img class="w-11 h-11 object-contain rounded-full bg-gray-50 mx-3 hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_GEN.png" @click="selectTeam('GEN')" >
+                                <div class="text-sm text-gray-500 mx-auto mt-1">GEN</div>
+                            </div>
+                            <div class="my-2 flex flex-col">
+                                <img class="w-11 h-11 object-contain rounded-full bg-gray-50 mx-3 hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_DK.png" @click="selectTeam('DK')">
+                                <div class="text-sm text-gray-500 mx-auto mt-1">DK</div>
+                            </div>
+                            <div class="my-2 flex flex-col">
+                                <img class="w-11 h-11 object-contain rounded-full bg-gray-50 mx-3 hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_KDF.png" @click="selectTeam('KDF')">
+                                <div class="text-sm text-gray-500 mx-auto mt-1">KDF</div>
+                            </div>
+                            <div class="my-2 flex flex-col">
+                                <img class="w-11 h-11 object-contain rounded-full bg-gray-50 mx-3 hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_DRX.png" @click="selectTeam('DRX')">
+                                <div class="text-sm text-gray-500 mx-auto mt-1">DRX</div>
+                            </div>
+                            <div class="my-2 flex flex-col">
+                                <img class="w-11 h-11 object-contain rounded-full bg-gray-50 mx-3 hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_NS.png" @click="selectTeam('NS')">
+                                <div class="text-sm text-gray-500 mx-auto mt-1">NS</div>
+                            </div>
+                            <div class="my-2 flex flex-col">
+                                <img class="w-11 h-11 object-contain rounded-full bg-gray-50 mx-3 hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_FOX.png" @click="selectTeam('FOX')">
+                                <div class="text-sm text-gray-500 mx-auto mt-1">FOX</div>
+                            </div>
+                            <div class="my-2 flex flex-col">
+                                <img class="w-11 h-11 object-contain rounded-full bg-gray-50 mx-3 hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_HLE.png" @click="selectTeam('HLE')">
+                                <div class="text-sm text-gray-500 mx-auto mt-1">HLE</div>
+                            </div>
+                            <div class="my-2 flex flex-col">
+                                <img class="w-11 h-11 object-contain rounded-full bg-gray-50 mx-3 hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_KT.png" @click="selectTeam('KT')">
+                                <div class="text-sm text-gray-500 mx-auto mt-1">KT</div>
+                            </div>
+                            <div class="my-2 flex flex-col">
+                                <img class="w-11 h-11 object-contain rounded-full bg-gray-50 mx-3 hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_BRO.png" @click="selectTeam('BRO')">
+                                <div class="text-sm text-gray-500 mx-auto mt-1">BRO</div>
+                            </div>
                         </div>
                     </div>
 
