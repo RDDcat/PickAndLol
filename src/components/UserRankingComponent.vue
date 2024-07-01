@@ -23,8 +23,8 @@
 
         <!-- 테이블 -->
         <div class="relative overflow-x-auto w-[64rem] mx-auto my-4">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50  ">
                     <tr>
                         <th scope="col" class="px-2 py-3">
                             유저 순위
@@ -41,8 +41,8 @@
                     </tr>
                 </thead>
                 <tbody v-for="user, index in users" :key="index" >
-                    <tr class=" bg-white border-b dark:bg-gray-800 dark:border-gray-700" @click="tableNav=index">
-                        <th scope="row" class="flex px-2 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <tr class=" bg-white border-b " @click="tableNav=index">
+                        <th scope="row" class="flex px-2 py-4 font-medium text-gray-900 whitespace-nowrap ">
                             <div class="my-auto mx-2"> {{index+1}} </div>
                             &nbsp; 
                             <img class="my-auto w-14 h-14 object-cover rounded-full" :src="user.teamLogo">
@@ -59,8 +59,8 @@
                             {{user.totalStat}}
                         </td>
                     </tr>
-                    <tr class=" bg-white border-b dark:bg-gray-800 dark:border-gray-700" v-if="index===tableNav">
-                        <th scope="row" class="flex px-2 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <tr class=" bg-white border-b " v-if="index===tableNav">
+                        <th scope="row" class="flex px-2 py-4 font-medium text-gray-900 whitespace-nowrap ">
                             선수별 라운드 점수 변화도
                         </th>
                         <td class="px-20 py-4 flex">
