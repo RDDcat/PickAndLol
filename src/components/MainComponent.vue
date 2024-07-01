@@ -154,45 +154,11 @@
                     <div class="w-full my-6 flex flex-col" v-show="step===0">
                         <!-- 1열 -->
                         <div class="px-4 flex w-full flex-wrap">
-                            <div class="my-2 flex flex-col">
-                                <img class="w-11 h-11 object-contain rounded-full bg-gray-50 mx-3 hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_T1.png" @click="selectTeam('T1')">
-                                <div class="text-sm text-gray-500 mx-auto mt-1">T1</div>
-                            </div>
-                            <div class="my-2 flex flex-col">
-                                <img class="w-11 h-11 object-contain rounded-full bg-gray-50 mx-3 hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_GEN.png" @click="selectTeam('GEN')" >
-                                <div class="text-sm text-gray-500 mx-auto mt-1">GEN</div>
-                            </div>
-                            <div class="my-2 flex flex-col">
-                                <img class="w-11 h-11 object-contain rounded-full bg-gray-50 mx-3 hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_DK.png" @click="selectTeam('DK')">
-                                <div class="text-sm text-gray-500 mx-auto mt-1">DK</div>
-                            </div>
-                            <div class="my-2 flex flex-col">
-                                <img class="w-11 h-11 object-contain rounded-full bg-gray-50 mx-3 hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_KDF.png" @click="selectTeam('KDF')">
-                                <div class="text-sm text-gray-500 mx-auto mt-1">KDF</div>
-                            </div>
-                            <div class="my-2 flex flex-col">
-                                <img class="w-11 h-11 object-contain rounded-full bg-gray-50 mx-3 hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_DRX.png" @click="selectTeam('DRX')">
-                                <div class="text-sm text-gray-500 mx-auto mt-1">DRX</div>
-                            </div>
-                            <div class="my-2 flex flex-col">
-                                <img class="w-11 h-11 object-contain rounded-full bg-gray-50 mx-3 hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_NS.png" @click="selectTeam('NS')">
-                                <div class="text-sm text-gray-500 mx-auto mt-1">NS</div>
-                            </div>
-                            <div class="my-2 flex flex-col">
-                                <img class="w-11 h-11 object-contain rounded-full bg-gray-50 mx-3 hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_FOX.png" @click="selectTeam('FOX')">
-                                <div class="text-sm text-gray-500 mx-auto mt-1">FOX</div>
-                            </div>
-                            <div class="my-2 flex flex-col">
-                                <img class="w-11 h-11 object-contain rounded-full bg-gray-50 mx-3 hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_HLE.png" @click="selectTeam('HLE')">
-                                <div class="text-sm text-gray-500 mx-auto mt-1">HLE</div>
-                            </div>
-                            <div class="my-2 flex flex-col">
-                                <img class="w-11 h-11 object-contain rounded-full bg-gray-50 mx-3 hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_KT.png" @click="selectTeam('KT')">
-                                <div class="text-sm text-gray-500 mx-auto mt-1">KT</div>
-                            </div>
-                            <div class="my-2 flex flex-col">
-                                <img class="w-11 h-11 object-contain rounded-full bg-gray-50 mx-3 hover:ring-red-400 hover:ring-2" src="@/assets/logo/color_BRO.png" @click="selectTeam('BRO')">
-                                <div class="text-sm text-gray-500 mx-auto mt-1">BRO</div>
+                            <div v-for="team in onlyTeams" :key="team.name" class="my-2 flex flex-col">
+                                <img :class="this.$store.state.cacheStore.myTeam.team===team.team?'ring-red-500 ring-2 bg-red-50':''" 
+                                    class="w-11 h-11 object-contain rounded-full bg-gray-50 mx-3 hover:ring-red-400 hover:ring-2" :src="team.colorImg" @click="selectTeam(team.team)">
+                                <div :class="this.$store.state.cacheStore.myTeam.team===team.team?'text-gray-900':''" 
+                                    class="text-sm text-gray-500 mx-auto mt-1">{{team.team}}</div>
                             </div>
                         </div>
                     </div>
@@ -437,6 +403,18 @@ export default {
 
             teams:[
                 {name:'전체', team:'LCK', img:'./assets/logo/lck.png', colorImg:'./assets/logo/lck.png',}, 
+                {name:'젠지', team:'GEN', img:'./assets/logo/GEN.png', colorImg:'./assets/logo/color_GEN.png',}, 
+                {name:'T1', team:'T1', img:'./assets/logo/T1.png', colorImg:'./assets/logo/color_T1.png',}, 
+                {name:'KT', team:'KT', img:'./assets/logo/KT.png', colorImg:'./assets/logo/color_KT.png',}, 
+                {name:'한화생명', team:'HLE', img:'./assets/logo/HLE.png', colorImg:'./assets/logo/color_HLE.png',}, 
+                {name:'DK', team:'DK', img:'./assets/logo/DK.png', colorImg:'./assets/logo/color_DK.png',}, 
+                {name:'피어엑스', team:'FOX', img:'./assets/logo/FOX.png', colorImg:'./assets/logo/color_FOX.png',}, 
+                {name:'광동', team:'KDF', img:'./assets/logo/KDF.png', colorImg:'./assets/logo/color_KDF.png',}, 
+                {name:'OK저축은행', team:'BRO', img:'./assets/logo/BRO.png', colorImg:'./assets/logo/color_BRO.png',}, 
+                {name:'DRX', team:'DRX', img:'./assets/logo/DRX.png', colorImg:'./assets/logo/color_DRX.png',}, 
+                {name:'농심', team:'NS', img:'./assets/logo/NS.png', colorImg:'./assets/logo/color_NS.png',}, 
+            ],
+            onlyTeams:[
                 {name:'젠지', team:'GEN', img:'./assets/logo/GEN.png', colorImg:'./assets/logo/color_GEN.png',}, 
                 {name:'T1', team:'T1', img:'./assets/logo/T1.png', colorImg:'./assets/logo/color_T1.png',}, 
                 {name:'KT', team:'KT', img:'./assets/logo/KT.png', colorImg:'./assets/logo/color_KT.png',}, 
