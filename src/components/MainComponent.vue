@@ -314,7 +314,7 @@
             <div class="grid grid-cols-11 gap-10 mx-auto my-4">
                 <!-- 팀 -->
                 <div v-for="team, index in teams" :key="index">
-                    <img class="m-auto w-12 h-12 object-cover" :src="team.colorImg" v-if="team.team==$store.state.cacheStore.mainTeamNav">
+                    <img class="m-auto w-12 h-12 object-cover" :src="team.colorImg" v-if="team.team==$store.state.cacheStore.mainTeamNav" @click="teamFilter(teams[0].team)">
                     <img class="m-auto w-12 h-12 object-cover" :src="team.img" v-if="team.team!=$store.state.cacheStore.mainTeamNav" @click="teamFilter(team.team)">
                     <div class="m-auto my-2 text-center text-xs text-gray-700">
                         {{team.name}}
@@ -325,7 +325,7 @@
             <div class="grid grid-cols-6 gap-4 my-4 mr-auto">
                 <!-- 라인 -->
                 <div v-for="line, index in lines" :key="index">
-                    <button @click="lineFilter(line.name)"
+                    <button @click="lineFilter(index)"
                         type="button" class="flex text-gray-600 bg-gray-200 hover:bg-red-200 rounded-full px-6 py-3"
                         :class="$store.state.cacheStore.mainLineNav===line.name?'text-white bg-red-500 outline-none':''">
                         <img class="m-auto " :src="line.img">
@@ -557,8 +557,12 @@ export default {
 
 
         },
-        lineFilter(name){
-            this.$store.state.cacheStore.mainLineNav = name
+        lineFilter(index){
+            if(this.lines[index].name===this.$store.state.cacheStore.mainLineNav){
+                this.$store.state.cacheStore.mainLineNav=this.lines[0].name
+                return
+            }
+            this.$store.state.cacheStore.mainLineNav = this.lines[index].name
 
         },
         teamFilter(name){
