@@ -11,19 +11,19 @@
         </div>
         <!-- 네비 -->
         <div class="flex w-320 m-auto font-semibold">
-            <div class="w-24 text-center" :class="index===0?'text-red-600':''" @click="nav(0)">
+            <div class="w-24 text-center " :class="index===0?'text-red-600':'hover:text-gray-400'" @click="nav(0)">
                 MY선수단
             </div>
-            <div class="w-24 text-center" :class="index===1?'text-red-600':''" @click="nav(1)">
+            <div class="w-24 text-center" :class="index===1?'text-red-600':'hover:text-gray-400'" @click="nav(1)">
                 일정
             </div>
-            <div class="w-24 text-center" :class="index===2?'text-red-600':''" @click="nav(2)">
+            <div class="w-24 text-center" :class="index===2?'text-red-600':'hover:text-gray-400'" @click="nav(2)">
                 분석
             </div>
-            <div class="w-24 text-center" :class="index===3?'text-red-600':''" @click="nav(3)">
+            <div class="w-24 text-center" :class="index===3?'text-red-600':'hover:text-gray-400'" @click="nav(3)">
                 랭킹
             </div>
-            <i class="fa-regular fa-circle-question" @click="nav(4)"></i>
+            <i class="fa-regular fa-circle-question my-auto" :class="index===4?'text-red-600':'hover:text-gray-400'" @click="nav(4)"></i>
         </div>
         <!-- 로그인 회원가입 -->
         <div class="flex font-bold w-52" v-if="$store.state.cacheStore.userId===0">
