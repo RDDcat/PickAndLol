@@ -104,7 +104,7 @@ export const useCacheStore = defineStore('cacheStore', {
     
         schedule:[
         {
-            month:6, day:12, date:"수", 
+            year:2024, month:6, day:12, date:"수", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK", 
@@ -137,7 +137,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:6, day:13, date:"목", 
+            year:2024, month:6, day:13, date:"목", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
@@ -170,7 +170,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:6, day:14, date:"금", 
+            year:2024, month:6, day:14, date:"금", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
@@ -203,7 +203,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:6, day:15, date:"토", 
+            year:2024, month:6, day:15, date:"토", 
             games:[
                 {
                     time: "15:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
@@ -236,7 +236,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:6, day:16, date:"일", 
+            year:2024, month:6, day:16, date:"일", 
             games:[
                 {
                     time: "15:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
@@ -269,7 +269,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:6, day:19, date:"수", 
+            year:2024, month:6, day:19, date:"수", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
@@ -302,7 +302,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:6, day:20, date:"목", 
+            year:2024, month:6, day:20, date:"목", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
@@ -335,7 +335,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:6, day:21, date:"금", 
+            year:2024, month:6, day:21, date:"금", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
@@ -368,7 +368,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:6, day:22, date:"토", 
+            year:2024, month:6, day:22, date:"토", 
             games:[
                 {
                     time: "15:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
@@ -401,7 +401,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:6, day:23, date:"일", 
+            year:2024, month:6, day:23, date:"일", 
             games:[
                 {
                     time: "15:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
@@ -434,7 +434,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:6, day:26, date:"수", 
+            year:2024, month:6, day:26, date:"수", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
@@ -467,7 +467,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:6, day:27, date:"목", 
+            year:2024, month:6, day:27, date:"목", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
@@ -500,7 +500,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:6, day:28, date:"금", 
+            year:2024, month:6, day:28, date:"금", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
@@ -533,7 +533,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:6, day:29, date:"토", 
+            year:2024, month:6, day:29, date:"토", 
             games:[
                 {
                     time: "15:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
@@ -566,7 +566,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:6, day:30, date:"일", 
+            year:2024, month:6, day:30, date:"일", 
             games:[
                 {
                     time: "15:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
@@ -599,7 +599,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:7, day:10, date:"수", 
+            year:2024, month:7, day:10, date:"수", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
@@ -632,7 +632,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:7, day:11, date:"목", 
+            year:2024, month:7, day:11, date:"목", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
@@ -665,7 +665,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:7, day:12, date:"금", 
+            year:2024, month:7, day:12, date:"금", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
@@ -698,7 +698,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:7, day:13, date:"토", 
+            year:2024, month:7, day:13, date:"토", 
             games:[
                 {
                     time: "15:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
@@ -731,7 +731,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:7, day:14, date:"일", 
+            year:2024, month:7, day:14, date:"일", 
             games:[
                 {
                     time: "15:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
@@ -764,7 +764,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:7, day:17, date:"수", 
+            year:2024, month:7, day:17, date:"수", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
@@ -797,7 +797,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:7, day:18, date:"목", 
+            year:2024, month:7, day:18, date:"목", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
@@ -830,7 +830,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:7, day:19, date:"금", 
+            year:2024, month:7, day:19, date:"금", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 1R", stadium:"서울 LOL PARK",
@@ -863,7 +863,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:7, day:20, date:"토", 
+            year:2024, month:7, day:20, date:"토", 
             games:[
                 {
                     time: "15:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
@@ -896,7 +896,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:7, day:21, date:"일", 
+            year:2024, month:7, day:21, date:"일", 
             games:[
                 {
                     time: "15:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
@@ -929,7 +929,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:7, day:24, date:"수", 
+            year:2024, month:7, day:24, date:"수", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
@@ -962,7 +962,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:7, day:25, date:"목", 
+            year:2024, month:7, day:25, date:"목", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
@@ -996,7 +996,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:7, day:26, date:"금", 
+            year:2024, month:7, day:26, date:"금", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
@@ -1029,7 +1029,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:7, day:27, date:"토", 
+            year:2024, month:7, day:27, date:"토", 
             games:[
                 {
                     time: "15:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
@@ -1062,7 +1062,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:7, day:28, date:"일", 
+            year:2024, month:7, day:28, date:"일", 
             games:[
                 {
                     time: "15:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
@@ -1095,7 +1095,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:7, day:31, date:"수", 
+            year:2024, month:7, day:31, date:"수", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
@@ -1128,7 +1128,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:8, day:1, date:"목", 
+            year:2024, month:8, day:1, date:"목", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
@@ -1161,7 +1161,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:8, day:2, date:"금", 
+            year:2024, month:8, day:2, date:"금", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
@@ -1194,7 +1194,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:8, day:3, date:"토", 
+            year:2024, month:8, day:3, date:"토", 
             games:[
                 {
                     time: "15:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
@@ -1227,7 +1227,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:8, day:4, date:"일", 
+            year:2024, month:8, day:4, date:"일", 
             games:[
                 {
                     time: "15:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
@@ -1260,7 +1260,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:8, day:7, date:"수", 
+            year:2024, month:8, day:7, date:"수", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
@@ -1293,7 +1293,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:8, day:8, date:"목", 
+            year:2024, month:8, day:8, date:"목", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
@@ -1326,7 +1326,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:8, day:9, date:"금", 
+            year:2024, month:8, day:9, date:"금", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
@@ -1359,7 +1359,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:8, day:10, date:"토", 
+            year:2024, month:8, day:10, date:"토", 
             games:[
                 {
                     time: "15:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
@@ -1392,7 +1392,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:8, day:11, date:"일", 
+            year:2024, month:8, day:11, date:"일", 
             games:[
                 {
                     time: "15:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
@@ -1425,7 +1425,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:8, day:14, date:"수", 
+            year:2024, month:8, day:14, date:"수", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
@@ -1458,7 +1458,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:8, day:15, date:"목", 
+            year:2024, month:8, day:15, date:"목", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
@@ -1491,7 +1491,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:8, day:16, date:"금", 
+            year:2024, month:8, day:16, date:"금", 
             games:[
                 {
                     time: "17:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
@@ -1524,7 +1524,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:8, day:17, date:"토", 
+            year:2024, month:8, day:17, date:"토", 
             games:[
                 {
                     time: "15:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
@@ -1557,7 +1557,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:8, day:18, date:"일", 
+            year:2024, month:8, day:18, date:"일", 
             games:[
                 {
                     time: "15:00", round: "정규시즌 2R", stadium:"서울 LOL PARK",
@@ -1590,7 +1590,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:8, day:23, date:"금", 
+            year:2024, month:8, day:23, date:"금", 
             games:[
                 {
                     time: "17:00", round: "플레이오프 1R", stadium:"서울 LOL PARK",
@@ -1609,7 +1609,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:8, day:24, date:"토", 
+            year:2024, month:8, day:24, date:"토", 
             games:[
                 {
                     time: "15:00", round: "플레이오프 1R", stadium:"서울 LOL PARK",
@@ -1626,7 +1626,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:8, day:28, date:"수", 
+            year:2024, month:8, day:28, date:"수", 
             games:[
                 {
                     time: "17:00", round: "플레이오프 2R", stadium:"서울 LOL PARK",
@@ -1643,7 +1643,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:8, day:29, date:"목", 
+            year:2024, month:8, day:29, date:"목", 
             games:[
                 {
                     time: "17:00", round: "플레이오프 2R", stadium:"서울 LOL PARK",
@@ -1660,7 +1660,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:8, day:31, date:"토", 
+            year:2024, month:8, day:31, date:"토", 
             games:[
                 {
                     time: "15:00", round: "플레이오프 3R", stadium:"서울 LOL PARK",
@@ -1677,7 +1677,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:9, day:1, date:"일", 
+            year:2024, month:9, day:1, date:"일", 
             games:[
                 {
                     time: "15:00", round: "플레이오프 3R", stadium:"서울 LOL PARK",
@@ -1694,7 +1694,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:9, day:7, date:"토", 
+            year:2024, month:9, day:7, date:"토", 
             games:[
                 {
                     time: "15:00", round: "플레이오프 4R", stadium:"경주 실내체육관",
@@ -1711,7 +1711,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:9, day:8, date:"일", 
+            year:2024, month:9, day:8, date:"일", 
             games:[
                 {
                     time: "15:00", round: "결승전", stadium:"경주 실내체육관",
@@ -1728,7 +1728,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:9, day:12, date:"목", 
+            year:2024, month:9, day:12, date:"목", 
             games:[
                 {
                     time: "17:00", round: "선발전 1R", stadium:"서울 LOL PARK",
@@ -1745,7 +1745,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:9, day:13, date:"금", 
+            year:2024, month:9, day:13, date:"금", 
             games:[
                 {
                     time: "17:00", round: "선발전 2R", stadium:"서울 LOL PARK",
@@ -1762,7 +1762,7 @@ export const useCacheStore = defineStore('cacheStore', {
             ]
         },
         {
-            month:9, day:14, date:"토", 
+            year:2024, month:9, day:14, date:"토", 
             games:[
                 {
                     time: "15:00", round: "선발전 Finals", stadium:"서울 LOL PARK",

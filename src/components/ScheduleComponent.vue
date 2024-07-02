@@ -16,13 +16,12 @@
                 </div>
             </div>
         </div>
-
         <!-- 일정 -->
         <div v-for="data, index in cacheStore.schedule" :key="index">
             <!-- 일정 타이틀 -->
-            <div class="w-full h-16 flex bg-gray-100 rounded-lg" 
+            <div :class="['w-full h-16 flex rounded-lg', isToday(data) ? 'bg-red-100' : 'bg-gray-100']" 
                 v-if="data.games.some(game => game.home.team === selectedTeam || game.away.team === selectedTeam || selected ===0)">
-                <div class="px-4 my-auto">
+                <div :class="['px-4 my-auto', isToday(data) ? 'text-red-600' : '']">
                     {{data.month}}월 {{data.day}}일 ({{data.date}})
                 </div>
             </div>
@@ -81,8 +80,9 @@ export default {
     },
     setup(){
         const cacheStore = useCacheStore()
+        const today = new Date()
 
-        return { cacheStore }
+        return { cacheStore, today }
     },
     data(){
         return {
@@ -108,6 +108,9 @@ export default {
         filterTeam(team, index){
             this.selected=index
             this.selectedTeam=team.team
+        },
+        isToday(date) {
+            return date.year === this.today.getFullYear() && date.month === this.today.getMonth()+1 && date.day === this.today.getDate();
         },
 
     },
