@@ -1,9 +1,9 @@
 <template>
   <!-- 모달리스트 -->
-  <LoginModal v-if="$store.state.modalStore.isLoginModal"/>
-  <GuideModal v-if="$store.state.modalStore.isGuideModal"/>
-  <SelectCaptainModal v-if="$store.state.modalStore.isSelectCaptainModal"/>
-  <PlayerModal v-if="$store.state.modalStore.isPlayerModal"/>
+  <LoginModal v-if="modalStore.isLoginModal"/>
+  <GuideModal v-if="modalStore.isGuideModal"/>
+  <SelectCaptainModal v-if="modalStore.isSelectCaptainModal"/>
+  <PlayerModal v-if="modalStore.isPlayerModal"/>
 
   <router-view />
 </template>
@@ -14,6 +14,9 @@ import GuideModal from '@/components/modal/GuideModal.vue'
 import SelectCaptainModal from '@/components/modal/SelectCaptainModal.vue'
 import PlayerModal from '@/components/modal/PlayerModal.vue'
 
+import {useCacheStore} from '@/store/cacheStore'
+import {useModalStore} from '@/store/modalStore'
+
 export default {
   name: 'App',
   components: {
@@ -21,6 +24,12 @@ export default {
     GuideModal,
     SelectCaptainModal,
     PlayerModal,
+  },
+  setup(){
+    const cacheStore = useCacheStore()
+    const modalStore = useModalStore()
+
+    return { cacheStore, modalStore }
   }
 }
 </script>

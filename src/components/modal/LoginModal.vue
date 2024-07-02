@@ -3,7 +3,7 @@
         <!--  -->
         <div class="m-auto w-[30rem] h-[36rem] relative">
             <!-- back -->
-            <div class="absolute right-4 top-4 text-white" @click="$store.state.modalStore.isLoginModal = false">
+            <div class="absolute right-4 top-4 text-white" @click="modalStore.isLoginModal = false">
                 x
             </div>
             <!-- logo -->

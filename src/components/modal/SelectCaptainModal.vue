@@ -3,7 +3,7 @@
     <div class="fixed overscroll-contain flex bg-red-950 bg-opacity-90 backdrop-blur-sm w-full h-[200vw] z-40">
         <div class="relative mx-auto mt-24 flex flex-col max-w-[70rem]">
             <!-- back -->
-            <div class="absolute right-4 top-4 text-white" @click="$store.state.modalStore.isSelectCaptainModal = false">
+            <div class="absolute right-4 top-4 text-white" @click="modalStore.isSelectCaptainModal = false">
                 x
             </div>
             <!-- 타이틀 택스트 -->
@@ -20,18 +20,18 @@
                         <img class="m-auto" src="@/assets/icon/top_white.png">
                         <img class="mx-auto my-4 rounded-full w-36 h-36 object-cover hover:ring-red-400 hover:ring-4" 
                             :class="click===1?'outline-none ring-red-500 ring-4':''" 
-                            :src="$store.state.cacheStore.myTeam.players.top.img"
+                            :src="cacheStore.myTeam.players.top.img"
                             @click="click=1">
-                        <div class="text-center text-white text-xl">{{$store.state.cacheStore.myTeam.players.top.name}}</div>
+                        <div class="text-center text-white text-xl">{{cacheStore.myTeam.players.top.name}}</div>
                     </div>
                     <!-- jgl -->
                     <div class="flex flex-col w-48 h-72">
                         <img class="m-auto" src="@/assets/icon/jgl_white.png">
                         <img class="mx-auto my-4 rounded-full w-36 h-36 object-cover hover:ring-red-400 hover:ring-4" 
                             :class="click===2?'outline-none ring-red-500 ring-4':''" 
-                            :src="$store.state.cacheStore.myTeam.players.jgl.img"
+                            :src="cacheStore.myTeam.players.jgl.img"
                             @click="click=2">
-                        <div class="text-center text-white text-xl">{{$store.state.cacheStore.myTeam.players.jgl.name}}</div>
+                        <div class="text-center text-white text-xl">{{cacheStore.myTeam.players.jgl.name}}</div>
                     </div>
 
                     <!-- mid -->
@@ -39,9 +39,9 @@
                         <img class="m-auto" src="@/assets/icon/mid_white.png">
                         <img class="mx-auto my-4 rounded-full w-36 h-36 object-cover hover:ring-red-400 hover:ring-4" 
                             :class="click===3?'outline-none ring-red-500 ring-4':''" 
-                            :src="$store.state.cacheStore.myTeam.players.mid.img"
+                            :src="cacheStore.myTeam.players.mid.img"
                             @click="click=3">
-                        <div class="text-center text-white text-xl">{{$store.state.cacheStore.myTeam.players.mid.name}}</div>
+                        <div class="text-center text-white text-xl">{{cacheStore.myTeam.players.mid.name}}</div>
                     </div>
 
                     <!-- adc -->
@@ -49,9 +49,9 @@
                         <img class="m-auto" src="@/assets/icon/adc_white.png">
                         <img class="mx-auto my-4 rounded-full w-36 h-36 object-cover hover:ring-red-400 hover:ring-4" 
                             :class="click===4?'outline-none ring-red-500 ring-4':''" 
-                            :src="$store.state.cacheStore.myTeam.players.adc.img"
+                            :src="cacheStore.myTeam.players.adc.img"
                             @click="click=4">
-                        <div class="text-center text-white text-xl">{{$store.state.cacheStore.myTeam.players.adc.name}}</div>
+                        <div class="text-center text-white text-xl">{{cacheStore.myTeam.players.adc.name}}</div>
                     </div>
 
                     <!-- sup -->
@@ -59,9 +59,9 @@
                         <img class="m-auto" src="@/assets/icon/sup_white.png">
                         <img class="mx-auto my-4 rounded-full w-36 h-36 object-cover hover:ring-red-400 hover:ring-4" 
                             :class="click===5?'outline-none ring-red-500 ring-4':''" 
-                            :src="$store.state.cacheStore.myTeam.players.sup.img"
+                            :src="cacheStore.myTeam.players.sup.img"
                             @click="click=5">
-                        <div class="text-center text-white text-xl">{{$store.state.cacheStore.myTeam.players.sup.name}}</div>
+                        <div class="text-center text-white text-xl">{{cacheStore.myTeam.players.sup.name}}</div>
                     </div>
                 </div>
             </div>
@@ -77,11 +77,19 @@
     </div>
 </template>
 <script>
+import {useCacheStore} from '@/store/cacheStore'
+import {useModalStore} from '@/store/modalStore'
 
 
 export default {
     components: {
 
+    },
+    setup(){
+        const cacheStore = useCacheStore()
+        const modalStore = useModalStore()
+
+        return { cacheStore, modalStore }
     },
     data(){
         return {
@@ -90,38 +98,38 @@ export default {
     },
     methods: {
         select(){
-            if(this.click===1 && this.$store.state.cacheStore.myTeam.players.top.name){
-                this.$store.state.cacheStore.myTeam.players.top.isMvp = true
-                this.$store.state.cacheStore.myTeam.players.jgl.isMvp = false
-                this.$store.state.cacheStore.myTeam.players.mid.isMvp = false
-                this.$store.state.cacheStore.myTeam.players.adc.isMvp = false
-                this.$store.state.cacheStore.myTeam.players.sup.isMvp = false
-            } else if(this.click===2 && this.$store.state.cacheStore.myTeam.players.jgl.name){
-                this.$store.state.cacheStore.myTeam.players.top.isMvp = false
-                this.$store.state.cacheStore.myTeam.players.jgl.isMvp = true
-                this.$store.state.cacheStore.myTeam.players.mid.isMvp = false
-                this.$store.state.cacheStore.myTeam.players.adc.isMvp = false
-                this.$store.state.cacheStore.myTeam.players.sup.isMvp = false
-            } else if(this.click===3 && this.$store.state.cacheStore.myTeam.players.mid.name){
-                this.$store.state.cacheStore.myTeam.players.top.isMvp = false
-                this.$store.state.cacheStore.myTeam.players.jgl.isMvp = false
-                this.$store.state.cacheStore.myTeam.players.mid.isMvp = true
-                this.$store.state.cacheStore.myTeam.players.adc.isMvp = false
-                this.$store.state.cacheStore.myTeam.players.sup.isMvp = false
-            } else if(this.click===4 && this.$store.state.cacheStore.myTeam.players.adc.name){
-                this.$store.state.cacheStore.myTeam.players.top.isMvp = false
-                this.$store.state.cacheStore.myTeam.players.jgl.isMvp = false
-                this.$store.state.cacheStore.myTeam.players.mid.isMvp = false
-                this.$store.state.cacheStore.myTeam.players.adc.isMvp = true
-                this.$store.state.cacheStore.myTeam.players.sup.isMvp = false
-            } else if(this.click===5 && this.$store.state.cacheStore.myTeam.players.sup.name){
-                this.$store.state.cacheStore.myTeam.players.top.isMvp = false
-                this.$store.state.cacheStore.myTeam.players.jgl.isMvp = false
-                this.$store.state.cacheStore.myTeam.players.mid.isMvp = false
-                this.$store.state.cacheStore.myTeam.players.adc.isMvp = false
-                this.$store.state.cacheStore.myTeam.players.sup.isMvp = true
+            if(this.click===1 && this.cacheStore.myTeam.players.top.name){
+                this.cacheStore.myTeam.players.top.isMvp = true
+                this.cacheStore.myTeam.players.jgl.isMvp = false
+                this.cacheStore.myTeam.players.mid.isMvp = false
+                this.cacheStore.myTeam.players.adc.isMvp = false
+                this.cacheStore.myTeam.players.sup.isMvp = false
+            } else if(this.click===2 && this.cacheStore.myTeam.players.jgl.name){
+                this.cacheStore.myTeam.players.top.isMvp = false
+                this.cacheStore.myTeam.players.jgl.isMvp = true
+                this.cacheStore.myTeam.players.mid.isMvp = false
+                this.cacheStore.myTeam.players.adc.isMvp = false
+                this.cacheStore.myTeam.players.sup.isMvp = false
+            } else if(this.click===3 && this.cacheStore.myTeam.players.mid.name){
+                this.cacheStore.myTeam.players.top.isMvp = false
+                this.cacheStore.myTeam.players.jgl.isMvp = false
+                this.cacheStore.myTeam.players.mid.isMvp = true
+                this.cacheStore.myTeam.players.adc.isMvp = false
+                this.cacheStore.myTeam.players.sup.isMvp = false
+            } else if(this.click===4 && this.cacheStore.myTeam.players.adc.name){
+                this.cacheStore.myTeam.players.top.isMvp = false
+                this.cacheStore.myTeam.players.jgl.isMvp = false
+                this.cacheStore.myTeam.players.mid.isMvp = false
+                this.cacheStore.myTeam.players.adc.isMvp = true
+                this.cacheStore.myTeam.players.sup.isMvp = false
+            } else if(this.click===5 && this.cacheStore.myTeam.players.sup.name){
+                this.cacheStore.myTeam.players.top.isMvp = false
+                this.cacheStore.myTeam.players.jgl.isMvp = false
+                this.cacheStore.myTeam.players.mid.isMvp = false
+                this.cacheStore.myTeam.players.adc.isMvp = false
+                this.cacheStore.myTeam.players.sup.isMvp = true
             }
-            this.$store.state.modalStore.isSelectCaptainModal = false
+            this.modalStore.isSelectCaptainModal = false
         }
     },
 }

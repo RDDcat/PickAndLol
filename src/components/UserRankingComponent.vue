@@ -100,10 +100,17 @@
 <script>
 import api from '@/api/api'
 
+import {useCacheStore} from '@/store/cacheStore'
+
 
 export default {
     components: {
 
+    },
+    setup(){
+        const cacheStore = useCacheStore()
+
+        return { cacheStore }
     },
     data(){
         return {

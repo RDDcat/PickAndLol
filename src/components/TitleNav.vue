@@ -1,5 +1,5 @@
 <template>
-    <div class="flex px-20 py-4 w-full z-30 bg-white" :class="$store.state.modalStore.isLoginWarnModal?'fixed':''">
+    <div class="flex px-20 py-4 w-full z-30 bg-white" :class="modalStore.isLoginWarnModal?'fixed':''">
         <!-- 로고 -->
         <div class="flex font-bold w-52">
             <img class="w-16 h-16" src="@/assets/logo-beta.png">
@@ -26,22 +26,29 @@
             <i class="fa-regular fa-circle-question my-auto" :class="index===4?'text-red-600':'hover:text-gray-400'" @click="nav(4)"></i>
         </div>
         <!-- 로그인 회원가입 -->
-        <div class="flex font-bold w-52" v-if="$store.state.cacheStore.userId===0">
-            <button class="btn btn-gray mx-auto" @click="$store.state.modalStore.isLoginModal=true">
+        <div class="flex font-bold w-52" v-if="cacheStore.userId===0">
+            <button class="btn btn-gray mx-auto" @click="modalStore.isLoginModal=true">
                 로그인
             </button>
         </div>
-        <div class="flex font-bold w-52" v-if="$store.state.cacheStore.userId!==0">
+        <div class="flex font-bold w-52" v-if="cacheStore.userId!==0">
         </div>
 
     </div>
 </template>
 <script>
-
+import {useCacheStore} from '@/store/cacheStore'
+import {useModalStore} from '@/store/modalStore'
 
 export default {
     components: {
 
+    },
+    setup(){
+        const cacheStore = useCacheStore()
+        const modalStore = useModalStore()
+
+        return { cacheStore, modalStore }
     },
     data(){
         return {
@@ -52,12 +59,12 @@ export default {
     methods: {
         nav(index){     
             this.index = index       
-            // this.$store.state.modalStore.isMain= false
-            this.$store.state.modalStore.isMain= index === 0
-            this.$store.state.modalStore.isSchedule= index === 1
-            this.$store.state.modalStore.isPlayerRanking= index === 2
-            this.$store.state.modalStore.isUserRanking= index === 3
-            this.$store.state.modalStore.isGuideComponent= index === 4
+            // this.modalStore.isMain= false
+            this.modalStore.isMain= index === 0
+            this.modalStore.isSchedule= index === 1
+            this.modalStore.isPlayerRanking= index === 2
+            this.modalStore.isUserRanking= index === 3
+            this.modalStore.isGuideComponent= index === 4
         },
 
     },

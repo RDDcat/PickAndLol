@@ -1,5 +1,5 @@
 <template>
-    <LoginWarnModal v-if="$store.state.modalStore.isLoginWarnModal"/>
+    <LoginWarnModal v-if="modalStore.isLoginWarnModal"/>
     <!-- 선수단 등록 페이지 -->
     <div class="w-full flex flex-col mb-12">
         <!-- 공지 -->
@@ -95,37 +95,37 @@
                 <div class="relative flex ml-auto mr-12">
                     <img class="mx-auto w-96" src="@/assets/map.png" alt="">
                     <div class="absolute left-6 top-6">
-                        <img @click="$store.state.cacheStore.mainLineNav='TOP'" v-if="!$store.state.cacheStore.myTeam.players.top.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/top.png">
-                        <img @click="$store.state.cacheStore.mainLineNav='TOP'" v-if="$store.state.cacheStore.myTeam.players.top.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="$store.state.cacheStore.myTeam.players.top.img">
-                        <div v-if="$store.state.cacheStore.myTeam.players.top.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
+                        <img @click="cacheStore.mainLineNav='TOP'" v-if="!cacheStore.myTeam.players.top.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/top.png">
+                        <img @click="cacheStore.mainLineNav='TOP'" v-if="cacheStore.myTeam.players.top.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.top.img">
+                        <div v-if="cacheStore.myTeam.players.top.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
                     </div>
                     <div class="absolute left-20 top-24">
-                        <img @click="$store.state.cacheStore.mainLineNav='JGL'" v-if="!$store.state.cacheStore.myTeam.players.jgl.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/jgl.png">
-                        <img @click="$store.state.cacheStore.mainLineNav='JGL'" v-if="$store.state.cacheStore.myTeam.players.jgl.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="$store.state.cacheStore.myTeam.players.jgl.img">
-                        <div v-if="$store.state.cacheStore.myTeam.players.jgl.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
+                        <img @click="cacheStore.mainLineNav='JGL'" v-if="!cacheStore.myTeam.players.jgl.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/jgl.png">
+                        <img @click="cacheStore.mainLineNav='JGL'" v-if="cacheStore.myTeam.players.jgl.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.jgl.img">
+                        <div v-if="cacheStore.myTeam.players.jgl.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
                     </div>
                     <div class="absolute left-40 top-40">
-                        <img @click="$store.state.cacheStore.mainLineNav='MID'" v-if="!$store.state.cacheStore.myTeam.players.mid.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/mid.png">
-                        <img @click="$store.state.cacheStore.mainLineNav='MID'" v-if="$store.state.cacheStore.myTeam.players.mid.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="$store.state.cacheStore.myTeam.players.mid.img">
-                        <div v-if="$store.state.cacheStore.myTeam.players.mid.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
+                        <img @click="cacheStore.mainLineNav='MID'" v-if="!cacheStore.myTeam.players.mid.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/mid.png">
+                        <img @click="cacheStore.mainLineNav='MID'" v-if="cacheStore.myTeam.players.mid.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.mid.img">
+                        <div v-if="cacheStore.myTeam.players.mid.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
                     </div>
                     <div class="absolute right-24 bottom-20">
-                        <img @click="$store.state.cacheStore.mainLineNav='ADC'" v-if="!$store.state.cacheStore.myTeam.players.adc.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/adc.png">
-                        <img @click="$store.state.cacheStore.mainLineNav='ADC'" v-if="$store.state.cacheStore.myTeam.players.adc.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="$store.state.cacheStore.myTeam.players.adc.img">
-                        <div v-if="$store.state.cacheStore.myTeam.players.adc.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
+                        <img @click="cacheStore.mainLineNav='ADC'" v-if="!cacheStore.myTeam.players.adc.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/adc.png">
+                        <img @click="cacheStore.mainLineNav='ADC'" v-if="cacheStore.myTeam.players.adc.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.adc.img">
+                        <div v-if="cacheStore.myTeam.players.adc.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
                     </div>
                     <div class="absolute right-8 bottom-8">
-                        <img @click="$store.state.cacheStore.mainLineNav='SUP'" v-if="!$store.state.cacheStore.myTeam.players.sup.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/sup.png">
-                        <img @click="$store.state.cacheStore.mainLineNav='SUP'" v-if="$store.state.cacheStore.myTeam.players.sup.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="$store.state.cacheStore.myTeam.players.sup.img">
-                        <div v-if="$store.state.cacheStore.myTeam.players.sup.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
+                        <img @click="cacheStore.mainLineNav='SUP'" v-if="!cacheStore.myTeam.players.sup.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/sup.png">
+                        <img @click="cacheStore.mainLineNav='SUP'" v-if="cacheStore.myTeam.players.sup.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.sup.img">
+                        <div v-if="cacheStore.myTeam.players.sup.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
                     </div>
                 </div>
 
                 <!-- 버튼 -->
-                <div class="ml-auto mr-20 my-8" v-if="!$store.state.cacheStore.isSave">
+                <div class="ml-auto mr-20 my-8" v-if="!cacheStore.isSave">
                     <button 
                         class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 w-36 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-400 via-red-500 to-red-600 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200"
-                        @click="$store.state.modalStore.isSelectCaptainModal=true">
+                        @click="modalStore.isSelectCaptainModal=true">
                         <span class="relative w-36 px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
                             주장 설정하기
                         </span>
@@ -137,7 +137,7 @@
             </div>
 
             <!-- 히어로 우측 -->
-            <div v-if="!$store.state.cacheStore.isSave" class="w-3/5 max-w-[58rem] flex flex-col pl-12">
+            <div v-if="!cacheStore.isSave" class="w-3/5 max-w-[58rem] flex flex-col pl-12">
                 <!-- 제목 -->
                 <div class="w-full mt-3 mb-4 text-lg text-gray-700">
                     2024 LOL 챔피언스 코리아 서머
@@ -154,7 +154,7 @@
                         </div>
                         <!-- 토탈 vp 포인트 -->
                         <div class="flex ml-auto my-auto mr-4">
-                            <img class="w-6 h-6 object-cover rounded-full" :src="$store.state.cacheStore.myTeam.teamLogo">
+                            <img class="w-6 h-6 object-cover rounded-full" :src="cacheStore.myTeam.teamLogo">
                         </div>
                     </div>
                     <!-- 선수단 리스트 -->
@@ -162,9 +162,9 @@
                         <!-- 1열 -->
                         <div class="px-4 flex w-full flex-wrap">
                             <div v-for="team in onlyTeams" :key="team.name" class="my-2 flex flex-col">
-                                <img :class="this.$store.state.cacheStore.myTeam.team===team.team?'ring-red-500 ring-2 bg-red-50':''" 
+                                <img :class="this.cacheStore.myTeam.team===team.team?'ring-red-500 ring-2 bg-red-50':''" 
                                     class="w-11 h-11 object-contain rounded-full bg-gray-50 mx-3 hover:ring-red-400 hover:ring-2" :src="team.colorImg" @click="selectTeam(team.team)">
-                                <div :class="this.$store.state.cacheStore.myTeam.team===team.team?'text-gray-900':''" 
+                                <div :class="this.cacheStore.myTeam.team===team.team?'text-gray-900':''" 
                                     class="text-xs text-gray-500 mx-auto mt-1">{{team.team}}</div>
                             </div>
                         </div>
@@ -184,7 +184,7 @@
                         <!-- 토탈 vp 포인트 -->
                         <div class="flex ml-auto my-auto mr-4">
                             <div class="text-red-600 mr-1">
-                                {{$store.state.cacheStore.myTeam.totalVP}}
+                                {{cacheStore.myTeam.totalVP}}
                             </div>
                             <img class="w-5 h-5 object-cover" src="@/assets/icon/vp.png">
                         </div>
@@ -195,19 +195,19 @@
                         <div class="my-2 px-4 flex w-full">
                             <!-- 아이콘 -->
                             <div class="relative my-auto mr-4 ">
-                                <img v-if="$store.state.cacheStore.myTeam.players.top.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
+                                <img v-if="cacheStore.myTeam.players.top.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
                                 <img class="w-6 h-6" src="@/assets/icon/top_icon.png">
                             </div>
                             <!-- 선수 초상화 -->
-                            <img class="my-auto w-10 h-10 rounded-full" :src="$store.state.cacheStore.myTeam.players.top.img">
+                            <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.top.img">
                             <!-- 선수 이름 -->
                             <div class="my-auto ml-6 text-base">
-                                {{$store.state.cacheStore.myTeam.players.top.name ? $store.state.cacheStore.myTeam.players.top.team+' '+$store.state.cacheStore.myTeam.players.top.name : '-'}}
+                                {{cacheStore.myTeam.players.top.name ? cacheStore.myTeam.players.top.team+' '+cacheStore.myTeam.players.top.name : '-'}}
                             </div>
                             <!-- 선수 vp 포인트 -->
                             <div class="flex ml-auto my-auto mr-2">
                                 <div class="text-red-600 mr-1">
-                                    {{$store.state.cacheStore.myTeam.players.top.vp}}
+                                    {{cacheStore.myTeam.players.top.vp}}
                                 </div>
                                 <img class="w-4 h-4 object-cover" src="@/assets/icon/vp.png">
                             </div>
@@ -217,19 +217,19 @@
                         <div class="my-2 px-4 flex w-full">
                             <!-- 아이콘 -->
                             <div class="relative my-auto mr-4 ">
-                                <img v-if="$store.state.cacheStore.myTeam.players.jgl.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
+                                <img v-if="cacheStore.myTeam.players.jgl.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
                                 <img class="w-6 h-6" src="@/assets/icon/jgl_icon.png">
                             </div>
                             <!-- 선수 초상화 -->
-                            <img class="my-auto w-10 h-10 rounded-full" :src="$store.state.cacheStore.myTeam.players.jgl.img">
+                            <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.jgl.img">
                             <!-- 선수 이름 -->
                             <div class="my-auto ml-6 text-base">
-                                {{$store.state.cacheStore.myTeam.players.jgl.name ?$store.state.cacheStore.myTeam.players.jgl.team+' '+$store.state.cacheStore.myTeam.players.jgl.name  : '-'}}
+                                {{cacheStore.myTeam.players.jgl.name ?cacheStore.myTeam.players.jgl.team+' '+cacheStore.myTeam.players.jgl.name  : '-'}}
                             </div>
                             <!-- 선수 vp 포인트 -->
                             <div class="flex ml-auto my-auto mr-2">
                                 <div class="text-red-600 mr-1">
-                                    {{$store.state.cacheStore.myTeam.players.jgl.vp}}
+                                    {{cacheStore.myTeam.players.jgl.vp}}
                                 </div>
                                 <img class="w-4 h-4 object-cover" src="@/assets/icon/vp.png">
                             </div>
@@ -239,19 +239,19 @@
                         <div class="my-2 px-4 flex w-full">
                             <!-- 아이콘 -->
                             <div class="relative my-auto mr-4 ">
-                                <img v-if="$store.state.cacheStore.myTeam.players.mid.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
+                                <img v-if="cacheStore.myTeam.players.mid.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
                                 <img class="w-6 h-6" src="@/assets/icon/mid_icon.png">
                             </div>
                             <!-- 선수 초상화 -->
-                            <img class="my-auto w-10 h-10 rounded-full" :src="$store.state.cacheStore.myTeam.players.mid.img">
+                            <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.mid.img">
                             <!-- 선수 이름 -->
                             <div class="my-auto ml-6 text-base">
-                                {{$store.state.cacheStore.myTeam.players.mid.name ?$store.state.cacheStore.myTeam.players.mid.team+' '+$store.state.cacheStore.myTeam.players.mid.name : '-'}}
+                                {{cacheStore.myTeam.players.mid.name ?cacheStore.myTeam.players.mid.team+' '+cacheStore.myTeam.players.mid.name : '-'}}
                             </div>
                             <!-- 선수 vp 포인트 -->
                             <div class="flex ml-auto my-auto mr-2">
                                 <div class="text-red-600 mr-1">
-                                    {{$store.state.cacheStore.myTeam.players.mid.vp}}
+                                    {{cacheStore.myTeam.players.mid.vp}}
                                 </div>
                                 <img class="w-4 h-4 object-cover" src="@/assets/icon/vp.png">
                             </div>
@@ -261,19 +261,19 @@
                         <div class="my-2 px-4 flex w-full">
                             <!-- 아이콘 -->
                             <div class="relative my-auto mr-4 ">
-                                <img v-if="$store.state.cacheStore.myTeam.players.adc.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
+                                <img v-if="cacheStore.myTeam.players.adc.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
                                 <img class="w-6 h-6" src="@/assets/icon/adc_icon.png">
                             </div>
                             <!-- 선수 초상화 -->
-                            <img class="my-auto w-10 h-10 rounded-full" :src="$store.state.cacheStore.myTeam.players.adc.img">
+                            <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.adc.img">
                             <!-- 선수 이름 -->
                             <div class="my-auto ml-6 text-base">
-                                {{$store.state.cacheStore.myTeam.players.adc.name ?$store.state.cacheStore.myTeam.players.adc.team+' '+$store.state.cacheStore.myTeam.players.adc.name : '-'}}
+                                {{cacheStore.myTeam.players.adc.name ?cacheStore.myTeam.players.adc.team+' '+cacheStore.myTeam.players.adc.name : '-'}}
                             </div>
                             <!-- 선수 vp 포인트 -->
                             <div class="flex ml-auto my-auto mr-2">
                                 <div class="text-red-600 mr-1">
-                                    {{$store.state.cacheStore.myTeam.players.adc.vp}}
+                                    {{cacheStore.myTeam.players.adc.vp}}
                                 </div>
                                 <img class="w-4 h-4 object-cover" src="@/assets/icon/vp.png">
                             </div>
@@ -283,19 +283,19 @@
                         <div class="my-2 px-4 flex w-full">
                             <!-- 아이콘 -->
                             <div class="relative my-auto mr-4 ">
-                                <img v-if="$store.state.cacheStore.myTeam.players.sup.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
+                                <img v-if="cacheStore.myTeam.players.sup.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
                                 <img class="w-6 h-6" src="@/assets/icon/sup_icon.png">
                             </div>
                             <!-- 선수 초상화 -->
-                            <img class="my-auto w-10 h-10 rounded-full" :src="$store.state.cacheStore.myTeam.players.sup.img">
+                            <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.sup.img">
                             <!-- 선수 이름 -->
                             <div class="my-auto ml-6 text-base">
-                                {{$store.state.cacheStore.myTeam.players.sup.name ?$store.state.cacheStore.myTeam.players.sup.team+' '+$store.state.cacheStore.myTeam.players.sup.name : '-'}}
+                                {{cacheStore.myTeam.players.sup.name ?cacheStore.myTeam.players.sup.team+' '+cacheStore.myTeam.players.sup.name : '-'}}
                             </div>
                             <!-- 선수 vp 포인트 -->
                             <div class="flex ml-auto my-auto mr-2">
                                 <div class="text-red-600 mr-1">
-                                    {{$store.state.cacheStore.myTeam.players.sup.vp}}
+                                    {{cacheStore.myTeam.players.sup.vp}}
                                 </div>
                                 <img class="w-4 h-4 object-cover" src="@/assets/icon/vp.png">
                             </div>
@@ -314,8 +314,8 @@
             <div class="grid grid-cols-11 gap-10 mx-auto my-4">
                 <!-- 팀 -->
                 <div v-for="team, index in teams" :key="index">
-                    <img class="m-auto w-12 h-12 object-cover" :src="team.colorImg" v-if="team.team==$store.state.cacheStore.mainTeamNav" @click="teamFilter(teams[0].team)">
-                    <img class="m-auto w-12 h-12 object-cover" :src="team.img" v-if="team.team!=$store.state.cacheStore.mainTeamNav" @click="teamFilter(team.team)">
+                    <img class="m-auto w-12 h-12 object-cover" :src="team.colorImg" v-if="team.team==cacheStore.mainTeamNav" @click="teamFilter(teams[0].team)">
+                    <img class="m-auto w-12 h-12 object-cover" :src="team.img" v-if="team.team!=cacheStore.mainTeamNav" @click="teamFilter(team.team)">
                     <div class="m-auto my-2 text-center text-xs text-gray-700">
                         {{team.name}}
                     </div>
@@ -327,7 +327,7 @@
                 <div v-for="line, index in lines" :key="index">
                     <button @click="lineFilter(index)"
                         type="button" class="flex text-gray-600 bg-gray-200 hover:bg-red-200 rounded-full px-6 py-3"
-                        :class="$store.state.cacheStore.mainLineNav===line.name?'text-white bg-red-500 outline-none':''">
+                        :class="cacheStore.mainLineNav===line.name?'text-white bg-red-500 outline-none':''">
                         <img class="m-auto " :src="line.img">
                         <div class="flex my-auto ml-2 mr-2 text-center text-sm ">
                             {{line.name}}
@@ -339,11 +339,11 @@
 
         <!-- 선수 카드 그리드 -->
         <div class="mx-auto grid grid-cols-5 gap-10">
-            <template v-for="player, index in $store.state.cacheStore.players" :key="index">
-                <div v-if="(this.$store.state.cacheStore.mainLineNav === player.line || this.$store.state.cacheStore.mainLineNav==='전체') &&
-                        (this.$store.state.cacheStore.mainTeamNav=== player.team || this.$store.state.cacheStore.mainTeamNav=== 'LCK')">
+            <template v-for="player, index in cacheStore.players" :key="index">
+                <div v-if="(this.cacheStore.mainLineNav === player.line || this.cacheStore.mainLineNav==='전체') &&
+                        (this.cacheStore.mainTeamNav=== player.team || this.cacheStore.mainTeamNav=== 'LCK')">
                 <!-- 선수 카드 -->
-                <div @click="this.$store.state.modalStore.isPlayerModal=true" class="relative w-52 h-72 flex flex-col rounded-lg shadow-lg hover:shadow-2xl">
+                <div @click="this.modalStore.isPlayerModal=true" class="relative w-52 h-72 flex flex-col rounded-lg shadow-lg hover:shadow-2xl">
                     <div class="font-base mx-auto">
                         {{player.rank}}
                     </div>
@@ -363,23 +363,23 @@
 
                 </div>
                 <!-- 선택하기 버튼 -->
-                <button v-if="!$store.state.cacheStore.isSave &&
-                        (this.$store.state.cacheStore.mainLineNav === player.line || this.$store.state.cacheStore.mainLineNav==='전체') &&
-                        (this.$store.state.cacheStore.mainTeamNav=== player.team || this.$store.state.cacheStore.mainTeamNav=== 'LCK')"
+                <button v-if="!cacheStore.isSave &&
+                        (this.cacheStore.mainLineNav === player.line || this.cacheStore.mainLineNav==='전체') &&
+                        (this.cacheStore.mainTeamNav=== player.team || this.cacheStore.mainTeamNav=== 'LCK')"
                     @click="click(player.name);"
                     class="w-52 h-12 my-3 inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-400 via-red-500 to-red-600 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200">
                     <span class="relative w-52  px-5 py-3 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-gray-100"
-                        :class="this.$store.state.cacheStore.myTeam.players.top.name ===player.name ||
-                        this.$store.state.cacheStore.myTeam.players.jgl.name ===player.name ||
-                        this.$store.state.cacheStore.myTeam.players.mid.name ===player.name ||
-                        this.$store.state.cacheStore.myTeam.players.adc.name ===player.name ||
-                        this.$store.state.cacheStore.myTeam.players.sup.name ===player.name
+                        :class="this.cacheStore.myTeam.players.top.name ===player.name ||
+                        this.cacheStore.myTeam.players.jgl.name ===player.name ||
+                        this.cacheStore.myTeam.players.mid.name ===player.name ||
+                        this.cacheStore.myTeam.players.adc.name ===player.name ||
+                        this.cacheStore.myTeam.players.sup.name ===player.name
                         ? 'bg-opacity-0 group-hover:bg-opacity-0' : ''">
-                        {{ this.$store.state.cacheStore.myTeam.players.top.name ===player.name ||
-                        this.$store.state.cacheStore.myTeam.players.jgl.name ===player.name ||
-                        this.$store.state.cacheStore.myTeam.players.mid.name ===player.name ||
-                        this.$store.state.cacheStore.myTeam.players.adc.name ===player.name ||
-                        this.$store.state.cacheStore.myTeam.players.sup.name ===player.name
+                        {{ this.cacheStore.myTeam.players.top.name ===player.name ||
+                        this.cacheStore.myTeam.players.jgl.name ===player.name ||
+                        this.cacheStore.myTeam.players.mid.name ===player.name ||
+                        this.cacheStore.myTeam.players.adc.name ===player.name ||
+                        this.cacheStore.myTeam.players.sup.name ===player.name
                         ? '선택됨' : '선택하기'}}
                     </span>
                 </button>
@@ -393,12 +393,21 @@
 import FooterComponent from '@/components/footer/FooterComponent'
 import LoginWarnModal from '@/components/modal/LoginWarnModal.vue'
 
+import {useCacheStore} from '@/store/cacheStore'
+import {useModalStore} from '@/store/modalStore'
+
 import api from '@/api/api'
 
 export default {
     components: {
         FooterComponent,
         LoginWarnModal,
+    },
+    setup(){
+        const cacheStore = useCacheStore()
+        const modalStore = useModalStore()
+
+        return { cacheStore, modalStore }
     },
     data(){
         return {
@@ -459,23 +468,23 @@ export default {
             this.step=num
         },
         selectTeam(name){
-            this.$store.state.cacheStore.myTeam.team=name
-            this.$store.state.cacheStore.myTeam.teamLogo='./assets/logo/color_'+name+'.png'
+            this.cacheStore.myTeam.team=name
+            this.cacheStore.myTeam.teamLogo='./assets/logo/color_'+name+'.png'
         },
         valid(){
             // selectAllFlag Validation            
-            if(!this.$store.state.cacheStore.myTeam.players.top.name ||
-                !this.$store.state.cacheStore.myTeam.players.jgl.name ||
-                !this.$store.state.cacheStore.myTeam.players.mid.name ||
-                !this.$store.state.cacheStore.myTeam.players.adc.name ||
-                !this.$store.state.cacheStore.myTeam.players.sup.name ){
+            if(!this.cacheStore.myTeam.players.top.name ||
+                !this.cacheStore.myTeam.players.jgl.name ||
+                !this.cacheStore.myTeam.players.mid.name ||
+                !this.cacheStore.myTeam.players.adc.name ||
+                !this.cacheStore.myTeam.players.sup.name ){
                 this.selectAllFlag = true
             } else{
                 this.selectAllFlag = false
             }
 
             // selectTeamFlag Validation
-            if(!this.$store.state.cacheStore.myTeam.team){
+            if(!this.cacheStore.myTeam.team){
                 this.selectTeamFlag = true
             } else{
                 this.selectTeamFlag = false
@@ -484,8 +493,8 @@ export default {
 
             // moreThanTwoFlag Validation
             let count=0;
-            for(let index in this.$store.state.cacheStore.myTeam.players){
-                if(this.$store.state.cacheStore.myTeam.players[index].team===this.$store.state.cacheStore.myTeam.team){
+            for(let index in this.cacheStore.myTeam.players){
+                if(this.cacheStore.myTeam.players[index].team===this.cacheStore.myTeam.team){
                     count++
                 }
             }
@@ -497,8 +506,8 @@ export default {
             
             // oneFromOneFlag Validation
             let hold=[]
-            for(let index in this.$store.state.cacheStore.myTeam.players){
-                hold.push(this.$store.state.cacheStore.myTeam.players[index].team);
+            for(let index in this.cacheStore.myTeam.players){
+                hold.push(this.cacheStore.myTeam.players[index].team);
             }
             let uniqueTeams = new Set(hold);
             if(uniqueTeams.size<4){
@@ -508,23 +517,23 @@ export default {
             }
 
             // vpFlag Validation
-            if(this.$store.state.cacheStore.myTeam.totalVP > this.limitVp){
+            if(this.cacheStore.myTeam.totalVP > this.limitVp){
                 this.vpFlag = true
             } else{
                 this.vpFlag = false
             }
-            // console.log(!this.$store.state.cacheStore.myTeam.players.top.isMvp &&
-            //     !this.$store.state.cacheStore.myTeam.players.jgl.isMvp &&
-            //     !this.$store.state.cacheStore.myTeam.players.mid.isMvp &&
-            //     !this.$store.state.cacheStore.myTeam.players.adc.isMvp &&
-            //     !this.$store.state.cacheStore.myTeam.players.sup.isMvp)
-            // console.log(this.$store.state.cacheStore.myTeam.players)
+            // console.log(!this.cacheStore.myTeam.players.top.isMvp &&
+            //     !this.cacheStore.myTeam.players.jgl.isMvp &&
+            //     !this.cacheStore.myTeam.players.mid.isMvp &&
+            //     !this.cacheStore.myTeam.players.adc.isMvp &&
+            //     !this.cacheStore.myTeam.players.sup.isMvp)
+            // console.log(this.cacheStore.myTeam.players)
             // mvpFlag Validation
-            if(!this.$store.state.cacheStore.myTeam.players.top.isMvp &&
-                !this.$store.state.cacheStore.myTeam.players.jgl.isMvp &&
-                !this.$store.state.cacheStore.myTeam.players.mid.isMvp &&
-                !this.$store.state.cacheStore.myTeam.players.adc.isMvp &&
-                !this.$store.state.cacheStore.myTeam.players.sup.isMvp ){
+            if(!this.cacheStore.myTeam.players.top.isMvp &&
+                !this.cacheStore.myTeam.players.jgl.isMvp &&
+                !this.cacheStore.myTeam.players.mid.isMvp &&
+                !this.cacheStore.myTeam.players.adc.isMvp &&
+                !this.cacheStore.myTeam.players.sup.isMvp ){
                 this.mvpFlag = true
             } else{
                 this.mvpFlag = false
@@ -537,17 +546,17 @@ export default {
             this.valid()
             if(this.selectAllFlag || this.selectTeamFlag || this.moreThanTwoFlag || this.oneFromOneFlag || this.vpFlag  || this.mvpFlag)  return
             // 서버 전송
-            console.log(this.$store.state.cacheStore.userId)
-            console.log(this.$store.state.cacheStore.myTeam)
+            console.log(this.cacheStore.userId)
+            console.log(this.cacheStore.myTeam)
             let body = {
-                oauthId:this.$store.state.cacheStore.userId,
-                data:JSON.stringify(this.$store.state.cacheStore.myTeam)
+                oauthId:this.cacheStore.userId,
+                data:JSON.stringify(this.cacheStore.myTeam)
             }
             console.log('body',body)
             api.postTeam(body)
             .then(response=>{
                 console.log(response)
-                this.$store.state.cacheStore.isSave=true
+                this.cacheStore.isSave=true
             })
             .catch(function (e){
                 console.log(e);
@@ -558,40 +567,40 @@ export default {
 
         },
         lineFilter(index){
-            if(this.lines[index].name===this.$store.state.cacheStore.mainLineNav){
-                this.$store.state.cacheStore.mainLineNav=this.lines[0].name
+            if(this.lines[index].name===this.cacheStore.mainLineNav){
+                this.cacheStore.mainLineNav=this.lines[0].name
                 return
             }
-            this.$store.state.cacheStore.mainLineNav = this.lines[index].name
+            this.cacheStore.mainLineNav = this.lines[index].name
 
         },
         teamFilter(name){
-            this.$store.state.cacheStore.mainTeamNav = name
+            this.cacheStore.mainTeamNav = name
 
         },
         click(name){
-            let players = this.$store.state.cacheStore.players
-            console.log(this.$store.state.cacheStore.myTeam.players.top.name)
+            let players = this.cacheStore.players
+            console.log(this.cacheStore.myTeam.players.top.name)
             console.log(name)
-            console.log(this.$store.state.cacheStore.myTeam.players.top.name===name)
-            if(this.$store.state.cacheStore.myTeam.players.top.name===name){
-                this.$store.state.cacheStore.myTeam.players.top={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
+            console.log(this.cacheStore.myTeam.players.top.name===name)
+            if(this.cacheStore.myTeam.players.top.name===name){
+                this.cacheStore.myTeam.players.top={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
                 return
             }
-            if(this.$store.state.cacheStore.myTeam.players.jgl.name===name){
-                this.$store.state.cacheStore.myTeam.players.jgl={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
+            if(this.cacheStore.myTeam.players.jgl.name===name){
+                this.cacheStore.myTeam.players.jgl={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
                 return
             }
-            if(this.$store.state.cacheStore.myTeam.players.mid.name===name){
-                this.$store.state.cacheStore.myTeam.players.mid={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
+            if(this.cacheStore.myTeam.players.mid.name===name){
+                this.cacheStore.myTeam.players.mid={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
                 return
             }
-            if(this.$store.state.cacheStore.myTeam.players.adc.name===name){
-                this.$store.state.cacheStore.myTeam.players.adc={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
+            if(this.cacheStore.myTeam.players.adc.name===name){
+                this.cacheStore.myTeam.players.adc={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
                 return
             }
-            if(this.$store.state.cacheStore.myTeam.players.sup.name===name){
-                this.$store.state.cacheStore.myTeam.players.sup={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
+            if(this.cacheStore.myTeam.players.sup.name===name){
+                this.cacheStore.myTeam.players.sup={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
                 return
             }
 
@@ -599,55 +608,55 @@ export default {
             for(let player in players){
                 if(players[player].name===name){
                     if(players[player].line === 'TOP'){
-                        this.$store.state.cacheStore.myTeam.players.top.isMvp = false
-                        this.$store.state.cacheStore.myTeam.players.top.name = players[player].name
-                        this.$store.state.cacheStore.myTeam.players.top.team = players[player].team
-                        this.$store.state.cacheStore.myTeam.players.top.img = players[player].img
-                        this.$store.state.cacheStore.myTeam.players.top.vp = players[player].vp
+                        this.cacheStore.myTeam.players.top.isMvp = false
+                        this.cacheStore.myTeam.players.top.name = players[player].name
+                        this.cacheStore.myTeam.players.top.team = players[player].team
+                        this.cacheStore.myTeam.players.top.img = players[player].img
+                        this.cacheStore.myTeam.players.top.vp = players[player].vp
                     }
                     else if(players[player].line === 'JGL'){
-                        this.$store.state.cacheStore.myTeam.players.jgl.isMvp = false
-                        this.$store.state.cacheStore.myTeam.players.jgl.name = players[player].name
-                        this.$store.state.cacheStore.myTeam.players.jgl.team = players[player].team
-                        this.$store.state.cacheStore.myTeam.players.jgl.img = players[player].img
-                        this.$store.state.cacheStore.myTeam.players.jgl.vp = players[player].vp
+                        this.cacheStore.myTeam.players.jgl.isMvp = false
+                        this.cacheStore.myTeam.players.jgl.name = players[player].name
+                        this.cacheStore.myTeam.players.jgl.team = players[player].team
+                        this.cacheStore.myTeam.players.jgl.img = players[player].img
+                        this.cacheStore.myTeam.players.jgl.vp = players[player].vp
                     }
                     else if(players[player].line === 'MID'){
-                        this.$store.state.cacheStore.myTeam.players.mid.isMvp = false
-                        this.$store.state.cacheStore.myTeam.players.mid.name = players[player].name
-                        this.$store.state.cacheStore.myTeam.players.mid.team = players[player].team
-                        this.$store.state.cacheStore.myTeam.players.mid.img = players[player].img
-                        this.$store.state.cacheStore.myTeam.players.mid.vp = players[player].vp
+                        this.cacheStore.myTeam.players.mid.isMvp = false
+                        this.cacheStore.myTeam.players.mid.name = players[player].name
+                        this.cacheStore.myTeam.players.mid.team = players[player].team
+                        this.cacheStore.myTeam.players.mid.img = players[player].img
+                        this.cacheStore.myTeam.players.mid.vp = players[player].vp
                     }
                     else if(players[player].line === 'ADC'){
-                        this.$store.state.cacheStore.myTeam.players.adc.isMvp = false
-                        this.$store.state.cacheStore.myTeam.players.adc.name = players[player].name
-                        this.$store.state.cacheStore.myTeam.players.adc.team = players[player].team
-                        this.$store.state.cacheStore.myTeam.players.adc.img = players[player].img
-                        this.$store.state.cacheStore.myTeam.players.adc.vp = players[player].vp
+                        this.cacheStore.myTeam.players.adc.isMvp = false
+                        this.cacheStore.myTeam.players.adc.name = players[player].name
+                        this.cacheStore.myTeam.players.adc.team = players[player].team
+                        this.cacheStore.myTeam.players.adc.img = players[player].img
+                        this.cacheStore.myTeam.players.adc.vp = players[player].vp
                     }
                     else if(players[player].line === 'SUP'){
-                        this.$store.state.cacheStore.myTeam.players.sup.isMvp = false
-                        this.$store.state.cacheStore.myTeam.players.sup.name = players[player].name
-                        this.$store.state.cacheStore.myTeam.players.sup.team = players[player].team
-                        this.$store.state.cacheStore.myTeam.players.sup.img = players[player].img
-                        this.$store.state.cacheStore.myTeam.players.sup.vp = players[player].vp
+                        this.cacheStore.myTeam.players.sup.isMvp = false
+                        this.cacheStore.myTeam.players.sup.name = players[player].name
+                        this.cacheStore.myTeam.players.sup.team = players[player].team
+                        this.cacheStore.myTeam.players.sup.img = players[player].img
+                        this.cacheStore.myTeam.players.sup.vp = players[player].vp
                     }
                 }
             }
             // 토탈 vp 계산
-            this.$store.state.cacheStore.myTeam.totalVP = this.$store.state.cacheStore.myTeam.players.top.vp + this.$store.state.cacheStore.myTeam.players.jgl.vp + this.$store.state.cacheStore.myTeam.players.mid.vp + this.$store.state.cacheStore.myTeam.players.adc.vp + this.$store.state.cacheStore.myTeam.players.sup.vp
+            this.cacheStore.myTeam.totalVP = this.cacheStore.myTeam.players.top.vp + this.cacheStore.myTeam.players.jgl.vp + this.cacheStore.myTeam.players.mid.vp + this.cacheStore.myTeam.players.adc.vp + this.cacheStore.myTeam.players.sup.vp
 
         },
 
     },
     beforeMount(){
         if(this.$route.query.id){
-            this.$store.state.cacheStore.userId = this.$route.query.id
-            this.$store.state.cacheStore.myTeam.name = this.$route.query.name
+            this.cacheStore.userId = this.$route.query.id
+            this.cacheStore.myTeam.name = this.$route.query.name
             
             // 팀 데이터 sync 넣기
-            api.getSync(this.$store.state.cacheStore.userId)
+            api.getSync(this.cacheStore.userId)
             .then(response=>{
                 console.log(response)
             })
@@ -657,12 +666,12 @@ export default {
         }
 
         // 비 로그인시 모달로 막기
-        if(this.$store.state.cacheStore.userId===0){
-            this.$store.state.modalStore.isLoginWarnModal=true
+        if(this.cacheStore.userId===0){
+            this.modalStore.isLoginWarnModal=true
         }
     },
     unmounted(){
-        this.$store.state.modalStore.isLoginWarnModal=false
+        this.modalStore.isLoginWarnModal=false
     }
 }
 </script>

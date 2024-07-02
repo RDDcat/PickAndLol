@@ -18,7 +18,7 @@
         </div>
 
         <!-- 일정 -->
-        <div v-for="data, index in $store.state.cacheStore.schedule" :key="index">
+        <div v-for="data, index in cacheStore.schedule" :key="index">
             <!-- 일정 타이틀 -->
             <div class="w-full h-16 flex bg-gray-100 rounded-lg" 
                 v-if="data.games.some(game => game.home.team === selectedTeam || game.away.team === selectedTeam || selected ===0)">
@@ -73,11 +73,16 @@
     </div>
 </template>
 <script>
-
+import {useCacheStore} from '@/store/cacheStore'
 
 export default {
     components: {
 
+    },
+    setup(){
+        const cacheStore = useCacheStore()
+
+        return { cacheStore }
     },
     data(){
         return {

@@ -3,12 +3,12 @@
     <TitleNav />
     
     <!-- 페이지 컴포넌트 -->
-    <MainComponent v-if="$store.state.modalStore.isMain"/>
-    <TeamComponent v-if="$store.state.modalStore.isTeam"/>
-    <ScheduleComponent v-if="$store.state.modalStore.isSchedule"/>
-    <PlayerRankingComponent v-if="$store.state.modalStore.isPlayerRanking"/>
-    <UserRankingComponent v-if="$store.state.modalStore.isUserRanking"/>
-    <GuideComponent v-if="$store.state.modalStore.isGuideComponent"/>
+    <MainComponent v-if="modalStore.isMain"/>
+    <TeamComponent v-if="modalStore.isTeam"/>
+    <ScheduleComponent v-if="modalStore.isSchedule"/>
+    <PlayerRankingComponent v-if="modalStore.isPlayerRanking"/>
+    <UserRankingComponent v-if="modalStore.isUserRanking"/>
+    <GuideComponent v-if="modalStore.isGuideComponent"/>
 </template>
 <script>
 import TitleNav from '@/components/TitleNav.vue'
@@ -18,6 +18,9 @@ import ScheduleComponent from '@/components/ScheduleComponent.vue'
 import PlayerRankingComponent from '@/components/PlayerRankingComponent.vue'
 import UserRankingComponent from '@/components/UserRankingComponent.vue'
 import GuideComponent from '@/components/GuideComponent.vue'
+
+import {useCacheStore} from '@/store/cacheStore'
+import {useModalStore} from '@/store/modalStore'
 
 export default {
     components: {
@@ -30,17 +33,18 @@ export default {
         GuideComponent,
 
     },
-    data(){
-        return {
+    setup(){
+        const cacheStore = useCacheStore()
+        const modalStore = useModalStore()
 
-        }
+        return { cacheStore, modalStore }
     },
     methods: {
 
     },
     mounted(){
         if(this.$route.query.id){
-            this.$store.state.cacheStore.userId = this.$route.query.id
+            this.cacheStore.userId = this.$route.query.id
         }
     }
 }

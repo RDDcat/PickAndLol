@@ -1,6 +1,8 @@
-// Vuex 스토어를 정의하여 모달과 관련된 상태를 관리
-const modalStore = {
-  state: {
+import { defineStore } from 'pinia'
+
+// use + 스토어 이름 << 컨벤션임
+export const useModalStore = defineStore('modalStore', {
+  state: ()=>({
     // 로그인 창
     isLoginModal: false,
     isLoginWarnModal: false,
@@ -15,21 +17,7 @@ const modalStore = {
     isPlayerRanking: false,
     isUserRanking: false,
     isGuideComponent: false,
-
-  },
-
-  getters: {
-
-  },
-  
-  mutations: {
     
-  },
-
-  actions: {
-
-  }
-};
-
-// modalStore를 내보냄
-export default modalStore;
+  }),
+  persist: true,
+})
