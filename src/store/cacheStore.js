@@ -191,7 +191,7 @@ export const useCacheStore = defineStore('cacheStore', {
                     state: 'yes', result:{win:'home', score: {home:2, away:0}},
                     home:{
                         team: "T1",
-                        name:'T1 T1',
+                        name:'T1',
                         img:'./assets/logo/color_T1.png'
                     },
                     away:{

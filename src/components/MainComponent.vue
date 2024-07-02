@@ -664,6 +664,16 @@ export default {
                 console.log(e);
             });
         }
+        if(this.cacheStore.userId){
+            // 팀 데이터 sync 넣기
+            api.getSync(this.cacheStore.userId)
+            .then(response=>{
+                console.log(response)
+            })
+            .catch(function (e){
+                console.log(e);
+            });
+        }
 
         // 비 로그인시 모달로 막기
         if(this.cacheStore.userId===0){
