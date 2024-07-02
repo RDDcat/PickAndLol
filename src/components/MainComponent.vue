@@ -658,17 +658,18 @@ export default {
             // 팀 데이터 sync 넣기
             api.getSync(this.cacheStore.userId)
             .then(response=>{
-                console.log(response)
+                this.cacheStore.myTeam = JSON.parse(response.data.data)
+                this.cacheStore.isSave=true
             })
             .catch(function (e){
                 console.log(e);
             });
-        }
-        if(this.cacheStore.userId){
+        }else if(this.cacheStore.userId){
             // 팀 데이터 sync 넣기
             api.getSync(this.cacheStore.userId)
             .then(response=>{
-                console.log(response)
+                this.cacheStore.myTeam = JSON.parse(response.data.data)
+                this.cacheStore.isSave=true
             })
             .catch(function (e){
                 console.log(e);
