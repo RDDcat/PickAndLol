@@ -17,62 +17,62 @@
             </div>
         </div>
         <!-- 일정 -->
-        <div v-for="data, index in cacheStore.schedule" :key="index">
+        <div v-for="data, index in scheduleStore.schedule" :key="index">
             <!-- 일정 타이틀 -->
             <div :class="['w-full h-16 flex rounded-lg', isToday(data) ? 'bg-red-100' : 'bg-gray-100']" 
-                v-if="data.games.some(game => game.home.team === selectedTeam || game.away.team === selectedTeam || selected ===0)">
+                v-if="shouldShowTitle(data, index)">
                 <div :class="['px-4 my-auto', isToday(data) ? 'text-red-600' : '']">
-                    {{data.month}}월 {{data.day}}일 ({{data.date}})
+                    {{data.month}}월 {{data.day}}일 ({{getDate(data)}})
                 </div>
             </div>
             <!-- 일정 내용 -->
-            <div v-for="game, index in data.games" :key="index">
             <div class="my-2 w-full h-16 flex border-b-1" 
-                v-if="game.home.team===selectedTeam||game.away.team===selectedTeam||selected===0">
-
+                v-if="data.homeClubId===selected||data.awayClubId===selected||selected===0">
                 <div class="w-full px-4 my-auto flex">
-                    {{game.time}}
+                    {{data.time}}
                     <div class="my-auto text-sm text-gray-500 px-2">
-                        {{game.round}}
+                        {{data.round}}
                     </div>
                     <!-- 경기 결과 -->
                     <div class="mx-auto flex">
                         <div class="flex w-64">
                             <div class="text-sm ml-auto my-auto">
-                                {{game.home.name}}
+                                {{teams[data.homeClubId].name}}
                             </div>
-                            <img class="my-auto ml-4 w-8 h-8 object-cover" :src="game.home.img" alt="">
+                            <img class="my-auto ml-4 w-8 h-8 object-cover" :src="teams[data.homeClubId].colorImg" alt="">
                         </div>
                         <!-- 경기 예정일때 텍스트 -->
-                        <div v-if="game.state==='no'" 
+                        <div v-if="data.matchStatus!=='END'" 
                             class="mx-6 my-auto text-sm text-red-600" >
                             예정
                         </div>
                         <!-- 경기 결과 점수 -->
-                        <div v-if="game.state==='yes'" 
+                        <div v-if="data.matchStatus==='END'" 
                             class="mx-6 my-auto text-sm text-gray-600" >
-                            {{game.result.score.home}} : {{game.result.score.away}}
+                            {{data.homeScore}} : {{data.awayScore}}
                         </div>
                         <div class="flex w-64">
-                            <img class="my-auto mr-4 w-8 h-8 object-cover" :src="game.away.img" alt="">
+                            <img class="my-auto mr-4 w-8 h-8 object-cover" :src="teams[data.awayClubId].colorImg" alt="">
                             <div class="text-sm mr-auto my-auto">
-                                {{game.away.name}}
+                                {{teams[data.awayClubId].name}}
                             </div>
                         </div>
                     </div>
                     <!-- 경기 위치 -->
                     <div class="my-auto px-2 text-gray-500">
-                        {{game.stadium}}
+                        {{data.stadium}}
                     </div>
                 </div>
             </div>
-        </div>
         </div>
 
     </div>
 </template>
 <script>
 import {useCacheStore} from '@/store/cacheStore'
+import {useScheduleStore} from '@/store/scheduleStore'
+
+import api from '@/api/api'
 
 export default {
     components: {
@@ -80,12 +80,14 @@ export default {
     },
     setup(){
         const cacheStore = useCacheStore()
+        const scheduleStore = useScheduleStore()
         const today = new Date()
 
-        return { cacheStore, today }
+        return { cacheStore, scheduleStore, today }
     },
     data(){
         return {
+            // 이거 백엔드랑 같은 아이디 공유함
             selected:0,
             selectedTeam:'LCK',
 
@@ -112,8 +114,29 @@ export default {
         isToday(date) {
             return date.year === this.today.getFullYear() && date.month === this.today.getMonth()+1 && date.day === this.today.getDate();
         },
+        getDate(data){
+            const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
+            const date = new Date(data.year , data.month - 1, data.day);
+            const dayOfWeek = date.getDay();
+            return daysOfWeek[dayOfWeek];
+        },
+        shouldShowTitle(data){
+            if(data.homeClubId===this.selected||data.awayClubId===this.selected||this.selected===0) return true
+            
+        }
+        
 
     },
+    mounted(){
+        // 일정 정보 가져오기
+        api.getMatches()
+        .then(response=>{
+            this.scheduleStore.schedule = response.data;
+        })
+        .catch(function (e){
+            console.log(e);
+        });
+    }
 }
 </script>
 <style scoped>

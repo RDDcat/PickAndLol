@@ -13,6 +13,14 @@ export default {
             },
         });
     },
+    // 일정 정보
+    getMatches: function(){
+        return axios.get(BASE_URL + `match`,{
+            headers: {
+                withCredentials: true,
+            },
+        });
+    },
     // 랭킹 전체 조회
     getRank: function(){
         return axios.get(BASE_URL + `rank`,{
