@@ -87,10 +87,10 @@
             </div>
         </div>
 
-        <!-- 히어로 페이지 -->
-        <div class="w-full flex">
+        <!-- 히어로 페이지 1 -->
+        <div class="w-full flex" v-if="!cacheStore.isSave">
             <!-- 선수 라인 선택지 -->
-            <div class="w-1/2 flex flex-col">
+            <div class="w-10/12 flex flex-col">
                 <!-- 이미지 컨테이너 (지도좌표) -->
                 <div class="relative flex ml-auto mr-12">
                     <img class="mx-auto w-96" src="@/assets/map.png" alt="">
@@ -122,7 +122,7 @@
                 </div>
 
                 <!-- 버튼 -->
-                <div class="ml-auto mr-20 my-8" v-if="!cacheStore.isSave">
+                <div class="ml-auto mr-20 my-8">
                     <button 
                         class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 w-36 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-400 via-red-500 to-red-600 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200"
                         @click="modalStore.isSelectCaptainModal=true">
@@ -137,14 +137,14 @@
             </div>
 
             <!-- 히어로 우측 -->
-            <div v-if="!cacheStore.isSave" class="w-3/5 max-w-[58rem] flex flex-col pl-12">
+            <div class="w-9/12 max-w-[58rem] flex flex-col pl-12">
                 <!-- 제목 -->
                 <div class="w-full mt-3 mb-4 text-lg text-gray-700">
                     2024 LOL 챔피언스 코리아 서머
                 </div>
 
                 <!-- step1 응원팀 선정 -->
-                <div class="w-3/5 flex flex-col shadow-md rounded-md ">
+                <div class="w-9/12 flex flex-col shadow-md rounded-md ">
                     <!-- 타이틀 -->
                     <div class="flex h-12 bg-gray-50" :class="step===0?'bg-red-100 rounded-t-md':'rounded-md'" @click="clickStep(0)">
                         <!-- 타이틀 텍스트 -->
@@ -173,7 +173,7 @@
                 
                 </div>
                 <!-- step2 내 선수단 리스트 -->
-                <div class="mt-1 w-3/5 flex flex-col shadow-md rounded-md ">
+                <div class="mt-1 w-9/12 flex flex-col shadow-md rounded-md ">
                     <!-- 선수단 타이틀 -->
                     <div class="flex h-12 bg-gray-50" :class="step===1?'bg-red-100 rounded-t-md':'rounded-md'" @click="clickStep(1)">
                         <!-- 타이틀 텍스트 -->
@@ -306,7 +306,55 @@
 
         </div>
 
-        <!--  -->
+        <!-- 히어로 페이지 2 -->
+        <div class="w-full flex" v-if="cacheStore.isSave">
+            <!-- 선수 라인 선택지 -->
+            <div class="w-full flex flex-col">
+                <!-- 이미지 컨테이너 (지도좌표) -->
+                <div class="relative flex mx-auto">
+                    <img class="mx-auto w-96" src="@/assets/map.png" alt="">
+                    <div class="absolute left-6 top-6">
+                        <img @click="cacheStore.mainLineNav='TOP'" v-if="cacheStore.myTeam.players.top.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.top.img">
+                        <div v-if="cacheStore.myTeam.players.top.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
+                    </div>
+                    <div class="absolute left-20 top-24">
+                        <img @click="cacheStore.mainLineNav='JGL'" v-if="cacheStore.myTeam.players.jgl.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.jgl.img">
+                        <div v-if="cacheStore.myTeam.players.jgl.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
+                    </div>
+                    <div class="absolute left-40 top-40">
+                        <img @click="cacheStore.mainLineNav='MID'" v-if="cacheStore.myTeam.players.mid.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.mid.img">
+                        <div v-if="cacheStore.myTeam.players.mid.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
+                    </div>
+                    <div class="absolute right-24 bottom-20">
+                        <img @click="cacheStore.mainLineNav='ADC'" v-if="cacheStore.myTeam.players.adc.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.adc.img">
+                        <div v-if="cacheStore.myTeam.players.adc.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
+                    </div>
+                    <div class="absolute right-8 bottom-8">
+                        <img @click="cacheStore.mainLineNav='SUP'" v-if="cacheStore.myTeam.players.sup.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.sup.img">
+                        <div v-if="cacheStore.myTeam.players.sup.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
+                    </div>
+                </div>
+
+                <!-- 유저 정보 -->
+                <div class="my-8 mx-auto w-72 flex py-2 px-4 ring-2 ring-red-400 rounded-lg">
+                    <!-- 응원팀 -->
+                    <div class="w-1/2 flex flex-col">
+                        <div class="mx-auto text-red-600">응원팀</div>
+                        <div class="flex mx-auto my-auto">
+                            <div class="my-auto font-bold text-sm">{{cacheStore.myTeam.team}}</div>
+                            <img class="w-8 object-contain" :src="cacheStore.myTeam.teamLogo">
+                        </div>
+                    </div>
+                    <!-- 유저이름 -->
+                    <div class="w-1/2 flex flex-col">
+                        <div class="mx-auto text-red-600">팀명</div>
+                        <div class="flex mx-auto my-auto">
+                            <div class="font-bold text-xs">{{cacheStore.myTeam.name}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- 선수 필터 -->
         <div class="mx-auto flex flex-col">
