@@ -137,14 +137,14 @@
             </div>
 
             <!-- 히어로 우측 -->
-            <div class="w-9/12 max-w-[58rem] flex flex-col pl-12">
+            <div class="w-9/12 flex flex-col pl-12">
                 <!-- 제목 -->
-                <div class="w-full mt-3 mb-4 text-lg text-gray-700">
+                <div class="w-full max-w-[24rem] mt-3 mb-4 text-lg text-gray-700">
                     2024 LOL 챔피언스 코리아 서머
                 </div>
 
                 <!-- step1 응원팀 선정 -->
-                <div class="w-9/12 flex flex-col shadow-md rounded-md ">
+                <div class="w-9/12 max-w-[24rem] flex flex-col shadow-md rounded-md ">
                     <!-- 타이틀 -->
                     <div class="flex h-12 bg-gray-50" :class="step===0?'bg-red-100 rounded-t-md':'rounded-md'" @click="clickStep(0)">
                         <!-- 타이틀 텍스트 -->
@@ -173,7 +173,7 @@
                 
                 </div>
                 <!-- step2 내 선수단 리스트 -->
-                <div class="mt-1 w-9/12 flex flex-col shadow-md rounded-md ">
+                <div class="mt-1 w-9/12 max-w-[24rem] flex flex-col shadow-md rounded-md ">
                     <!-- 선수단 타이틀 -->
                     <div class="flex h-12 bg-gray-50" :class="step===1?'bg-red-100 rounded-t-md':'rounded-md'" @click="clickStep(1)">
                         <!-- 타이틀 텍스트 -->
