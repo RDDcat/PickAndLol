@@ -19,5 +19,4 @@ export const useModalStore = defineStore('modalStore', {
     isGuideComponent: false,
     
   }),
-  persist: true,
 })
