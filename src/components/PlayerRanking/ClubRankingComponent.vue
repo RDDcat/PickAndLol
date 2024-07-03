@@ -43,10 +43,10 @@
                         <div class="my-auto">{{club.clubName}}</div>
                     </th>
                     <td class="px-1 py-4 text-center">
-                        {{ club.winCount?club.winCount:'0' }}
+                        {{ club.matchWinCount?club.matchWinCount:'0' }}
                     </td>
                     <td class="px-1 py-4 text-center">
-                        {{ club.loseCount?club.loseCount:'0' }}
+                        {{ club.matchLoseCount?club.matchLoseCount:'0' }}
                     </td>
                     <td class="px-1 py-4 text-center">
                         {{ club.totalGap?club.totalGap:'0' }}
