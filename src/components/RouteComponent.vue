@@ -9,6 +9,7 @@
     <PlayerRankingComponent v-if="modalStore.isPlayerRanking"/>
     <UserRankingComponent v-if="modalStore.isUserRanking"/>
     <GuideComponent v-if="modalStore.isGuideComponent"/>
+    <MyComponent v-if="modalStore.isMyComponent"/>
 </template>
 <script>
 import TitleNav from '@/components/TitleNav.vue'
@@ -18,6 +19,7 @@ import ScheduleComponent from '@/components/ScheduleComponent.vue'
 import PlayerRankingComponent from '@/components/PlayerRankingComponent.vue'
 import UserRankingComponent from '@/components/UserRankingComponent.vue'
 import GuideComponent from '@/components/GuideComponent.vue'
+import MyComponent from '@/components/MyComponent.vue'
 
 import {useCacheStore} from '@/store/cacheStore'
 import {useModalStore} from '@/store/modalStore'
@@ -31,6 +33,7 @@ export default {
         PlayerRankingComponent,
         UserRankingComponent,
         GuideComponent,
+        MyComponent,
 
     },
     setup(){

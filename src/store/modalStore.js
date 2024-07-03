@@ -17,6 +17,7 @@ export const useModalStore = defineStore('modalStore', {
     isPlayerRanking: false,
     isUserRanking: false,
     isGuideComponent: false,
+    isMyComponent: false,
     
   }),
 })
