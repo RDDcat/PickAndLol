@@ -7,10 +7,10 @@
         </div>
         <!-- 네비게이션 -->
         <!-- <div class="w-full mx-auto my-2 flex">
-            <div class="w-16 text-center text-gray-600" :class="cacheStore.playerRankingNav===0?'text-red-600':''" @click="cacheStore.playerRankingNav=0">
+            <div class="w-16 text-center text-gray-600" :class="cacheStore.clubRankingNav===0?'text-red-600':''" @click="cacheStore.clubRankingNav=0">
                 팀
             </div>
-            <div class="w-16 text-center text-gray-600" :class="cacheStore.playerRankingNav===1?'text-red-600':''" @click="cacheStore.playerRankingNav=1">
+            <div class="w-16 text-center text-gray-600" :class="cacheStore.clubRankingNav===1?'text-red-600':''" @click="cacheStore.clubRankingNav=1">
                 개인
             </div>
         </div> -->
@@ -18,21 +18,21 @@
         <!-- 네비 하단 라인 -->
         <!-- <div class="w-full h-[2px] bg-gray-600"></div> -->
 
-        <TeamRanking v-if="cacheStore.playerRankingNav===0"/>
-        <PlayerRanking v-if="cacheStore.playerRankingNav===1"/>
+        <ClubRanking v-if="cacheStore.clubRankingNav===0"/>
+        <PlayerRanking v-if="cacheStore.clubRankingNav===1"/>
 
 
     </div>
 </template>
 <script>
-import TeamRanking from '@/components/PlayerRanking/TeamRankingComponent.vue'
+import ClubRanking from '@/components/PlayerRanking/ClubRankingComponent.vue'
 import PlayerRanking from '@/components/PlayerRanking/PlayerRankingComponent.vue'
 
 import {useCacheStore} from '@/store/cacheStore'
 
 export default {
     components: {
-        TeamRanking,
+        ClubRanking,
         PlayerRanking,
 
     },
