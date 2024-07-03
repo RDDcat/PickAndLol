@@ -13,6 +13,13 @@ export default {
             },
         });
     },
+    getClubs: function(){
+        return axios.get(BASE_URL + `club/all`,{
+            headers: {
+                withCredentials: true,
+            },
+        });
+    },
     // 일정 정보
     getMatches: function(){
         return axios.get(BASE_URL + `match`,{

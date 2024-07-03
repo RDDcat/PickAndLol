@@ -81,7 +81,7 @@ export const useCacheStore = defineStore('cacheStore', {
     
         ],
         
-        playerRankingNav:0,
+        clubRankingNav:0,
         mainTeamNav:'LCK',
         mainLineNav:'전체',
     
