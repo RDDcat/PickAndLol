@@ -31,7 +31,8 @@
                 로그인
             </button>
         </div>
-        <div class="flex font-bold w-52" v-if="cacheStore.userId!==0">
+        <div class="flex w-32" v-if="cacheStore.userId!==0" @click="nav(5)">
+            <img class="m-auto w-6 h-6 rounded-full hover:ring-4 hover:ring-gray-200 object-contain" src="@/assets/icon/img-profile.webp" >
         </div>
 
     </div>
@@ -65,6 +66,7 @@ export default {
             this.modalStore.isPlayerRanking= index === 2
             this.modalStore.isUserRanking= index === 3
             this.modalStore.isGuideComponent= index === 4
+            this.modalStore.isMyComponent= index === 5
         },
 
     },

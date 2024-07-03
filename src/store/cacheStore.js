@@ -4,6 +4,7 @@ import { defineStore } from 'pinia'
 export const useCacheStore = defineStore('cacheStore', {
     state: ()=>({
         userId:0,
+        userName:"",
         isSave:false,
         players:[
             {vp:50, line:"TOP", name:"Zeus", stat:0, team:"T1", img: "./assets/player/T1_Zeus.svg"},

@@ -49,6 +49,9 @@ export default {
         if(this.$route.query.id){
             this.cacheStore.userId = this.$route.query.id
         }
+        if(this.$route.query.name){
+            this.cacheStore.userName = this.$route.query.name
+        }
     }
 }
 </script>
