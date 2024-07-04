@@ -104,6 +104,7 @@ export default {
                 {name:'DRX', team:'DRX', img:'./assets/logo/DRX.png', colorImg:'./assets/logo/color_DRX.png',}, 
                 {name:'농심', team:'NS', img:'./assets/logo/NS.png', colorImg:'./assets/logo/color_NS.png',}, 
             ],
+            showMatchIds:[],
         }
     },
     methods: {
@@ -121,8 +122,9 @@ export default {
             return daysOfWeek[dayOfWeek];
         },
         shouldShowTitle(data){
+            if(data)
             if(data.homeClubId===this.selected||data.awayClubId===this.selected||this.selected===0) return true
-            
+
         }
         
 

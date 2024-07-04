@@ -7,7 +7,7 @@
                 <div class="mx-auto text-sm mt-1 text-gray-300">({{modalStore.warningInfo}})</div>
             </div>
             <div class="flex">
-                <button 
+                <button @click="yes"
                     type="button" class="mx-auto text-red-400 hover:text-white border border-red-400 hover:bg-red-600 rounded-lg text-sm px-5 py-2.5 text-center ">
                     네
                 </button>
@@ -40,7 +40,18 @@ export default {
         }
     },
     methods: {
+        yes(){
+            if(this.modalStore.warningFrom==='inactive'){
+                console.log('계정 비활성화')
+            } else if(this.modalStore.warningFrom==='logout'){
+                console.log('로그아웃')
+                this.cacheStore.$reset()
+                this.modalStore.$reset()
 
+            }
+            // this.$emit(this.modalStore.warningFrom)
+            this.modalStore.isWarningModal = false
+        }
     },
 }
 </script>

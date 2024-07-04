@@ -10,6 +10,7 @@ export const useModalStore = defineStore('modalStore', {
     isSelectCaptainModal: false,
     isPlayerModal: false,
     isWarningModal: false,
+    warningFrom:'',
     warningTitle:'title',
     warningInfo:'info',
 
