@@ -32,7 +32,7 @@
             </button>
         </div>
         <div class="flex w-32" v-if="cacheStore.userId!==0" @click="nav(5)">
-            <img class="m-auto w-6 h-6 rounded-full hover:ring-4 hover:ring-gray-200 object-contain" src="@/assets/icon/img-profile.webp" >
+            <img class="m-auto w-6 h-6 rounded-full hover:ring-4 hover:ring-gray-200 object-contain" src="@/assets/logo.png" >
         </div>
 
     </div>
