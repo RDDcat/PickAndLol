@@ -391,7 +391,26 @@
                 <div v-if="(this.cacheStore.mainLineNav === player.line || this.cacheStore.mainLineNav==='전체') &&
                         (this.cacheStore.mainTeamNav=== player.team || this.cacheStore.mainTeamNav=== 'LCK')">
                 <!-- 선수 카드 -->
-                <div @click="this.modalStore.isPlayerModal=true" class="relative w-52 h-72 flex flex-col rounded-lg shadow-lg hover:shadow-2xl">
+                <div @click="this.modalStore.isPlayerModal=true" class="relative w-52 h-72 flex flex-col rounded-lg shadow-lg hover:shadow-2xl"
+                    @mouseover="hover=index"
+                    @mouseleave="hover=''">
+                    <!-- 호버시 스탯창 -->
+                    <div v-show="hover===index" 
+                        class="absolute flex flex-col top-0 left-0 w-full h-full bg-black bg-opacity-90 rounded-lg z-20 break-all">
+                        <!-- 스탯 정보 -->
+                        <div class="mx-auto text-white">
+                            {{player.name}}
+                        </div>
+                        <div class="mx-auto my-2 text-white">
+                            {{player.killCount}} / {{player.deathCount}} / {{player.assistCount}} &nbsp; {{player.killRate}}
+                        </div>
+                        <div class="mx-auto px-2 mt-auto mb-4 text-white whitespace-pre-wrap ">
+                            {{player.info}}
+                        </div>
+
+                    </div>
+
+                    <!--선수 정보 -->
                     <div class="font-base mx-auto">
                         {{player.rank}}
                     </div>
@@ -470,6 +489,8 @@ export default {
 
             selected:0,
             limitVp:350,
+
+            hover: '',
 
             teams:[
                 {name:'전체', team:'LCK', img:'./assets/logo/lck.png', colorImg:'./assets/logo/lck.png',}, 

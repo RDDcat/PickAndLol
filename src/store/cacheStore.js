@@ -7,7 +7,8 @@ export const useCacheStore = defineStore('cacheStore', {
         userName:"",
         isSave:false,
         players:[
-            {vp:50, line:"TOP", name:"Zeus", stat:0, team:"T1", img: "./assets/player/T1_Zeus.svg"},
+            {vp:50, line:"TOP", name:"Zeus", stat:0, team:"T1", img: "./assets/player/T1_Zeus.svg", 
+                killCount:0, deathCount:0, assistCount:0, killRate:0, info:"그는 신인가"},
             {vp:50, line:"JGL", name:"Oner", stat:0, team:"T1", img: "./assets/player/T1_Oner.svg"},
             {vp:300, line:"MID", name:"Faker", stat:0, team:"T1", img: "./assets/player/T1_Faker.svg"},
             {vp:150, line:"ADC", name:"Gumayusi", stat:0, team:"T1", img: "./assets/player/T1_Gumayusi.svg"},
