@@ -391,7 +391,7 @@
                 <div v-if="(this.cacheStore.mainLineNav === player.line || this.cacheStore.mainLineNav==='전체') &&
                         (this.cacheStore.mainTeamNav=== player.team || this.cacheStore.mainTeamNav=== 'LCK')">
                 <!-- 선수 카드 -->
-                <div @click="this.modalStore.isPlayerModal=true" class="relative w-52 h-72 flex flex-col rounded-lg shadow-md hover:shadow-3xl"
+                <div @click="clickPlayer(player)" class="relative w-52 h-72 flex flex-col rounded-lg shadow-md hover:shadow-3xl"
                     @mouseover="hover=index"
                     @mouseleave="hover=''">
                     <!-- 호버시 스탯창 -->
@@ -649,6 +649,10 @@ export default {
         teamFilter(name){
             this.cacheStore.mainTeamNav = name
 
+        },
+        clickPlayer(player){
+            this.modalStore.isPlayerModal=true
+            this.modalStore.selectPlayer=player
         },
         click(name){
             let players = this.cacheStore.players
