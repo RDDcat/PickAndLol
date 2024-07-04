@@ -391,7 +391,7 @@
                 <div v-if="(this.cacheStore.mainLineNav === player.line || this.cacheStore.mainLineNav==='전체') &&
                         (this.cacheStore.mainTeamNav=== player.team || this.cacheStore.mainTeamNav=== 'LCK')">
                 <!-- 선수 카드 -->
-                <div @click="this.modalStore.isPlayerModal=true" class="relative w-52 h-72 flex flex-col rounded-lg shadow-lg hover:shadow-2xl"
+                <div @click="this.modalStore.isPlayerModal=true" class="relative w-52 h-72 flex flex-col rounded-lg shadow-md hover:shadow-3xl"
                     @mouseover="hover=index"
                     @mouseleave="hover=''">
                     <!-- 호버시 스탯창 -->
@@ -404,8 +404,11 @@
                         <div class="mx-auto my-2 text-white">
                             {{player.killCount}} / {{player.deathCount}} / {{player.assistCount}} &nbsp; {{player.killRate}}
                         </div>
-                        <div class="mx-auto px-2 mt-auto mb-4 text-white whitespace-pre-wrap ">
+                        <div class="mx-auto px-2 mt-auto mb-1 text-white whitespace-pre-wrap ">
                             {{player.info}}
+                        </div>
+                        <div class="mx-auto px-2 mb-3 text-gray-600 whitespace-pre-wrap ">
+                            click!
                         </div>
 
                     </div>
