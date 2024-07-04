@@ -2,9 +2,9 @@
     <div class="fixed overscroll-contain bg-black bg-opacity-10 w-full h-screen z-40 flex" @click.stop="modalStore.isWarningModal = false">
         <div class="relative flex flex-col w-96 h-52 my-72 mx-auto border-2 border-red-400 bg-white rounded-lg z-50" @click.stop="">
             <!-- 타이틀 -->
-            <div class="text-xl text-lx mx-auto mt-8 pb-10 text-ellipsis">
-                * {{modalStore.warningTitle}}
-                <div class="text-sm mt-1 text-gray-300">({{modalStore.warningInfo}})</div>
+            <div class="text-xl text-lx mx-auto mt-8 pb-10 text-ellipsis flex flex-col">
+                <div class="mx-auto"> * {{modalStore.warningTitle}}</div>
+                <div class="mx-auto text-sm mt-1 text-gray-300">({{modalStore.warningInfo}})</div>
             </div>
             <div class="flex">
                 <button 
