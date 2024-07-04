@@ -15,7 +15,8 @@
 
             </div>
             <!-- 오른쪽 프레임 -->
-            <div class="w-[700px] h-full bg-white rounded-r-lg">
+            <div class="flex w-[700px] h-full bg-white rounded-r-lg ">
+                <img class="m-auto w-80 object-contain" src="@/assets/coming-soon-logo.png">
 
             </div>
         </div>
