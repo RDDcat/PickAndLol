@@ -1,16 +1,16 @@
 <template>
-    <div class="flex px-20 py-4 w-full z-30 bg-white" :class="modalStore.isLoginWarnModal?'fixed':''">
+    <div class="flex py-4 px-2 w-full z-30 bg-white" :class="modalStore.isLoginWarnModal?'fixed':''">
         <!-- 로고 -->
-        <div class="flex font-bold w-52">
-            <img class="w-16 h-16" src="@/assets/logo-beta.png">
-            <div class="flex my-auto mx-3 text-2xl">
+        <div class="flex font-bold md:w-60 w-10">
+            <img class="ml-auto w-8 h-8" src="@/assets/logo-beta.png">
+            <div class="invisible md:visible flex my-auto mr-auto mx-3 text-2xl ">
                 Pick
                 <div class="text-red-600 text-sm">&</div>
                 LOL
             </div>
         </div>
         <!-- 네비 -->
-        <div class="flex w-320 m-auto font-semibold">
+        <div class="flex space-x-1 items-center justify-around m-auto font-semibold">
             <div class="w-24 text-center " :class="index===0?'text-red-600':'hover:text-gray-400'" @click="nav(0)">
                 MY선수단
             </div>
@@ -26,12 +26,12 @@
             <i class="fa-regular fa-circle-question my-auto" :class="index===4?'text-red-600':'hover:text-gray-400'" @click="nav(4)"></i>
         </div>
         <!-- 로그인 회원가입 -->
-        <div class="flex font-bold w-52" v-if="cacheStore.userId===0">
+        <div class="flex font-bold w-60" v-if="cacheStore.userId===0">
             <button class="btn btn-gray mx-auto" @click="modalStore.isLoginModal=true">
                 로그인
             </button>
         </div>
-        <div class="flex w-32" v-if="cacheStore.userId!==0" @click="nav(5)">
+        <div class="flex w-60" v-if="cacheStore.userId!==0" @click="nav(5)">
             <img class="m-auto w-6 h-6 rounded-full hover:ring-4 hover:ring-gray-200 object-contain" src="@/assets/logo.png" >
         </div>
 
