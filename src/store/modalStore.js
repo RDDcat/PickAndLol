@@ -9,6 +9,9 @@ export const useModalStore = defineStore('modalStore', {
     isGuideModal: false,
     isSelectCaptainModal: false,
     isPlayerModal: false,
+    isWarningModal: false,
+    warningTitle:'title',
+    warningInfo:'info',
 
     // 네비게이션
     isMain: true,

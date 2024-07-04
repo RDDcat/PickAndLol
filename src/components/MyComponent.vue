@@ -53,7 +53,8 @@
                 </div>
                 <!-- 내용 -->
                 <div class="flex w-full p-2">
-                    <button type="button" class="text-white bg-red-700 hover:bg-red-800  font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 ">
+                    <button @click="accountInactivate()"
+                        type="button" class="text-white bg-red-700 hover:bg-red-800  font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 ">
                         계정 비활성화
                     </button>
                     <button type="button" class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800  font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 ">
@@ -68,6 +69,7 @@
 </template>
 <script>
 import {useCacheStore} from '@/store/cacheStore'
+import {useModalStore} from '@/store/modalStore'
 
 export default {
     components: {
@@ -75,8 +77,9 @@ export default {
     },
     setup(){
         const cacheStore = useCacheStore()
+        const modalStore = useModalStore()
 
-        return { cacheStore }
+        return { cacheStore, modalStore }
     },
     data(){
         return {
@@ -84,6 +87,11 @@ export default {
         }
     },
     methods: {
+        accountInactivate(){
+            this.modalStore.isWarningModal = true
+            this.modalStore.warningTitle = '계정을 비활성화 하시겠습니까?'
+            this.modalStore.warningInfo = '비활성화된 계정은 순차적으로 삭제됩니다.'
+        }
 
     },
 }
