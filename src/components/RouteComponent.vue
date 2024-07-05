@@ -46,10 +46,10 @@ export default {
 
     },
     mounted(){
-        if(this.$route.query.id){
+        if(this.$route.query.id && !this.cacheStore.userId){
             this.cacheStore.userId = this.$route.query.id
         }
-        if(this.$route.query.name){
+        if(this.$route.query.name && !this.cacheStore.name){
             this.cacheStore.userName = this.$route.query.name
         }
     }

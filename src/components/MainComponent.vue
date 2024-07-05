@@ -727,20 +727,7 @@ export default {
 
     },
     beforeMount(){
-        if(this.$route.query.id){
-            this.cacheStore.userId = this.$route.query.id
-            this.cacheStore.myTeam.name = this.$route.query.name
-            
-            // 팀 데이터 sync 넣기
-            api.getSync(this.cacheStore.userId)
-            .then(response=>{
-                this.cacheStore.myTeam = JSON.parse(response.data.data)
-                this.cacheStore.isSave=true
-            })
-            .catch(function (e){
-                console.log(e);
-            });
-        }else if(this.cacheStore.userId){
+        if(this.cacheStore.userId){
             // 팀 데이터 sync 넣기
             api.getSync(this.cacheStore.userId)
             .then(response=>{
