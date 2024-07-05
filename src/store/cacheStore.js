@@ -30,13 +30,13 @@ export const useCacheStore = defineStore('cacheStore', {
             {vp:130, id:0, line:"JGL", name:"Peanut", stat:0, team:"HLE", img: "./assets/player/HLE_Peanut.svg"},
             {vp:200, id:0, line:"MID", name:"Zeka", stat:0, team:"HLE", img: "./assets/player/HLE_Zeka.svg"},
             {vp:230, id:0, line:"ADC", name:"Viper", stat:0, team:"HLE", img: "./assets/player/HLE_Viper.svg"},
-            {vp:25, id:0, line:"SUP", name:"Delight", stat:0, team:"HLE", img: "./assets/player/HLE_Delight.svg"},
+            {vp:35, id:0, line:"SUP", name:"Delight", stat:0, team:"HLE", img: "./assets/player/HLE_Delight.svg"},
     
-            {vp:120, id:0, line:"TOP", name:"Kingen", stat:0, team:"DK", img: "./assets/player/DK_Kingen.svg"},
+            {vp:90, id:0, line:"TOP", name:"Kingen", stat:0, team:"DK", img: "./assets/player/DK_Kingen.svg"},
             {vp:10, id:0, line:"JGL", name:"Lucid", stat:0, team:"DK", img: "./assets/player/DK_Lucid.svg"},
             {vp:210, id:0, line:"MID", name:"ShowMaker", stat:0, team:"DK", img: "./assets/player/DK_ShowMaker.svg"},
             {vp:140, id:0, line:"ADC", name:"Aiming", stat:0, team:"DK", img: "./assets/player/DK_Aiming.svg"},
-            {vp:35, id:0, line:"SUP", name:"Kellin", stat:0, team:"DK", img: "./assets/player/DK_Kellin.svg"},
+            {vp:45, id:0, line:"SUP", name:"Kellin", stat:0, team:"DK", img: "./assets/player/DK_Kellin.svg"},
     
             {vp:40, id:0, line:"TOP", name:"Rascal", stat:0, team:"DRX", img: "./assets/player/DRX_Rascal.svg"},
             {vp:6, id:0, line:"JGL", name:"Sponge", stat:0, team:"DRX", img: "./assets/player/DRX_Sponge.svg"},
