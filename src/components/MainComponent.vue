@@ -391,28 +391,11 @@
                 <div v-if="(this.cacheStore.mainLineNav === player.line || this.cacheStore.mainLineNav==='전체') &&
                         (this.cacheStore.mainTeamNav=== player.team || this.cacheStore.mainTeamNav=== 'LCK')">
                 <!-- 선수 카드 -->
-                <div @click="clickPlayer(player)" class="relative w-52 h-72 flex flex-col rounded-lg shadow-md hover:shadow-3xl"
+                <div @click="clickPlayer(player)" class="relative w-52 h-72 flex flex-col rounded-lg "
+                    :class="hover===index?'shadow-2xl':'shadow-md'"
                     @mouseover="hover=index"
                     @mouseleave="hover=''">
-                    <!-- 호버시 스탯창 -->
-                    <div v-show="hover===index" 
-                        class="absolute flex flex-col top-0 left-0 w-full h-full bg-black bg-opacity-90 rounded-lg z-20 break-all">
-                        <!-- 스탯 정보 -->
-                        <div class="mx-auto text-white">
-                            {{player.name}}
-                        </div>
-                        <div class="mx-auto my-2 text-white">
-                            {{player.killCount}} / {{player.deathCount}} / {{player.assistCount}} &nbsp; {{player.killRate}}
-                        </div>
-                        <div class="mx-auto px-2 mt-auto mb-1 text-white whitespace-pre-wrap ">
-                            {{player.info}}
-                        </div>
-                        <div class="mx-auto px-2 mb-3 text-gray-600 whitespace-pre-wrap ">
-                            click!
-                        </div>
-
-                    </div>
-
+                    
                     <!--선수 정보 -->
                     <div class="font-base mx-auto">
                         {{player.rank}}
@@ -428,8 +411,33 @@
                             <img class="ml-1 w-5 h-5" src="@/assets/icon/vp.png">
                         </div>
                     </div>
-                    <div class="absolute right-4 bottom-4 rounded-lg z-0 w-44 h-52 bg-gray-100"></div>
-                    <img class="rounded-lg z-10 mx-auto mt-auto mb-3 w-44 h-52 object-cover" :src="player.img">
+                    <!-- 선수 이미지 -->
+                    <div class="relative w-44 h-52 mx-auto mt-auto mb-4">
+                        <div class="absolute rounded-lg w-full h-full bg-gray-100"></div>
+                        <img class="absolute rounded-lg mx-auto mt-auto mb-3 w-full h-full object-cover" :src="player.img">
+                        <!-- 호버시 스탯창 -->
+                        <div v-show="hover===index" 
+                            class="absolute flex flex-col top-0 left-0 w-full h-full bg-black bg-opacity-90 rounded-lg z-20 break-all">
+                            <!-- 스탯 정보 -->
+                            <div class="mx-auto mt-2 text-gray-400">
+                                KDA {{player.killRate}}
+                            </div>
+                            <div class="my-auto mx-auto flex flex-col">
+                                <div class="mx-auto text-white">
+                                    시즌 획득 점수
+                                </div>
+                                <div class="mx-auto  text-white text-2xl font-bold">
+                                    {{player.stat}}
+                                </div>
+                            </div>
+                            <div class="mx-auto px-2 mt-auto mb-1 text-white whitespace-pre-wrap ">
+                                {{player.info}}
+                            </div>
+                            <div class="mx-auto px-2 mb-3 text-gray-400 whitespace-pre-wrap ">
+                                click!
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
                 <!-- 선택하기 버튼 -->
