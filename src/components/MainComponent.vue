@@ -61,14 +61,12 @@ export default {
 
                 // 시간이 17:00 ~ 24:00 사이인지 확인
                 if(hours >= 17 && hours < 24){
-                    // 변경 가능시간임 3번화면
-                    console.log(this.index)
-                    this.index=2
+                    // 변경 불가능시간임 2번화면
+                    this.index=1
                     return
                 } else {
-                    // 변경 불가능 시간임 2번화면
-                    console.log(this.index)
-                    this.index=1
+                    // 변경 불가능 시간임 3번화면
+                    this.index=2
                     return
                 }
             }
