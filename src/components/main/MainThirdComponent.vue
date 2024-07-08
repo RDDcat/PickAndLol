@@ -1,13 +1,12 @@
 <template>
     <!-- 선수단 등록 페이지 -->
     <div class="w-full flex flex-col mb-12">
-        33333333333333333333333333333
         <!-- 공지 -->
-        <div class="flex w-1/3 py-2 bg-gray-100 rounded-b-lg mx-auto">
+        <!-- <div class="flex w-1/3 py-2 bg-gray-100 rounded-b-lg mx-auto">
             <div class="mx-auto text-sm text-gray-500">
-                변경가능시간 : 매일 밤 자정 00:00 ~ 17:00
+                선수단을 변경할
             </div>
-        </div>
+        </div> -->
         
         <!-- 에러 공지 -->
         <div class="w-1/2  bg-red-100 rounded-lg mx-auto mb-1">
@@ -87,8 +86,9 @@
             </div>
         </div>
 
-        <!-- 히어로 페이지 1 -->
-        <div class="w-full flex" v-if="!cacheStore.isSave">
+        <!-- 히어로 페이지 -->
+        <div class="w-full flex" >
+            <!-- 히어로 좌측 -->
             <!-- 선수 라인 선택지 -->
             <div class="w-10/12 flex flex-col">
                 <!-- 이미지 컨테이너 (지도좌표) -->
@@ -139,46 +139,55 @@
             <!-- 히어로 우측 -->
             <div class="w-9/12 flex flex-col pl-12">
                 <!-- 제목 -->
-                <div class="w-full max-w-[24rem] mt-3 mb-4 text-lg text-gray-700">
+                <div class="w-full max-w-[24rem] mt-3 mb-1 text-lg font-bold text-gray-700">
                     2024 LOL 챔피언스 코리아 서머
                 </div>
 
-                <!-- step1 응원팀 선정 -->
+                <!-- 응원팀 선정 -->
                 <div class="w-9/12 max-w-[24rem] flex flex-col shadow-md rounded-md ">
                     <!-- 타이틀 -->
-                    <div class="flex h-12 bg-gray-50" :class="step===0?'bg-red-100 rounded-t-md':'rounded-md'" @click="clickStep(0)">
+                    <div class="flex bg-gray-50 py-1" >
                         <!-- 타이틀 텍스트 -->
-                        <div class="flex my-auto ml-6 text-sm text-gray-600">
-                            step1. 
-                            <div class="ml-2 text-base text-gray-800">응원팀 선정</div>
+                        <!-- 응원팀 -->
+                        <div class="flex flex-1 ">
+                            <div class="w-full flex flex-col my-auto text-gray-600">
+                                <div class="mx-auto mt-auto bg-white px-2.5 py-1 rounded-full">
+                                    <div class="text-sm text-red-500">응원팀</div>
+                                </div>
+                                <div class="flex text-base mx-auto mb-auto">{{cacheStore.myTeam.team}}
+                                    <img class="ml-1 w-6 h-6 object-cover rounded-full" :src="cacheStore.myTeam.teamLogo">
+                                </div>
+                            </div>
                         </div>
-                        <!-- 토탈 vp 포인트 -->
-                        <div class="flex ml-auto my-auto mr-4">
-                            <img class="w-6 h-6 object-cover rounded-full" :src="cacheStore.myTeam.teamLogo">
+                        <!--  -->
+                        <div class="flex flex-1">
+                            <div class="w-full flex flex-col my-auto text-gray-600">
+                                <div class="mx-auto mt-auto bg-white px-2.5 py-1 rounded-full">
+                                    <div class="text-sm text-red-500">팀명</div>
+                                </div>
+                                <div class="flex text-base mx-auto mb-auto">{{cacheStore.myTeam.name}}
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <!-- 선수단 리스트 -->
-                    <div class="w-full my-6 flex flex-col" v-show="step===0">
-                        <!-- 1열 -->
-                        <div class="px-4 flex w-full flex-wrap">
-                            <div v-for="team in onlyTeams" :key="team.name" class="my-2 flex flex-col">
-                                <img :class="this.cacheStore.myTeam.team===team.team?'ring-red-500 ring-2 bg-red-50':''" 
-                                    class="w-11 h-11 object-contain rounded-full bg-gray-50 mx-3 hover:ring-red-400 hover:ring-2" :src="team.colorImg" @click="selectTeam(team.team)">
-                                <div :class="this.cacheStore.myTeam.team===team.team?'text-gray-900':''" 
-                                    class="text-xs text-gray-500 mx-auto mt-1">{{team.team}}</div>
+                        <div class="flex flex-1">
+                            <div class="w-full flex flex-col my-auto">
+                                <div class="mx-auto mt-auto bg-red-500 px-2.5 py-1 rounded-full">
+                                    <div class="text-sm text-white">선수변경권</div>
+                                </div>
+                                <div class="flex text-base mx-auto mb-auto">
+                                    <div class="text-red-500">{{cacheStore.temporaryChangeCount}}</div>회
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                
                 </div>
-                <!-- step2 내 선수단 리스트 -->
+
+                <!-- 내 선수단 리스트 -->
                 <div class="mt-1 w-9/12 max-w-[24rem] flex flex-col shadow-md rounded-md ">
                     <!-- 선수단 타이틀 -->
-                    <div class="flex h-12 bg-gray-50" :class="step===1?'bg-red-100 rounded-t-md':'rounded-md'" @click="clickStep(1)">
+                    <div class="flex h-12 bg-red-100 rounded-t-md">
                         <!-- 타이틀 텍스트 -->
                         <div class="flex my-auto ml-6 text-sm text-gray-600">
-                            step2. 
                             <div class="ml-2 text-base text-gray-800">내 선수단</div>
                         </div>
                         <!-- 토탈 vp 포인트 -->
@@ -190,7 +199,7 @@
                         </div>
                     </div>
                     <!-- 선수단 리스트 -->
-                    <div class="w-full my-6 flex flex-col" v-show="step===1">
+                    <div class="w-full my-6 flex flex-col">
                         <!-- 탑 -->
                         <div class="my-2 px-4 flex w-full">
                             <!-- 아이콘 -->
@@ -306,56 +315,6 @@
 
         </div>
 
-        <!-- 히어로 페이지 2 -->
-        <div class="w-full flex" v-if="cacheStore.isSave">
-            <!-- 선수 라인 선택지 -->
-            <div class="w-full flex flex-col">
-                <!-- 이미지 컨테이너 (지도좌표) -->
-                <div class="relative flex mx-auto">
-                    <img class="mx-auto w-96" src="@/assets/map.png" alt="">
-                    <div class="absolute left-6 top-6">
-                        <img @click="cacheStore.mainLineNav='TOP'" v-if="cacheStore.myTeam.players.top.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.top.img">
-                        <div v-if="cacheStore.myTeam.players.top.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
-                    </div>
-                    <div class="absolute left-20 top-24">
-                        <img @click="cacheStore.mainLineNav='JGL'" v-if="cacheStore.myTeam.players.jgl.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.jgl.img">
-                        <div v-if="cacheStore.myTeam.players.jgl.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
-                    </div>
-                    <div class="absolute left-40 top-40">
-                        <img @click="cacheStore.mainLineNav='MID'" v-if="cacheStore.myTeam.players.mid.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.mid.img">
-                        <div v-if="cacheStore.myTeam.players.mid.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
-                    </div>
-                    <div class="absolute right-24 bottom-20">
-                        <img @click="cacheStore.mainLineNav='ADC'" v-if="cacheStore.myTeam.players.adc.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.adc.img">
-                        <div v-if="cacheStore.myTeam.players.adc.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
-                    </div>
-                    <div class="absolute right-8 bottom-8">
-                        <img @click="cacheStore.mainLineNav='SUP'" v-if="cacheStore.myTeam.players.sup.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.sup.img">
-                        <div v-if="cacheStore.myTeam.players.sup.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
-                    </div>
-                </div>
-
-                <!-- 유저 정보 -->
-                <div class="my-8 mx-auto w-72 flex py-2 px-4 ring-2 ring-red-400 rounded-lg">
-                    <!-- 응원팀 -->
-                    <div class="w-1/2 flex flex-col">
-                        <div class="mx-auto text-red-600">응원팀</div>
-                        <div class="flex mx-auto my-auto">
-                            <div class="my-auto font-bold text-sm">{{cacheStore.myTeam.team}}</div>
-                            <img class="w-8 object-contain" :src="cacheStore.myTeam.teamLogo">
-                        </div>
-                    </div>
-                    <!-- 유저이름 -->
-                    <div class="w-1/2 flex flex-col">
-                        <div class="mx-auto text-red-600">팀명</div>
-                        <div class="flex mx-auto my-auto">
-                            <div class="font-bold text-xs">{{cacheStore.myTeam.name}}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- 선수 필터 -->
         <div class="mx-auto flex flex-col">
             <!-- 팀 별 필터 -->
@@ -441,7 +400,7 @@
 
                 </div>
                 <!-- 선택하기 버튼 -->
-                <button v-if="!cacheStore.isSave &&
+                <button v-if="
                         (this.cacheStore.mainLineNav === player.line || this.cacheStore.mainLineNav==='전체') &&
                         (this.cacheStore.mainTeamNav=== player.team || this.cacheStore.mainTeamNav=== 'LCK')"
                     @click="click(player.name);"
@@ -535,14 +494,6 @@ export default {
         }
     },
     methods: {
-        clickStep(num){
-            console.log(this.step, num)
-            if(this.step === num){
-                this.step=9
-                return
-            } 
-            this.step=num
-        },
         selectTeam(name){
             this.cacheStore.myTeam.team=name
             this.cacheStore.myTeam.teamLogo='./assets/logo/color_'+name+'.png'
