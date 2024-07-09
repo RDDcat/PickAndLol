@@ -11,19 +11,21 @@
         </div>
         <!-- 네비 -->
         <div class="flex space-x-1 items-center justify-around m-auto font-semibold">
-            <div class="w-24 text-center " :class="index===0?'text-red-600':'hover:text-gray-400'" @click="nav(0)">
+            <button class="w-24 text-center " :class="index===0?'text-red-600':'hover:text-gray-400'" @click="nav(0)">
                 MY선수단
-            </div>
-            <div class="w-24 text-center" :class="index===1?'text-red-600':'hover:text-gray-400'" @click="nav(1)">
+            </button>
+            <button class="w-24 text-center" :class="index===1?'text-red-600':'hover:text-gray-400'" @click="nav(1)">
                 일정
-            </div>
-            <div class="w-24 text-center" :class="index===2?'text-red-600':'hover:text-gray-400'" @click="nav(2)">
+            </button>
+            <button class="w-24 text-center" :class="index===2?'text-red-600':'hover:text-gray-400'" @click="nav(2)">
                 분석
-            </div>
-            <div class="w-24 text-center" :class="index===3?'text-red-600':'hover:text-gray-400'" @click="nav(3)">
+            </button>
+            <button class="w-24 text-center" :class="index===3?'text-red-600':'hover:text-gray-400'" @click="nav(3)">
                 랭킹
-            </div>
-            <i class="fa-regular fa-circle-question my-auto" :class="index===4?'text-red-600':'hover:text-gray-400'" @click="nav(4)"></i>
+            </button>
+            <button class="my-auto" @click="nav(4)">
+                <i class="fa-regular fa-circle-question " :class="index===4?'text-red-600':'hover:text-gray-400'" ></i>
+            </button>
         </div>
         <!-- 로그인 회원가입 -->
         <div class="flex font-bold w-60" v-if="cacheStore.userId===0">

@@ -94,31 +94,31 @@
                 <!-- 이미지 컨테이너 (지도좌표) -->
                 <div class="relative flex ml-auto mr-12">
                     <img class="mx-auto w-96" src="@/assets/map.png" alt="">
-                    <div class="absolute left-6 top-6">
+                    <button class="absolute left-6 top-6">
                         <img @click="cacheStore.mainLineNav='TOP'" v-if="!cacheStore.myTeam.players.top.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/top.png">
                         <img @click="cacheStore.mainLineNav='TOP'" v-if="cacheStore.myTeam.players.top.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.top.img">
                         <div v-if="cacheStore.myTeam.players.top.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
-                    </div>
-                    <div class="absolute left-20 top-24">
+                    </button>
+                    <button class="absolute left-20 top-24">
                         <img @click="cacheStore.mainLineNav='JGL'" v-if="!cacheStore.myTeam.players.jgl.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/jgl.png">
                         <img @click="cacheStore.mainLineNav='JGL'" v-if="cacheStore.myTeam.players.jgl.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.jgl.img">
                         <div v-if="cacheStore.myTeam.players.jgl.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
-                    </div>
-                    <div class="absolute left-40 top-40">
+                    </button>
+                    <button class="absolute left-40 top-40">
                         <img @click="cacheStore.mainLineNav='MID'" v-if="!cacheStore.myTeam.players.mid.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/mid.png">
                         <img @click="cacheStore.mainLineNav='MID'" v-if="cacheStore.myTeam.players.mid.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.mid.img">
                         <div v-if="cacheStore.myTeam.players.mid.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
-                    </div>
-                    <div class="absolute right-24 bottom-20">
+                    </button>
+                    <button class="absolute right-24 bottom-20">
                         <img @click="cacheStore.mainLineNav='ADC'" v-if="!cacheStore.myTeam.players.adc.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/adc.png">
                         <img @click="cacheStore.mainLineNav='ADC'" v-if="cacheStore.myTeam.players.adc.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.adc.img">
                         <div v-if="cacheStore.myTeam.players.adc.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
-                    </div>
-                    <div class="absolute right-8 bottom-8">
+                    </button>
+                    <button class="absolute right-8 bottom-8">
                         <img @click="cacheStore.mainLineNav='SUP'" v-if="!cacheStore.myTeam.players.sup.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/sup.png">
                         <img @click="cacheStore.mainLineNav='SUP'" v-if="cacheStore.myTeam.players.sup.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.sup.img">
                         <div v-if="cacheStore.myTeam.players.sup.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
-                    </div>
+                    </button>
                 </div>
 
                 <!-- 버튼 -->
@@ -320,13 +320,13 @@
             <!-- 팀 별 필터 -->
             <div class="grid grid-cols-11 gap-10 mx-auto my-4">
                 <!-- 팀 -->
-                <div v-for="team, index in teams" :key="index">
+                <button v-for="team, index in teams" :key="index">
                     <img class="m-auto w-12 h-12 object-cover" :src="team.colorImg" v-if="team.team==cacheStore.mainTeamNav" @click="teamFilter(teams[0].team)">
                     <img class="m-auto w-12 h-12 object-cover" :src="team.img" v-if="team.team!=cacheStore.mainTeamNav" @click="teamFilter(team.team)">
                     <div class="m-auto my-2 text-center text-xs text-gray-700">
                         {{team.name}}
                     </div>
-                </div>
+                </button>
             </div>
             <!-- 라인 별 필터 -->
             <div class="grid grid-cols-6 gap-4 my-4 mr-auto">
@@ -350,7 +350,7 @@
                 <div v-if="(this.cacheStore.mainLineNav.toLowerCase() === player.playerPosition || this.cacheStore.mainLineNav==='전체') &&
                         (this.cacheStore.mainTeamNav=== player.clubName || this.cacheStore.mainTeamNav=== 'LCK')">
                 <!-- 선수 카드 -->
-                <div @click="clickPlayer(player)" class="relative w-52 h-72 flex flex-col rounded-lg "
+                <button @click="clickPlayer(player)" class="relative w-52 h-72 flex flex-col rounded-lg "
                     :class="hover===index?'shadow-2xl':'shadow-md'"
                     @mouseover="hover=index"
                     @mouseleave="hover=''">
@@ -399,7 +399,7 @@
                         </div>
                     </div>
 
-                </div>
+                </button>
                 <!-- 선택하기 버튼 -->
                 <button v-if="
                         (this.cacheStore.mainLineNav.toLowerCase() === player.playerPosition || this.cacheStore.mainLineNav==='전체') &&
@@ -407,17 +407,17 @@
                     @click="click(player.name);"
                     class="w-52 h-12 my-3 inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-400 via-red-500 to-red-600 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200">
                     <span class="relative w-52  px-5 py-3 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-gray-100"
-                        :class="this.cacheStore.myTeam.players.top.name ===player.name ||
-                        this.cacheStore.myTeam.players.jgl.name ===player.name ||
-                        this.cacheStore.myTeam.players.mid.name ===player.name ||
-                        this.cacheStore.myTeam.players.adc.name ===player.name ||
-                        this.cacheStore.myTeam.players.sup.name ===player.name
+                        :class="this.cacheStore.myTeam.players.top.name ===player.playerName ||
+                        this.cacheStore.myTeam.players.jgl.name ===player.playerName ||
+                        this.cacheStore.myTeam.players.mid.name ===player.playerName ||
+                        this.cacheStore.myTeam.players.adc.name ===player.playerName ||
+                        this.cacheStore.myTeam.players.sup.name ===player.playerName
                         ? 'bg-opacity-0 group-hover:bg-opacity-0' : ''">
-                        {{ this.cacheStore.myTeam.players.top.name ===player.name ||
-                        this.cacheStore.myTeam.players.jgl.name ===player.name ||
-                        this.cacheStore.myTeam.players.mid.name ===player.name ||
-                        this.cacheStore.myTeam.players.adc.name ===player.name ||
-                        this.cacheStore.myTeam.players.sup.name ===player.name
+                        {{ this.cacheStore.myTeam.players.top.name ===player.playerName ||
+                        this.cacheStore.myTeam.players.jgl.name ===player.playerName ||
+                        this.cacheStore.myTeam.players.mid.name ===player.playerName ||
+                        this.cacheStore.myTeam.players.adc.name ===player.playerName ||
+                        this.cacheStore.myTeam.players.sup.name ===player.playerName
                         ? '선택됨' : '선택하기'}}
                     </span>
                 </button>
