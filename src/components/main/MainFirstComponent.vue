@@ -9,40 +9,40 @@
         </div>
         
         <!-- 에러 공지 -->
-        <div class="w-1/2  bg-red-100 rounded-lg mx-auto mb-1">
+        <div class="mx-auto w-my-60">
             <!-- 공지 내용물 -->
             <!-- 선수단 전부 선택 -->
-            <div v-if="selectAllFlag"
-                class="flex w-full py-2 px-4">
+            <div class="flex px-3 bg-red-50 rounded-lg mb-1 "
+                v-if="selectAllFlag">
                 <!-- ! 아이콘 -->
                 <img class="my-auto mx-4 w-6 h-6 object-cover" src="@/assets/icon/error.png">
 
                 <!-- 에러 텍스트 -->
-                <div class="p-2 w-4/5 my-auto text-base text-gray-600 text-ellipsis break-words">
+                <div class="p-2 my-auto text-base text-gray-600 text-ellipsis break-words">
                     <div class="text-red-600">선수단이 비어있습니다. </div> 
                     <div class="text-sm">5명을 채워 선수단을 구성해주세요.</div> 
                 </div>
             </div>
             <!-- 응원팀 선택 -->
             <div v-if="selectTeamFlag"
-                class="flex w-full py-2 px-4">
+                class="flex px-3 bg-red-50 rounded-lg mb-1">
                 <!-- ! 아이콘 -->
                 <img class="my-auto mx-4 w-6 h-6 object-cover" src="@/assets/icon/error.png">
 
                 <!-- 에러 텍스트 -->
-                <div class="p-2 w-4/5 my-auto text-base text-gray-600 text-ellipsis break-words">
+                <div class="p-2  my-auto text-base text-gray-600 text-ellipsis break-words">
                     <div class="text-red-600">응원팀을 선택해주세요. </div> 
                     <div class="text-sm">당신의 최애의 팀을 알려주세요.</div> 
                 </div>
             </div>
             <!-- 응원 팀에 2명 이상 -->
             <div v-if="moreThanTwoFlag"
-                class="flex w-full py-2 px-4">
+                class="flex  px-3 bg-red-50 rounded-lg mb-1">
                 <!-- ! 아이콘 -->
                 <img class="my-auto mx-4 w-6 h-6 object-cover" src="@/assets/icon/error.png">
 
                 <!-- 에러 텍스트 -->
-                <div class="p-2 w-4/5 my-auto text-base text-gray-600 text-ellipsis break-words">
+                <div class="p-2  my-auto text-base text-gray-600 text-ellipsis break-words">
                     <div class="text-red-600">선정된 응원팀 선수는 최대 2명만 선택 가능합니다.</div> 
                     <div class="text-sm">선수단을 다시 구성해주세요.</div>
                     
@@ -50,36 +50,36 @@
             </div>
             <!--  팀에 1명 이상 넣을 수 없음 -->
             <div v-if="oneFromOneFlag"
-                class="flex w-full py-2 px-4">
+                class="flex  px-3 bg-red-50 rounded-lg mb-1">
                 <!-- ! 아이콘 -->
                 <img class="my-auto mx-4 w-6 h-6 object-cover" src="@/assets/icon/error.png">
 
                 <!-- 에러 텍스트 -->
-                <div class="p-2 w-4/5 my-auto text-base text-gray-600 text-ellipsis break-words">
+                <div class="p-2  my-auto text-base text-gray-600 text-ellipsis break-words">
                     <div class="text-red-600">다양한 팀의 선수들을 선택해주세요. </div> 
                     <div class="text-sm">응원팀을 제외한 나머지 팀에서는 선수를 1명씩 선정해야 합니다.</div> 
                 </div>
             </div>
             <!--  토탈 금액이 넘어섬 -->
             <div v-if="vpFlag"
-                class="flex w-full py-2 px-4">
+                class="flex  px-3 bg-red-50 rounded-lg mb-1">
                 <!-- ! 아이콘 -->
                 <img class="my-auto mx-4 w-6 h-6 object-cover" src="@/assets/icon/error.png">
 
                 <!-- 에러 텍스트 -->
-                <div class="p-2 w-4/5 my-auto text-base text-gray-600 text-ellipsis break-words">
+                <div class="p-2  my-auto text-base text-gray-600 text-ellipsis break-words">
                     <div class="text-red-600">지출할 수 있는 금액을 초과했습니다. </div> 
                     <div class="text-sm">최대 지출 가능 vp는 {{limitVp}} 입니다.</div>                     
                 </div>
             </div>
             <!--  주장 선택이 안됨 -->
             <div v-if="mvpFlag"
-                class="flex w-full py-2 px-4">
+                class="flex px-3 bg-red-50 rounded-lg mb-1">
                 <!-- ! 아이콘 -->
                 <img class="my-auto mx-4 w-6 h-6 object-cover" src="@/assets/icon/error.png">
 
                 <!-- 에러 텍스트 -->
-                <div class="p-2 w-4/5 my-auto text-base text-gray-600 text-ellipsis break-words">
+                <div class="p-2  my-auto text-base text-gray-600 text-ellipsis break-words">
                     <div class="text-red-600">주장이 선택되지 않았습니다. </div>
                     <div class="text-sm">선정된 응원팀 내에서 주장이 될 선수를 선택해 주세요.</div> 
                 </div>
@@ -732,6 +732,8 @@ export default {
 }
 </script>
 <style scoped>
-
+.w-my-60{
+    width:50rem
+}
 
 </style>
