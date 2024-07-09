@@ -9,7 +9,7 @@
         <!-- 윗 프레임 -->
         <div class="relative mx-auto mt-8 w-full h-[700px] flex">
             <!-- 큰 선수 이미지 -->
-            <img class="absolute left-4 bottom-0 w-[400px] object-contain" :src="modalStore.selectPlayer.img">
+            <img class="absolute left-4 bottom-0 w-[400px] object-contain" :src="'./assets/player/'+modalStore.selectPlayer.clubName+'_'+modalStore.selectPlayer.playerName+'.svg'">
             <!-- 왼쪽 프레임 -->
             <div class="w-[380px] h-full bg-red-600 rounded-l-lg">
 
