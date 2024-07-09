@@ -79,6 +79,26 @@ export default {
             .catch(function (e){
                 console.log(e);
             });
+
+            let logBody = {
+                oauthId:this.cacheStore.userId,
+                topId: this.cacheStore.myTeam.player.top.id,
+                jglId: this.cacheStore.myTeam.player.jgl.id,
+                midId: this.cacheStore.myTeam.player.mid.id,
+                adcId: this.cacheStore.myTeam.player.adc.id,
+                supId: this.cacheStore.myTeam.player.sup.id,
+
+            }
+            console.log('logBody',logBody)
+
+            api.postTeamLog(logBody)
+            .then(response=>{
+                console.log(response)
+                this.cacheStore.isSave=true
+            })
+            .catch(function (e){
+                console.log(e);
+            });
         },
     },
 }
