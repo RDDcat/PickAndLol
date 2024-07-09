@@ -86,225 +86,6 @@
             </div>
         </div>
 
-        <!-- 히어로 페이지 1 -->
-        <div class="w-full flex" v-if="!cacheStore.isSave">
-            <!-- 선수 라인 선택지 -->
-            <div class="w-10/12 flex flex-col">
-                <!-- 이미지 컨테이너 (지도좌표) -->
-                <div class="relative flex ml-auto mr-12">
-                    <img class="mx-auto w-96" src="@/assets/map.png" alt="">
-                    <button class="absolute left-6 top-6">
-                        <img @click="cacheStore.mainLineNav='TOP'" v-if="!cacheStore.myTeam.players.top.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/top.png">
-                        <img @click="cacheStore.mainLineNav='TOP'" v-if="cacheStore.myTeam.players.top.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.top.img">
-                        <div v-if="cacheStore.myTeam.players.top.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
-                    </button>
-                    <button class="absolute left-20 top-24">
-                        <img @click="cacheStore.mainLineNav='JGL'" v-if="!cacheStore.myTeam.players.jgl.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/jgl.png">
-                        <img @click="cacheStore.mainLineNav='JGL'" v-if="cacheStore.myTeam.players.jgl.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.jgl.img">
-                        <div v-if="cacheStore.myTeam.players.jgl.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
-                    </button>
-                    <button class="absolute left-40 top-40">
-                        <img @click="cacheStore.mainLineNav='MID'" v-if="!cacheStore.myTeam.players.mid.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/mid.png">
-                        <img @click="cacheStore.mainLineNav='MID'" v-if="cacheStore.myTeam.players.mid.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.mid.img">
-                        <div v-if="cacheStore.myTeam.players.mid.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
-                    </button>
-                    <button class="absolute right-24 bottom-20">
-                        <img @click="cacheStore.mainLineNav='ADC'" v-if="!cacheStore.myTeam.players.adc.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/adc.png">
-                        <img @click="cacheStore.mainLineNav='ADC'" v-if="cacheStore.myTeam.players.adc.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.adc.img">
-                        <div v-if="cacheStore.myTeam.players.adc.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
-                    </button>
-                    <button class="absolute right-8 bottom-8">
-                        <img @click="cacheStore.mainLineNav='SUP'" v-if="!cacheStore.myTeam.players.sup.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/sup.png">
-                        <img @click="cacheStore.mainLineNav='SUP'" v-if="cacheStore.myTeam.players.sup.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.sup.img">
-                        <div v-if="cacheStore.myTeam.players.sup.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
-                    </button>
-                </div>
-
-                <!-- 버튼 -->
-                <div class="ml-auto mr-20 my-8">
-                    <button 
-                        class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 w-36 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-400 via-red-500 to-red-600 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200"
-                        @click="modalStore.isSelectCaptainModal=true">
-                        <span class="relative w-36 px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
-                            주장 설정하기
-                        </span>
-                    </button>
-                    <button @click="submit"
-                        type="button" 
-                        class="text-white bg-gradient-to-r from-red-600 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-400  shadow-lg shadow-red-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-40">저장하기</button>
-                </div>
-            </div>
-
-            <!-- 히어로 우측 -->
-            <div class="w-9/12 flex flex-col pl-12">
-                <!-- 제목 -->
-                <div class="w-full max-w-[24rem] mt-3 mb-4 text-lg text-gray-700">
-                    2024 LOL 챔피언스 코리아 서머
-                </div>
-
-                <!-- step1 응원팀 선정 -->
-                <div class="w-9/12 max-w-[24rem] flex flex-col shadow-md rounded-md ">
-                    <!-- 타이틀 -->
-                    <div class="flex h-12 bg-gray-50" :class="step===0?'bg-red-100 rounded-t-md':'rounded-md'" @click="clickStep(0)">
-                        <!-- 타이틀 텍스트 -->
-                        <div class="flex my-auto ml-6 text-sm text-gray-600">
-                            step1. 
-                            <div class="ml-2 text-base text-gray-800">응원팀 선정</div>
-                        </div>
-                        <!-- 토탈 vp 포인트 -->
-                        <div class="flex ml-auto my-auto mr-4">
-                            <img class="w-6 h-6 object-cover rounded-full" :src="cacheStore.myTeam.teamLogo">
-                        </div>
-                    </div>
-                    <!-- 선수단 리스트 -->
-                    <div class="w-full my-6 flex flex-col" v-show="step===0">
-                        <!-- 1열 -->
-                        <div class="px-4 flex w-full flex-wrap">
-                            <div v-for="team in onlyTeams" :key="team.name" class="my-2 flex flex-col">
-                                <img :class="this.cacheStore.myTeam.team===team.team?'ring-red-500 ring-2 bg-red-50':''" 
-                                    class="w-11 h-11 object-contain rounded-full bg-gray-50 mx-3 hover:ring-red-400 hover:ring-2" :src="team.colorImg" @click="selectTeam(team.team)">
-                                <div :class="this.cacheStore.myTeam.team===team.team?'text-gray-900':''" 
-                                    class="text-xs text-gray-500 mx-auto mt-1">{{team.team}}</div>
-                            </div>
-                        </div>
-                    </div>
-
-                
-                </div>
-                <!-- step2 내 선수단 리스트 -->
-                <div class="mt-1 w-9/12 max-w-[24rem] flex flex-col shadow-md rounded-md ">
-                    <!-- 선수단 타이틀 -->
-                    <div class="flex h-12 bg-gray-50" :class="step===1?'bg-red-100 rounded-t-md':'rounded-md'" @click="clickStep(1)">
-                        <!-- 타이틀 텍스트 -->
-                        <div class="flex my-auto ml-6 text-sm text-gray-600">
-                            step2. 
-                            <div class="ml-2 text-base text-gray-800">내 선수단</div>
-                        </div>
-                        <!-- 토탈 vp 포인트 -->
-                        <div class="flex ml-auto my-auto mr-4">
-                            <div class="text-red-600 mr-1">
-                                {{cacheStore.myTeam.totalVP}}
-                            </div>
-                            <img class="w-5 h-5 object-cover" src="@/assets/icon/vp.png">
-                        </div>
-                    </div>
-                    <!-- 선수단 리스트 -->
-                    <div class="w-full my-6 flex flex-col" v-show="step===1">
-                        <!-- 탑 -->
-                        <div class="my-2 px-4 flex w-full">
-                            <!-- 아이콘 -->
-                            <div class="relative my-auto mr-4 ">
-                                <img v-if="cacheStore.myTeam.players.top.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
-                                <img class="w-6 h-6" src="@/assets/icon/top_icon.png">
-                            </div>
-                            <!-- 선수 초상화 -->
-                            <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.top.img">
-                            <!-- 선수 이름 -->
-                            <div class="my-auto ml-6 text-base">
-                                {{cacheStore.myTeam.players.top.name ? cacheStore.myTeam.players.top.team+' '+cacheStore.myTeam.players.top.name : '-'}}
-                            </div>
-                            <!-- 선수 vp 포인트 -->
-                            <div class="flex ml-auto my-auto mr-2">
-                                <div class="text-red-600 mr-1">
-                                    {{cacheStore.myTeam.players.top.vp}}
-                                </div>
-                                <img class="w-4 h-4 object-cover" src="@/assets/icon/vp.png">
-                            </div>
-                        </div>
-
-                        <!-- 정글 -->
-                        <div class="my-2 px-4 flex w-full">
-                            <!-- 아이콘 -->
-                            <div class="relative my-auto mr-4 ">
-                                <img v-if="cacheStore.myTeam.players.jgl.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
-                                <img class="w-6 h-6" src="@/assets/icon/jgl_icon.png">
-                            </div>
-                            <!-- 선수 초상화 -->
-                            <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.jgl.img">
-                            <!-- 선수 이름 -->
-                            <div class="my-auto ml-6 text-base">
-                                {{cacheStore.myTeam.players.jgl.name ?cacheStore.myTeam.players.jgl.team+' '+cacheStore.myTeam.players.jgl.name  : '-'}}
-                            </div>
-                            <!-- 선수 vp 포인트 -->
-                            <div class="flex ml-auto my-auto mr-2">
-                                <div class="text-red-600 mr-1">
-                                    {{cacheStore.myTeam.players.jgl.vp}}
-                                </div>
-                                <img class="w-4 h-4 object-cover" src="@/assets/icon/vp.png">
-                            </div>
-                        </div>
-
-                        <!-- 미드 -->
-                        <div class="my-2 px-4 flex w-full">
-                            <!-- 아이콘 -->
-                            <div class="relative my-auto mr-4 ">
-                                <img v-if="cacheStore.myTeam.players.mid.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
-                                <img class="w-6 h-6" src="@/assets/icon/mid_icon.png">
-                            </div>
-                            <!-- 선수 초상화 -->
-                            <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.mid.img">
-                            <!-- 선수 이름 -->
-                            <div class="my-auto ml-6 text-base">
-                                {{cacheStore.myTeam.players.mid.name ?cacheStore.myTeam.players.mid.team+' '+cacheStore.myTeam.players.mid.name : '-'}}
-                            </div>
-                            <!-- 선수 vp 포인트 -->
-                            <div class="flex ml-auto my-auto mr-2">
-                                <div class="text-red-600 mr-1">
-                                    {{cacheStore.myTeam.players.mid.vp}}
-                                </div>
-                                <img class="w-4 h-4 object-cover" src="@/assets/icon/vp.png">
-                            </div>
-                        </div>
-
-                        <!-- 바텀 -->
-                        <div class="my-2 px-4 flex w-full">
-                            <!-- 아이콘 -->
-                            <div class="relative my-auto mr-4 ">
-                                <img v-if="cacheStore.myTeam.players.adc.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
-                                <img class="w-6 h-6" src="@/assets/icon/adc_icon.png">
-                            </div>
-                            <!-- 선수 초상화 -->
-                            <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.adc.img">
-                            <!-- 선수 이름 -->
-                            <div class="my-auto ml-6 text-base">
-                                {{cacheStore.myTeam.players.adc.name ?cacheStore.myTeam.players.adc.team+' '+cacheStore.myTeam.players.adc.name : '-'}}
-                            </div>
-                            <!-- 선수 vp 포인트 -->
-                            <div class="flex ml-auto my-auto mr-2">
-                                <div class="text-red-600 mr-1">
-                                    {{cacheStore.myTeam.players.adc.vp}}
-                                </div>
-                                <img class="w-4 h-4 object-cover" src="@/assets/icon/vp.png">
-                            </div>
-                        </div>
-
-                        <!-- 서폿 -->
-                        <div class="my-2 px-4 flex w-full">
-                            <!-- 아이콘 -->
-                            <div class="relative my-auto mr-4 ">
-                                <img v-if="cacheStore.myTeam.players.sup.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
-                                <img class="w-6 h-6" src="@/assets/icon/sup_icon.png">
-                            </div>
-                            <!-- 선수 초상화 -->
-                            <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.sup.img">
-                            <!-- 선수 이름 -->
-                            <div class="my-auto ml-6 text-base">
-                                {{cacheStore.myTeam.players.sup.name ?cacheStore.myTeam.players.sup.team+' '+cacheStore.myTeam.players.sup.name : '-'}}
-                            </div>
-                            <!-- 선수 vp 포인트 -->
-                            <div class="flex ml-auto my-auto mr-2">
-                                <div class="text-red-600 mr-1">
-                                    {{cacheStore.myTeam.players.sup.vp}}
-                                </div>
-                                <img class="w-4 h-4 object-cover" src="@/assets/icon/vp.png">
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-            </div>
-
-        </div>
-
         <!-- 히어로 페이지 2 -->
         <div class="w-full flex" v-if="cacheStore.isSave">
             <!-- 선수 라인 선택지 -->
@@ -404,8 +185,7 @@
                     </div>
                     <div class="mx-auto flex">
                         <div class="my-auto font-medium text-gray-500">{{player.line}} </div>
-                        <img class="object-cover mx-2 w-6 h-6" :src="'./assets/player/'+player.clubName+'_'+player.playerName+'.svg'"
-                            @error="this.src = './assets/logo.png'">
+                        <img class="object-cover mx-2 w-6 h-6" :src="'./assets/logo/color_'+player.clubName+'.png'">
                         <div class="flex my-auto font-medium text-red-600">
                             {{player.vp}}
                             <img class="ml-1 w-5 h-5" src="@/assets/icon/vp.png">
@@ -414,7 +194,8 @@
                     <!-- 선수 이미지 -->
                     <div class="relative w-44 h-52 mx-auto mt-auto mb-4">
                         <div class="absolute rounded-lg w-full h-full bg-gray-100"></div>
-                        <img class="absolute rounded-lg mx-auto mt-auto mb-3 w-full h-full object-cover" :src="player.img">
+                        <img class="absolute rounded-lg mx-auto mt-auto mb-3 w-full h-full object-cover" :src="'./assets/player/'+player.clubName+'_'+player.playerName+'.svg'"
+                            @error="this.src = './assets/logo.png'">
                         <!-- 호버시 스탯창 -->
                         <div v-show="hover===index" 
                             class="absolute flex flex-col top-0 left-0 w-full h-full bg-black bg-opacity-90 rounded-lg z-20 break-all">
@@ -438,28 +219,6 @@
                             </div>
                         </div>
                     </div>
-
-                </button>
-                <!-- 선택하기 버튼 -->
-                <button v-if="!cacheStore.isSave &&
-                        (this.cacheStore.mainLineNav.toLowerCase() === player.playerPosition || this.cacheStore.mainLineNav==='전체') &&
-                        (this.cacheStore.mainTeamNav=== player.clubName || this.cacheStore.mainTeamNav=== 'LCK')"
-                    @click="click(player.name);"
-                    class="w-52 h-12 my-3 inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-400 via-red-500 to-red-600 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200">
-                    <span class="relative w-52  px-5 py-3 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-gray-100"
-                        :class="this.cacheStore.myTeam.players.top.name ===player.name ||
-                        this.cacheStore.myTeam.players.jgl.name ===player.name ||
-                        this.cacheStore.myTeam.players.mid.name ===player.name ||
-                        this.cacheStore.myTeam.players.adc.name ===player.name ||
-                        this.cacheStore.myTeam.players.sup.name ===player.name
-                        ? 'bg-opacity-0 group-hover:bg-opacity-0' : ''">
-                        {{ this.cacheStore.myTeam.players.top.name ===player.name ||
-                        this.cacheStore.myTeam.players.jgl.name ===player.name ||
-                        this.cacheStore.myTeam.players.mid.name ===player.name ||
-                        this.cacheStore.myTeam.players.adc.name ===player.name ||
-                        this.cacheStore.myTeam.players.sup.name ===player.name
-                        ? '선택됨' : '선택하기'}}
-                    </span>
                 </button>
                 </div>
             </template>
