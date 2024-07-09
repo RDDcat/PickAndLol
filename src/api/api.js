@@ -57,7 +57,6 @@ export default {
     },
     // 마이팀 저장
     postTeam: function(body){
-        console.log(body);
         return axios.post(BASE_URL + 'save', body,{
             headers: {
                 withCredentials: true,
@@ -67,7 +66,6 @@ export default {
     },
     // 마이팀 로그 저장
     postTeamLog: function(body){
-        console.log(body);
         return axios.post(BASE_URL + 'team/log', body,{
             headers: {
                 withCredentials: true,

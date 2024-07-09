@@ -112,7 +112,6 @@ export default {
 
     },
     mounted(){
-        console.log('mounted')
         api.getClubs()
         .then((response)=>{
             console.log(response.data)

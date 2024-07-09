@@ -49,7 +49,6 @@ export default {
     // 클럽 데이터
     await api.getClubs()
     .then(response=>{
-      console.log(response.data)
       this.clubStore.clubs = response.data
     })
     .catch(function (e){
@@ -59,7 +58,6 @@ export default {
     // 선수 데이터
     await api.getPlayers()
     .then(response=>{
-      console.log(response.data)
       this.cacheStore.players = response.data
       // 팀 이름 넣어주기;
       for(let player of this.cacheStore.players){   

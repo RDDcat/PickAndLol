@@ -134,8 +134,6 @@ export default {
     mounted(){
         api.getRank()
         .then(response=>{
-            console.log(response.data)
-            console.log(JSON.parse(response.data[0].data))
             for(let index in response.data){
                 this.users.push( JSON.parse(response.data[index].data))
             }

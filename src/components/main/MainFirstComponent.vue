@@ -540,7 +540,6 @@ export default {
     },
     methods: {
         clickStep(num){
-            console.log(this.step, num)
             if(this.step === num){
                 this.step=9
                 return
@@ -662,9 +661,6 @@ export default {
         },
         click(name){
             let players = this.cacheStore.players
-            console.log(this.cacheStore.myTeam.players.top.playerName)
-            console.log(name)
-            console.log(this.cacheStore.myTeam.players.top.name===name)
 
             // 선수 재선택시 초기화
             if(this.cacheStore.myTeam.players.top.name===name){
@@ -691,7 +687,6 @@ export default {
 
             for(let player of players){
                 if(player.playerName===name){
-                    console.log('player',player.playerName,name ,player.playerPosition)
                     if(player.playerPosition === 'top'){
                         this.cacheStore.myTeam.players.top.isMvp = false
                         this.cacheStore.myTeam.players.top.id = player.playerId

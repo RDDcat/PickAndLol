@@ -64,13 +64,10 @@ export default {
         
         async save(){
             // 서버 전송
-            console.log(this.cacheStore.userId)
-            console.log(this.cacheStore.myTeam)
             let body = {
                 oauthId:this.cacheStore.userId,
                 data:JSON.stringify(this.cacheStore.myTeam)
             }
-            console.log('body',body)
             await api.postTeam(body)
             .then(response=>{
                 console.log(response)
@@ -81,8 +78,6 @@ export default {
                 this.cacheStore.isSave=false
             });
 
-            console.log(this.cacheStore.myTeam)
-
             let logBody = {
                 oauthId:this.cacheStore.userId,
                 topId: this.cacheStore.myTeam.players.top.id,
@@ -92,11 +87,10 @@ export default {
                 supId: this.cacheStore.myTeam.players.sup.id,
 
             }
-            console.log('logBody',logBody)
 
             await api.postTeamLog(logBody)
             .then(response=>{
-                console.log(response)
+                console.log(response.data)
                 this.cacheStore.isSave=true
             })
             .catch(function (e){

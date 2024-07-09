@@ -307,16 +307,13 @@ export default {
             this.valid()
             if(this.selectAllFlag || this.selectTeamFlag || this.moreThanTwoFlag || this.oneFromOneFlag || this.vpFlag  || this.mvpFlag)  return
             // 서버 전송
-            console.log(this.cacheStore.userId)
-            console.log(this.cacheStore.myTeam)
             let body = {
                 oauthId:this.cacheStore.userId,
                 data:JSON.stringify(this.cacheStore.myTeam)
             }
-            console.log('body',body)
             api.postTeam(body)
             .then(response=>{
-                console.log(response)
+                console.log(response.data)
                 this.cacheStore.isSave=true
             })
             .catch(function (e){
@@ -342,9 +339,6 @@ export default {
         },
         click(name){
             let players = this.cacheStore.players
-            console.log(this.cacheStore.myTeam.players.top.name)
-            console.log(name)
-            console.log(this.cacheStore.myTeam.players.top.name===name)
             if(this.cacheStore.myTeam.players.top.name===name){
                 this.cacheStore.myTeam.players.top={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
                 return

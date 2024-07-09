@@ -56,8 +56,6 @@ export default {
                 // 시간이 해당하는 시간이라면 (추후에 우리 서버시간으로 변경)
                 const now = new Date(); // 현재 시간을 가져옴
                 const hours = now.getHours(); // 현재 시간의 시간을 가져옴 (0 ~ 23)
-                console.log("now", now)
-                console.log("hours", hours)
 
                 // 시간이 17:00 ~ 24:00 사이인지 확인
                 if(hours >= 17 && hours < 24){
@@ -76,7 +74,6 @@ export default {
         this.route()
     },
     async beforeMount(){
-        console.log('beforeMount')
         if(this.cacheStore.userId){
             // 팀 데이터 sync 넣기
             await api.getSync(this.cacheStore.userId)

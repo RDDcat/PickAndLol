@@ -66,7 +66,6 @@ export default {
     methods: {
         valid(){
             // 이름이 입력되지 않을때
-            console.log("!this.cacheStore.myTeam.name", !this.cacheStore.myTeam.name)
             if(!this.cacheStore.myTeam.name) {
                 this.isName=true
                 return true
