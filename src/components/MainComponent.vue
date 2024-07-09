@@ -72,6 +72,7 @@ export default {
                     return
                 }
             }
+            this.index=0
         }
     },
     mounted(){
