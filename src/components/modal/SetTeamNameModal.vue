@@ -19,9 +19,12 @@
 
                     <!-- 입력창 -->
                     <div class="mb-6 px-10">
-                        <input type="text" id="default-input" 
+                        <input type="text" id="default-input" v-model="cacheStore.myTeam.name"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 ">
                     </div>
+                    <!-- 밸리데이션 안내 -->
+                    <div class="text-red-400 text-sm mx-auto my-1" v-if="isName">이름을 입력해주세요</div>
+                    
 
                     <!-- 안내 -->
                     <div class="text-gray-200 text-sm mx-auto">6자 이내로 작성해주세요.</div>
@@ -29,8 +32,8 @@
 
                     <!-- 확인 버튼 -->
                     <button type="button" 
-                        @click.stop="modalStore.isSetTeamNameModal=false; modalStore.isSaveWarningModal = true"
-                        class=" text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 rounded-lg text-sm px-5 py-2.5 w-36 mx-auto mt-auto mb-8">
+                        @click.stop="save()"
+                        class=" text-white bg-red-700 hover:bg-red-800 rounded-lg text-sm px-5 py-2.5 w-36 mx-auto mt-auto mb-8">
                         확인하기
                     </button>
 
@@ -56,11 +59,27 @@ export default {
     },
     data(){
         return {
+            isName:false,
 
         }
     },
     methods: {
+        valid(){
+            // 이름이 입력되지 않을때
+            console.log("!this.cacheStore.myTeam.name", !this.cacheStore.myTeam.name)
+            if(!this.cacheStore.myTeam.name) {
+                this.isName=true
+                return true
+            }
 
+            return false
+        },
+        save(){
+            if(this.valid())return
+
+            this.modalStore.isSetTeamNameModal=false
+            this.modalStore.isSaveWarningModal = true
+        }
     },
 }
 </script>
