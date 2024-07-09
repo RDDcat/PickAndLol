@@ -43,8 +43,8 @@
 
                 <!-- 에러 텍스트 -->
                 <div class="p-2  my-auto text-base text-gray-600 text-ellipsis break-words">
-                    <div class="text-red-600">선정된 응원팀 내 선수는 최대 2명만 선택 가능합니다.</div> 
-                    <div class="text-sm">선수단을 다시 구성해주세요.</div>
+                    <div class="text-red-600">선정된 응원팀 선수는 2명을 선택해야합니다.</div> 
+                    <div class="text-sm">{{moreThanTwoFlagText}}</div>
                     
                 </div>
             </div>
@@ -491,6 +491,7 @@ export default {
             selectAllFlag: false,
             selectTeamFlag: false,
             moreThanTwoFlag: false,
+            moreThanTwoFlagText:'',
             oneFromOneFlag: false,
             vpFlag: false,
             mvpFlag: false,
@@ -582,7 +583,14 @@ export default {
             }
             if(count>2){
                 this.moreThanTwoFlag = true
+                this.moreThanTwoFlagText='응원팀 선수가 너무 많습니다. 다시 구성해주세요.'
                 return true
+            }else if(count <2){
+                this.moreThanTwoFlagText='응원팀 선수가 너무 적습니다. 다시 구성해주세요.'
+                this.moreThanTwoFlag = true
+                return true
+
+
             } else{
                 this.moreThanTwoFlag = false
             }
