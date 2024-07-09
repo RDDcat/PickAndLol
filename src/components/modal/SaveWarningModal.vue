@@ -81,6 +81,8 @@ export default {
                 this.cacheStore.isSave=false
             });
 
+            console.log(this.cacheStore.myTeam)
+
             let logBody = {
                 oauthId:this.cacheStore.userId,
                 topId: this.cacheStore.myTeam.players.top.id,
