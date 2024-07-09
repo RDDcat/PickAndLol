@@ -46,7 +46,7 @@ export default {
         route(){
             console.log('route', !this.cacheStore.userId)
             // 로그인 안됨
-            if(!this.cacheStore.userId){
+            if(this.cacheStore.userId===0){
                 this.modalStore.isLoginWarnModal=true
                 this.index=0
                 return
