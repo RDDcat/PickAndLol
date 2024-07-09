@@ -13,8 +13,17 @@ export default {
             },
         });
     },
+    // 전체 클럽데이터 조회
     getClubs: function(){
         return axios.get(BASE_URL + `club/all`,{
+            headers: {
+                withCredentials: true,
+            },
+        });
+    },
+    //
+    getPlayers: function(){
+        return axios.get(BASE_URL + `player/all`,{
             headers: {
                 withCredentials: true,
             },

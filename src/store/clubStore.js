@@ -5,4 +5,5 @@ export const useClubStore = defineStore('clubStore', {
   state: ()=>({
     clubs:[]
   }),
+  persist: true,
 })
