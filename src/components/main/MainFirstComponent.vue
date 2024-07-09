@@ -400,7 +400,7 @@
                         {{player.rank}}
                     </div>
                     <div class="font-bold mx-auto">
-                        {{player.name}}
+                        {{player.playerName}}
                     </div>
                     <div class="mx-auto flex">
                         <div class="my-auto font-medium text-gray-500">{{player.line}} </div>
