@@ -55,22 +55,23 @@ export default {
             }
 
             // 로그인 되어있고 팀이 있다면
-            if(this.cacheStore.isSave || this.cacheStore.myTeam.name){
-                // 시간이 해당하는 시간이라면 (추후에 우리 서버시간으로 변경)
-                const now = new Date(); // 현재 시간을 가져옴
-                const hours = now.getHours(); // 현재 시간의 시간을 가져옴 (0 ~ 23)
+            // if(this.cacheStore.isSave || this.cacheStore.myTeam.name){
+            //     // 시간이 해당하는 시간이라면 (추후에 우리 서버시간으로 변경)
+            //     const now = new Date(); // 현재 시간을 가져옴
+            //     const hours = now.getHours(); // 현재 시간의 시간을 가져옴 (0 ~ 23)
 
-                // 시간이 17:00 ~ 24:00 사이인지 확인
-                if(hours >= 17 && hours < 24){
-                    // 변경 불가능시간임 2번화면
-                    this.index=1
-                    return
-                } else {
-                    // 변경 불가능 시간임 3번화면
-                    this.index=2
-                    return
-                }
-            }
+            //     // 시간이 17:00 ~ 24:00 사이인지 확인
+            //     if(hours >= 17 && hours < 24){
+            //         // 변경 불가능시간임 2번화면
+            //         this.index=1
+            //         return
+            //     } else {
+            //         // 변경 불가능 시간임 3번화면
+            //         this.index=2
+            //         return
+            //     }
+            // }
+            this.index=1
         }
     },
     mounted(){
