@@ -45,10 +45,13 @@ export default {
     methods: {
         route(){
             // 비 로그인시 모달로 막기
-            if(this.cacheStore.userId===0){
+            if(!this.cacheStore.userId){
                 this.modalStore.isLoginWarnModal=true
                 this.index=0
                 return
+            }
+            else{
+                this.modalStore.isLoginWarnModal=false
             }
 
             // 로그인 되어있고 팀이 있다면
