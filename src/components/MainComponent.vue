@@ -48,17 +48,21 @@ export default {
             // 로그인 안됨
             if(this.cacheStore.userId===0){
                 this.modalStore.isLoginWarnModal=true
+                console.log("1")
                 this.index=0
                 return
             }
             // 로그인이 되고 선수단이 없을때
             if(!this.cacheStore.isSave){
+                console.log("2")
                 this.index=0
+                return
             } else{
                 // 로그인이 되고 선수단이 있을때
+                console.log("3")
                 this.index=1
+                return
             }
-
             // 로그인이 되고 선수단 수정이 가능할때
 
             // 로그인 되어있고 팀이 있다면
