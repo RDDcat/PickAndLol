@@ -8,8 +8,17 @@
             </div>
             <!-- 타이틀 택스트 -->
             <div class="mx-auto flex flex-col">
-                <div class="mt-4 text-white text-4xl">원하는 주장을 선택하세요</div>
+                <div class="mx-auto mt-4 text-white text-4xl">원하는 주장을 선택하세요</div>
                 <div class="mx-auto mt-10 text-white text-lg">(주장은 점수 두배)</div>
+                
+                <div v-show="isMyTeam" 
+                    class="mx-auto mt-4 text-red-200 text-2xl">
+                    자신의 응원팀에서 주장을 설정해야합니다.
+                </div>
+                <div v-show="isPlayer" 
+                    class="mx-auto mt-4 text-red-200 text-2xl">
+                    선수를 선택해주세요.
+                </div>
             </div>
             
             <!-- 주장 선택 창 -->
@@ -93,11 +102,68 @@ export default {
     },
     data(){
         return {
+            isMyTeam:false,
+            isPlayer:false,
             click: 0,
         }
     },
     methods: {
+        valid(){
+            // 선수가 있는지 확인
+            if(!this.cacheStore.myTeam.players.top.name && this.click===1){
+                this.isPlayer=true
+                return true
+            }
+            else if(!this.cacheStore.myTeam.players.jgl.name && this.click===2){
+                this.isPlayer=true
+                return true
+            }
+            else if(!this.cacheStore.myTeam.players.mid.name && this.click===3){
+                this.isPlayer=true
+                return true
+            }
+            else if(!this.cacheStore.myTeam.players.adc.name && this.click===4){
+                this.isPlayer=true
+                return true
+            }
+            else if(!this.cacheStore.myTeam.players.sup.name && this.click===5){
+                this.isPlayer=true
+                return true
+            }
+
+            // 팀이 맞는지 확인
+            if(this.click===1){
+                if(this.cacheStore.myTeam.team!==this.cacheStore.myTeam.players.top.team){
+                    this.isMyTeam =true
+                    return true
+                }
+            } else if(this.click===2){
+                if(this.cacheStore.myTeam.team!==this.cacheStore.myTeam.players.jgl.team){
+                    this.isMyTeam =true
+                    return true
+                }
+            } else if(this.click===3){
+                if(this.cacheStore.myTeam.team!==this.cacheStore.myTeam.players.mid.team){
+                    this.isMyTeam =true
+                    return true
+                }
+            } else if(this.click===4){
+                if(this.cacheStore.myTeam.team!==this.cacheStore.myTeam.players.adc.team){
+                    this.isMyTeam =true
+                    return true
+                }
+            } else if(this.click===5){
+                if(this.cacheStore.myTeam.team!==this.cacheStore.myTeam.players.sup.team){
+                    this.isMyTeam =true
+                    return true
+                }
+            }
+            
+
+        },
         select(){
+            if(this.valid())return
+
             if(this.click===1 && this.cacheStore.myTeam.players.top.name){
                 this.cacheStore.myTeam.players.top.isMvp = true
                 this.cacheStore.myTeam.players.jgl.isMvp = false
