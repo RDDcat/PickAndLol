@@ -347,8 +347,8 @@
         <!-- 선수 카드 그리드 -->
         <div class="mx-auto grid grid-cols-5 gap-10">
             <template v-for="player, index in cacheStore.players" :key="index">
-                <div v-if="(this.cacheStore.mainLineNav === player.line || this.cacheStore.mainLineNav==='전체') &&
-                        (this.cacheStore.mainTeamNav=== player.team || this.cacheStore.mainTeamNav=== 'LCK')">
+                <div v-if="(this.cacheStore.mainLineNav.toLowerCase() === player.playerPosition || this.cacheStore.mainLineNav==='전체') &&
+                        (this.cacheStore.mainTeamNav=== player.clubName || this.cacheStore.mainTeamNav=== 'LCK')">
                 <!-- 선수 카드 -->
                 <div @click="clickPlayer(player)" class="relative w-52 h-72 flex flex-col rounded-lg "
                     :class="hover===index?'shadow-2xl':'shadow-md'"
@@ -402,8 +402,8 @@
                 </div>
                 <!-- 선택하기 버튼 -->
                 <button v-if="
-                        (this.cacheStore.mainLineNav === player.line || this.cacheStore.mainLineNav==='전체') &&
-                        (this.cacheStore.mainTeamNav=== player.team || this.cacheStore.mainTeamNav=== 'LCK')"
+                        (this.cacheStore.mainLineNav.toLowerCase() === player.playerPosition || this.cacheStore.mainLineNav==='전체') &&
+                        (this.cacheStore.mainTeamNav=== player.clubName || this.cacheStore.mainTeamNav=== 'LCK')"
                     @click="click(player.name);"
                     class="w-52 h-12 my-3 inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-400 via-red-500 to-red-600 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200">
                     <span class="relative w-52  px-5 py-3 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-gray-100"
