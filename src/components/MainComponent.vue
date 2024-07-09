@@ -6,6 +6,7 @@
     <!-- 시간 제한 둬서 컴포넌트 가르기 -->
     <MainSecondComponent v-if="index===1"/>
     <MainThirdComponent v-if="index===2"/>
+    <div @click="index=0">asdfasdfsafs</div>
 
     <FooterComponent/>
 </template>
@@ -90,7 +91,7 @@ export default {
             });
         }
 
-        this.route()
+        await this.route()
 
     },
     unmounted(){
