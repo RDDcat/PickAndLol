@@ -404,7 +404,8 @@
                     </div>
                     <div class="mx-auto flex">
                         <div class="my-auto font-medium text-gray-500">{{player.line}} </div>
-                        <img class="object-cover mx-2 w-6 h-6" :src="'./assets/logo/color_'+player.team+'.png'">
+                        <img class="object-cover mx-2 w-6 h-6" :src="'./assets/player/'+player.clubName+'_'+player.playerName+'.svg'"
+                            @error="this.src = './assets/logo.png'">
                         <div class="flex my-auto font-medium text-red-600">
                             {{player.vp}}
                             <img class="ml-1 w-5 h-5" src="@/assets/icon/vp.png">
@@ -419,7 +420,7 @@
                             class="absolute flex flex-col top-0 left-0 w-full h-full bg-black bg-opacity-90 rounded-lg z-20 break-all">
                             <!-- 스탯 정보 -->
                             <div class="mx-auto mt-2 text-gray-400">
-                                KDA {{player.killRate}}
+                                KDA {{formatNumber(player.kda)}}
                             </div>
                             <div class="my-auto mx-auto flex flex-col">
                                 <div class="mx-auto text-white">
@@ -430,7 +431,7 @@
                                 </div>
                             </div>
                             <div class="mx-auto px-2 mt-auto mb-1 text-white whitespace-pre-wrap ">
-                                {{player.info}}
+                                <!-- {{player.playerInfo}} -->
                             </div>
                             <div class="mx-auto px-2 mb-3 text-gray-400 whitespace-pre-wrap ">
                                 click!
@@ -480,7 +481,11 @@ export default {
         const cacheStore = useCacheStore()
         const modalStore = useModalStore()
 
-        return { cacheStore, modalStore }
+        const formatNumber = (number) => {
+            return number % 1 === 0 ? number : number.toFixed(2);
+        }
+
+        return { cacheStore, modalStore, formatNumber }
     },
     data(){
         return {
