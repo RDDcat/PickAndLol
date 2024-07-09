@@ -48,6 +48,11 @@ export default {
         }
 
     },
+    mounted(){
+        if(this.cacheStore.userId!==0){
+            this.modalStore.isLoginWarnModal=false
+        }
+    }
 }
 </script>
 <style scoped>
