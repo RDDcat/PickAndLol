@@ -75,6 +75,7 @@ export default {
         }
     },
     mounted(){
+        console.log('mounted')
         this.route()
     },
     async beforeMount(){
