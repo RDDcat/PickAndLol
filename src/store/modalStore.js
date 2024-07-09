@@ -17,6 +17,9 @@ export const useModalStore = defineStore('modalStore', {
     warningTitle:'title',
     warningInfo:'info',
 
+    isSetTeamNameModal:false,
+    isSaveWarningModal:false,
+
     // 네비게이션
     isMain: true,
     isTeam: false,
