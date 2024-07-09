@@ -43,7 +43,7 @@
 
                 <!-- 에러 텍스트 -->
                 <div class="p-2  my-auto text-base text-gray-600 text-ellipsis break-words">
-                    <div class="text-red-600">선정된 응원팀 선수는 최대 2명만 선택 가능합니다.</div> 
+                    <div class="text-red-600">선정된 응원팀 내 선수는 최대 2명만 선택 가능합니다.</div> 
                     <div class="text-sm">선수단을 다시 구성해주세요.</div>
                     
                 </div>
@@ -444,20 +444,20 @@
                 <button v-if="!cacheStore.isSave &&
                         (this.cacheStore.mainLineNav.toLowerCase() === player.playerPosition || this.cacheStore.mainLineNav==='전체') &&
                         (this.cacheStore.mainTeamNav=== player.clubName || this.cacheStore.mainTeamNav=== 'LCK')"
-                    @click="click(player.name);"
+                    @click="click(player.playerName);"
                     class="w-52 h-12 my-3 inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-400 via-red-500 to-red-600 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200">
                     <span class="relative w-52  px-5 py-3 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-gray-100"
-                        :class="this.cacheStore.myTeam.players.top.name ===player.name ||
-                        this.cacheStore.myTeam.players.jgl.name ===player.name ||
-                        this.cacheStore.myTeam.players.mid.name ===player.name ||
-                        this.cacheStore.myTeam.players.adc.name ===player.name ||
-                        this.cacheStore.myTeam.players.sup.name ===player.name
+                        :class="this.cacheStore.myTeam.players.top.name ===player.playerName ||
+                        this.cacheStore.myTeam.players.jgl.name ===player.playerName ||
+                        this.cacheStore.myTeam.players.mid.name ===player.playerName ||
+                        this.cacheStore.myTeam.players.adc.name ===player.playerName ||
+                        this.cacheStore.myTeam.players.sup.name ===player.playerName
                         ? 'bg-opacity-0 group-hover:bg-opacity-0' : ''">
-                        {{ this.cacheStore.myTeam.players.top.name ===player.name ||
-                        this.cacheStore.myTeam.players.jgl.name ===player.name ||
-                        this.cacheStore.myTeam.players.mid.name ===player.name ||
-                        this.cacheStore.myTeam.players.adc.name ===player.name ||
-                        this.cacheStore.myTeam.players.sup.name ===player.name
+                        {{ this.cacheStore.myTeam.players.top.name ===player.playerName ||
+                        this.cacheStore.myTeam.players.jgl.name ===player.playerName ||
+                        this.cacheStore.myTeam.players.mid.name ===player.playerName ||
+                        this.cacheStore.myTeam.players.adc.name ===player.playerName ||
+                        this.cacheStore.myTeam.players.sup.name ===player.playerName
                         ? '선택됨' : '선택하기'}}
                     </span>
                 </button>
@@ -551,6 +551,14 @@ export default {
             this.cacheStore.myTeam.teamLogo='./assets/logo/color_'+name+'.png'
         },
         valid(){
+            // selectTeamFlag Validation
+            if(!this.cacheStore.myTeam.team){
+                this.selectTeamFlag = true
+                return true
+            } else{
+                this.selectTeamFlag = false
+            }
+
             // selectAllFlag Validation            
             if(!this.cacheStore.myTeam.players.top.name ||
                 !this.cacheStore.myTeam.players.jgl.name ||
@@ -558,16 +566,11 @@ export default {
                 !this.cacheStore.myTeam.players.adc.name ||
                 !this.cacheStore.myTeam.players.sup.name ){
                 this.selectAllFlag = true
+                return true
             } else{
                 this.selectAllFlag = false
             }
 
-            // selectTeamFlag Validation
-            if(!this.cacheStore.myTeam.team){
-                this.selectTeamFlag = true
-            } else{
-                this.selectTeamFlag = false
-            }
 
 
             // moreThanTwoFlag Validation
@@ -579,6 +582,7 @@ export default {
             }
             if(count>2){
                 this.moreThanTwoFlag = true
+                return true
             } else{
                 this.moreThanTwoFlag = false
             }
@@ -591,6 +595,7 @@ export default {
             let uniqueTeams = new Set(hold);
             if(uniqueTeams.size<4){
                 this.oneFromOneFlag = true
+                return true
             } else{
                 this.oneFromOneFlag = false
             }
@@ -598,6 +603,7 @@ export default {
             // vpFlag Validation
             if(this.cacheStore.myTeam.totalVP > this.limitVp){
                 this.vpFlag = true
+                return true
             } else{
                 this.vpFlag = false
             }
@@ -614,6 +620,7 @@ export default {
                 !this.cacheStore.myTeam.players.adc.isMvp &&
                 !this.cacheStore.myTeam.players.sup.isMvp ){
                 this.mvpFlag = true
+                return true
             } else{
                 this.mvpFlag = false
             }
@@ -622,10 +629,9 @@ export default {
         },
         submit(){
             // 예외처리
-            this.valid()
-            // if(this.selectAllFlag || this.selectTeamFlag || this.moreThanTwoFlag || this.oneFromOneFlag || this.vpFlag  || this.mvpFlag)  return
+            if(this.valid())return
+
             // 팀명 설정 모달 켜기
-            console.log('모달 열기')
             this.modalStore.isSetTeamNameModal = true
 
         
@@ -648,67 +654,75 @@ export default {
         },
         click(name){
             let players = this.cacheStore.players
-            console.log(this.cacheStore.myTeam.players.top.name)
+            console.log(this.cacheStore.myTeam.players.top.playerName)
             console.log(name)
             console.log(this.cacheStore.myTeam.players.top.name===name)
+
+            // 선수 재선택시 초기화
             if(this.cacheStore.myTeam.players.top.name===name){
-                this.cacheStore.myTeam.players.top={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
+                this.cacheStore.myTeam.players.top={isMvp: false, id:"", name:"", team:"", vp:0, img: "./assets/logo.png"}
                 return
             }
             if(this.cacheStore.myTeam.players.jgl.name===name){
-                this.cacheStore.myTeam.players.jgl={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
+                this.cacheStore.myTeam.players.jgl={isMvp: false, id:"", name:"", team:"", vp:0, img: "./assets/logo.png"}
                 return
             }
             if(this.cacheStore.myTeam.players.mid.name===name){
-                this.cacheStore.myTeam.players.mid={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
+                this.cacheStore.myTeam.players.mid={isMvp: false, id:"", name:"", team:"", vp:0, img: "./assets/logo.png"}
                 return
             }
             if(this.cacheStore.myTeam.players.adc.name===name){
-                this.cacheStore.myTeam.players.adc={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
+                this.cacheStore.myTeam.players.adc={isMvp: false, id:"", name:"", team:"", vp:0, img: "./assets/logo.png"}
                 return
             }
             if(this.cacheStore.myTeam.players.sup.name===name){
-                this.cacheStore.myTeam.players.sup={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
+                this.cacheStore.myTeam.players.sup={isMvp: false, id:"", name:"", team:"", vp:0, img: "./assets/logo.png"}
                 return
             }
 
 
-            for(let player in players){
-                if(players[player].name===name){
-                    if(players[player].line === 'TOP'){
+            for(let player of players){
+                if(player.playerName===name){
+                    console.log('player',player.playerName,name ,player.playerPosition)
+                    if(player.playerPosition === 'top'){
                         this.cacheStore.myTeam.players.top.isMvp = false
-                        this.cacheStore.myTeam.players.top.name = players[player].name
-                        this.cacheStore.myTeam.players.top.team = players[player].team
-                        this.cacheStore.myTeam.players.top.img = players[player].img
-                        this.cacheStore.myTeam.players.top.vp = players[player].vp
+                        this.cacheStore.myTeam.players.top.id = player.playerId
+                        this.cacheStore.myTeam.players.top.name = player.playerName
+                        this.cacheStore.myTeam.players.top.team = player.clubName
+                        this.cacheStore.myTeam.players.top.img = './assets/player/'+player.clubName+'_'+player.playerName+'.svg'
+                        this.cacheStore.myTeam.players.top.vp = player.vp
                     }
-                    else if(players[player].line === 'JGL'){
+                    else if(player.playerPosition === 'jgl'){
                         this.cacheStore.myTeam.players.jgl.isMvp = false
-                        this.cacheStore.myTeam.players.jgl.name = players[player].name
-                        this.cacheStore.myTeam.players.jgl.team = players[player].team
-                        this.cacheStore.myTeam.players.jgl.img = players[player].img
-                        this.cacheStore.myTeam.players.jgl.vp = players[player].vp
+                        this.cacheStore.myTeam.players.jgl.id = player.playerId
+                        this.cacheStore.myTeam.players.jgl.name = player.playerName
+                        this.cacheStore.myTeam.players.jgl.team = player.clubName
+                        this.cacheStore.myTeam.players.jgl.img = './assets/player/'+player.clubName+'_'+player.playerName+'.svg'
+                        this.cacheStore.myTeam.players.jgl.vp = player.vp
                     }
-                    else if(players[player].line === 'MID'){
+                    else if(player.playerPosition === 'mid'){
                         this.cacheStore.myTeam.players.mid.isMvp = false
-                        this.cacheStore.myTeam.players.mid.name = players[player].name
-                        this.cacheStore.myTeam.players.mid.team = players[player].team
-                        this.cacheStore.myTeam.players.mid.img = players[player].img
-                        this.cacheStore.myTeam.players.mid.vp = players[player].vp
+                        this.cacheStore.myTeam.players.mid.id = player.playerId
+                        this.cacheStore.myTeam.players.mid.name = player.playerName
+                        this.cacheStore.myTeam.players.mid.team = player.clubName
+                        this.cacheStore.myTeam.players.mid.img = './assets/player/'+player.clubName+'_'+player.playerName+'.svg'
+                        this.cacheStore.myTeam.players.mid.vp = player.vp
                     }
-                    else if(players[player].line === 'ADC'){
+                    else if(player.playerPosition === 'adc'){
                         this.cacheStore.myTeam.players.adc.isMvp = false
-                        this.cacheStore.myTeam.players.adc.name = players[player].name
-                        this.cacheStore.myTeam.players.adc.team = players[player].team
-                        this.cacheStore.myTeam.players.adc.img = players[player].img
-                        this.cacheStore.myTeam.players.adc.vp = players[player].vp
+                        this.cacheStore.myTeam.players.adc.id = player.playerId
+                        this.cacheStore.myTeam.players.adc.name = player.playerName
+                        this.cacheStore.myTeam.players.adc.team = player.clubName
+                        this.cacheStore.myTeam.players.adc.img = './assets/player/'+player.clubName+'_'+player.playerName+'.svg'
+                        this.cacheStore.myTeam.players.adc.vp = player.vp
                     }
-                    else if(players[player].line === 'SUP'){
+                    else if(player.playerPosition === 'sup'){
                         this.cacheStore.myTeam.players.sup.isMvp = false
-                        this.cacheStore.myTeam.players.sup.name = players[player].name
-                        this.cacheStore.myTeam.players.sup.team = players[player].team
-                        this.cacheStore.myTeam.players.sup.img = players[player].img
-                        this.cacheStore.myTeam.players.sup.vp = players[player].vp
+                        this.cacheStore.myTeam.players.sup.id = player.playerId
+                        this.cacheStore.myTeam.players.sup.name = player.playerName
+                        this.cacheStore.myTeam.players.sup.team = player.clubName
+                        this.cacheStore.myTeam.players.sup.img = './assets/player/'+player.clubName+'_'+player.playerName+'.svg'
+                        this.cacheStore.myTeam.players.sup.vp = player.vp
                     }
                 }
             }
