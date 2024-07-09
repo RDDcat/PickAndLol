@@ -38,7 +38,7 @@ export default {
     },
     data(){
         return {
-            index:'',
+            index:0,
 
         }
     },
@@ -47,7 +47,6 @@ export default {
             // 비 로그인시 모달로 막기
             if(this.cacheStore.userId===0){
                 this.modalStore.isLoginWarnModal=true
-                console.log(this.index)
                 this.index=0
                 return
             }
@@ -71,7 +70,6 @@ export default {
                     return
                 }
             }
-            this.index=0
         }
     },
     mounted(){
