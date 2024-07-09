@@ -2,11 +2,10 @@
     <!-- 로그인 확인 모달 -->
     <LoginWarnModal v-if="modalStore.isLoginWarnModal"/>
     <!-- 메인 3가지 페이지 -->
-    <MainFirstComponent v-if="index===0"/>
+    <MainFirstComponent v-show="index===0"/>
     <!-- 시간 제한 둬서 컴포넌트 가르기 -->
-    <MainSecondComponent v-if="index===1"/>
-    <MainThirdComponent v-if="index===2"/>
-    <div @click="index=0">asdfasdfsafs</div>
+    <MainSecondComponent v-show="index===1"/>
+    <MainThirdComponent v-show="index===2"/>
 
     <FooterComponent/>
 </template>
@@ -44,6 +43,7 @@ export default {
     },
     methods: {
         route(){
+            console.log('route')
             // 비 로그인시 모달로 막기
             if(!this.cacheStore.userId){
                 this.modalStore.isLoginWarnModal=true

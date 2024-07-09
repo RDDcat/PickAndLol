@@ -9,7 +9,7 @@
         </div>
         
         <!-- 히어로 페이지 -->
-        <div class="w-full flex" v-if="cacheStore.isSave">
+        <div class="w-full flex">
             <!-- 선수 라인 선택지 -->
             <div class="w-full flex flex-col">
                 <!-- 이미지 컨테이너 (지도좌표) -->
