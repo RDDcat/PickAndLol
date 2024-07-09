@@ -82,11 +82,11 @@ export default {
 
             let logBody = {
                 oauthId:this.cacheStore.userId,
-                topId: this.cacheStore.myTeam.player.top.id,
-                jglId: this.cacheStore.myTeam.player.jgl.id,
-                midId: this.cacheStore.myTeam.player.mid.id,
-                adcId: this.cacheStore.myTeam.player.adc.id,
-                supId: this.cacheStore.myTeam.player.sup.id,
+                topId: this.cacheStore.myTeam.players.top.id,
+                jglId: this.cacheStore.myTeam.players.jgl.id,
+                midId: this.cacheStore.myTeam.players.mid.id,
+                adcId: this.cacheStore.myTeam.players.adc.id,
+                supId: this.cacheStore.myTeam.players.sup.id,
 
             }
             console.log('logBody',logBody)
