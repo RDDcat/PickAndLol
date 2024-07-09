@@ -5,6 +5,8 @@
   <SelectCaptainModal v-if="modalStore.isSelectCaptainModal"/>
   <PlayerModal v-if="modalStore.isPlayerModal"/>
   <WarningModal v-if="modalStore.isWarningModal"/>
+  <SetTeamNameModal v-if="modalStore.isSetTeamNameModal"/>
+  <SaveWarningModal v-if="modalStore.isSaveWarningModal"/>
 
   <router-view />
 </template>
@@ -15,6 +17,8 @@ import GuideModal from '@/components/modal/GuideModal.vue'
 import SelectCaptainModal from '@/components/modal/SelectCaptainModal.vue'
 import PlayerModal from '@/components/modal/PlayerModal.vue'
 import WarningModal from '@/components/modal/WarningModal.vue'
+import SetTeamNameModal from '@/components/modal/SetTeamNameModal.vue'
+import SaveWarningModal from '@/components/modal/SaveWarningModal.vue'
 
 import api from '@/api/api'
 
@@ -30,6 +34,8 @@ export default {
     SelectCaptainModal,
     PlayerModal,
     WarningModal,
+    SetTeamNameModal,
+    SaveWarningModal,
   },
   setup(){
     const cacheStore = useCacheStore()
