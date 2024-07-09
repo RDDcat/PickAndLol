@@ -78,6 +78,7 @@ export default {
             })
             .catch(function (e){
                 console.log(e);
+                this.cacheStore.isSave=false
             });
 
             let logBody = {
@@ -98,6 +99,7 @@ export default {
             })
             .catch(function (e){
                 console.log(e);
+                this.cacheStore.isSave=false
             });
         },
     },
