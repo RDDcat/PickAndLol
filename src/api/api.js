@@ -65,6 +65,16 @@ export default {
             },
         });
     },
+    // 마이팀 로그 저장
+    postTeamLog: function(body){
+        console.log(body);
+        return axios.post(BASE_URL + 'team/log', body,{
+            headers: {
+                withCredentials: true,
+
+            },
+        });
+    },
     // 업데이트 (PUT 요청)
     // putPet: function(body) {
     //     return axios.put(BASE_URL + `pet`, body, {

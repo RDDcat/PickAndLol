@@ -48,11 +48,6 @@ export default {
         }
 
     },
-    mounted(){
-        if(this.cacheStore.isSave){
-            this.modalStore.isLoginWarnModal=false
-        }
-    }
 }
 </script>
 <style scoped>
