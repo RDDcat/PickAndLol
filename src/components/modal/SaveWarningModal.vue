@@ -62,7 +62,7 @@ export default {
     },
     methods: {
         
-        save(){
+        async save(){
             // 서버 전송
             console.log(this.cacheStore.userId)
             console.log(this.cacheStore.myTeam)
@@ -71,7 +71,7 @@ export default {
                 data:JSON.stringify(this.cacheStore.myTeam)
             }
             console.log('body',body)
-            api.postTeam(body)
+            await api.postTeam(body)
             .then(response=>{
                 console.log(response)
                 this.cacheStore.isSave=true
@@ -94,7 +94,7 @@ export default {
             }
             console.log('logBody',logBody)
 
-            api.postTeamLog(logBody)
+            await api.postTeamLog(logBody)
             .then(response=>{
                 console.log(response)
                 this.cacheStore.isSave=true

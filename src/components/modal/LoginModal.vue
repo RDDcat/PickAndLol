@@ -34,11 +34,17 @@
     </div>
 </template>
 <script>
-// import axios from "axios"
+import {useCacheStore} from '@/store/cacheStore'
+import {useModalStore} from '@/store/modalStore'
 
 export default {
     components: {
+    },
+    setup(){
+        const cacheStore = useCacheStore()
+        const modalStore = useModalStore()
 
+        return { cacheStore, modalStore }
     },
     data(){
         return {
