@@ -7,9 +7,6 @@
                 {{cacheStore.mainInfo}}
             </div>
         </div> -->
-        {{cacheStore.myTeam.players===snapStore.myTeamSnap.players}}
-        {{cacheStore.myTeam.players.top}}
-        {{snapStore.myTeamSnap.players.top}}
         
         <!-- 에러 공지 -->
         <div class="mx-auto w-my-60">
