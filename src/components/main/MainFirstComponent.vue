@@ -409,7 +409,8 @@
                     </div>
                     <div class="w-full px-4 flex">
                         <div class="my-auto font-medium text-gray-600">{{player.playerPosition.toUpperCase()}} </div>
-                        <img class="object-cover mx-2 w-6 h-6" :src="'./assets/logo/color_'+player.clubName+'.png'">
+                        <img class="object-cover mx-2 w-6 h-6" :src="'./assets/logo/color_'+player.clubName+'.png'"
+                            @error="setDefaultImage($event)">
                         <div class="flex my-auto font-medium text-red-600">
                             {{player.vp}}
                             <img class="ml-1 w-5 h-5" src="@/assets/icon/vp.png">
@@ -418,8 +419,8 @@
                     <!-- 선수 이미지 -->
                     <div class="relative w-44 h-52 mx-auto mt-auto mb-4">
                         <div class="absolute rounded-lg w-full h-full bg-gray-100"></div>
-                        <img class="absolute rounded-lg mx-auto mt-auto mb-3 w-full h-full object-cover" :src="'./assets/player/'+player.clubName+'_'+player.playerName+'.svg'"
-                            @error="this.src = './assets/logo.png'">
+                        <img class="absolute rounded-lg mx-auto mt-auto mb-3 w-full h-full object-cover" @error="setDefaultImage($event)" :src="'./assets/player/'+player.clubName+'_'+player.playerName+'.svg'"
+                            >
                         <!-- 호버시 스탯창 -->
                         <div v-show="hover===index" 
                             class="absolute flex flex-col top-0 left-0 w-full h-full bg-black bg-opacity-90 rounded-lg z-20 break-all">
@@ -514,7 +515,7 @@ export default {
                 {name:'T1', team:'T1', img:'./assets/logo/T1.png', colorImg:'./assets/logo/color_T1.png',}, 
                 {name:'KT', team:'KT', img:'./assets/logo/KT.png', colorImg:'./assets/logo/color_KT.png',}, 
                 {name:'한화생명', team:'HLE', img:'./assets/logo/HLE.png', colorImg:'./assets/logo/color_HLE.png',}, 
-                {name:'DK', team:'DK', img:'./assets/logo/DK.png', colorImg:'./assets/logo/color_DK.png',}, 
+                // {name:'DK', team:'DK', img:'./assets/logo/DK.png', colorImg:'./assets/logo/color_DK.png',}, 
                 {name:'피어엑스', team:'FOX', img:'./assets/logo/FOX.png', colorImg:'./assets/logo/color_FOX.png',}, 
                 {name:'광동', team:'KDF', img:'./assets/logo/KDF.png', colorImg:'./assets/logo/color_KDF.png',}, 
                 {name:'OK저축은행', team:'BRO', img:'./assets/logo/BRO.png', colorImg:'./assets/logo/color_BRO.png',}, 
@@ -526,7 +527,7 @@ export default {
                 {name:'T1', team:'T1', img:'./assets/logo/T1.png', colorImg:'./assets/logo/color_T1.png',}, 
                 {name:'KT', team:'KT', img:'./assets/logo/KT.png', colorImg:'./assets/logo/color_KT.png',}, 
                 {name:'한화생명', team:'HLE', img:'./assets/logo/HLE.png', colorImg:'./assets/logo/color_HLE.png',}, 
-                {name:'DK', team:'DK', img:'./assets/logo/DK.png', colorImg:'./assets/logo/color_DK.png',}, 
+                // {name:'DK', team:'DK', img:'./assets/logo/DK.png', colorImg:'./assets/logo/color_DK.png',}, 
                 {name:'피어엑스', team:'FOX', img:'./assets/logo/FOX.png', colorImg:'./assets/logo/color_FOX.png',}, 
                 {name:'광동', team:'KDF', img:'./assets/logo/KDF.png', colorImg:'./assets/logo/color_KDF.png',}, 
                 {name:'OK저축은행', team:'BRO', img:'./assets/logo/BRO.png', colorImg:'./assets/logo/color_BRO.png',}, 
@@ -544,6 +545,9 @@ export default {
         }
     },
     methods: {
+        setDefaultImage(event) {
+            event.target.src = './assets/logo.png';
+        },
         clickStep(num){
             if(this.step === num){
                 this.step=9
