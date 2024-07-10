@@ -4,7 +4,7 @@
         <!-- 공지 -->
         <div class="flex w-1/3 py-2 bg-gray-100 rounded-b-lg mx-auto">
             <div class="mx-auto text-sm text-gray-500">
-                변경가능시간 : 매일 밤 자정 00:00 ~ 17:00
+                {{cacheStore.mainInfo}}
             </div>
         </div>
         

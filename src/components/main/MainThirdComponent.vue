@@ -4,7 +4,7 @@
         <!-- 공지 -->
         <!-- <div class="flex w-1/3 py-2 bg-gray-100 rounded-b-lg mx-auto">
             <div class="mx-auto text-sm text-gray-500">
-                선수단을 변경할
+                {{cacheStore.mainInfo}}
             </div>
         </div> -->
         
