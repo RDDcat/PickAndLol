@@ -650,7 +650,7 @@ export default {
             const positions = ['top', 'jgl', 'mid', 'adc', 'sup'];
 
             for (let pos of positions) {
-                if (this.snapPlayers[pos].id !== this.cachePlayers[pos].id) {
+                if (this.snapStore.myTeamSnap.players[pos].id !== this.cacheStore.myTeam.players[pos].id) {
                     changeCount++;
                 }
             }
@@ -668,7 +668,7 @@ export default {
 
 
         },
-        submit(){
+        async submit(){
             // 예외처리
             if(this.valid())return
             
@@ -681,7 +681,7 @@ export default {
                 canChange:false
             }
             console.log('body',body)
-            api.postTeam(body)
+            await api.postTeam(body)
             .then(response=>{
                 console.log(response)
                 this.cacheStore.isSave=true
@@ -690,6 +690,26 @@ export default {
             })
             .catch(function (e){
                 console.log(e);
+            });
+
+            let logBody = {
+                oauthId:this.cacheStore.userId,
+                topId: this.snapStore.myTeamSnap.players.top.id,
+                jglId: this.snapStore.myTeamSnap.players.jgl.id,
+                midId: this.snapStore.myTeamSnap.players.mid.id,
+                adcId: this.snapStore.myTeamSnap.players.adc.id,
+                supId: this.snapStore.myTeamSnap.players.sup.id,
+
+            }
+
+            await api.postTeamLog(logBody)
+            .then(response=>{
+                console.log(response.data)
+                this.cacheStore.isSave=true
+            })
+            .catch(function (e){
+                console.log(e);
+                this.cacheStore.isSave=false
             });
         
         },
