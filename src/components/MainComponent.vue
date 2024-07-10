@@ -33,8 +33,11 @@ export default {
     setup(){
         const cacheStore = useCacheStore()
         const modalStore = useModalStore()
+        const now = new Date(); // 현재 시간을 가져옴
+        // 시간이 해당하는 시간이라면 (추후에 우리 서버시간으로 변경)
+        const hours = now.getHours(); // 현재 시간의 시간을 가져옴 (0 ~ 23)
 
-        return { cacheStore, modalStore }
+        return { cacheStore, modalStore, hours }
     },
     data(){
         return {
@@ -49,39 +52,29 @@ export default {
             if(this.cacheStore.userId===0){
                 this.modalStore.isLoginWarnModal=true
                 console.log("1")
+                this.modalStore.mainInfo = '팀 변경가능시간: 평일 00:00~17:00, 주말 00:00~15:00'
                 this.index=0
                 return
             }
-            // 로그인이 되고 선수단이 없을때
-            if(!this.cacheStore.isSave){
-                console.log("2")
-                this.index=0
-                return
-            } else{
-                // 로그인이 되고 선수단이 있을때
-                console.log("3")
-                this.index=1
-                return
-            }
-            // 로그인이 되고 선수단 수정이 가능할때
 
             // 로그인 되어있고 팀이 있다면
-            // if(this.cacheStore.isSave || this.cacheStore.myTeam.name){
-            //     // 시간이 해당하는 시간이라면 (추후에 우리 서버시간으로 변경)
-            //     const now = new Date(); // 현재 시간을 가져옴
-            //     const hours = now.getHours(); // 현재 시간의 시간을 가져옴 (0 ~ 23)
+            if(this.cacheStore.isSave){
 
-            //     // 시간이 17:00 ~ 24:00 사이인지 확인
-            //     if(hours >= 17 && hours < 24){
-            //         // 변경 불가능시간임 2번화면
-            //         this.index=1
-            //         return
-            //     } else {
-            //         // 변경 불가능 시간임 3번화면
-            //         this.index=2
-            //         return
-            //     }
-            // }
+                // 시간이 17:00 ~ 24:00 사이인지 확인
+                if(17 <= this.hours && this.hours < 24){
+                    // 변경 불가능시간임 2번화면
+                    this.modalStore.mainInfo = '팀 변경가능시간: 평일 00:00~17:00, 주말 00:00~15:00'
+                    console.log("2")
+                    this.index=1
+                    return
+                } else {
+                    // 선수단 수정이 가능할때
+                    // 변경 가능 시간임 3번화면
+                    console.log("3")
+                    this.index=2
+                    return
+                }
+            }
         }
     },
     mounted(){
