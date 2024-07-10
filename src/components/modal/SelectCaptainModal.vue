@@ -112,22 +112,27 @@ export default {
             // 선수가 있는지 확인
             if(!this.cacheStore.myTeam.players.top.name && this.click===1){
                 this.isPlayer=true
+                this.isMyTeam=false
                 return true
             }
             else if(!this.cacheStore.myTeam.players.jgl.name && this.click===2){
                 this.isPlayer=true
+                this.isMyTeam=false
                 return true
             }
             else if(!this.cacheStore.myTeam.players.mid.name && this.click===3){
                 this.isPlayer=true
+                this.isMyTeam=false
                 return true
             }
             else if(!this.cacheStore.myTeam.players.adc.name && this.click===4){
                 this.isPlayer=true
+                this.isMyTeam=false
                 return true
             }
             else if(!this.cacheStore.myTeam.players.sup.name && this.click===5){
                 this.isPlayer=true
+                this.isMyTeam=false
                 return true
             }
 
@@ -135,26 +140,31 @@ export default {
             if(this.click===1){
                 if(this.cacheStore.myTeam.team!==this.cacheStore.myTeam.players.top.team){
                     this.isMyTeam =true
+                    this.isPlayer=false
                     return true
                 }
             } else if(this.click===2){
                 if(this.cacheStore.myTeam.team!==this.cacheStore.myTeam.players.jgl.team){
                     this.isMyTeam =true
+                    this.isPlayer=false
                     return true
                 }
             } else if(this.click===3){
                 if(this.cacheStore.myTeam.team!==this.cacheStore.myTeam.players.mid.team){
                     this.isMyTeam =true
+                    this.isPlayer=false
                     return true
                 }
             } else if(this.click===4){
                 if(this.cacheStore.myTeam.team!==this.cacheStore.myTeam.players.adc.team){
                     this.isMyTeam =true
+                    this.isPlayer=false
                     return true
                 }
             } else if(this.click===5){
                 if(this.cacheStore.myTeam.team!==this.cacheStore.myTeam.players.sup.team){
                     this.isMyTeam =true
+                    this.isPlayer=false
                     return true
                 }
             }
