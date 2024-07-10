@@ -211,8 +211,9 @@
                             <!-- 선수 초상화 -->
                             <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.top.img">
                             <!-- 선수 이름 -->
-                            <div class="my-auto ml-6 text-base">
-                                {{cacheStore.myTeam.players.top.name ? cacheStore.myTeam.players.top.team+' '+cacheStore.myTeam.players.top.name : '-'}}
+                            <div class="flex my-auto ml-6 text-base ">
+                                <div class="font-bold">{{cacheStore.myTeam.players.top.name ? cacheStore.myTeam.players.top.team : ''}}</div>
+                                &nbsp; {{cacheStore.myTeam.players.top.name ? cacheStore.myTeam.players.top.name : '-'}}
                             </div>
                             <!-- 선수 vp 포인트 -->
                             <div class="flex ml-auto my-auto mr-2">
@@ -233,8 +234,9 @@
                             <!-- 선수 초상화 -->
                             <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.jgl.img">
                             <!-- 선수 이름 -->
-                            <div class="my-auto ml-6 text-base">
-                                {{cacheStore.myTeam.players.jgl.name ?cacheStore.myTeam.players.jgl.team+' '+cacheStore.myTeam.players.jgl.name  : '-'}}
+                            <div class="flex my-auto ml-6 text-base ">
+                                <div class="font-bold">{{cacheStore.myTeam.players.jgl.name ? cacheStore.myTeam.players.jgl.team : ''}}</div>
+                                &nbsp; {{cacheStore.myTeam.players.jgl.name ? cacheStore.myTeam.players.jgl.name : '-'}}
                             </div>
                             <!-- 선수 vp 포인트 -->
                             <div class="flex ml-auto my-auto mr-2">
@@ -255,8 +257,9 @@
                             <!-- 선수 초상화 -->
                             <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.mid.img">
                             <!-- 선수 이름 -->
-                            <div class="my-auto ml-6 text-base">
-                                {{cacheStore.myTeam.players.mid.name ?cacheStore.myTeam.players.mid.team+' '+cacheStore.myTeam.players.mid.name : '-'}}
+                            <div class="flex my-auto ml-6 text-base ">
+                                <div class="font-bold">{{cacheStore.myTeam.players.mid.name ? cacheStore.myTeam.players.mid.team : ''}}</div>
+                                &nbsp; {{cacheStore.myTeam.players.mid.name ? cacheStore.myTeam.players.mid.name : '-'}}
                             </div>
                             <!-- 선수 vp 포인트 -->
                             <div class="flex ml-auto my-auto mr-2">
@@ -277,8 +280,9 @@
                             <!-- 선수 초상화 -->
                             <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.adc.img">
                             <!-- 선수 이름 -->
-                            <div class="my-auto ml-6 text-base">
-                                {{cacheStore.myTeam.players.adc.name ?cacheStore.myTeam.players.adc.team+' '+cacheStore.myTeam.players.adc.name : '-'}}
+                            <div class="flex my-auto ml-6 text-base ">
+                                <div class="font-bold">{{cacheStore.myTeam.players.adc.name ? cacheStore.myTeam.players.adc.team : ''}}</div>
+                                &nbsp; {{cacheStore.myTeam.players.adc.name ? cacheStore.myTeam.players.adc.name : '-'}}
                             </div>
                             <!-- 선수 vp 포인트 -->
                             <div class="flex ml-auto my-auto mr-2">
@@ -299,8 +303,9 @@
                             <!-- 선수 초상화 -->
                             <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.sup.img">
                             <!-- 선수 이름 -->
-                            <div class="my-auto ml-6 text-base">
-                                {{cacheStore.myTeam.players.sup.name ?cacheStore.myTeam.players.sup.team+' '+cacheStore.myTeam.players.sup.name : '-'}}
+                            <div class="flex my-auto ml-6 text-base ">
+                                <div class="font-bold">{{cacheStore.myTeam.players.sup.name ? cacheStore.myTeam.players.sup.team : ''}}</div>
+                                &nbsp; {{cacheStore.myTeam.players.sup.name ? cacheStore.myTeam.players.sup.name : '-'}}
                             </div>
                             <!-- 선수 vp 포인트 -->
                             <div class="flex ml-auto my-auto mr-2">
