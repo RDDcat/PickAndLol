@@ -370,8 +370,9 @@
                     </div>
                     <div class="w-full px-4 flex">
                         <div class="my-auto font-medium text-gray-600">{{player.playerPosition.toUpperCase()}} </div>
-                        <img class="object-cover mx-2 w-6 h-6" :src="'./assets/logo/color_'+player.clubName+'.png'">
-                        <div class="flex my-auto font-medium text-red-600">
+                        <img class="object-cover mx-2 w-6 h-6" :src="'./assets/logo/color_'+player.clubName+'.png'"
+                            @error="setDefaultImage($event)">
+                            <div class="flex my-auto font-medium text-red-600">
                             {{player.vp}}
                             <img class="ml-1 w-5 h-5" src="@/assets/icon/vp.png">
                         </div>
@@ -379,8 +380,8 @@
                     <!-- 선수 이미지 -->
                     <div class="relative w-44 h-52 mx-auto mt-auto mb-4">
                         <div class="absolute rounded-lg w-full h-full bg-gray-100"></div>
-                        <img class="absolute rounded-lg mx-auto mt-auto mb-3 w-full h-full object-cover" :src="'./assets/player/'+player.clubName+'_'+player.playerName+'.svg'"
-                            @error="this.src = './assets/logo.png'">
+                        <img class="absolute rounded-lg mx-auto mt-auto mb-3 w-full h-full object-cover" @error="setDefaultImage($event)" :src="'./assets/player/'+player.clubName+'_'+player.playerName+'.svg'"
+                            >
                         <!-- 호버시 스탯창 -->
                         <div v-show="hover===index" 
                             class="absolute flex flex-col top-0 left-0 w-full h-full bg-black bg-opacity-90 rounded-lg z-20 break-all">
@@ -505,6 +506,10 @@ export default {
         }
     },
     methods: {
+        setDefaultImage(event) {
+            event.target.src = './assets/logo.png';
+            event.target.style.opacity = '0.2';
+        },
         selectTeam(name){
             this.cacheStore.myTeam.team=name
             this.cacheStore.myTeam.teamLogo='./assets/logo/color_'+name+'.png'

@@ -547,6 +547,7 @@ export default {
     methods: {
         setDefaultImage(event) {
             event.target.src = './assets/logo.png';
+            event.target.style.opacity = '0.2';
         },
         clickStep(num){
             if(this.step === num){
