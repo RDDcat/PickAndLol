@@ -102,11 +102,11 @@
                     <div class="font-base mx-auto">
                         {{player.rank}}
                     </div>
-                    <div class="font-bold mx-auto">
+                    <div class="px-4 font-bold">
                         {{player.playerName}}
                     </div>
-                    <div class="mx-auto flex">
-                        <div class="my-auto font-medium text-gray-500">{{player.line}} </div>
+                    <div class="w-full px-4 flex">
+                        <div class="my-auto font-medium text-gray-600">{{player.playerPosition.toUpperCase()}} </div>
                         <img class="object-cover mx-2 w-6 h-6" :src="'./assets/logo/color_'+player.clubName+'.png'">
                         <div class="flex my-auto font-medium text-red-600">
                             {{player.vp}}
