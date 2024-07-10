@@ -230,7 +230,7 @@
                     <!-- 선수단 리스트 -->
                     <div class="w-full my-6 flex flex-col">
                         <!-- 탑 -->
-                        <div class="my-2 px-4 flex w-full">
+                        <div class="my-2 px-4 flex w-full " :class="snapStore.myTeamSnap.players.top.id!==cacheStore.myTeam.players.top.id?'bg-yellow-200':''">
                             <!-- 아이콘 -->
                             <div class="relative my-auto mr-4 ">
                                 <img v-if="snapStore.myTeamSnap.players.top.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
@@ -348,15 +348,15 @@
             </div>
 
         </div>
-
+        
         <!-- 선수 필터 -->
         <div class="mx-auto flex flex-col">
             <!-- 팀 별 필터 -->
             <div class="grid grid-cols-11 gap-10 mx-auto my-4">
                 <!-- 팀 -->
                 <button v-for="team, index in teams" :key="index">
-                    <img class="m-auto w-12 h-12 object-cover" :src="team.colorImg" v-if="team.team==cacheStore.mainTeamNav" @click="teamFilter(teams[0].team)">
-                    <img class="m-auto w-12 h-12 object-cover" :src="team.img" v-if="team.team!=cacheStore.mainTeamNav" @click="teamFilter(team.team)">
+                    <img class="m-auto w-12 h-12 object-cover" :src="team.colorImg" v-if="team.team==snapStore.mainTeamNav" @click="teamFilter(teams[0].team)">
+                    <img class="m-auto w-12 h-12 object-cover" :src="team.img" v-if="team.team!=snapStore.mainTeamNav" @click="teamFilter(team.team)">
                     <div class="m-auto my-2 text-center text-xs text-gray-700">
                         {{team.name}}
                     </div>
@@ -368,7 +368,7 @@
                 <div v-for="line, index in lines" :key="index">
                     <button @click="lineFilter(index)"
                         type="button" class="flex text-gray-600 bg-gray-200 hover:bg-red-200 rounded-full px-6 py-3"
-                        :class="cacheStore.mainLineNav===line.name?'text-white bg-red-500 outline-none':''">
+                        :class="snapStore.mainLineNav===line.name?'text-white bg-red-500 outline-none':''">
                         <img class="m-auto " :src="line.img">
                         <div class="flex my-auto ml-2 mr-2 text-center text-sm ">
                             {{line.name}}
@@ -381,8 +381,8 @@
         <!-- 선수 카드 그리드 -->
         <div class="mx-auto grid grid-cols-5 gap-10">
             <template v-for="player, index in cacheStore.players" :key="index">
-                <div v-if="(this.cacheStore.mainLineNav.toLowerCase() === player.playerPosition || this.cacheStore.mainLineNav==='전체') &&
-                        (this.cacheStore.mainTeamNav=== player.clubName || this.cacheStore.mainTeamNav=== 'LCK')">
+                <div v-if="(toLowerCase(this.snapStore.mainLineNav) === player.playerPosition || this.snapStore.mainLineNav==='전체') &&
+                        (this.snapStore.mainTeamNav=== player.clubName || this.snapStore.mainTeamNav=== 'LCK')">
                 <!-- 선수 카드 -->
                 <button @click="clickPlayer(player)" class="relative w-52 h-72 flex flex-col rounded-lg "
                     :class="hover===index?'shadow-2xl':'shadow-md'"
@@ -437,9 +437,9 @@
                 </button>
                 <!-- 선택하기 버튼 -->
                 <button v-if="
-                        (this.cacheStore.mainLineNav.toLowerCase() === player.playerPosition || this.cacheStore.mainLineNav==='전체') &&
-                        (this.cacheStore.mainTeamNav=== player.clubName || this.cacheStore.mainTeamNav=== 'LCK')"
-                    @click="click(player.name);"
+                        (toLowerCase(this.snapStore.mainLineNav) === player.playerPosition || this.snapStore.mainLineNav==='전체') &&
+                        (this.snapStore.mainTeamNav=== player.clubName || this.snapStore.mainTeamNav=== 'LCK')"
+                    @click="click(player.playerName);"
                     class="w-52 h-12 my-3 inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-400 via-red-500 to-red-600 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200">
                     <span class="relative w-52  px-5 py-3 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-gray-100"
                         :class="this.snapStore.myTeamSnap.players.top.name ===player.playerName ||
@@ -481,8 +481,25 @@ export default {
         const formatNumber = (number) => {
             return number % 1 === 0 ? number : number.toFixed(2);
         }
+        const toLowerCase = (str) => {
+            let result = '';
+            
+            for (let i = 0; i < str.length; i++) {
+                let charCode = str.charCodeAt(i);
+                
+                // 대문자인지 확인
+                if (charCode >= 65 && charCode <= 90) {
+                    // 소문자로 변환 (대문자와 소문자의 ASCII 차이는 32)
+                    result += String.fromCharCode(charCode + 32);
+                } else {
+                    // 대문자가 아니면 그대로 결과에 추가
+                    result += str[i];
+                }
+            }
+            return result;
+        }
 
-        return { cacheStore, modalStore, snapStore, formatNumber }
+        return { cacheStore, modalStore, snapStore, formatNumber, toLowerCase  }
     },
     data(){
         return {
@@ -677,15 +694,15 @@ export default {
         
         },
         lineFilter(index){
-            if(this.lines[index].name===this.cacheStore.mainLineNav){
-                this.cacheStore.mainLineNav=this.lines[0].name
+            if(this.lines[index].name===this.snapStore.mainLineNav){
+                this.snapStore.mainLineNav=this.lines[0].name
                 return
             }
-            this.cacheStore.mainLineNav = this.lines[index].name
+            this.snapStore.mainLineNav = this.lines[index].name
 
         },
         teamFilter(name){
-            this.cacheStore.mainTeamNav = name
+            this.snapStore.mainTeamNav = name
 
         },
         clickPlayer(player){
@@ -694,67 +711,70 @@ export default {
         },
         click(name){
             let players = this.cacheStore.players
-            console.log(this.snapStore.myTeamSnap.players.top.name)
-            console.log(name)
-            console.log(this.snapStore.myTeamSnap.players.top.name===name)
+
             if(this.snapStore.myTeamSnap.players.top.name===name){
-                this.snapStore.myTeamSnap.players.top={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
+                this.snapStore.myTeamSnap.players.top=this.cacheStore.myTeam.players.top
                 return
             }
             if(this.snapStore.myTeamSnap.players.jgl.name===name){
-                this.snapStore.myTeamSnap.players.jgl={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
+                this.snapStore.myTeamSnap.players.jgl=this.cacheStore.myTeam.players.jgl
                 return
             }
             if(this.snapStore.myTeamSnap.players.mid.name===name){
-                this.snapStore.myTeamSnap.players.mid={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
+                this.snapStore.myTeamSnap.players.mid=this.cacheStore.myTeam.players.mid
                 return
             }
             if(this.snapStore.myTeamSnap.players.adc.name===name){
-                this.snapStore.myTeamSnap.players.adc={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
+                this.snapStore.myTeamSnap.players.adc=this.cacheStore.myTeam.players.adc
                 return
             }
             if(this.snapStore.myTeamSnap.players.sup.name===name){
-                this.snapStore.myTeamSnap.players.sup={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
+                this.snapStore.myTeamSnap.players.sup=this.cacheStore.myTeam.players.sup
                 return
             }
 
 
-            for(let player in players){
-                if(players[player].name===name){
-                    if(players[player].line === 'TOP'){
+            for(let player of players){
+                if(player.playerName===name){
+                    if(player.playerPosition === 'top'){
                         this.snapStore.myTeamSnap.players.top.isMvp = false
-                        this.snapStore.myTeamSnap.players.top.name = players[player].name
-                        this.snapStore.myTeamSnap.players.top.team = players[player].team
-                        this.snapStore.myTeamSnap.players.top.img = players[player].img
-                        this.snapStore.myTeamSnap.players.top.vp = players[player].vp
+                        this.snapStore.myTeamSnap.players.top.id = player.playerId
+                        this.snapStore.myTeamSnap.players.top.name = player.playerName
+                        this.snapStore.myTeamSnap.players.top.team = player.clubName
+                        this.snapStore.myTeamSnap.players.top.img = './assets/player/'+player.clubName+'_'+player.playerName+'.svg'
+                        this.snapStore.myTeamSnap.players.top.vp = player.vp
                     }
-                    else if(players[player].line === 'JGL'){
+                    else if(player.playerPosition === 'jgl'){
                         this.snapStore.myTeamSnap.players.jgl.isMvp = false
-                        this.snapStore.myTeamSnap.players.jgl.name = players[player].name
-                        this.snapStore.myTeamSnap.players.jgl.team = players[player].team
-                        this.snapStore.myTeamSnap.players.jgl.img = players[player].img
-                        this.snapStore.myTeamSnap.players.jgl.vp = players[player].vp
+                        this.snapStore.myTeamSnap.players.jgl.id = player.playerId
+                        this.snapStore.myTeamSnap.players.jgl.name = player.playerName
+                        this.snapStore.myTeamSnap.players.jgl.team = player.clubName
+                        this.snapStore.myTeamSnap.players.jgl.img = './assets/player/'+player.clubName+'_'+player.playerName+'.svg'
+                        this.snapStore.myTeamSnap.players.jgl.vp = player.vp
                     }
-                    else if(players[player].line === 'MID'){
+                    else if(player.playerPosition === 'mid'){
                         this.snapStore.myTeamSnap.players.mid.isMvp = false
-                        this.snapStore.myTeamSnap.players.mid.name = players[player].name
-                        this.snapStore.myTeamSnap.players.mid.team = players[player].team
-                        this.snapStore.myTeamSnap.players.mid.img = players[player].img
-                        this.snapStore.myTeamSnap.players.mid.vp = players[player].vp
+                        this.snapStore.myTeamSnap.players.mid.id = player.playerId
+                        this.snapStore.myTeamSnap.players.mid.name = player.playerName
+                        this.snapStore.myTeamSnap.players.mid.team = player.clubName
+                        this.snapStore.myTeamSnap.players.mid.img = './assets/player/'+player.clubName+'_'+player.playerName+'.svg'
+                        this.snapStore.myTeamSnap.players.mid.vp = player.vp
                     }
-                    else if(players[player].line === 'ADC'){
+                    else if(player.playerPosition === 'adc'){
                         this.snapStore.myTeamSnap.players.adc.isMvp = false
-                        this.snapStore.myTeamSnap.players.adc.name = players[player].name
-                        this.snapStore.myTeamSnap.players.adc.team = players[player].team
-                        this.snapStore.myTeamSnap.players.adc.img = players[player].img
-                        this.snapStore.myTeamSnap.players.adc.vp = players[player].vp
+                        this.snapStore.myTeamSnap.players.adc.id = player.playerId
+                        this.snapStore.myTeamSnap.players.adc.name = player.playerName
+                        this.snapStore.myTeamSnap.players.adc.team = player.clubName
+                        this.snapStore.myTeamSnap.players.adc.img = './assets/player/'+player.clubName+'_'+player.playerName+'.svg'
+                        this.snapStore.myTeamSnap.players.adc.vp = player.vp
                     }
-                    else if(players[player].line === 'SUP'){
+                    else if(player.playerPosition === 'sup'){
                         this.snapStore.myTeamSnap.players.sup.isMvp = false
-                        this.snapStore.myTeamSnap.players.sup.name = players[player].name
-                        this.snapStore.myTeamSnap.players.sup.team = players[player].team
-                        this.snapStore.myTeamSnap.players.sup.img = players[player].img
-                        this.snapStore.myTeamSnap.players.sup.vp = players[player].vp
+                        this.snapStore.myTeamSnap.players.sup.id = player.playerId
+                        this.snapStore.myTeamSnap.players.sup.name = player.playerName
+                        this.snapStore.myTeamSnap.players.sup.team = player.clubName
+                        this.snapStore.myTeamSnap.players.sup.img = './assets/player/'+player.clubName+'_'+player.playerName+'.svg'
+                        this.snapStore.myTeamSnap.players.sup.vp = player.vp
                     }
                 }
             }
