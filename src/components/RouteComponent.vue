@@ -45,9 +45,12 @@ export default {
     methods: {
 
     },
-    mounted(){
+    created(){
+        console.log('mounted')
         if(this.$route.query.id && !this.cacheStore.userId){
             this.cacheStore.userId = this.$route.query.id
+            console.log('check')
+            this.modalStore.isLoginWarnModal=false
         }
         if(this.$route.query.name && !this.cacheStore.name){
             this.cacheStore.userName = this.$route.query.name
