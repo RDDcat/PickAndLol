@@ -85,7 +85,9 @@ export default {
             // 팀 데이터 sync 넣기
             await api.getSync(this.cacheStore.userId)
             .then(response=>{
+                console.log('response:',response)
                 this.cacheStore.myTeam = JSON.parse(response.data.data)
+                this.cacheStore.canChange = response.data.canChange
                 this.cacheStore.isSave=true
             })
             .catch(function (e){

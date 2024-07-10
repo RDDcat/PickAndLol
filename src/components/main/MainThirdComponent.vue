@@ -85,6 +85,30 @@
                     <div class="text-sm">선정된 응원팀 내에서 주장이 될 선수를 선택해 주세요.</div> 
                 </div>
             </div>
+            <!--  isCount -->
+            <div v-if="isCount"
+                class="flex px-3 bg-red-50 rounded-lg mb-1">
+                <!-- ! 아이콘 -->
+                <img class="my-auto mx-4 w-6 h-6 object-cover" src="@/assets/icon/error.png">
+
+                <!-- 에러 텍스트 -->
+                <div class="p-2  my-auto text-base text-gray-600 text-ellipsis break-words">
+                    <div class="text-red-600">최대 2명까지 선수를 교체할 수 있습니다 </div>
+                    <div class="text-sm">선수단을 다시 구성해주세요.</div> 
+                </div>
+            </div>
+            <!--  isCount zero -->
+            <div v-if="isCountZero"
+                class="flex px-3 bg-red-50 rounded-lg mb-1">
+                <!-- ! 아이콘 -->
+                <img class="my-auto mx-4 w-6 h-6 object-cover" src="@/assets/icon/error.png">
+
+                <!-- 에러 텍스트 -->
+                <div class="p-2  my-auto text-base text-gray-600 text-ellipsis break-words">
+                    <div class="text-red-600">1명 이상 변경할 선수를 선택해주세요. </div>
+                    <div class="text-sm">변경된 선수가 있어야 팀을 교체할 수 있습니다.</div> 
+                </div>
+            </div>
         </div>
 
         <!-- 히어로 페이지 -->
@@ -96,44 +120,48 @@
                 <div class="relative flex ml-auto mr-12">
                     <img class="mx-auto w-96" src="@/assets/map.png" alt="">
                     <button class="absolute left-6 top-6 bg-white rounded-full bg-opacity-80">
-                        <img @click="cacheStore.mainLineNav='TOP'" v-if="!cacheStore.myTeam.players.top.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/top.png">
-                        <img @click="cacheStore.mainLineNav='TOP'" v-if="cacheStore.myTeam.players.top.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.top.img">
-                        <div v-if="cacheStore.myTeam.players.top.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
+                        <img @click="cacheStore.mainLineNav='TOP'" v-if="!snapStore.myTeamSnap.players.top.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/top.png">
+                        <img @click="cacheStore.mainLineNav='TOP'" v-if="snapStore.myTeamSnap.players.top.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="snapStore.myTeamSnap.players.top.img">
+                        <div v-if="snapStore.myTeamSnap.players.top.isMvp" class="absolute -left-1.5 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
                     </button>
                     <button class="absolute left-20 top-24 bg-white rounded-full bg-opacity-80">
-                        <img @click="cacheStore.mainLineNav='JGL'" v-if="!cacheStore.myTeam.players.jgl.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/jgl.png">
-                        <img @click="cacheStore.mainLineNav='JGL'" v-if="cacheStore.myTeam.players.jgl.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.jgl.img">
-                        <div v-if="cacheStore.myTeam.players.jgl.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
+                        <img @click="cacheStore.mainLineNav='JGL'" v-if="!snapStore.myTeamSnap.players.jgl.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/jgl.png">
+                        <img @click="cacheStore.mainLineNav='JGL'" v-if="snapStore.myTeamSnap.players.jgl.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="snapStore.myTeamSnap.players.jgl.img">
+                        <div v-if="snapStore.myTeamSnap.players.jgl.isMvp" class="absolute -left-1.5 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
                     </button>
                     <button class="absolute left-40 top-40 bg-white rounded-full bg-opacity-80">
-                        <img @click="cacheStore.mainLineNav='MID'" v-if="!cacheStore.myTeam.players.mid.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/mid.png">
-                        <img @click="cacheStore.mainLineNav='MID'" v-if="cacheStore.myTeam.players.mid.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.mid.img">
-                        <div v-if="cacheStore.myTeam.players.mid.isMvp" class="absolute -left-1.5 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
+                        <img @click="cacheStore.mainLineNav='MID'" v-if="!snapStore.myTeamSnap.players.mid.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/mid.png">
+                        <img @click="cacheStore.mainLineNav='MID'" v-if="snapStore.myTeamSnap.players.mid.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="snapStore.myTeamSnap.players.mid.img">
+                        <div v-if="snapStore.myTeamSnap.players.mid.isMvp" class="absolute -left-1.5 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
                     </button>
                     <button class="absolute right-24 bottom-20 bg-white rounded-full bg-opacity-80">
-                        <img @click="cacheStore.mainLineNav='ADC'" v-if="!cacheStore.myTeam.players.adc.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/adc.png">
-                        <img @click="cacheStore.mainLineNav='ADC'" v-if="cacheStore.myTeam.players.adc.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.adc.img">
-                        <div v-if="cacheStore.myTeam.players.adc.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
+                        <img @click="cacheStore.mainLineNav='ADC'" v-if="!snapStore.myTeamSnap.players.adc.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/adc.png">
+                        <img @click="cacheStore.mainLineNav='ADC'" v-if="snapStore.myTeamSnap.players.adc.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="snapStore.myTeamSnap.players.adc.img">
+                        <div v-if="snapStore.myTeamSnap.players.adc.isMvp" class="absolute -left-1.5 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
                     </button>
                     <button class="absolute right-8 bottom-8 bg-white rounded-full bg-opacity-80">
-                        <img @click="cacheStore.mainLineNav='SUP'" v-if="!cacheStore.myTeam.players.sup.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/sup.png">
-                        <img @click="cacheStore.mainLineNav='SUP'" v-if="cacheStore.myTeam.players.sup.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="cacheStore.myTeam.players.sup.img">
-                        <div v-if="cacheStore.myTeam.players.sup.isMvp" class="absolute -left-1 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
+                        <img @click="cacheStore.mainLineNav='SUP'" v-if="!snapStore.myTeamSnap.players.sup.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" src="@/assets/sup.png">
+                        <img @click="cacheStore.mainLineNav='SUP'" v-if="snapStore.myTeamSnap.players.sup.name" class="w-16 h-16 ring-2 ring-red-500 hover:ring-4 hover:ring-red-500 rounded-full" :src="snapStore.myTeamSnap.players.sup.img">
+                        <div v-if="snapStore.myTeamSnap.players.sup.isMvp" class="absolute -left-1.5 top-14 px-1.5 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">CAPTAIN</div>
                     </button>
                 </div>
 
                 <!-- 버튼 -->
-                <div class="ml-auto mr-20 my-8">
-                    <button 
+                <div class="flex ml-auto my-auto">
+                    <!-- 주장 변경 버튼 -->
+                    <!-- <button 
                         class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 w-36 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-400 via-red-500 to-red-600 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200"
                         @click="modalStore.isSelectCaptainModal=true">
                         <span class="relative w-36 px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
                             주장 설정하기
                         </span>
-                    </button>
+                    </button> -->
                     <button @click="submit"
-                        type="button" 
-                        class="text-white bg-gradient-to-r from-red-600 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-400  shadow-lg shadow-red-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-40">저장하기</button>
+                        type="button" v-if="cacheStore.canChange"
+                        class="text-white bg-gradient-to-r from-red-600 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-400  shadow-lg shadow-red-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 w-40">
+                        변경하기
+                        </button>
+                    <div class="w-36"></div>
                 </div>
             </div>
 
@@ -155,8 +183,8 @@
                                 <div class="mx-auto mt-auto bg-white px-2.5 py-1 rounded-full">
                                     <div class="text-sm text-red-500">응원팀</div>
                                 </div>
-                                <div class="flex text-base mx-auto mb-auto">{{cacheStore.myTeam.team}}
-                                    <img class="ml-1 w-6 h-6 object-cover rounded-full" :src="cacheStore.myTeam.teamLogo">
+                                <div class="flex text-base mx-auto mb-auto">{{snapStore.myTeamSnap.team}}
+                                    <img class="ml-1 w-6 h-6 object-cover rounded-full" :src="snapStore.myTeamSnap.teamLogo">
                                 </div>
                             </div>
                         </div>
@@ -166,7 +194,7 @@
                                 <div class="mx-auto mt-auto bg-white px-2.5 py-1 rounded-full">
                                     <div class="text-sm text-red-500">팀명</div>
                                 </div>
-                                <div class="flex text-base mx-auto mb-auto">{{cacheStore.myTeam.name}}
+                                <div class="flex text-base mx-auto mb-auto">{{snapStore.myTeamSnap.name}}
                                 </div>
                             </div>
                         </div>
@@ -194,7 +222,7 @@
                         <!-- 토탈 vp 포인트 -->
                         <div class="flex ml-auto my-auto mr-4">
                             <div class="text-red-600 mr-1">
-                                {{cacheStore.myTeam.totalVP}}
+                                {{snapStore.myTeamSnap.totalVP}}
                             </div>
                             <img class="w-5 h-5 object-cover" src="@/assets/icon/vp.png">
                         </div>
@@ -205,20 +233,20 @@
                         <div class="my-2 px-4 flex w-full">
                             <!-- 아이콘 -->
                             <div class="relative my-auto mr-4 ">
-                                <img v-if="cacheStore.myTeam.players.top.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
+                                <img v-if="snapStore.myTeamSnap.players.top.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
                                 <img class="w-6 h-6" src="@/assets/icon/top_icon.png">
                             </div>
                             <!-- 선수 초상화 -->
-                            <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.top.img">
+                            <img class="my-auto w-10 h-10 rounded-full" :src="snapStore.myTeamSnap.players.top.img">
                             <!-- 선수 이름 -->
                             <div class="flex my-auto ml-6 text-base ">
-                                <div class="font-bold">{{cacheStore.myTeam.players.top.name ? cacheStore.myTeam.players.top.team : ''}}</div>
-                                &nbsp; {{cacheStore.myTeam.players.top.name ? cacheStore.myTeam.players.top.name : '-'}}
+                                <div class="font-bold">{{snapStore.myTeamSnap.players.top.name ? snapStore.myTeamSnap.players.top.team : ''}}</div>
+                                &nbsp; {{snapStore.myTeamSnap.players.top.name ? snapStore.myTeamSnap.players.top.name : '-'}}
                             </div>
                             <!-- 선수 vp 포인트 -->
                             <div class="flex ml-auto my-auto mr-2">
                                 <div class="text-red-600 mr-1">
-                                    {{cacheStore.myTeam.players.top.vp}}
+                                    {{snapStore.myTeamSnap.players.top.vp}}
                                 </div>
                                 <img class="w-4 h-4 object-cover" src="@/assets/icon/vp.png">
                             </div>
@@ -228,20 +256,20 @@
                         <div class="my-2 px-4 flex w-full">
                             <!-- 아이콘 -->
                             <div class="relative my-auto mr-4 ">
-                                <img v-if="cacheStore.myTeam.players.jgl.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
+                                <img v-if="snapStore.myTeamSnap.players.jgl.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
                                 <img class="w-6 h-6" src="@/assets/icon/jgl_icon.png">
                             </div>
                             <!-- 선수 초상화 -->
-                            <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.jgl.img">
+                            <img class="my-auto w-10 h-10 rounded-full" :src="snapStore.myTeamSnap.players.jgl.img">
                             <!-- 선수 이름 -->
                             <div class="flex my-auto ml-6 text-base ">
-                                <div class="font-bold">{{cacheStore.myTeam.players.jgl.name ? cacheStore.myTeam.players.jgl.team : ''}}</div>
-                                &nbsp; {{cacheStore.myTeam.players.jgl.name ? cacheStore.myTeam.players.jgl.name : '-'}}
+                                <div class="font-bold">{{snapStore.myTeamSnap.players.jgl.name ? snapStore.myTeamSnap.players.jgl.team : ''}}</div>
+                                &nbsp; {{snapStore.myTeamSnap.players.jgl.name ? snapStore.myTeamSnap.players.jgl.name : '-'}}
                             </div>
                             <!-- 선수 vp 포인트 -->
                             <div class="flex ml-auto my-auto mr-2">
                                 <div class="text-red-600 mr-1">
-                                    {{cacheStore.myTeam.players.jgl.vp}}
+                                    {{snapStore.myTeamSnap.players.jgl.vp}}
                                 </div>
                                 <img class="w-4 h-4 object-cover" src="@/assets/icon/vp.png">
                             </div>
@@ -251,20 +279,20 @@
                         <div class="my-2 px-4 flex w-full">
                             <!-- 아이콘 -->
                             <div class="relative my-auto mr-4 ">
-                                <img v-if="cacheStore.myTeam.players.mid.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
+                                <img v-if="snapStore.myTeamSnap.players.mid.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
                                 <img class="w-6 h-6" src="@/assets/icon/mid_icon.png">
                             </div>
                             <!-- 선수 초상화 -->
-                            <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.mid.img">
+                            <img class="my-auto w-10 h-10 rounded-full" :src="snapStore.myTeamSnap.players.mid.img">
                             <!-- 선수 이름 -->
                             <div class="flex my-auto ml-6 text-base ">
-                                <div class="font-bold">{{cacheStore.myTeam.players.mid.name ? cacheStore.myTeam.players.mid.team : ''}}</div>
-                                &nbsp; {{cacheStore.myTeam.players.mid.name ? cacheStore.myTeam.players.mid.name : '-'}}
+                                <div class="font-bold">{{snapStore.myTeamSnap.players.mid.name ? snapStore.myTeamSnap.players.mid.team : ''}}</div>
+                                &nbsp; {{snapStore.myTeamSnap.players.mid.name ? snapStore.myTeamSnap.players.mid.name : '-'}}
                             </div>
                             <!-- 선수 vp 포인트 -->
                             <div class="flex ml-auto my-auto mr-2">
                                 <div class="text-red-600 mr-1">
-                                    {{cacheStore.myTeam.players.mid.vp}}
+                                    {{snapStore.myTeamSnap.players.mid.vp}}
                                 </div>
                                 <img class="w-4 h-4 object-cover" src="@/assets/icon/vp.png">
                             </div>
@@ -274,20 +302,20 @@
                         <div class="my-2 px-4 flex w-full">
                             <!-- 아이콘 -->
                             <div class="relative my-auto mr-4 ">
-                                <img v-if="cacheStore.myTeam.players.adc.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
+                                <img v-if="snapStore.myTeamSnap.players.adc.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
                                 <img class="w-6 h-6" src="@/assets/icon/adc_icon.png">
                             </div>
                             <!-- 선수 초상화 -->
-                            <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.adc.img">
+                            <img class="my-auto w-10 h-10 rounded-full" :src="snapStore.myTeamSnap.players.adc.img">
                             <!-- 선수 이름 -->
                             <div class="flex my-auto ml-6 text-base ">
-                                <div class="font-bold">{{cacheStore.myTeam.players.adc.name ? cacheStore.myTeam.players.adc.team : ''}}</div>
-                                &nbsp; {{cacheStore.myTeam.players.adc.name ? cacheStore.myTeam.players.adc.name : '-'}}
+                                <div class="font-bold">{{snapStore.myTeamSnap.players.adc.name ? snapStore.myTeamSnap.players.adc.team : ''}}</div>
+                                &nbsp; {{snapStore.myTeamSnap.players.adc.name ? snapStore.myTeamSnap.players.adc.name : '-'}}
                             </div>
                             <!-- 선수 vp 포인트 -->
                             <div class="flex ml-auto my-auto mr-2">
                                 <div class="text-red-600 mr-1">
-                                    {{cacheStore.myTeam.players.adc.vp}}
+                                    {{snapStore.myTeamSnap.players.adc.vp}}
                                 </div>
                                 <img class="w-4 h-4 object-cover" src="@/assets/icon/vp.png">
                             </div>
@@ -297,20 +325,20 @@
                         <div class="my-2 px-4 flex w-full">
                             <!-- 아이콘 -->
                             <div class="relative my-auto mr-4 ">
-                                <img v-if="cacheStore.myTeam.players.sup.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
+                                <img v-if="snapStore.myTeamSnap.players.sup.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
                                 <img class="w-6 h-6" src="@/assets/icon/sup_icon.png">
                             </div>
                             <!-- 선수 초상화 -->
-                            <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.sup.img">
+                            <img class="my-auto w-10 h-10 rounded-full" :src="snapStore.myTeamSnap.players.sup.img">
                             <!-- 선수 이름 -->
                             <div class="flex my-auto ml-6 text-base ">
-                                <div class="font-bold">{{cacheStore.myTeam.players.sup.name ? cacheStore.myTeam.players.sup.team : ''}}</div>
-                                &nbsp; {{cacheStore.myTeam.players.sup.name ? cacheStore.myTeam.players.sup.name : '-'}}
+                                <div class="font-bold">{{snapStore.myTeamSnap.players.sup.name ? snapStore.myTeamSnap.players.sup.team : ''}}</div>
+                                &nbsp; {{snapStore.myTeamSnap.players.sup.name ? snapStore.myTeamSnap.players.sup.name : '-'}}
                             </div>
                             <!-- 선수 vp 포인트 -->
                             <div class="flex ml-auto my-auto mr-2">
                                 <div class="text-red-600 mr-1">
-                                    {{cacheStore.myTeam.players.sup.vp}}
+                                    {{snapStore.myTeamSnap.players.sup.vp}}
                                 </div>
                                 <img class="w-4 h-4 object-cover" src="@/assets/icon/vp.png">
                             </div>
@@ -414,17 +442,17 @@
                     @click="click(player.name);"
                     class="w-52 h-12 my-3 inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-400 via-red-500 to-red-600 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200">
                     <span class="relative w-52  px-5 py-3 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-gray-100"
-                        :class="this.cacheStore.myTeam.players.top.name ===player.playerName ||
-                        this.cacheStore.myTeam.players.jgl.name ===player.playerName ||
-                        this.cacheStore.myTeam.players.mid.name ===player.playerName ||
-                        this.cacheStore.myTeam.players.adc.name ===player.playerName ||
-                        this.cacheStore.myTeam.players.sup.name ===player.playerName
+                        :class="this.snapStore.myTeamSnap.players.top.name ===player.playerName ||
+                        this.snapStore.myTeamSnap.players.jgl.name ===player.playerName ||
+                        this.snapStore.myTeamSnap.players.mid.name ===player.playerName ||
+                        this.snapStore.myTeamSnap.players.adc.name ===player.playerName ||
+                        this.snapStore.myTeamSnap.players.sup.name ===player.playerName
                         ? 'bg-opacity-0 group-hover:bg-opacity-0' : ''">
-                        {{ this.cacheStore.myTeam.players.top.name ===player.playerName ||
-                        this.cacheStore.myTeam.players.jgl.name ===player.playerName ||
-                        this.cacheStore.myTeam.players.mid.name ===player.playerName ||
-                        this.cacheStore.myTeam.players.adc.name ===player.playerName ||
-                        this.cacheStore.myTeam.players.sup.name ===player.playerName
+                        {{ this.snapStore.myTeamSnap.players.top.name ===player.playerName ||
+                        this.snapStore.myTeamSnap.players.jgl.name ===player.playerName ||
+                        this.snapStore.myTeamSnap.players.mid.name ===player.playerName ||
+                        this.snapStore.myTeamSnap.players.adc.name ===player.playerName ||
+                        this.snapStore.myTeamSnap.players.sup.name ===player.playerName
                         ? '선택됨' : '선택하기'}}
                     </span>
                 </button>
@@ -437,6 +465,7 @@
 
 import {useCacheStore} from '@/store/cacheStore'
 import {useModalStore} from '@/store/modalStore'
+import {useSnapStore} from '@/store/snapStore'
 
 import api from '@/api/api'
 
@@ -447,12 +476,13 @@ export default {
     setup(){
         const cacheStore = useCacheStore()
         const modalStore = useModalStore()
+        const snapStore = useSnapStore()
 
         const formatNumber = (number) => {
             return number % 1 === 0 ? number : number.toFixed(2);
         }
 
-        return { cacheStore, modalStore, formatNumber }
+        return { cacheStore, modalStore, snapStore, formatNumber }
     },
     data(){
         return {
@@ -462,6 +492,8 @@ export default {
             oneFromOneFlag: false,
             vpFlag: false,
             mvpFlag: false,
+            isCount: false,
+            isCountZero: false,
 
             step:0,
 
@@ -511,95 +543,133 @@ export default {
             event.target.style.opacity = '0.2';
         },
         selectTeam(name){
-            this.cacheStore.myTeam.team=name
-            this.cacheStore.myTeam.teamLogo='./assets/logo/color_'+name+'.png'
+            this.snapStore.myTeamSnap.team=name
+            this.snapStore.myTeamSnap.teamLogo='./assets/logo/color_'+name+'.png'
         },
         valid(){
-            // selectAllFlag Validation            
-            if(!this.cacheStore.myTeam.players.top.name ||
-                !this.cacheStore.myTeam.players.jgl.name ||
-                !this.cacheStore.myTeam.players.mid.name ||
-                !this.cacheStore.myTeam.players.adc.name ||
-                !this.cacheStore.myTeam.players.sup.name ){
-                this.selectAllFlag = true
-            } else{
-                this.selectAllFlag = false
-            }
-
             // selectTeamFlag Validation
-            if(!this.cacheStore.myTeam.team){
+            if(!this.snapStore.myTeamSnap.team){
                 this.selectTeamFlag = true
+                return true
             } else{
                 this.selectTeamFlag = false
             }
 
+            // selectAllFlag Validation            
+            if(!this.snapStore.myTeamSnap.players.top.name ||
+                !this.snapStore.myTeamSnap.players.jgl.name ||
+                !this.snapStore.myTeamSnap.players.mid.name ||
+                !this.snapStore.myTeamSnap.players.adc.name ||
+                !this.snapStore.myTeamSnap.players.sup.name ){
+                this.selectAllFlag = true
+                return true
+            } else{
+                this.selectAllFlag = false
+            }
+
+
 
             // moreThanTwoFlag Validation
             let count=0;
-            for(let index in this.cacheStore.myTeam.players){
-                if(this.cacheStore.myTeam.players[index].team===this.cacheStore.myTeam.team){
+            for(let index in this.snapStore.myTeamSnap.players){
+                if(this.snapStore.myTeamSnap.players[index].team===this.snapStore.myTeamSnap.team){
                     count++
                 }
             }
             if(count>2){
                 this.moreThanTwoFlag = true
+                this.moreThanTwoFlagText='응원팀 선수가 너무 많습니다. 다시 구성해주세요.'
+                return true
+            }else if(count <2){
+                this.moreThanTwoFlagText='응원팀 선수가 너무 적습니다. 다시 구성해주세요.'
+                this.moreThanTwoFlag = true
+                return true
+
+
             } else{
                 this.moreThanTwoFlag = false
             }
             
             // oneFromOneFlag Validation
             let hold=[]
-            for(let index in this.cacheStore.myTeam.players){
-                hold.push(this.cacheStore.myTeam.players[index].team);
+            for(let index in this.snapStore.myTeamSnap.players){
+                hold.push(this.snapStore.myTeamSnap.players[index].team);
             }
             let uniqueTeams = new Set(hold);
             if(uniqueTeams.size<4){
                 this.oneFromOneFlag = true
+                return true
             } else{
                 this.oneFromOneFlag = false
             }
 
             // vpFlag Validation
-            if(this.cacheStore.myTeam.totalVP > this.limitVp){
+            if(this.snapStore.myTeamSnap.totalVP > this.limitVp){
                 this.vpFlag = true
+                return true
             } else{
                 this.vpFlag = false
             }
-            // console.log(!this.cacheStore.myTeam.players.top.isMvp &&
-            //     !this.cacheStore.myTeam.players.jgl.isMvp &&
-            //     !this.cacheStore.myTeam.players.mid.isMvp &&
-            //     !this.cacheStore.myTeam.players.adc.isMvp &&
-            //     !this.cacheStore.myTeam.players.sup.isMvp)
-            // console.log(this.cacheStore.myTeam.players)
+            // console.log(!this.snapStore.myTeamSnap.players.top.isMvp &&
+            //     !this.snapStore.myTeamSnap.players.jgl.isMvp &&
+            //     !this.snapStore.myTeamSnap.players.mid.isMvp &&
+            //     !this.snapStore.myTeamSnap.players.adc.isMvp &&
+            //     !this.snapStore.myTeamSnap.players.sup.isMvp)
+            // console.log(this.snapStore.myTeamSnap.players)
             // mvpFlag Validation
-            if(!this.cacheStore.myTeam.players.top.isMvp &&
-                !this.cacheStore.myTeam.players.jgl.isMvp &&
-                !this.cacheStore.myTeam.players.mid.isMvp &&
-                !this.cacheStore.myTeam.players.adc.isMvp &&
-                !this.cacheStore.myTeam.players.sup.isMvp ){
+            if(!this.snapStore.myTeamSnap.players.top.isMvp &&
+                !this.snapStore.myTeamSnap.players.jgl.isMvp &&
+                !this.snapStore.myTeamSnap.players.mid.isMvp &&
+                !this.snapStore.myTeamSnap.players.adc.isMvp &&
+                !this.snapStore.myTeamSnap.players.sup.isMvp ){
                 this.mvpFlag = true
+                return true
             } else{
                 this.mvpFlag = false
             }
+
+            // 선수 변경 2명이하인지 확인
+            let changeCount = 0;
+            const positions = ['top', 'jgl', 'mid', 'adc', 'sup'];
+
+            for (let pos of positions) {
+                if (this.snapPlayers[pos].id !== this.cachePlayers[pos].id) {
+                    changeCount++;
+                }
+            }
+            if(changeCount >2){
+                this.isCount = true
+                return true
+            } else if(changeCount===0){
+                this.isCountZero = true
+                return true
+            } else{
+                this.isCount = false
+                this.isCountZero = false
+            }
+
 
 
         },
         submit(){
             // 예외처리
-            this.valid()
-            if(this.selectAllFlag || this.selectTeamFlag || this.moreThanTwoFlag || this.oneFromOneFlag || this.vpFlag  || this.mvpFlag)  return
+            if(this.valid())return
+            
             // 서버 전송
             console.log(this.cacheStore.userId)
-            console.log(this.cacheStore.myTeam)
+            console.log(this.snapStore.myTeamSnap)
             let body = {
                 oauthId:this.cacheStore.userId,
-                data:JSON.stringify(this.cacheStore.myTeam)
+                data:JSON.stringify(this.snapStore.myTeamSnap),
+                canChange:false
             }
             console.log('body',body)
             api.postTeam(body)
             .then(response=>{
                 console.log(response)
                 this.cacheStore.isSave=true
+                this.cacheStore.canChange=false
+                this.cacheStore.myTeam = this.snapStore.myTeamSnap
             })
             .catch(function (e){
                 console.log(e);
@@ -624,27 +694,27 @@ export default {
         },
         click(name){
             let players = this.cacheStore.players
-            console.log(this.cacheStore.myTeam.players.top.name)
+            console.log(this.snapStore.myTeamSnap.players.top.name)
             console.log(name)
-            console.log(this.cacheStore.myTeam.players.top.name===name)
-            if(this.cacheStore.myTeam.players.top.name===name){
-                this.cacheStore.myTeam.players.top={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
+            console.log(this.snapStore.myTeamSnap.players.top.name===name)
+            if(this.snapStore.myTeamSnap.players.top.name===name){
+                this.snapStore.myTeamSnap.players.top={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
                 return
             }
-            if(this.cacheStore.myTeam.players.jgl.name===name){
-                this.cacheStore.myTeam.players.jgl={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
+            if(this.snapStore.myTeamSnap.players.jgl.name===name){
+                this.snapStore.myTeamSnap.players.jgl={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
                 return
             }
-            if(this.cacheStore.myTeam.players.mid.name===name){
-                this.cacheStore.myTeam.players.mid={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
+            if(this.snapStore.myTeamSnap.players.mid.name===name){
+                this.snapStore.myTeamSnap.players.mid={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
                 return
             }
-            if(this.cacheStore.myTeam.players.adc.name===name){
-                this.cacheStore.myTeam.players.adc={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
+            if(this.snapStore.myTeamSnap.players.adc.name===name){
+                this.snapStore.myTeamSnap.players.adc={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
                 return
             }
-            if(this.cacheStore.myTeam.players.sup.name===name){
-                this.cacheStore.myTeam.players.sup={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
+            if(this.snapStore.myTeamSnap.players.sup.name===name){
+                this.snapStore.myTeamSnap.players.sup={isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"}
                 return
             }
 
@@ -652,46 +722,49 @@ export default {
             for(let player in players){
                 if(players[player].name===name){
                     if(players[player].line === 'TOP'){
-                        this.cacheStore.myTeam.players.top.isMvp = false
-                        this.cacheStore.myTeam.players.top.name = players[player].name
-                        this.cacheStore.myTeam.players.top.team = players[player].team
-                        this.cacheStore.myTeam.players.top.img = players[player].img
-                        this.cacheStore.myTeam.players.top.vp = players[player].vp
+                        this.snapStore.myTeamSnap.players.top.isMvp = false
+                        this.snapStore.myTeamSnap.players.top.name = players[player].name
+                        this.snapStore.myTeamSnap.players.top.team = players[player].team
+                        this.snapStore.myTeamSnap.players.top.img = players[player].img
+                        this.snapStore.myTeamSnap.players.top.vp = players[player].vp
                     }
                     else if(players[player].line === 'JGL'){
-                        this.cacheStore.myTeam.players.jgl.isMvp = false
-                        this.cacheStore.myTeam.players.jgl.name = players[player].name
-                        this.cacheStore.myTeam.players.jgl.team = players[player].team
-                        this.cacheStore.myTeam.players.jgl.img = players[player].img
-                        this.cacheStore.myTeam.players.jgl.vp = players[player].vp
+                        this.snapStore.myTeamSnap.players.jgl.isMvp = false
+                        this.snapStore.myTeamSnap.players.jgl.name = players[player].name
+                        this.snapStore.myTeamSnap.players.jgl.team = players[player].team
+                        this.snapStore.myTeamSnap.players.jgl.img = players[player].img
+                        this.snapStore.myTeamSnap.players.jgl.vp = players[player].vp
                     }
                     else if(players[player].line === 'MID'){
-                        this.cacheStore.myTeam.players.mid.isMvp = false
-                        this.cacheStore.myTeam.players.mid.name = players[player].name
-                        this.cacheStore.myTeam.players.mid.team = players[player].team
-                        this.cacheStore.myTeam.players.mid.img = players[player].img
-                        this.cacheStore.myTeam.players.mid.vp = players[player].vp
+                        this.snapStore.myTeamSnap.players.mid.isMvp = false
+                        this.snapStore.myTeamSnap.players.mid.name = players[player].name
+                        this.snapStore.myTeamSnap.players.mid.team = players[player].team
+                        this.snapStore.myTeamSnap.players.mid.img = players[player].img
+                        this.snapStore.myTeamSnap.players.mid.vp = players[player].vp
                     }
                     else if(players[player].line === 'ADC'){
-                        this.cacheStore.myTeam.players.adc.isMvp = false
-                        this.cacheStore.myTeam.players.adc.name = players[player].name
-                        this.cacheStore.myTeam.players.adc.team = players[player].team
-                        this.cacheStore.myTeam.players.adc.img = players[player].img
-                        this.cacheStore.myTeam.players.adc.vp = players[player].vp
+                        this.snapStore.myTeamSnap.players.adc.isMvp = false
+                        this.snapStore.myTeamSnap.players.adc.name = players[player].name
+                        this.snapStore.myTeamSnap.players.adc.team = players[player].team
+                        this.snapStore.myTeamSnap.players.adc.img = players[player].img
+                        this.snapStore.myTeamSnap.players.adc.vp = players[player].vp
                     }
                     else if(players[player].line === 'SUP'){
-                        this.cacheStore.myTeam.players.sup.isMvp = false
-                        this.cacheStore.myTeam.players.sup.name = players[player].name
-                        this.cacheStore.myTeam.players.sup.team = players[player].team
-                        this.cacheStore.myTeam.players.sup.img = players[player].img
-                        this.cacheStore.myTeam.players.sup.vp = players[player].vp
+                        this.snapStore.myTeamSnap.players.sup.isMvp = false
+                        this.snapStore.myTeamSnap.players.sup.name = players[player].name
+                        this.snapStore.myTeamSnap.players.sup.team = players[player].team
+                        this.snapStore.myTeamSnap.players.sup.img = players[player].img
+                        this.snapStore.myTeamSnap.players.sup.vp = players[player].vp
                     }
                 }
             }
             // 토탈 vp 계산
-            this.cacheStore.myTeam.totalVP = this.cacheStore.myTeam.players.top.vp + this.cacheStore.myTeam.players.jgl.vp + this.cacheStore.myTeam.players.mid.vp + this.cacheStore.myTeam.players.adc.vp + this.cacheStore.myTeam.players.sup.vp
+            this.snapStore.myTeamSnap.totalVP = this.snapStore.myTeamSnap.players.top.vp + this.snapStore.myTeamSnap.players.jgl.vp + this.snapStore.myTeamSnap.players.mid.vp + this.snapStore.myTeamSnap.players.adc.vp + this.snapStore.myTeamSnap.players.sup.vp
         },
     },
+    beforeMount(){
+        this.snapStore.myTeamSnap = this.cacheStore.myTeam
+    }
 }
 </script>
 <style scoped>

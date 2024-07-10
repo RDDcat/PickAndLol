@@ -6,6 +6,7 @@ export const useCacheStore = defineStore('cacheStore', {
         userId:0,
         userName:"",
         isSave:false,
+        canChange:false,
         players:[
             {vp:150, id:0, line:"TOP", name:"Zeus", stat:0, team:"T1", img: "./assets/player/T1_Zeus.svg", 
                 killCount:0, deathCount:0, assistCount:0, killRate:0, info:"그는 신인가"},

@@ -63,15 +63,18 @@ export default {
     methods: {
         
         async save(){
+            if(this.cacheStore.canChange===false)return
             // 서버 전송
             let body = {
                 oauthId:this.cacheStore.userId,
-                data:JSON.stringify(this.cacheStore.myTeam)
+                data:JSON.stringify(this.cacheStore.myTeam),
+                canChange:false
             }
             await api.postTeam(body)
             .then(response=>{
                 console.log(response)
                 this.cacheStore.isSave=true
+                this.cacheStore.canChange=false
             })
             .catch(function (e){
                 console.log(e);

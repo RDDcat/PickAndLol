@@ -153,8 +153,6 @@
 import {useCacheStore} from '@/store/cacheStore'
 import {useModalStore} from '@/store/modalStore'
 
-import api from '@/api/api'
-
 export default {
     components: {
         
@@ -306,25 +304,6 @@ export default {
             }
 
 
-        },
-        submit(){
-            // 예외처리
-            this.valid()
-            if(this.selectAllFlag || this.selectTeamFlag || this.moreThanTwoFlag || this.oneFromOneFlag || this.vpFlag  || this.mvpFlag)  return
-            // 서버 전송
-            let body = {
-                oauthId:this.cacheStore.userId,
-                data:JSON.stringify(this.cacheStore.myTeam)
-            }
-            api.postTeam(body)
-            .then(response=>{
-                console.log(response.data)
-                this.cacheStore.isSave=true
-            })
-            .catch(function (e){
-                console.log(e);
-            });
-        
         },
         lineFilter(index){
             if(this.lines[index].name===this.cacheStore.mainLineNav){
