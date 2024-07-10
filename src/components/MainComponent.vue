@@ -58,22 +58,32 @@ export default {
             }
 
             // 로그인 되어있고 팀이 있다면
-            if(this.cacheStore.isSave){
+            if (this.cacheStore.isSave) {
+                const isWeekday = [1, 2, 3, 4, 5].includes(new Date().getDay());
+                const isWeekend = [0, 6].includes(new Date().getDay());
 
-                // 시간이 17:00 ~ 24:00 사이인지 확인
-                if(17 <= this.hours && this.hours < 24){
-                    // 변경 불가능시간임 2번화면
-                    this.modalStore.mainInfo = '팀 변경가능시간: 평일 00:00~17:00, 주말 00:00~15:00'
-                    console.log("2")
-                    this.index=1
-                    return
-                } else {
-                    // 선수단 수정이 가능할때
-                    // 변경 가능 시간임 3번화면
-                    console.log("3")
-                    this.index=2
-                    return
+                // 시간 확인
+                const isWeekdayRestrictedTime = 17 <= this.hours && this.hours < 24;
+                const isWeekendRestrictedTime = 15 <= this.hours && this.hours < 24;
+
+                if ((isWeekday && isWeekdayRestrictedTime) || (isWeekend && isWeekendRestrictedTime)) {
+                    // 변경 불가능 시간임 2번 화면
+                    this.modalStore.mainInfo = '팀 변경가능시간: 평일 00:00~17:00, 주말 00:00~15:00';
+                    console.log("2");
+                    this.index = 1;
+                    return;
                 }
+
+                // 선수단 수정이 가능할 때
+                if (this.cacheStore.canChange) {
+                    // 변경 가능 시간임 3번 화면
+                    console.log("3");
+                    this.index = 2;
+                } else {
+                    // 이미 선수단을 변경한 경우
+                    this.index = 1;
+                }
+                return;
             }
         }
     },
