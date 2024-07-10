@@ -7,7 +7,9 @@
                 {{cacheStore.mainInfo}}
             </div>
         </div> -->
-        
+        {{cacheStore.myTeam.players===snapStore.myTeamSnap.players}}
+        {{cacheStore.myTeam.players.top}}
+        {{snapStore.myTeamSnap.players.top}}
         
         <!-- 에러 공지 -->
         <div class="mx-auto w-my-60">
@@ -668,6 +670,22 @@ export default {
 
 
         },
+        count(){
+
+            let change = 0;
+            const positions = ['top', 'jgl', 'mid', 'adc', 'sup'];
+
+            for (let pos of positions) {
+                console.log(pos, this.snapStore.myTeamSnap.players[pos].id)
+                console.log(pos, this.cacheStore.myTeam.players[pos].id)
+                if (this.snapStore.myTeamSnap.players[pos].id !== this.cacheStore.myTeam.players[pos].id) {
+                    change++;
+                }
+            }
+            console.log(change)
+
+            this.cacheStore.temporaryChangeCount= 2-change
+        },
         async submit(){
             // 예외처리
             if(this.valid())return
@@ -733,23 +751,23 @@ export default {
             let players = this.cacheStore.players
 
             if(this.snapStore.myTeamSnap.players.top.name===name){
-                this.snapStore.myTeamSnap.players.top=this.cacheStore.myTeam.players.top
+                this.snapStore.myTeamSnap.players.top=JSON.parse(JSON.stringify(this.cacheStore.myTeam.players.top));
                 return
             }
             if(this.snapStore.myTeamSnap.players.jgl.name===name){
-                this.snapStore.myTeamSnap.players.jgl=this.cacheStore.myTeam.players.jgl
+                this.snapStore.myTeamSnap.players.jgl=JSON.parse(JSON.stringify(this.cacheStore.myTeam.players.jgl));
                 return
             }
             if(this.snapStore.myTeamSnap.players.mid.name===name){
-                this.snapStore.myTeamSnap.players.mid=this.cacheStore.myTeam.players.mid
+                this.snapStore.myTeamSnap.players.mid=JSON.parse(JSON.stringify(this.cacheStore.myTeam.players.mid));
                 return
             }
             if(this.snapStore.myTeamSnap.players.adc.name===name){
-                this.snapStore.myTeamSnap.players.adc=this.cacheStore.myTeam.players.adc
+                this.snapStore.myTeamSnap.players.adc=JSON.parse(JSON.stringify(this.cacheStore.myTeam.players.adc));
                 return
             }
             if(this.snapStore.myTeamSnap.players.sup.name===name){
-                this.snapStore.myTeamSnap.players.sup=this.cacheStore.myTeam.players.sup
+                this.snapStore.myTeamSnap.players.sup=JSON.parse(JSON.stringify(this.cacheStore.myTeam.players.sup));
                 return
             }
 
@@ -798,6 +816,7 @@ export default {
                     }
                 }
             }
+            this.count()
             // 토탈 vp 계산
             this.snapStore.myTeamSnap.totalVP = this.snapStore.myTeamSnap.players.top.vp + this.snapStore.myTeamSnap.players.jgl.vp + this.snapStore.myTeamSnap.players.mid.vp + this.snapStore.myTeamSnap.players.adc.vp + this.snapStore.myTeamSnap.players.sup.vp
         },
