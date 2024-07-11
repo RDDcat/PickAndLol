@@ -62,7 +62,7 @@ export default {
                 const isWeekend = [0, 6].includes(new Date().getDay());
 
                 // 시간 확인
-                const isWeekdayRestrictedTime = 17 <= this.hours && this.hours < 24;
+                const isWeekdayRestrictedTime = 20 <= this.hours && this.hours < 24;
                 const isWeekendRestrictedTime = 15 <= this.hours && this.hours < 24;
 
                 if ((isWeekday && isWeekdayRestrictedTime) || (isWeekend && isWeekendRestrictedTime)) {
