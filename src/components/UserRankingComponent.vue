@@ -40,10 +40,10 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody v-for="user, index in users" :key="index" >
+                <tbody v-for="user, index in sortedUsers" :key="user.oauthId" >
                     <tr class=" bg-white border-b " @click="showUserDetail(index)">
                         <th scope="row" class="flex px-2 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                            <div class="my-auto mx-2"> {{index+1}} </div>
+                            <div class="my-auto mx-2"> {{user.rank}} </div>
                             &nbsp; 
                             <img class="my-auto w-14 h-14 object-cover rounded-full" :src="user.teamLogo">
                             &nbsp; 
@@ -53,7 +53,7 @@
                             {{user.name}}
                         </td>
                         <td class="px-1 py-4 text-center">
-                            {{user.weekStat}}
+                            {{user.weekStat?user.weekStat:0}}
                         </td>
                         <td class="px-1 py-4 text-center">
                             {{user.totalStat}}
@@ -101,7 +101,7 @@
 import api from '@/api/api'
 
 import {useCacheStore} from '@/store/cacheStore'
-
+import {useRankStore} from '@/store/rankStore'
 
 export default {
     components: {
@@ -109,17 +109,20 @@ export default {
     },
     setup(){
         const cacheStore = useCacheStore()
+        const rankStore = useRankStore()
 
-        return { cacheStore }
+        return { cacheStore, rankStore }
     },
     data(){
         return {
             tableNav:'',
+            number:1,
 
-            users:[
-                
-            ],
-
+        }
+    },
+    computed: {
+        sortedUsers() {
+            return Object.values(this.rankStore.users).sort((a, b) => a.rank - b.rank);
         }
     },
     methods: {
@@ -131,12 +134,43 @@ export default {
             this.tableNav=index
         }
     },
-    mounted(){
-        api.getRank()
+    async created() {
+        // stat 데이터 가져오기
+        await api.getStatistic()
         .then(response=>{
-            for(let index in response.data){
-                this.users.push( JSON.parse(response.data[index].data))
+            response.data.forEach(item => {
+            this.rankStore.teams[item.oauthId] = {
+                    weekStat: item.weekStat,
+                    totalStat: item.totalStat
+                };
+            });
+        })
+        .catch(function (e){
+            console.log(e);
+        });
+        // 유저 랭킹페이지 데이터 가져오기
+        await api.getRank()
+        .then(response=>{
+            for(let item of response.data){
+                this.rankStore.users[item.oauthId] = JSON.parse(item.data)
+                // 스텟 데이터 찾아 넣기
+                if(this.rankStore.teams[item.oauthId]){
+                    this.rankStore.users[item.oauthId].weekStat = this.rankStore.teams[item.oauthId].weekStat
+                    this.rankStore.users[item.oauthId].totalStat = this.rankStore.teams[item.oauthId].totalStat
+                }
+                
             }
+            // Convert users object to array
+            const usersArray = Object.values(this.rankStore.users);
+
+            // Sort users by totalStat in descending order
+            usersArray.sort((a, b) => b.totalStat - a.totalStat);
+
+            // Assign rank based on sorted order
+            usersArray.forEach((user, index) => {
+                user.rank = index + 1;
+            });
+
         })
         .catch(function (e){
             console.log(e);

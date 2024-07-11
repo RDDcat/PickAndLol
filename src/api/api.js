@@ -47,6 +47,15 @@ export default {
         });
     },
     // 랭킹 전체 조회
+    getStatistic: function(){
+        return axios.get(BASE_URL + `team/statistic`,{
+            headers: {
+                withCredentials: true,
+
+            },
+        });
+    },
+    // 랭킹 전체 조회
     getSync: function(id){
         return axios.get(BASE_URL + `sync/${id}`,{
             headers: {
