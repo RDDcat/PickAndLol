@@ -47,7 +47,6 @@ export default {
     },
     methods: {
         route(){
-            console.log('route', !this.cacheStore.userId)
             // 로그인 안됨
             if(this.cacheStore.userId===0){
                 this.modalStore.isLoginWarnModal=true
@@ -55,7 +54,7 @@ export default {
                 this.modalStore.mainInfo = '팀 변경가능시간: 평일 00:00~17:00, 주말 00:00~15:00'
                 this.index=0
                 return
-            }
+            } 
 
             // 로그인 되어있고 팀이 있다면
             if (this.cacheStore.isSave) {

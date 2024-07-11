@@ -63,7 +63,7 @@ export default {
     methods: {
         
         async save(){
-            if(this.cacheStore.canChange===false)return
+            if(this.cacheStore.canChange===false && this.cacheStore.isSave===true)return
             // 서버 전송
             let body = {
                 oauthId:this.cacheStore.userId,
