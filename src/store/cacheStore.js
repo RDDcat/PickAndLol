@@ -22,10 +22,11 @@ export const useCacheStore = defineStore('cacheStore', {
     
         myTeam:{
             name:"",
-            allowed:false,
             totalVP:0,
             team:"",
             teamLogo:"./assets/logo.png",
+            totalStat:0,
+            weekStat:0,
             players:{
                 top:{isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"},
                 jgl:{isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"},
@@ -33,8 +34,6 @@ export const useCacheStore = defineStore('cacheStore', {
                 adc:{isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"},
                 sup:{isMvp: false, name:"", team:"", vp:0, img: "./assets/logo.png"},
             },
-            totalStat:0,
-            weekStat:0,
         },
     
     }),
