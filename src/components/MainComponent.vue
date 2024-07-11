@@ -64,13 +64,13 @@ export default {
                 // 시간 확인
                 const isWeekdayRestrictedTime = 20 <= this.hours && this.hours < 24;
                 const isWeekendRestrictedTime = 15 <= this.hours && this.hours < 24;
-                console.log("this.hours", this.hours);
-                console.log("isWeekday", isWeekday);
-                console.log("isWeekend", isWeekend);
-                console.log("isWeekdayRestrictedTime", isWeekdayRestrictedTime);
-                console.log("isWeekendRestrictedTime", isWeekendRestrictedTime);
-                console.log("isWeekendRestrictedTime", isWeekday && isWeekdayRestrictedTime);
-                console.log("isWeekendRestrictedTime", isWeekend && isWeekendRestrictedTime);
+                // console.log("this.hours", this.hours);
+                // console.log("isWeekday", isWeekday);
+                // console.log("isWeekend", isWeekend);
+                // console.log("isWeekdayRestrictedTime", isWeekdayRestrictedTime);
+                // console.log("isWeekendRestrictedTime", isWeekendRestrictedTime);
+                // console.log("isWeekendRestrictedTime", isWeekday && isWeekdayRestrictedTime);
+                // console.log("isWeekendRestrictedTime", isWeekend && isWeekendRestrictedTime);
 
                 if ((isWeekday && isWeekdayRestrictedTime) || (isWeekend && isWeekendRestrictedTime)) {
                     // 변경 불가능 시간임 2번 화면
