@@ -711,7 +711,12 @@ export default {
             .catch(function (e){
                 console.log(e);
             });
-
+            let mvpId = 0
+            for(let index in this.snapStore.myTeamSnap.players){
+                if(this.snapStore.myTeamSnap.players[index].isMvp){
+                    mvpId=this.snapStore.myTeamSnap.players[index].id
+                }
+            }
             let logBody = {
                 oauthId:this.cacheStore.userId,
                 topId: this.snapStore.myTeamSnap.players.top.id,
@@ -719,7 +724,7 @@ export default {
                 midId: this.snapStore.myTeamSnap.players.mid.id,
                 adcId: this.snapStore.myTeamSnap.players.adc.id,
                 supId: this.snapStore.myTeamSnap.players.sup.id,
-
+                mvpId: mvpId
             }
 
             await api.postTeamLog(logBody)
