@@ -7,9 +7,25 @@
 
     <!-- 매치 ID 입력 -->
     <form class="max-w-xl mx-auto">
-        <label class="block mb-2 text-sm font-medium text-gray-900 ">매치 ID </label>
-        <input v-model="matchId" type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="matchId" required />
+        <label class="block mb-1 text-sm font-medium text-gray-900 ">매치 ID </label>
+        <input v-model="matchId" type="number" class="mb-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="matchId" required />
     </form>
+    <div class="max-w-xl flex mx-auto mb-4">
+        <!-- 시간 입력 -->
+        <form class="w-56 mt-auto">
+            <label class="block mb-1 text-sm font-medium text-gray-900 ">경기 시간 (플레이타임) (00:00) </label>
+            <input v-model="playTime" type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5   " :placeholder="playTime" required />
+        </form>
+        <div class="w-44 mt-auto ml-4">
+            <label class="block mb-1 text-sm font-medium text-gray-900 ">오프셋 </label>
+            <select v-model="orderSet" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5">
+                <option value="FRIST">FRIST</option>
+                <option value="SECOND">SECOND</option>
+                <option value="THIRD">THIRD</option>
+            </select>
+        </div>
+    </div>
+    
 
     <!-- 경기 결과 입력 -->
     <div class="flex">
@@ -1426,6 +1442,7 @@
     <div class="h-56"></div>
 </template>
 <script>
+import api from '@/api/api'
 
 
 export default {
@@ -1435,6 +1452,8 @@ export default {
     data(){
         return {
             matchId:0,
+            playTime:'',
+            orderSet:'',
             home:{
                 clubId:'',
                 matchResult:'',
@@ -1462,6 +1481,7 @@ export default {
                     cs:0
                 },
                 jgl_player:{
+                    clubLogId:0,
                     playerId:0,
                     isFirstKill:false,
                     isFirstDeath:false,
@@ -1476,6 +1496,7 @@ export default {
                     cs:0
                 },
                 mid_player:{
+                    clubLogId:0,
                     playerId:0,
                     isFirstKill:false,
                     isFirstDeath:false,
@@ -1490,6 +1511,7 @@ export default {
                     cs:0
                 },
                 adc_player:{
+                    clubLogId:0,
                     playerId:0,
                     isFirstKill:false,
                     isFirstDeath:false,
@@ -1504,6 +1526,7 @@ export default {
                     cs:0
                 },
                 sup_player:{
+                    clubLogId:0,
                     playerId:0,
                     isFirstKill:false,
                     isFirstDeath:false,
@@ -1527,6 +1550,7 @@ export default {
                 elders:0,
                 barons:0,
                 top_player:{
+                    clubLogId:0,
                     playerId:0,
                     isFirstKill:false,
                     isFirstDeath:false,
@@ -1541,6 +1565,7 @@ export default {
                     cs:0
                 },
                 jgl_player:{
+                    clubLogId:0,
                     playerId:0,
                     isFirstKill:false,
                     isFirstDeath:false,
@@ -1555,6 +1580,7 @@ export default {
                     cs:0
                 },
                 mid_player:{
+                    clubLogId:0,
                     playerId:0,
                     isFirstKill:false,
                     isFirstDeath:false,
@@ -1569,6 +1595,7 @@ export default {
                     cs:0
                 },
                 adc_player:{
+                    clubLogId:0,
                     playerId:0,
                     isFirstKill:false,
                     isFirstDeath:false,
@@ -1583,6 +1610,7 @@ export default {
                     cs:0
                 },
                 sup_player:{
+                    clubLogId:0,
                     playerId:0,
                     isFirstKill:false,
                     isFirstDeath:false,
@@ -1600,6 +1628,62 @@ export default {
         }
     },
     methods: {
+        async submit(){
+            let homeClubLogId = 0
+            let awayClubLogId = 0
+
+            // let homeBody = {
+            //     matchId:
+            //     matchType:
+            //     matchResult:
+            //     playTime
+
+            // }
+            let awayBody = {
+
+            }
+
+            // 선수단 데이터 저장 
+            // 리턴값으로 클럽로그 아이디 얻어와야함
+            await api.postMatchClub()
+            .then(response=>{
+                homeClubLogId = response.data
+            })
+            .catch(function (e){
+                console.log(e);
+            });
+            await api.postMatchClub(awayBody)
+            .then(response=>{
+                awayClubLogId = response.data
+            })
+            .catch(function (e){
+                console.log(e);
+            });
+
+            let homePlayerBody={
+                clubLogId:homeClubLogId,
+            }
+            let awayPlayerBody={
+                clubLogId:awayClubLogId,
+            }
+            // 선수 데이터 저장
+            await api.postMatchPlayer(homePlayerBody)
+            .then(response=>{
+                console.log(response);
+            })
+            .catch(function (e){
+                console.log(e);
+            });
+            // 선수 데이터 저장
+            await api.postMatchPlayer(awayPlayerBody)
+            .then(response=>{
+                console.log(response);
+            })
+            .catch(function (e){
+                console.log(e);
+            });
+    
+        }
     },
     computed: {
         homeTotalKill() {

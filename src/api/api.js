@@ -101,5 +101,20 @@ export default {
     //         data: body, 
     //     });
     // },
+    postMatchClub: function(body){
+        return axios.post(BASE_URL + 'match/club', body,{
+            headers: {
+                withCredentials: true,
 
+            },
+        });
+    },
+    postMatchPlayer: function(body){
+        return axios.post(BASE_URL + 'match/player', body,{
+            headers: {
+                withCredentials: true,
+
+            },
+        });
+    },
 }
