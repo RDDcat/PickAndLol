@@ -1633,6 +1633,7 @@ export default {
             let homeClubLogId = 0
             let awayClubLogId = 0
 
+
             let homeBody = {
                 matchId:this.matchId,
                 matchType:"HOME",
@@ -1676,26 +1677,6 @@ export default {
                 supId:this.away.sup_player.playerId,
             }
                 console.log(homeBody);
-
-            // 선수단 데이터 저장 
-            // 리턴값으로 클럽로그 아이디 얻어와야함
-            await api.postMatchClub(homeBody)
-            .then(response=>{
-                console.log(response);
-                homeClubLogId = response.data.matchClubId
-            })
-            .catch(function (e){
-                console.log(e);
-            });
-            await api.postMatchClub(awayBody)
-            .then(response=>{
-                console.log(response);
-                awayClubLogId = response.data.matchClubId
-            })
-            .catch(function (e){
-                console.log(e);
-            });
-
             let homeTopPlayerBody={
                 clubLogId:homeClubLogId,
                 playerId:this.home.top_player.playerId,
@@ -1846,6 +1827,59 @@ export default {
                 damage:this.home.sup_player.damage,
                 cs:this.home.sup_player.cs
             }
+
+            // 선수단 데이터 저장 
+            // 리턴값으로 클럽로그 아이디 얻어와야함
+            await api.postMatchClub(homeBody)
+            .then(response=>{
+                console.log(response);
+                homeClubLogId = response.data.matchClubId
+                
+                homeTopPlayerBody={
+                    clubLogId:homeClubLogId,
+                }
+                homeJglPlayerBody={
+                    clubLogId:homeClubLogId,
+                }
+                homeMidPlayerBody={
+                    clubLogId:homeClubLogId,
+                }
+                homeAdcPlayerBody={
+                    clubLogId:homeClubLogId,
+                }
+                homeSupPlayerBody={
+                    clubLogId:homeClubLogId,
+                }
+            })
+            .catch(function (e){
+                console.log(e);
+            });
+            await api.postMatchClub(awayBody)
+            .then(response=>{
+                console.log(response);
+                awayClubLogId = response.data.matchClubId
+                
+                awayTopPlayerBody={
+                    clubLogId:awayClubLogId,
+                }
+                awayJglPlayerBody={
+                    clubLogId:awayClubLogId,
+                }
+                awayMidPlayerBody={
+                    clubLogId:awayClubLogId,
+                }
+                awayAdcPlayerBody={
+                    clubLogId:awayClubLogId,
+                }
+                awaySupPlayerBody={
+                    clubLogId:awayClubLogId,
+                }
+            })
+            .catch(function (e){
+                console.log(e);
+            });
+
+            
             // 선수 데이터 저장
             await api.postMatchPlayer(homeTopPlayerBody)
             .then(response=>{
