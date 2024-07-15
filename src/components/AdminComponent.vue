@@ -14,7 +14,7 @@
         <!-- 시간 입력 -->
         <form class="w-56 mt-auto">
             <label class="block mb-1 text-sm font-medium text-gray-900 ">경기 시간 (플레이타임) (00:00) </label>
-            <input v-model="playTime" type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5   " :placeholder="playTime" required />
+            <input v-model="playTime" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5   " :placeholder="playTime" required />
         </form>
         <div class="w-44 mt-auto ml-4">
             <label class="block mb-1 text-sm font-medium text-gray-900 ">오더셋 </label>
