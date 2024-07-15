@@ -1835,21 +1835,11 @@ export default {
                 console.log(response);
                 homeClubLogId = response.data.clubLogId
                 
-                homeTopPlayerBody={
-                    clubLogId:homeClubLogId,
-                }
-                homeJglPlayerBody={
-                    clubLogId:homeClubLogId,
-                }
-                homeMidPlayerBody={
-                    clubLogId:homeClubLogId,
-                }
-                homeAdcPlayerBody={
-                    clubLogId:homeClubLogId,
-                }
-                homeSupPlayerBody={
-                    clubLogId:homeClubLogId,
-                }
+                homeTopPlayerBody.clubLogId =awayClubLogId
+                homeJglPlayerBody.clubLogId =awayClubLogId
+                homeMidPlayerBody.clubLogId =awayClubLogId
+                homeAdcPlayerBody.clubLogId =awayClubLogId
+                homeSupPlayerBody.clubLogId =awayClubLogId
             })
             .catch(function (e){
                 console.log(e);
@@ -1859,27 +1849,17 @@ export default {
                 console.log(response);
                 awayClubLogId = response.data.clubLogId
                 
-                awayTopPlayerBody={
-                    clubLogId:awayClubLogId,
-                }
-                awayJglPlayerBody={
-                    clubLogId:awayClubLogId,
-                }
-                awayMidPlayerBody={
-                    clubLogId:awayClubLogId,
-                }
-                awayAdcPlayerBody={
-                    clubLogId:awayClubLogId,
-                }
-                awaySupPlayerBody={
-                    clubLogId:awayClubLogId,
-                }
+                awayTopPlayerBody.clubLogId =awayClubLogId
+                awayJglPlayerBody.clubLogId =awayClubLogId
+                awayMidPlayerBody.clubLogId =awayClubLogId
+                awayAdcPlayerBody.clubLogId =awayClubLogId
+                awaySupPlayerBody.clubLogId =awayClubLogId
             })
             .catch(function (e){
                 console.log(e);
             });
 
-            
+            await console.log(homeTopPlayerBody);
             // 선수 데이터 저장
             await api.postMatchPlayer(homeTopPlayerBody)
             .then(response=>{
