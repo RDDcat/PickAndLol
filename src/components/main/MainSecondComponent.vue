@@ -106,7 +106,7 @@
                         {{player.playerName}}
                     </div>
                     <div class="w-full px-4 flex">
-                        <div class="my-auto font-medium text-gray-600">{{player.playerPosition.toUpperCase()}} </div>
+                        <div class="my-auto font-medium text-gray-600" v-if="player.playerPosition">{{player.playerPosition.toUpperCase()}} </div>
                         <img class="object-cover mx-2 w-6 h-6" :src="'./assets/logo/color_'+player.clubName+'.png'"
                             @error="setDefaultImage($event)">
                             <div class="flex my-auto font-medium text-red-600">
@@ -162,8 +162,11 @@ export default {
         const modalStore = useModalStore()
 
         const formatNumber = (number) => {
+            if (number === undefined || number === null || isNaN(number)) {
+                return '';
+            }
             return number % 1 === 0 ? number : number.toFixed(2);
-        }
+        };
 
         return { cacheStore, modalStore, formatNumber }
     },

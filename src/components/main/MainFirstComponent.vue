@@ -408,7 +408,7 @@
                         {{player.playerName}}
                     </div>
                     <div class="w-full px-4 flex">
-                        <div class="my-auto font-medium text-gray-600">{{player.playerPosition.toUpperCase()}} </div>
+                        <div class="my-auto font-medium text-gray-600" v-if="player.playerPosition">{{player.playerPosition.toUpperCase()}} </div>
                         <img class="object-cover mx-2 w-6 h-6" :src="'./assets/logo/color_'+player.clubName+'.png'"
                             @error="setDefaultImage($event)">
                         <div class="flex my-auto font-medium text-red-600">
@@ -487,8 +487,11 @@ export default {
         const modalStore = useModalStore()
 
         const formatNumber = (number) => {
+            if (number === undefined || number === null || isNaN(number)) {
+                return '';
+            }
             return number % 1 === 0 ? number : number.toFixed(2);
-        }
+        };
 
         return { cacheStore, modalStore, formatNumber }
     },
@@ -510,7 +513,7 @@ export default {
             hover: '',
 
             teams:[
-                {name:'전체', team:'LCK', img:'./assets/logo/lck.png', colorImg:'./assets/logo/lck.png',}, 
+                {name:'전체', team:'LCK', img:'./assets/logo/lck.png', colorImg:'./assets/logo/color_lck.png',}, 
                 {name:'젠지', team:'GEN', img:'./assets/logo/GEN.png', colorImg:'./assets/logo/color_GEN.png',}, 
                 {name:'T1', team:'T1', img:'./assets/logo/T1.png', colorImg:'./assets/logo/color_T1.png',}, 
                 {name:'KT', team:'KT', img:'./assets/logo/KT.png', colorImg:'./assets/logo/color_KT.png',}, 

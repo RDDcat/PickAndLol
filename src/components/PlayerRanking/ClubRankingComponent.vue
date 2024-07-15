@@ -85,8 +85,11 @@ export default {
         const clubStore = useClubStore()
 
         const formatNumber = (number) => {
+            if (number === undefined || number === null || isNaN(number)) {
+                return '';
+            }
             return number % 1 === 0 ? number : number.toFixed(2);
-        }
+        };
 
         return { clubStore, formatNumber }
     },
