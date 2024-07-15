@@ -32,8 +32,8 @@
             <div class="max-w-xl mx-auto">
                 승리?
                 <select v-model="home.team" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                    <option value="T1">승리 WIN</option>
-                    <option value="GEN">패배 LOSE</option>
+                    <option value="WIN">승리 WIN</option>
+                    <option value="LOSE">패배 LOSE</option>
                 </select>
             </div>
 
@@ -646,8 +646,8 @@
             <div class="max-w-xl mx-auto">
                 승리?
                 <select v-model="away.team" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                    <option value="T1">승리 WIN</option>
-                    <option value="GEN">패배 LOSE</option>
+                    <option value="WIN">승리 WIN</option>
+                    <option value="LOSE">패배 LOSE</option>
                 </select>
             </div>
 
