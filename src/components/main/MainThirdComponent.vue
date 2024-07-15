@@ -672,6 +672,8 @@ export default {
 
 
         },
+        // 토탈 vp 계산
+        // 선수 변경권 횟수 계산
         count(){
 
             let change = 0;
@@ -687,6 +689,7 @@ export default {
             console.log(change)
 
             this.cacheStore.temporaryChangeCount= 2-change
+            this.snapStore.myTeamSnap.totalVP = this.snapStore.myTeamSnap.players.top.vp + this.snapStore.myTeamSnap.players.jgl.vp + this.snapStore.myTeamSnap.players.mid.vp + this.snapStore.myTeamSnap.players.adc.vp + this.snapStore.myTeamSnap.players.sup.vp
         },
         async submit() {
             // 예외처리
@@ -764,22 +767,27 @@ export default {
 
             if(this.snapStore.myTeamSnap.players.top.name===name){
                 this.snapStore.myTeamSnap.players.top=JSON.parse(JSON.stringify(this.cacheStore.myTeam.players.top));
+                this.count()
                 return
             }
             if(this.snapStore.myTeamSnap.players.jgl.name===name){
                 this.snapStore.myTeamSnap.players.jgl=JSON.parse(JSON.stringify(this.cacheStore.myTeam.players.jgl));
+                this.count()
                 return
             }
             if(this.snapStore.myTeamSnap.players.mid.name===name){
                 this.snapStore.myTeamSnap.players.mid=JSON.parse(JSON.stringify(this.cacheStore.myTeam.players.mid));
+                this.count()
                 return
             }
             if(this.snapStore.myTeamSnap.players.adc.name===name){
                 this.snapStore.myTeamSnap.players.adc=JSON.parse(JSON.stringify(this.cacheStore.myTeam.players.adc));
+                this.count()
                 return
             }
             if(this.snapStore.myTeamSnap.players.sup.name===name){
                 this.snapStore.myTeamSnap.players.sup=JSON.parse(JSON.stringify(this.cacheStore.myTeam.players.sup));
+                this.count()
                 return
             }
 
@@ -834,12 +842,11 @@ export default {
                 }
             }
             this.count()
-            // 토탈 vp 계산
-            this.snapStore.myTeamSnap.totalVP = this.snapStore.myTeamSnap.players.top.vp + this.snapStore.myTeamSnap.players.jgl.vp + this.snapStore.myTeamSnap.players.mid.vp + this.snapStore.myTeamSnap.players.adc.vp + this.snapStore.myTeamSnap.players.sup.vp
         },
     },
     beforeMount(){
         this.snapStore.myTeamSnap = this.cacheStore.myTeam
+        this.count()
     }
 }
 </script>
