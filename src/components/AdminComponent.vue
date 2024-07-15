@@ -43,6 +43,10 @@
                     <option value="LOSE">패배 LOSE</option>
                 </select>
             </div>
+            <!-- 팀 전체 KDA 확인 -->
+            <div class="max-w-xl mx-auto my-1 text-xl">
+                전체 KDA : {{homeTotalKill}} / {{homeTotalDeath}} / {{homeTotalAssist}}
+            </div>
 
             <!-- 유충 -->
             <div class="max-w-xl mx-auto my-1">
@@ -657,6 +661,10 @@
                     <option value="LOSE">패배 LOSE</option>
                 </select>
             </div>
+            <!-- 팀 전체 KDA 확인 -->
+            <div class="max-w-xl mx-auto my-1 text-xl">
+                전체 KDA : {{awayTotalKill}} / {{awayTotalDeath}} / {{awayTotalAssist}}
+            </div>
 
             <!-- 유충 -->
             <div class="max-w-xl mx-auto my-1">
@@ -1266,6 +1274,9 @@ export default {
                 drakes:0,
                 elders:0,
                 barons:0,
+                totalKill:0,
+                totalDeath:0,
+                totalAssist:0,
                 top_player:{
                     playerId:0,
                     isFirstKill:false,
@@ -1399,6 +1410,82 @@ export default {
         }
     },
     methods: {
+    },
+    computed: {
+        homeTotalKill() {
+            return (
+                this.home.top_player.kill +
+                this.home.jgl_player.kill +
+                this.home.mid_player.kill +
+                this.home.adc_player.kill +
+                this.home.sup_player.kill
+            );
+        },
+        homeTotalDeath() {
+            return (
+                this.home.top_player.death +
+                this.home.jgl_player.death +
+                this.home.mid_player.death +
+                this.home.adc_player.death +
+                this.home.sup_player.death
+            );
+        },
+        homeTotalAssist() {
+            return (
+                this.home.top_player.assist +
+                this.home.jgl_player.assist +
+                this.home.mid_player.assist +
+                this.home.adc_player.assist +
+                this.home.sup_player.assist
+            );
+        },
+        awayTotalKill() {
+            return (
+                this.away.top_player.kill +
+                this.away.jgl_player.kill +
+                this.away.mid_player.kill +
+                this.away.adc_player.kill +
+                this.away.sup_player.kill
+            );
+        },
+        awayTotalDeath() {
+        return (
+            this.away.top_player.death +
+            this.away.jgl_player.death +
+            this.away.mid_player.death +
+            this.away.adc_player.death +
+            this.away.sup_player.death
+        );
+        },
+        awayTotalAssist() {
+        return (
+            this.away.top_player.assist +
+            this.away.jgl_player.assist +
+            this.away.mid_player.assist +
+            this.away.adc_player.assist +
+            this.away.sup_player.assist
+        );
+        },
+    },
+    watch: {
+        homeTotalKill(newVal) {
+            this.home.totalKill = newVal;
+        },
+        homeTotalDeath(newVal) {
+            this.home.totalDeath = newVal;
+        },
+        homeTotalAssist(newVal) {
+            this.home.totalAssist = newVal;
+        },
+        awayTotalKill(newVal) {
+            this.away.totalKill = newVal;
+        },
+        awayTotalDeath(newVal) {
+            this.away.totalDeath = newVal;
+        },
+        awayTotalAssist(newVal) {
+            this.away.totalAssist = newVal;
+        },
     },
 }
 </script>
