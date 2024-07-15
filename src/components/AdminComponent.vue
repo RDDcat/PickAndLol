@@ -4,34 +4,41 @@
         <img class="w-6 h-6 mr-2" src="@/assets/logo.png" alt="">
         경기 결과 입력
     </div>
+
+    <!-- 매치 ID 입력 -->
+    <form class="max-w-xl mx-auto">
+        <label class="block mb-2 text-sm font-medium text-gray-900 ">매치 ID </label>
+        <input v-model="matchId" type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="matchId" required />
+    </form>
+
     <!-- 경기 결과 입력 -->
     <div class="flex">
         <!-- 홈 -->
         <div class="w-1/2">
             <div class="max-w-xl mx-auto">
-                홈 (home)
+                홈 (home) 
+                {{home.clubId}}
             </div>
             
             <!-- 팀선택 -->
             <div class="max-w-xl mx-auto">
-                {{home.team}}
-                <select v-model="home.team" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                    <option value="T1">T1</option>
-                    <option value="GEN">젠지</option>
-                    <option value="KT">KT</option>
-                    <option value="HLE">한화생명</option>
-                    <option value="DK">DK</option>
-                    <option value="FOX">FOX BNK</option>
-                    <option value="KDF">광동</option>
-                    <option value="BRO">BRO OK 저축은행</option>
-                    <option value="DRX">DRX</option>
-                    <option value="NS">농심</option>
+                <select v-model="home.clubId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    <option value="1">젠지</option>
+                    <option value="2">T1</option>
+                    <option value="3">KT</option>
+                    <option value="4">한화생명</option>
+                    <option value="5">DK</option>
+                    <option value="6">FOX BNK</option>
+                    <option value="7">광동</option>
+                    <option value="8">BRO OK 저축은행</option>
+                    <option value="9">DRX</option>
+                    <option value="10">농심</option>
                 </select>
             </div>
             <!-- 경기 결과 선택(승/패) -->
             <div class="max-w-xl mx-auto">
                 승리?
-                <select v-model="home.team.result" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                <select v-model="home.clubId.matchResult" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                     <option value="WIN">승리 WIN</option>
                     <option value="LOSE">패배 LOSE</option>
                 </select>
@@ -126,25 +133,25 @@
             <!-- 탑 선수 정보 입력 -->
             <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 ">
             <div class="max-w-xl mx-auto">
-                <label class="block mb-2 text-sm font-medium text-gray-900 ">탑 이름 : {{home.top_player.name}}</label>
-                <input type="text" v-model="home.top_player.name" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500  ">
+                <label class="block mb-2 text-sm font-medium text-gray-900 ">탑 선수 ID : {{home.top_player.playerId}}</label>
+                <input type="text" v-model="home.top_player.playerId" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500  ">
             
                 <!-- 퍼스트 블러드 달성 -->
                 <label class="inline-flex items-center cursor-pointer mt-4">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">퍼스트 블러드 달성</span>
-                    <input v-model="home.top_player.isFirstBlood" type="checkbox" value="" class="sr-only ">
+                    <input v-model="home.top_player.isFirstKill" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- 퍼스트 블러드 당함 -->
                 <label class="inline-flex items-center cursor-pointer mt-1">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">퍼스트 블러드 당함</span>
-                    <input v-model="home.top_player.isFirstBlooded" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="home.top_player.isFirstDeath" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300   peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- MOM(POG) 선정 -->
                 <label class="inline-flex items-center cursor-pointer mt-1">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">MOM(POG) 선정</span>
-                    <input v-model="home.top_player.isMOM" type="checkbox" value="" class="sr-only ">
+                    <input v-model="home.top_player.isPog" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300   peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- 전령 실패 -->
@@ -225,25 +232,25 @@
             <!-- 정글 선수 정보 입력 -->
             <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 ">
             <div class="max-w-xl mx-auto">
-                <label class="block mb-2 text-sm font-medium text-gray-900 ">정글 이름 : {{home.jgl_player.name}}</label>
+                <label class="block mb-2 text-sm font-medium text-gray-900 ">정글 선수 ID : {{home.jgl_player.name}}</label>
                 <input type="text" v-model="home.jgl_player.name" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
             
                 <!-- 퍼스트 블러드 달성 -->
                 <label class="inline-flex items-center cursor-pointer mt-4">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">퍼스트 블러드 달성</span>
-                    <input v-model="home.jgl_player.isFirstBlood" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="home.jgl_player.isFirstKill" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- 퍼스트 블러드 당함 -->
                 <label class="inline-flex items-center cursor-pointer mt-1">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">퍼스트 블러드 당함</span>
-                    <input v-model="home.jgl_player.isFirstBlooded" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="home.jgl_player.isFirstDeath" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- MOM(POG) 선정 -->
                 <label class="inline-flex items-center cursor-pointer mt-1">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">MOM(POG) 선정</span>
-                    <input v-model="home.jgl_player.isMOM" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="home.jgl_player.isPog" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- 전령 실패 -->
@@ -324,25 +331,25 @@
             <!-- 선수 정보 입력 -->
             <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 ">
             <div class="max-w-xl mx-auto">
-                <label class="block mb-2 text-sm font-medium text-gray-900 ">미드 이름 : {{home.mid_player.name}}</label>
+                <label class="block mb-2 text-sm font-medium text-gray-900 ">미드 선수 ID : {{home.mid_player.name}}</label>
                 <input type="text" v-model="home.mid_player.name" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
             
                 <!-- 퍼스트 블러드 달성 -->
                 <label class="inline-flex items-center cursor-pointer mt-4">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">퍼스트 블러드 달성</span>
-                    <input v-model="home.mid_player.isFirstBlood" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="home.mid_player.isFirstKill" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- 퍼스트 블러드 당함 -->
                 <label class="inline-flex items-center cursor-pointer mt-1">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">퍼스트 블러드 당함</span>
-                    <input v-model="home.mid_player.isFirstBlooded" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="home.mid_player.isFirstDeath" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- MOM(POG) 선정 -->
                 <label class="inline-flex items-center cursor-pointer mt-1">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">MOM(POG) 선정</span>
-                    <input v-model="home.mid_player.isMOM" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="home.mid_player.isPog" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- 전령 실패 -->
@@ -423,25 +430,25 @@
             <!-- 선수 정보 입력 -->
             <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 ">
             <div class="max-w-xl mx-auto">
-                <label class="block mb-2 text-sm font-medium text-gray-900 ">원딜 이름 : {{home.adc_player.name}}</label>
+                <label class="block mb-2 text-sm font-medium text-gray-900 ">원딜 선수 ID : {{home.adc_player.name}}</label>
                 <input type="text" v-model="home.adc_player.name" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
             
                 <!-- 퍼스트 블러드 달성 -->
                 <label class="inline-flex items-center cursor-pointer mt-4">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">퍼스트 블러드 달성</span>
-                    <input v-model="home.adc_player.isFirstBlood" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="home.adc_player.isFirstKill" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- 퍼스트 블러드 당함 -->
                 <label class="inline-flex items-center cursor-pointer mt-1">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">퍼스트 블러드 당함</span>
-                    <input v-model="home.adc_player.isFirstBlooded" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="home.adc_player.isFirstDeath" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- MOM(POG) 선정 -->
                 <label class="inline-flex items-center cursor-pointer mt-1">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">MOM(POG) 선정</span>
-                    <input v-model="home.adc_player.isMOM" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="home.adc_player.isPog" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- 전령 실패 -->
@@ -522,25 +529,25 @@
             <!-- 선수 정보 입력 -->
             <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 ">
             <div class="max-w-xl mx-auto">
-                <label class="block mb-2 text-sm font-medium text-gray-900 ">서폿 이름 : {{home.sup_player.name}}</label>
+                <label class="block mb-2 text-sm font-medium text-gray-900 ">서폿 선수 ID : {{home.sup_player.name}}</label>
                 <input type="text" v-model="home.sup_player.name" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
             
                 <!-- 퍼스트 블러드 달성 -->
                 <label class="inline-flex items-center cursor-pointer mt-4">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">퍼스트 블러드 달성</span>
-                    <input v-model="home.sup_player.isFirstBlood" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="home.sup_player.isFirstKill" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- 퍼스트 블러드 당함 -->
                 <label class="inline-flex items-center cursor-pointer mt-1">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">퍼스트 블러드 당함</span>
-                    <input v-model="home.sup_player.isFirstBlooded" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="home.sup_player.isFirstDeath" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- MOM(POG) 선정 -->
                 <label class="inline-flex items-center cursor-pointer mt-1">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">MOM(POG) 선정</span>
-                    <input v-model="home.sup_player.isMOM" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="home.sup_player.isPog" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- 전령 실패 -->
@@ -624,28 +631,28 @@
         <div class="w-1/2">
             <div class="max-w-xl mx-auto">
                 어웨이
+                {{away.clubId}}
             </div>
             
             <!-- 팀선택 -->
             <div class="max-w-xl mx-auto">
-                {{away.team}}
-                <select v-model="away.team" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                    <option value="T1">T1</option>
-                    <option value="GEN">젠지</option>
-                    <option value="KT">KT</option>
-                    <option value="HLE">한화생명</option>
-                    <option value="DK">DK</option>
-                    <option value="FOX">FOX BNK</option>
-                    <option value="KDF">광동</option>
-                    <option value="BRO">BRO OK 저축은행</option>
-                    <option value="DRX">DRX</option>
-                    <option value="NS">농심</option>
+                <select v-model="away.clubId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    <option value="1">젠지</option>
+                    <option value="2">T1</option>
+                    <option value="3">KT</option>
+                    <option value="4">한화생명</option>
+                    <option value="5">DK</option>
+                    <option value="6">FOX BNK</option>
+                    <option value="7">광동</option>
+                    <option value="8">BRO OK 저축은행</option>
+                    <option value="9">DRX</option>
+                    <option value="10">농심</option>
                 </select>
             </div>
             <!-- 경기 결과 선택(승/패) -->
             <div class="max-w-xl mx-auto">
                 승리?
-                <select v-model="away.team.result" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                <select v-model="away.clubId.matchResult" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                     <option value="WIN">승리 WIN</option>
                     <option value="LOSE">패배 LOSE</option>
                 </select>
@@ -740,25 +747,25 @@
             <!-- 탑 선수 정보 입력 -->
             <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 ">
             <div class="max-w-xl mx-auto">
-                <label class="block mb-2 text-sm font-medium text-gray-900 ">탑 이름 : {{away.top_player.name}}</label>
+                <label class="block mb-2 text-sm font-medium text-gray-900 ">탑 선수 ID : {{away.top_player.name}}</label>
                 <input type="text" v-model="away.top_player.name" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
             
                 <!-- 퍼스트 블러드 달성 -->
                 <label class="inline-flex items-center cursor-pointer mt-4">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">퍼스트 블러드 달성</span>
-                    <input v-model="away.top_player.isFirstBlood" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="away.top_player.isFirstKill" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- 퍼스트 블러드 당함 -->
                 <label class="inline-flex items-center cursor-pointer mt-1">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">퍼스트 블러드 당함</span>
-                    <input v-model="away.top_player.isFirstBlooded" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="away.top_player.isFirstDeath" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- MOM(POG) 선정 -->
                 <label class="inline-flex items-center cursor-pointer mt-1">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">MOM(POG) 선정</span>
-                    <input v-model="away.top_player.isMOM" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="away.top_player.isPog" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- 전령 실패 -->
@@ -839,25 +846,25 @@
             <!-- 정글 선수 정보 입력 -->
             <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 ">
             <div class="max-w-xl mx-auto">
-                <label class="block mb-2 text-sm font-medium text-gray-900 ">정글 이름 : {{away.jgl_player.name}}</label>
+                <label class="block mb-2 text-sm font-medium text-gray-900 ">정글 선수 ID : {{away.jgl_player.name}}</label>
                 <input type="text" v-model="away.jgl_player.name" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
             
                 <!-- 퍼스트 블러드 달성 -->
                 <label class="inline-flex items-center cursor-pointer mt-4">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">퍼스트 블러드 달성</span>
-                    <input v-model="away.jgl_player.isFirstBlood" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="away.jgl_player.isFirstKill" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- 퍼스트 블러드 당함 -->
                 <label class="inline-flex items-center cursor-pointer mt-1">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">퍼스트 블러드 당함</span>
-                    <input v-model="away.jgl_player.isFirstBlooded" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="away.jgl_player.isFirstDeath" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- MOM(POG) 선정 -->
                 <label class="inline-flex items-center cursor-pointer mt-1">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">MOM(POG) 선정</span>
-                    <input v-model="away.jgl_player.isMOM" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="away.jgl_player.isPog" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- 전령 실패 -->
@@ -938,25 +945,25 @@
             <!-- 선수 정보 입력 -->
             <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 ">
             <div class="max-w-xl mx-auto">
-                <label class="block mb-2 text-sm font-medium text-gray-900 ">미드 이름 : {{away.mid_player.name}}</label>
+                <label class="block mb-2 text-sm font-medium text-gray-900 ">미드 선수 ID : {{away.mid_player.name}}</label>
                 <input type="text" v-model="away.mid_player.name" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
             
                 <!-- 퍼스트 블러드 달성 -->
                 <label class="inline-flex items-center cursor-pointer mt-4">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">퍼스트 블러드 달성</span>
-                    <input v-model="away.mid_player.isFirstBlood" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="away.mid_player.isFirstKill" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- 퍼스트 블러드 당함 -->
                 <label class="inline-flex items-center cursor-pointer mt-1">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">퍼스트 블러드 당함</span>
-                    <input v-model="away.mid_player.isFirstBlooded" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="away.mid_player.isFirstDeath" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- MOM(POG) 선정 -->
                 <label class="inline-flex items-center cursor-pointer mt-1">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">MOM(POG) 선정</span>
-                    <input v-model="away.mid_player.isMOM" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="away.mid_player.isPog" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- 전령 실패 -->
@@ -1037,25 +1044,25 @@
             <!-- 선수 정보 입력 -->
             <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 ">
             <div class="max-w-xl mx-auto">
-                <label class="block mb-2 text-sm font-medium text-gray-900 ">원딜 이름 : {{away.adc_player.name}}</label>
+                <label class="block mb-2 text-sm font-medium text-gray-900 ">원딜 선수 ID : {{away.adc_player.name}}</label>
                 <input type="text" v-model="away.adc_player.name" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
             
                 <!-- 퍼스트 블러드 달성 -->
                 <label class="inline-flex items-center cursor-pointer mt-4">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">퍼스트 블러드 달성</span>
-                    <input v-model="away.adc_player.isFirstBlood" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="away.adc_player.isFirstKill" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- 퍼스트 블러드 당함 -->
                 <label class="inline-flex items-center cursor-pointer mt-1">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">퍼스트 블러드 당함</span>
-                    <input v-model="away.adc_player.isFirstBlooded" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="away.adc_player.isFirstDeath" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- MOM(POG) 선정 -->
                 <label class="inline-flex items-center cursor-pointer mt-1">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">MOM(POG) 선정</span>
-                    <input v-model="away.adc_player.isMOM" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="away.adc_player.isPog" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- 전령 실패 -->
@@ -1136,25 +1143,25 @@
             <!-- 선수 정보 입력 -->
             <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 ">
             <div class="max-w-xl mx-auto">
-                <label class="block mb-2 text-sm font-medium text-gray-900 ">서폿 이름 : {{away.sup_player.name}}</label>
+                <label class="block mb-2 text-sm font-medium text-gray-900 ">서폿 선수 ID : {{away.sup_player.name}}</label>
                 <input type="text" v-model="away.sup_player.name" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
             
                 <!-- 퍼스트 블러드 달성 -->
                 <label class="inline-flex items-center cursor-pointer mt-4">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">퍼스트 블러드 달성</span>
-                    <input v-model="away.sup_player.isFirstBlood" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="away.sup_player.isFirstKill" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- 퍼스트 블러드 당함 -->
                 <label class="inline-flex items-center cursor-pointer mt-1">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">퍼스트 블러드 당함</span>
-                    <input v-model="away.sup_player.isFirstBlooded" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="away.sup_player.isFirstDeath" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- MOM(POG) 선정 -->
                 <label class="inline-flex items-center cursor-pointer mt-1">
                     <span class="ms-3 mr-4 text-sm font-medium text-gray-900 ">MOM(POG) 선정</span>
-                    <input v-model="away.sup_player.isMOM" type="checkbox" value="" class="sr-only peer">
+                    <input v-model="away.sup_player.isPog" type="checkbox" value="" class="sr-only peer">
                     <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                 </label>
                 <!-- 전령 실패 -->
@@ -1250,19 +1257,20 @@ export default {
     },
     data(){
         return {
+            matchId:0,
             home:{
-                team:'',
-                result:'',
+                clubId:'',
+                matchResult:'',
                 voidGrubs:0,
                 heralds:0,
                 drakes:0,
                 elders:0,
                 barons:0,
                 top_player:{
-                    name:'',
-                    isFirstBlood:false,
-                    isFirstBlooded:false,
-                    isMOM:false,
+                    playerId:0,
+                    isFirstKill:false,
+                    isFirstDeath:false,
+                    isPog:false,
                     failureHerald:0,
                     soloKill:0,
                     lineSoloKill:0,
@@ -1271,10 +1279,10 @@ export default {
                     assist:0,
                 },
                 jgl_player:{
-                    name:'',
-                    isFirstBlood:false,
-                    isFirstBlooded:false,
-                    isMOM:false,
+                    playerId:0,
+                    isFirstKill:false,
+                    isFirstDeath:false,
+                    isPog:false,
                     failureHerald:0,
                     soloKill:0,
                     lineSoloKill:0,
@@ -1283,10 +1291,10 @@ export default {
                     assist:0,
                 },
                 mid_player:{
-                    name:'',
-                    isFirstBlood:false,
-                    isFirstBlooded:false,
-                    isMOM:false,
+                    playerId:0,
+                    isFirstKill:false,
+                    isFirstDeath:false,
+                    isPog:false,
                     failureHerald:0,
                     soloKill:0,
                     lineSoloKill:0,
@@ -1295,10 +1303,10 @@ export default {
                     assist:0,
                 },
                 adc_player:{
-                    name:'',
-                    isFirstBlood:false,
-                    isFirstBlooded:false,
-                    isMOM:false,
+                    playerId:0,
+                    isFirstKill:false,
+                    isFirstDeath:false,
+                    isPog:false,
                     failureHerald:0,
                     soloKill:0,
                     lineSoloKill:0,
@@ -1307,10 +1315,10 @@ export default {
                     assist:0,
                 },
                 sup_player:{
-                    name:'',
-                    isFirstBlood:false,
-                    isFirstBlooded:false,
-                    isMOM:false,
+                    playerId:0,
+                    isFirstKill:false,
+                    isFirstDeath:false,
+                    isPog:false,
                     failureHerald:0,
                     soloKill:0,
                     lineSoloKill:0,
@@ -1320,18 +1328,18 @@ export default {
                 },
             },
             away:{
-                team:'',
-                result:'',
+                clubId:'',
+                matchmatchResult:'',
                 voidGrubs:0,
                 heralds:0,
                 drakes:0,
                 elders:0,
                 barons:0,
                 top_player:{
-                    name:'',
-                    isFirstBlood:false,
-                    isFirstBlooded:false,
-                    isMOM:false,
+                    playerId:0,
+                    isFirstKill:false,
+                    isFirstDeath:false,
+                    isPog:false,
                     failureHerald:0,
                     soloKill:0,
                     lineSoloKill:false,
@@ -1340,10 +1348,10 @@ export default {
                     assist:0,
                 },
                 jgl_player:{
-                    name:'',
-                    isFirstBlood:false,
-                    isFirstBlooded:false,
-                    isMOM:false,
+                    playerId:0,
+                    isFirstKill:false,
+                    isFirstDeath:false,
+                    isPog:false,
                     failureHerald:0,
                     soloKill:0,
                     lineSoloKill:false,
@@ -1352,10 +1360,10 @@ export default {
                     assist:0,
                 },
                 mid_player:{
-                    name:'',
-                    isFirstBlood:false,
-                    isFirstBlooded:false,
-                    isMOM:false,
+                    playerId:0,
+                    isFirstKill:false,
+                    isFirstDeath:false,
+                    isPog:false,
                     failureHerald:0,
                     soloKill:0,
                     lineSoloKill:false,
@@ -1364,10 +1372,10 @@ export default {
                     assist:0,
                 },
                 adc_player:{
-                    name:'',
-                    isFirstBlood:false,
-                    isFirstBlooded:false,
-                    isMOM:false,
+                    playerId:0,
+                    isFirstKill:false,
+                    isFirstDeath:false,
+                    isPog:false,
                     failureHerald:0,
                     soloKill:0,
                     lineSoloKill:false,
@@ -1376,10 +1384,10 @@ export default {
                     assist:0,
                 },
                 sup_player:{
-                    name:'',
-                    isFirstBlood:false,
-                    isFirstBlooded:false,
-                    isMOM:false,
+                    playerId:0,
+                    isFirstKill:false,
+                    isFirstDeath:false,
+                    isPog:false,
                     failureHerald:0,
                     soloKill:0,
                     lineSoloKill:false,
