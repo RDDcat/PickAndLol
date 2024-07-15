@@ -16,6 +16,7 @@ export const useCacheStore = defineStore('cacheStore', {
         mainTeamNav:'LCK',
         mainLineNav:'전체',
         mainInfo:'팀 변경가능시간: 평일 00:00~17:00, 주말 00:00~15:00',
+        mainIndex:0,
 
         // 선수 변경권 임시
         temporaryChangeCount: 2,
