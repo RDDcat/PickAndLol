@@ -239,9 +239,9 @@
                         </div>
                     </div>
                     <!-- 선수단 리스트 -->
-                    <div class="w-full my-6 flex flex-col">
+                    <div class="w-full px-1 my-6 flex flex-col">
                         <!-- 탑 -->
-                        <div class="my-2 px-4 flex w-full " :class="snapStore.myTeamSnap.players.top.id!==cacheStore.myTeam.players.top.id?'bg-yellow-200':''">
+                        <div class="my-1 py-1 px-3 flex w-full rounded-md" :class="snapStore.myTeamSnap.players.top.id!==cacheStore.myTeam.players.top.id?'bg-yellow-100':''">
                             <!-- 아이콘 -->
                             <div class="relative my-auto mr-4 ">
                                 <img v-if="snapStore.myTeamSnap.players.top.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
@@ -264,7 +264,7 @@
                         </div>
 
                         <!-- 정글 -->
-                        <div class="my-2 px-4 flex w-full">
+                        <div class="my-1 py-1 px-3 flex w-full" :class="snapStore.myTeamSnap.players.jgl.id!==cacheStore.myTeam.players.jgl.id?'bg-yellow-100':''">
                             <!-- 아이콘 -->
                             <div class="relative my-auto mr-4 ">
                                 <img v-if="snapStore.myTeamSnap.players.jgl.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
@@ -287,7 +287,7 @@
                         </div>
 
                         <!-- 미드 -->
-                        <div class="my-2 px-4 flex w-full">
+                        <div class="my-1 py-1 px-3 flex w-full" :class="snapStore.myTeamSnap.players.mid.id!==cacheStore.myTeam.players.mid.id?'bg-yellow-100':''">
                             <!-- 아이콘 -->
                             <div class="relative my-auto mr-4 ">
                                 <img v-if="snapStore.myTeamSnap.players.mid.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
@@ -310,7 +310,7 @@
                         </div>
 
                         <!-- 바텀 -->
-                        <div class="my-2 px-4 flex w-full">
+                        <div class="my-1 py-1 px-3 flex w-full" :class="snapStore.myTeamSnap.players.adc.id!==cacheStore.myTeam.players.adc.id?'bg-yellow-100':''">
                             <!-- 아이콘 -->
                             <div class="relative my-auto mr-4 ">
                                 <img v-if="snapStore.myTeamSnap.players.adc.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
@@ -333,7 +333,7 @@
                         </div>
 
                         <!-- 서폿 -->
-                        <div class="my-2 px-4 flex w-full">
+                        <div class="my-1 py-1 px-3 flex w-full" :class="snapStore.myTeamSnap.players.sup.id!==cacheStore.myTeam.players.sup.id?'bg-yellow-100':''">
                             <!-- 아이콘 -->
                             <div class="relative my-auto mr-4 ">
                                 <img v-if="snapStore.myTeamSnap.players.sup.isMvp" class="absolute -top-2.5 left-1.5 w-2.5 object-contain" src="@/assets/icon/crown.svg" >
