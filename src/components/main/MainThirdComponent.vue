@@ -353,8 +353,8 @@
             <!-- 팀 별 필터 -->
             <div class="grid grid-cols-11 gap-10 mx-auto my-4">
                 <!-- 팀 -->
-                <button v-for="team, index in teams" :key="index">
-                    <img class="m-auto w-12 h-12 object-cover" :src="team.colorImg" v-if="team.team==snapStore.mainTeamNav" @click="teamFilter(teams[0].team)">
+                <button v-for="team, index in staticStore.teams" :key="index">
+                    <img class="m-auto w-12 h-12 object-cover" :src="team.colorImg" v-if="team.team==snapStore.mainTeamNav" @click="teamFilter(staticStore.teams[0].team)">
                     <img class="m-auto w-12 h-12 object-cover" :src="team.img" v-if="team.team!=snapStore.mainTeamNav" @click="teamFilter(team.team)">
                     <div class="m-auto my-2 text-center text-xs text-gray-700">
                         {{team.name}}
@@ -465,6 +465,7 @@
 import {useCacheStore} from '@/store/cacheStore'
 import {useModalStore} from '@/store/modalStore'
 import {useSnapStore} from '@/store/snapStore'
+import {useStaticStore} from '@/store/staticStore'
 
 import api from '@/api/api'
 
@@ -476,6 +477,7 @@ export default {
         const cacheStore = useCacheStore()
         const modalStore = useModalStore()
         const snapStore = useSnapStore()
+        const staticStore = useStaticStore()
 
         const formatNumber = (number) => {
             if (number === undefined || number === null || isNaN(number)) {
@@ -501,7 +503,7 @@ export default {
             return result;
         }
 
-        return { cacheStore, modalStore, snapStore, formatNumber, toLowerCase  }
+        return { cacheStore, modalStore, staticStore, snapStore, formatNumber, toLowerCase  }
     },
     data(){
         return {
@@ -521,19 +523,6 @@ export default {
 
             hover: '',
 
-            teams:[
-                {name:'전체', team:'LCK', img:'./assets/logo/lck.png', colorImg:'./assets/logo/lck.png',}, 
-                {name:'젠지', team:'GEN', img:'./assets/logo/GEN.png', colorImg:'./assets/logo/color_GEN.png',}, 
-                {name:'T1', team:'T1', img:'./assets/logo/T1.png', colorImg:'./assets/logo/color_T1.png',}, 
-                {name:'KT', team:'KT', img:'./assets/logo/KT.png', colorImg:'./assets/logo/color_KT.png',}, 
-                {name:'한화생명', team:'HLE', img:'./assets/logo/HLE.png', colorImg:'./assets/logo/color_HLE.png',}, 
-                // {name:'DK', team:'DK', img:'./assets/logo/DK.png', colorImg:'./assets/logo/color_DK.png',}, 
-                {name:'피어엑스', team:'FOX', img:'./assets/logo/FOX.png', colorImg:'./assets/logo/color_FOX.png',}, 
-                {name:'광동', team:'KDF', img:'./assets/logo/KDF.png', colorImg:'./assets/logo/color_KDF.png',}, 
-                {name:'OK저축은행', team:'BRO', img:'./assets/logo/BRO.png', colorImg:'./assets/logo/color_BRO.png',}, 
-                {name:'DRX', team:'DRX', img:'./assets/logo/DRX.png', colorImg:'./assets/logo/color_DRX.png',}, 
-                {name:'농심', team:'NS', img:'./assets/logo/NS.png', colorImg:'./assets/logo/color_NS.png',}, 
-            ],
             onlyTeams:[
                 {name:'젠지', team:'GEN', img:'./assets/logo/GEN.png', colorImg:'./assets/logo/color_GEN.png',}, 
                 {name:'T1', team:'T1', img:'./assets/logo/T1.png', colorImg:'./assets/logo/color_T1.png',}, 
