@@ -3,10 +3,10 @@
     <LoginWarnModal v-if="modalStore.isLoginWarnModal"/>
     
     <!-- 메인 3가지 페이지 -->
-    <MainFirstComponent v-show="index===0"/>
+    <MainFirstComponent v-show="cacheStore.mainIndex===0"/>
     <!-- 시간 제한 둬서 컴포넌트 가르기 -->
-    <MainSecondComponent v-show="index===1"/>
-    <MainThirdComponent v-show="index===2"/>
+    <MainSecondComponent v-show="cacheStore.mainIndex===1"/>
+    <MainThirdComponent v-show="cacheStore.mainIndex===2"/>
 
     <FooterComponent/>
 </template>
@@ -41,7 +41,6 @@ export default {
     },
     data(){
         return {
-            index:0,
 
         }
     },
@@ -52,7 +51,7 @@ export default {
                 this.modalStore.isLoginWarnModal=true
                 console.log("1")
                 this.modalStore.mainInfo = '팀 변경가능시간: 평일 00:00~17:00, 주말 00:00~15:00'
-                this.index=0
+                this.cacheStore.mainIndex=0
                 return
             } 
 
@@ -76,7 +75,7 @@ export default {
                     // 변경 불가능 시간임 2번 화면
                     this.modalStore.mainInfo = '팀 변경가능시간: 평일 00:00~17:00, 주말 00:00~15:00';
                     console.log("2");
-                    this.index = 1;
+                    this.cacheStore.mainIndex = 1;
                     return;
                 }
 
@@ -84,10 +83,10 @@ export default {
                 if (this.cacheStore.canChange) {
                     // 변경 가능 시간임 3번 화면
                     console.log("3");
-                    this.index = 2;
+                    this.cacheStore.mainIndex = 2;
                 } else {
                     // 이미 선수단을 변경한 경우
-                    this.index = 1;
+                    this.cacheStore.mainIndex = 1;
                 }
                 return;
             }

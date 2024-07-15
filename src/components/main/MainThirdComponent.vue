@@ -688,55 +688,48 @@ export default {
 
             this.cacheStore.temporaryChangeCount= 2-change
         },
-        async submit(){
+        async submit() {
             // 예외처리
-            if(this.valid())return
-            
-            // 서버 전송
-            console.log(this.cacheStore.userId)
-            console.log(this.snapStore.myTeamSnap)
-            let body = {
-                oauthId:this.cacheStore.userId,
-                data:JSON.stringify(this.snapStore.myTeamSnap),
-                canChange:false
-            }
-            console.log('body',body)
-            await api.postTeam(body)
-            .then(response=>{
-                console.log(response)
-                this.cacheStore.isSave=true
-                this.cacheStore.canChange=false
-                this.cacheStore.myTeam = this.snapStore.myTeamSnap
-            })
-            .catch(function (e){
-                console.log(e);
-            });
-            let mvpId = 0
-            for(let index in this.snapStore.myTeamSnap.players){
-                if(this.snapStore.myTeamSnap.players[index].isMvp){
-                    mvpId=this.snapStore.myTeamSnap.players[index].id
+            if (this.valid()) return;
+
+            try {
+                // 서버 전송
+                console.log(this.cacheStore.userId);
+                console.log(this.snapStore.myTeamSnap);
+                let body = {
+                    oauthId: this.cacheStore.userId,
+                    data: JSON.stringify(this.snapStore.myTeamSnap),
+                    canChange: false
+                };
+                const response = await api.postTeam(body);
+                console.log(response);
+                this.cacheStore.canChange = false;
+                this.cacheStore.myTeam = this.snapStore.myTeamSnap;
+
+                let mvpId = 0;
+                for (let index in this.snapStore.myTeamSnap.players) {
+                    if (this.snapStore.myTeamSnap.players[index].isMvp) {
+                        mvpId = this.snapStore.myTeamSnap.players[index].id;
+                    }
                 }
-            }
-            let logBody = {
-                oauthId:this.cacheStore.userId,
-                topId: this.snapStore.myTeamSnap.players.top.id,
-                jglId: this.snapStore.myTeamSnap.players.jgl.id,
-                midId: this.snapStore.myTeamSnap.players.mid.id,
-                adcId: this.snapStore.myTeamSnap.players.adc.id,
-                supId: this.snapStore.myTeamSnap.players.sup.id,
-                mvpId: mvpId
+                let logBody = {
+                    oauthId: this.cacheStore.userId,
+                    topId: this.snapStore.myTeamSnap.players.top.id,
+                    jglId: this.snapStore.myTeamSnap.players.jgl.id,
+                    midId: this.snapStore.myTeamSnap.players.mid.id,
+                    adcId: this.snapStore.myTeamSnap.players.adc.id,
+                    supId: this.snapStore.myTeamSnap.players.sup.id,
+                    mvpId: mvpId
+                };
+                const logResponse = await api.postTeamLog(logBody);
+                console.log(logResponse.data);
+                this.cacheStore.isSave = true;
+            } catch (e) {
+                console.log(e);
+                this.cacheStore.isSave = false;
             }
 
-            await api.postTeamLog(logBody)
-            .then(response=>{
-                console.log(response.data)
-                this.cacheStore.isSave=true
-            })
-            .catch(function (e){
-                console.log(e);
-                this.cacheStore.isSave=false
-            });
-        
+            this.cacheStore.mainIndex = 1;
         },
         lineFilter(index){
             if(this.lines[index].name===this.snapStore.mainLineNav){
