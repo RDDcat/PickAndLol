@@ -1835,11 +1835,11 @@ export default {
                 console.log(response);
                 homeClubLogId = response.data.clubLogId
                 
-                homeTopPlayerBody.clubLogId =awayClubLogId
-                homeJglPlayerBody.clubLogId =awayClubLogId
-                homeMidPlayerBody.clubLogId =awayClubLogId
-                homeAdcPlayerBody.clubLogId =awayClubLogId
-                homeSupPlayerBody.clubLogId =awayClubLogId
+                homeTopPlayerBody.clubLogId =homeClubLogId
+                homeJglPlayerBody.clubLogId =homeClubLogId
+                homeMidPlayerBody.clubLogId =homeClubLogId
+                homeAdcPlayerBody.clubLogId =homeClubLogId
+                homeSupPlayerBody.clubLogId =homeClubLogId
             })
             .catch(function (e){
                 console.log(e);
