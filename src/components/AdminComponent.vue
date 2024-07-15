@@ -363,12 +363,12 @@
                 </div>
 
                 <div class="w-full flex ">
-                    <!-- 어시스트 -->
+                    <!-- damage 데미지 -->
                     <form class="max-w-xl mx-auto w-40">
                         <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">damage 데미지</label>
                         <input v-model="home.jgl_player.damage" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.jgl_player.damage" required />
                     </form>
-                    <!-- 어시스트 -->
+                    <!-- cs -->
                     <form class="max-w-xl mx-auto w-40">
                         <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">cs</label>
                         <input v-model="home.jgl_player.cs" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.jgl_player.cs" required />
@@ -479,12 +479,12 @@
                 </div>
 
                 <div class="w-full flex ">
-                    <!-- 어시스트 -->
+                    <!-- damage 데미지 -->
                     <form class="max-w-xl mx-auto w-40">
                         <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">damage 데미지</label>
                         <input v-model="home.mid_player.damage" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.mid_player.damage" required />
                     </form>
-                    <!-- 어시스트 -->
+                    <!-- cs -->
                     <form class="max-w-xl mx-auto w-40">
                         <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">cs</label>
                         <input v-model="home.mid_player.cs" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.mid_player.cs" required />
@@ -595,12 +595,12 @@
                 </div>
 
                 <div class="w-full flex ">
-                    <!-- 어시스트 -->
+                    <!-- damage 데미지 -->
                     <form class="max-w-xl mx-auto w-40">
                         <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">damage 데미지</label>
                         <input v-model="home.adc_player.damage" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.adc_player.damage" required />
                     </form>
-                    <!-- 어시스트 -->
+                    <!-- cs -->
                     <form class="max-w-xl mx-auto w-40">
                         <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">cs</label>
                         <input v-model="home.adc_player.cs" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.adc_player.cs" required />
@@ -711,12 +711,12 @@
                 </div>
 
                 <div class="w-full flex ">
-                    <!-- 어시스트 -->
+                    <!-- damage 데미지 -->
                     <form class="max-w-xl mx-auto w-40">
                         <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">damage 데미지</label>
                         <input v-model="home.sup_player.damage" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.sup_player.damage" required />
                     </form>
-                    <!-- 어시스트 -->
+                    <!-- cs -->
                     <form class="max-w-xl mx-auto w-40">
                         <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">cs</label>
                         <input v-model="home.sup_player.cs" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.sup_player.cs" required />
