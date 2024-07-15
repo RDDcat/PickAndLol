@@ -19,7 +19,7 @@
         <div class="w-44 mt-auto ml-4">
             <label class="block mb-1 text-sm font-medium text-gray-900 ">오더셋 </label>
             <select v-model="orderSet" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5">
-                <option value="FRIST">FRIST</option>
+                <option value="FIRST">FIRST</option>
                 <option value="SECOND">SECOND</option>
                 <option value="THIRD">THIRD</option>
             </select>
