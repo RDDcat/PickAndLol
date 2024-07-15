@@ -238,8 +238,8 @@
             <!-- 정글 선수 정보 입력 -->
             <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 ">
             <div class="max-w-xl mx-auto">
-                <label class="block mb-2 text-sm font-medium text-gray-900 ">정글 선수 ID : {{home.jgl_player.name}}</label>
-                <input type="text" v-model="home.jgl_player.name" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
+                <label class="block mb-2 text-sm font-medium text-gray-900 ">정글 선수 ID : {{home.jgl_player.playerId}}</label>
+                <input type="text" v-model="home.jgl_player.playerId" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
             
                 <!-- 퍼스트 블러드 달성 -->
                 <label class="inline-flex items-center cursor-pointer mt-4">
@@ -340,8 +340,8 @@
             <!-- 선수 정보 입력 -->
             <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 ">
             <div class="max-w-xl mx-auto">
-                <label class="block mb-2 text-sm font-medium text-gray-900 ">미드 선수 ID : {{home.mid_player.name}}</label>
-                <input type="text" v-model="home.mid_player.name" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
+                <label class="block mb-2 text-sm font-medium text-gray-900 ">미드 선수 ID : {{home.mid_player.playerId}}</label>
+                <input type="text" v-model="home.mid_player.playerId" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
             
                 <!-- 퍼스트 블러드 달성 -->
                 <label class="inline-flex items-center cursor-pointer mt-4">
@@ -442,8 +442,8 @@
             <!-- 선수 정보 입력 -->
             <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 ">
             <div class="max-w-xl mx-auto">
-                <label class="block mb-2 text-sm font-medium text-gray-900 ">원딜 선수 ID : {{home.adc_player.name}}</label>
-                <input type="text" v-model="home.adc_player.name" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
+                <label class="block mb-2 text-sm font-medium text-gray-900 ">원딜 선수 ID : {{home.adc_player.playerId}}</label>
+                <input type="text" v-model="home.adc_player.playerId" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
             
                 <!-- 퍼스트 블러드 달성 -->
                 <label class="inline-flex items-center cursor-pointer mt-4">
@@ -544,8 +544,8 @@
             <!-- 선수 정보 입력 -->
             <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 ">
             <div class="max-w-xl mx-auto">
-                <label class="block mb-2 text-sm font-medium text-gray-900 ">서폿 선수 ID : {{home.sup_player.name}}</label>
-                <input type="text" v-model="home.sup_player.name" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
+                <label class="block mb-2 text-sm font-medium text-gray-900 ">서폿 선수 ID : {{home.sup_player.playerId}}</label>
+                <input type="text" v-model="home.sup_player.playerId" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
             
                 <!-- 퍼스트 블러드 달성 -->
                 <label class="inline-flex items-center cursor-pointer mt-4">
@@ -769,8 +769,8 @@
             <!-- 탑 선수 정보 입력 -->
             <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 ">
             <div class="max-w-xl mx-auto">
-                <label class="block mb-2 text-sm font-medium text-gray-900 ">탑 선수 ID : {{away.top_player.name}}</label>
-                <input type="text" v-model="away.top_player.name" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
+                <label class="block mb-2 text-sm font-medium text-gray-900 ">탑 선수 ID : {{away.top_player.playerId}}</label>
+                <input type="text" v-model="away.top_player.playerId" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
             
                 <!-- 퍼스트 블러드 달성 -->
                 <label class="inline-flex items-center cursor-pointer mt-4">
@@ -871,8 +871,8 @@
             <!-- 정글 선수 정보 입력 -->
             <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 ">
             <div class="max-w-xl mx-auto">
-                <label class="block mb-2 text-sm font-medium text-gray-900 ">정글 선수 ID : {{away.jgl_player.name}}</label>
-                <input type="text" v-model="away.jgl_player.name" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
+                <label class="block mb-2 text-sm font-medium text-gray-900 ">정글 선수 ID : {{away.jgl_player.playerId}}</label>
+                <input type="text" v-model="away.jgl_player.playerId" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
             
                 <!-- 퍼스트 블러드 달성 -->
                 <label class="inline-flex items-center cursor-pointer mt-4">
@@ -973,8 +973,8 @@
             <!-- 선수 정보 입력 -->
             <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 ">
             <div class="max-w-xl mx-auto">
-                <label class="block mb-2 text-sm font-medium text-gray-900 ">미드 선수 ID : {{away.mid_player.name}}</label>
-                <input type="text" v-model="away.mid_player.name" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
+                <label class="block mb-2 text-sm font-medium text-gray-900 ">미드 선수 ID : {{away.mid_player.playerId}}</label>
+                <input type="text" v-model="away.mid_player.playerId" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
             
                 <!-- 퍼스트 블러드 달성 -->
                 <label class="inline-flex items-center cursor-pointer mt-4">
@@ -1075,8 +1075,8 @@
             <!-- 선수 정보 입력 -->
             <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 ">
             <div class="max-w-xl mx-auto">
-                <label class="block mb-2 text-sm font-medium text-gray-900 ">원딜 선수 ID : {{away.adc_player.name}}</label>
-                <input type="text" v-model="away.adc_player.name" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
+                <label class="block mb-2 text-sm font-medium text-gray-900 ">원딜 선수 ID : {{away.adc_player.playerId}}</label>
+                <input type="text" v-model="away.adc_player.playerId" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
             
                 <!-- 퍼스트 블러드 달성 -->
                 <label class="inline-flex items-center cursor-pointer mt-4">
@@ -1177,8 +1177,8 @@
             <!-- 선수 정보 입력 -->
             <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 ">
             <div class="max-w-xl mx-auto">
-                <label class="block mb-2 text-sm font-medium text-gray-900 ">서폿 선수 ID : {{away.sup_player.name}}</label>
-                <input type="text" v-model="away.sup_player.name" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
+                <label class="block mb-2 text-sm font-medium text-gray-900 ">서폿 선수 ID : {{away.sup_player.playerId}}</label>
+                <input type="text" v-model="away.sup_player.playerId" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500   ">
             
                 <!-- 퍼스트 블러드 달성 -->
                 <label class="inline-flex items-center cursor-pointer mt-4">
