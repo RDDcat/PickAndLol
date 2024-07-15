@@ -108,6 +108,18 @@
                     <div class="text-sm">변경된 선수가 있어야 팀을 교체할 수 있습니다.</div> 
                 </div>
             </div>
+            <!--  isChangeMVP 주장을 변경할 수 없음 -->
+            <div v-if="isChangeMVP"
+                class="flex px-3 bg-red-50 rounded-lg mb-1">
+                <!-- ! 아이콘 -->
+                <img class="my-auto mx-4 w-6 h-6 object-cover" src="@/assets/icon/error.png">
+
+                <!-- 에러 텍스트 -->
+                <div class="p-2  my-auto text-base text-gray-600 text-ellipsis break-words">
+                    <div class="text-red-600">주장을 변경할 수 없습니다. </div>
+                    <div class="text-sm">선수변경권으로는 주장을 변경할 수 없습니다.</div> 
+                </div>
+            </div>
         </div>
 
         <!-- 히어로 페이지 -->
@@ -515,6 +527,7 @@ export default {
             mvpFlag: false,
             isCount: false,
             isCountZero: false,
+            isChangeMVP:false,
 
             step:0,
 
@@ -665,8 +678,8 @@ export default {
             const positions = ['top', 'jgl', 'mid', 'adc', 'sup'];
 
             for (let pos of positions) {
-                console.log(pos, this.snapStore.myTeamSnap.players[pos].id)
-                console.log(pos, this.cacheStore.myTeam.players[pos].id)
+                // console.log(pos, this.snapStore.myTeamSnap.players[pos].id)
+                // console.log(pos, this.cacheStore.myTeam.players[pos].id)
                 if (this.snapStore.myTeamSnap.players[pos].id !== this.cacheStore.myTeam.players[pos].id) {
                     change++;
                 }
@@ -736,6 +749,18 @@ export default {
             this.modalStore.isPlayerModal=true
             this.modalStore.selectPlayer=player
         },
+        isMVP(player){            
+            console.log(player)
+            let players = this.cacheStore.myTeam.players
+            for(let index in players){
+                // mvp 변경 시 못하게 막기
+                if(players[index].isMvp && player.playerPosition===index) {
+                    this.isChangeMVP=true
+                    return true
+                }
+            }
+            return false
+        },
         click(name){
             let players = this.cacheStore.players
 
@@ -764,6 +789,7 @@ export default {
             for(let player of players){
                 if(player.playerName===name){
                     if(player.playerPosition === 'top'){
+                        if(this.isMVP(player)) return
                         this.snapStore.myTeamSnap.players.top.isMvp = false
                         this.snapStore.myTeamSnap.players.top.id = player.playerId
                         this.snapStore.myTeamSnap.players.top.name = player.playerName
@@ -772,6 +798,7 @@ export default {
                         this.snapStore.myTeamSnap.players.top.vp = player.vp
                     }
                     else if(player.playerPosition === 'jgl'){
+                        if(this.isMVP(player)) return
                         this.snapStore.myTeamSnap.players.jgl.isMvp = false
                         this.snapStore.myTeamSnap.players.jgl.id = player.playerId
                         this.snapStore.myTeamSnap.players.jgl.name = player.playerName
@@ -780,6 +807,7 @@ export default {
                         this.snapStore.myTeamSnap.players.jgl.vp = player.vp
                     }
                     else if(player.playerPosition === 'mid'){
+                        if(this.isMVP(player)) return
                         this.snapStore.myTeamSnap.players.mid.isMvp = false
                         this.snapStore.myTeamSnap.players.mid.id = player.playerId
                         this.snapStore.myTeamSnap.players.mid.name = player.playerName
@@ -788,6 +816,7 @@ export default {
                         this.snapStore.myTeamSnap.players.mid.vp = player.vp
                     }
                     else if(player.playerPosition === 'adc'){
+                        if(this.isMVP(player)) return
                         this.snapStore.myTeamSnap.players.adc.isMvp = false
                         this.snapStore.myTeamSnap.players.adc.id = player.playerId
                         this.snapStore.myTeamSnap.players.adc.name = player.playerName
@@ -796,6 +825,7 @@ export default {
                         this.snapStore.myTeamSnap.players.adc.vp = player.vp
                     }
                     else if(player.playerPosition === 'sup'){
+                        if(this.isMVP(player)) return
                         this.snapStore.myTeamSnap.players.sup.isMvp = false
                         this.snapStore.myTeamSnap.players.sup.id = player.playerId
                         this.snapStore.myTeamSnap.players.sup.name = player.playerName

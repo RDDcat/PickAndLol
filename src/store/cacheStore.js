@@ -19,6 +19,7 @@ export const useCacheStore = defineStore('cacheStore', {
 
         // 선수 변경권 임시
         temporaryChangeCount: 2,
+        temporaryMvpCount: 0,
     
         myTeam:{
             name:"",
