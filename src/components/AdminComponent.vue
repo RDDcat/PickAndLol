@@ -1833,7 +1833,7 @@ export default {
             await api.postMatchClub(homeBody)
             .then(response=>{
                 console.log(response);
-                homeClubLogId = response.data.matchClubId
+                homeClubLogId = response.data.clubLogId
                 
                 homeTopPlayerBody={
                     clubLogId:homeClubLogId,
@@ -1857,7 +1857,7 @@ export default {
             await api.postMatchClub(awayBody)
             .then(response=>{
                 console.log(response);
-                awayClubLogId = response.data.matchClubId
+                awayClubLogId = response.data.clubLogId
                 
                 awayTopPlayerBody={
                     clubLogId:awayClubLogId,
