@@ -17,7 +17,7 @@
             <input v-model="playTime" type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5   " :placeholder="playTime" required />
         </form>
         <div class="w-44 mt-auto ml-4">
-            <label class="block mb-1 text-sm font-medium text-gray-900 ">오프셋 </label>
+            <label class="block mb-1 text-sm font-medium text-gray-900 ">오더셋 </label>
             <select v-model="orderSet" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5">
                 <option value="FRIST">FRIST</option>
                 <option value="SECOND">SECOND</option>
@@ -1632,21 +1632,54 @@ export default {
             let homeClubLogId = 0
             let awayClubLogId = 0
 
-            // let homeBody = {
-            //     matchId:
-            //     matchType:
-            //     matchResult:
-            //     playTime
-
-            // }
+            let homeBody = {
+                matchId:this.matchId,
+                matchType:"HOME",
+                matchResult:this.home.matchResult,
+                playTime:this.playTime,
+                orderSet:this.orderSet,
+                voidGrubs:this.home.voidGrubs,
+                heralds:this.home.heralds,
+                drakes:this.home.drakes,
+                elders:this.home.elders,
+                barons:this.home.barons,
+                killCount:this.home.totalKill,
+                deathCount:this.home.totalDeath,
+                assistCount:this.home.totalAssist,
+                clubId:this.home.clubId,
+                topId:this.home.top_player.playerId,
+                jglId:this.home.jgl_player.playerId,
+                midId:this.home.mid_player.playerId,
+                adcId:this.home.adc_player.playerId,
+                supId:this.home.sup_player.playerId,
+            }
             let awayBody = {
-
+                matchId:this.matchId,
+                matchType:"AWAY",
+                matchResult:this.away.matchResult,
+                playTime:this.playTime,
+                orderSet:this.orderSet,
+                voidGrubs:this.away.voidGrubs,
+                heralds:this.away.heralds,
+                drakes:this.away.drakes,
+                elders:this.away.elders,
+                barons:this.away.barons,
+                killCount:this.away.totalKill,
+                deathCount:this.away.totalDeath,
+                assistCount:this.away.totalAssist,
+                clubId:this.away.clubId,
+                topId:this.away.top_player.playerId,
+                jglId:this.away.jgl_player.playerId,
+                midId:this.away.mid_player.playerId,
+                adcId:this.away.adc_player.playerId,
+                supId:this.away.sup_player.playerId,
             }
 
             // 선수단 데이터 저장 
             // 리턴값으로 클럽로그 아이디 얻어와야함
-            await api.postMatchClub()
+            await api.postMatchClub(homeBody)
             .then(response=>{
+                console.log(response);
                 homeClubLogId = response.data
             })
             .catch(function (e){
@@ -1654,20 +1687,193 @@ export default {
             });
             await api.postMatchClub(awayBody)
             .then(response=>{
+                console.log(response);
                 awayClubLogId = response.data
             })
             .catch(function (e){
                 console.log(e);
             });
 
-            let homePlayerBody={
+            let homeTopPlayerBody={
                 clubLogId:homeClubLogId,
+                playerId:this.home.top_player.playerId,
+                isFirstKill:this.home.top_player.isFirstKill,
+                isFirstDeath:this.home.top_player.isFirstDeath,
+                isPog:this.home.top_player.isPog,
+                heraldDriveFail:this.home.top_player.heraldDriveFail,
+                soloKills:this.home.top_player.soloKills,
+                soloDeaths: this.home.top_player.soloDeaths,
+                killCount:this.home.top_player.killCount,
+                deathCount:this.home.top_player.deathCount,
+                assistCount:this.home.top_player.assistCount,
+                damage:this.home.top_player.damage,
+                cs:this.home.top_player.cs
             }
-            let awayPlayerBody={
+            let homeJglPlayerBody={
+                clubLogId:homeClubLogId,
+                playerId:this.home.jgl_player.playerId,
+                isFirstKill:this.home.jgl_player.isFirstKill,
+                isFirstDeath:this.home.jgl_player.isFirstDeath,
+                isPog:this.home.jgl_player.isPog,
+                heraldDriveFail:this.home.jgl_player.heraldDriveFail,
+                soloKills:this.home.jgl_player.soloKills,
+                soloDeaths: this.home.jgl_player.soloDeaths,
+                killCount:this.home.jgl_player.killCount,
+                deathCount:this.home.jgl_player.deathCount,
+                assistCount:this.home.jgl_player.assistCount,
+                damage:this.home.jgl_player.damage,
+                cs:this.home.jgl_player.cs
+            }
+            let homeMidPlayerBody={
+                clubLogId:homeClubLogId,
+                playerId:this.home.mid_player.playerId,
+                isFirstKill:this.home.mid_player.isFirstKill,
+                isFirstDeath:this.home.mid_player.isFirstDeath,
+                isPog:this.home.mid_player.isPog,
+                heraldDriveFail:this.home.mid_player.heraldDriveFail,
+                soloKills:this.home.mid_player.soloKills,
+                soloDeaths: this.home.mid_player.soloDeaths,
+                killCount:this.home.mid_player.killCount,
+                deathCount:this.home.mid_player.deathCount,
+                assistCount:this.home.mid_player.assistCount,
+                damage:this.home.mid_player.damage,
+                cs:this.home.mid_player.cs
+            }
+            let homeAdcPlayerBody={
+                clubLogId:homeClubLogId,
+                playerId:this.home.adc_player.playerId,
+                isFirstKill:this.home.adc_player.isFirstKill,
+                isFirstDeath:this.home.adc_player.isFirstDeath,
+                isPog:this.home.adc_player.isPog,
+                heraldDriveFail:this.home.adc_player.heraldDriveFail,
+                soloKills:this.home.adc_player.soloKills,
+                soloDeaths: this.home.adc_player.soloDeaths,
+                killCount:this.home.adc_player.killCount,
+                deathCount:this.home.adc_player.deathCount,
+                assistCount:this.home.adc_player.assistCount,
+                damage:this.home.adc_player.damage,
+                cs:this.home.adc_player.cs
+            }
+            let homeSupPlayerBody={
+                clubLogId:homeClubLogId,
+                playerId:this.home.sup_player.playerId,
+                isFirstKill:this.home.sup_player.isFirstKill,
+                isFirstDeath:this.home.sup_player.isFirstDeath,
+                isPog:this.home.sup_player.isPog,
+                heraldDriveFail:this.home.sup_player.heraldDriveFail,
+                soloKills:this.home.sup_player.soloKills,
+                soloDeaths: this.home.sup_player.soloDeaths,
+                killCount:this.home.sup_player.killCount,
+                deathCount:this.home.sup_player.deathCount,
+                assistCount:this.home.sup_player.assistCount,
+                damage:this.home.sup_player.damage,
+                cs:this.home.sup_player.cs
+            }
+            let awayTopPlayerBody={
                 clubLogId:awayClubLogId,
+                playerId:this.home.top_player.playerId,
+                isFirstKill:this.home.top_player.isFirstKill,
+                isFirstDeath:this.home.top_player.isFirstDeath,
+                isPog:this.home.top_player.isPog,
+                heraldDriveFail:this.home.top_player.heraldDriveFail,
+                soloKills:this.home.top_player.soloKills,
+                soloDeaths: this.home.top_player.soloDeaths,
+                killCount:this.home.top_player.killCount,
+                deathCount:this.home.top_player.deathCount,
+                assistCount:this.home.top_player.assistCount,
+                damage:this.home.top_player.damage,
+                cs:this.home.top_player.cs
+            }
+            let awayJglPlayerBody={
+                clubLogId:awayClubLogId,
+                playerId:this.home.jgl_player.playerId,
+                isFirstKill:this.home.jgl_player.isFirstKill,
+                isFirstDeath:this.home.jgl_player.isFirstDeath,
+                isPog:this.home.jgl_player.isPog,
+                heraldDriveFail:this.home.jgl_player.heraldDriveFail,
+                soloKills:this.home.jgl_player.soloKills,
+                soloDeaths: this.home.jgl_player.soloDeaths,
+                killCount:this.home.jgl_player.killCount,
+                deathCount:this.home.jgl_player.deathCount,
+                assistCount:this.home.jgl_player.assistCount,
+                damage:this.home.jgl_player.damage,
+                cs:this.home.jgl_player.cs
+            }
+            let awayMidPlayerBody={
+                clubLogId:awayClubLogId,
+                playerId:this.home.mid_player.playerId,
+                isFirstKill:this.home.mid_player.isFirstKill,
+                isFirstDeath:this.home.mid_player.isFirstDeath,
+                isPog:this.home.mid_player.isPog,
+                heraldDriveFail:this.home.mid_player.heraldDriveFail,
+                soloKills:this.home.mid_player.soloKills,
+                soloDeaths: this.home.mid_player.soloDeaths,
+                killCount:this.home.mid_player.killCount,
+                deathCount:this.home.mid_player.deathCount,
+                assistCount:this.home.mid_player.assistCount,
+                damage:this.home.mid_player.damage,
+                cs:this.home.mid_player.cs
+            }
+            let awayAdcPlayerBody={
+                clubLogId:awayClubLogId,
+                playerId:this.home.adc_player.playerId,
+                isFirstKill:this.home.adc_player.isFirstKill,
+                isFirstDeath:this.home.adc_player.isFirstDeath,
+                isPog:this.home.adc_player.isPog,
+                heraldDriveFail:this.home.adc_player.heraldDriveFail,
+                soloKills:this.home.adc_player.soloKills,
+                soloDeaths: this.home.adc_player.soloDeaths,
+                killCount:this.home.adc_player.killCount,
+                deathCount:this.home.adc_player.deathCount,
+                assistCount:this.home.adc_player.assistCount,
+                damage:this.home.adc_player.damage,
+                cs:this.home.adc_player.cs
+            }
+            let awaySupPlayerBody={
+                clubLogId:awayClubLogId,
+                playerId:this.home.sup_player.playerId,
+                isFirstKill:this.home.sup_player.isFirstKill,
+                isFirstDeath:this.home.sup_player.isFirstDeath,
+                isPog:this.home.sup_player.isPog,
+                heraldDriveFail:this.home.sup_player.heraldDriveFail,
+                soloKills:this.home.sup_player.soloKills,
+                soloDeaths: this.home.sup_player.soloDeaths,
+                killCount:this.home.sup_player.killCount,
+                deathCount:this.home.sup_player.deathCount,
+                assistCount:this.home.sup_player.assistCount,
+                damage:this.home.sup_player.damage,
+                cs:this.home.sup_player.cs
             }
             // 선수 데이터 저장
-            await api.postMatchPlayer(homePlayerBody)
+            await api.postMatchPlayer(homeTopPlayerBody)
+            .then(response=>{
+                console.log(response);
+            })
+            .catch(function (e){
+                console.log(e);
+            });
+            await api.postMatchPlayer(homeJglPlayerBody)
+            .then(response=>{
+                console.log(response);
+            })
+            .catch(function (e){
+                console.log(e);
+            });
+            await api.postMatchPlayer(homeMidPlayerBody)
+            .then(response=>{
+                console.log(response);
+            })
+            .catch(function (e){
+                console.log(e);
+            });
+            await api.postMatchPlayer(homeAdcPlayerBody)
+            .then(response=>{
+                console.log(response);
+            })
+            .catch(function (e){
+                console.log(e);
+            });
+            await api.postMatchPlayer(homeSupPlayerBody)
             .then(response=>{
                 console.log(response);
             })
@@ -1675,7 +1881,35 @@ export default {
                 console.log(e);
             });
             // 선수 데이터 저장
-            await api.postMatchPlayer(awayPlayerBody)
+            await api.postMatchPlayer(awayTopPlayerBody)
+            .then(response=>{
+                console.log(response);
+            })
+            .catch(function (e){
+                console.log(e);
+            });
+            await api.postMatchPlayer(awayJglPlayerBody)
+            .then(response=>{
+                console.log(response);
+            })
+            .catch(function (e){
+                console.log(e);
+            });
+            await api.postMatchPlayer(awayMidPlayerBody)
+            .then(response=>{
+                console.log(response);
+            })
+            .catch(function (e){
+                console.log(e);
+            });
+            await api.postMatchPlayer(awayAdcPlayerBody)
+            .then(response=>{
+                console.log(response);
+            })
+            .catch(function (e){
+                console.log(e);
+            });
+            await api.postMatchPlayer(awaySupPlayerBody)
             .then(response=>{
                 console.log(response);
             })
