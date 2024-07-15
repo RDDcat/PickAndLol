@@ -38,7 +38,7 @@
             <!-- 경기 결과 선택(승/패) -->
             <div class="max-w-xl mx-auto">
                 승리?
-                <select v-model="home.clubId.matchResult" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                <select v-model="home.matchResult" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                     <option value="WIN">승리 WIN</option>
                     <option value="LOSE">패배 LOSE</option>
                 </select>
@@ -740,7 +740,7 @@
             <!-- 경기 결과 선택(승/패) -->
             <div class="max-w-xl mx-auto">
                 승리?
-                <select v-model="away.clubId.matchResult" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                <select v-model="away.matchResult" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                     <option value="WIN">승리 WIN</option>
                     <option value="LOSE">패배 LOSE</option>
                 </select>
@@ -1520,7 +1520,7 @@ export default {
             },
             away:{
                 clubId:'',
-                matchmatchResult:'',
+                matchResult:'',
                 voidGrubs:0,
                 heralds:0,
                 drakes:0,
