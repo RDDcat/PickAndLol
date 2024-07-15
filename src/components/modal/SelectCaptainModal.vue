@@ -8,7 +8,11 @@
             </div>
             <!-- 타이틀 택스트 -->
             <div class="mx-auto flex flex-col">
-                <div class="mx-auto mt-4 text-white text-4xl">원하는 주장을 선택하세요</div>
+                <div class="mx-auto mt-4 flex gap-2">
+                    <!-- 응원팀 아이콘 -->
+                    <img class="w-10 h-10 my-auto object-cover rounded-full" :src="cacheStore.myTeam.teamLogo">
+                    <div class="my-auto text-white text-4xl">원하는 주장을 선택하세요</div>
+                </div>
                 <div class="mx-auto mt-10 text-white text-lg">(주장은 점수 두배)</div>
                 
                 <div v-show="isMyTeam" 

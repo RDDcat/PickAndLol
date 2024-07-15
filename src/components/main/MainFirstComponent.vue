@@ -151,7 +151,7 @@
                             step1. 
                             <div class="ml-2 text-base text-gray-800">응원팀 선정</div>
                         </div>
-                        <!-- 토탈 vp 포인트 -->
+                        <!-- 응원팀 아이콘 -->
                         <div class="flex ml-auto my-auto mr-4">
                             <img class="w-6 h-6 object-cover rounded-full" :src="cacheStore.myTeam.teamLogo">
                         </div>

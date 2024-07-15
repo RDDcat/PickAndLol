@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 // use + 스토어 이름 << 컨벤션임
 export const useStaticStore = defineStore('staticStore', {
   state: ()=>({
-    // 메인화면 팀 데이터
+    // 메인화면 필터 데이터
     teams:[
       {name:'전체', team:'LCK', img:'./assets/logo/lck.png', colorImg:'./assets/logo/color_lck.png',}, 
       {name:'젠지', team:'GEN', img:'./assets/logo/GEN.png', colorImg:'./assets/logo/color_GEN.png',}, 
