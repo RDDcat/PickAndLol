@@ -192,41 +192,43 @@
                         </button>
                     </div>
                 </div>
-                <!-- 맞라이너 -->
+                <!-- 솔로데스 -->
                 <div class="flex">
                     <div class="my-4 mr-2">
-                        <label class="block mb-1 text-sm font-medium text-gray-900 ">맞라이너 솔로킬</label>
-                        <label class="block mb-1 text-sm font-medium text-gray-300">(**솔로킬과 중복 카운트)</label>
+                        <label class="block mb-1 text-sm font-medium text-gray-900 ">솔로데스 </label>
+                        <!-- <label class="block mb-1 text-sm font-medium text-gray-300"></label> -->
                     </div>
                     <div class="relative flex items-center">
-                        <button type="button" @click="home.top_player.linesoloKills===0?home.top_player.linesoloKills=0:home.top_player.linesoloKills--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <button type="button" @click="home.top_player.soloDeaths===0?home.top_player.soloDeaths=0:home.top_player.soloDeaths--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
                             </svg>
                         </button>
-                        <input type="text" class="flex-shrink-0 text-gray-900  border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="home.top_player.linesoloKills" required />
-                        <button type="button" @click="home.top_player.linesoloKills++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <input type="text" class="flex-shrink-0 text-gray-900  border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="home.top_player.soloDeaths" required />
+                        <button type="button" @click="home.top_player.soloDeaths++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
                             </svg>
                         </button>
                     </div>
                 </div>
-                <!-- 킬 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">killCount 킬</label>
-                    <input v-model="home.top_player.killCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="home.top_player.killCount" required />
-                </form>
-                <!-- 데스 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">deathCount 데스</label>
-                    <input v-model="home.top_player.deathCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="home.top_player.killCount" required />
-                </form>
-                <!-- 어시스트 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">assistCount 어시스트</label>
-                    <input v-model="home.top_player.assistCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="home.top_player.killCount" required />
-                </form>
+                <div class="w-full flex ">
+                    <!-- 킬 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">killCount 킬</label>
+                        <input v-model="home.top_player.killCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.top_player.killCount" required />
+                    </form>
+                    <!-- 데스 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">deathCount 데스</label>
+                        <input v-model="home.top_player.deathCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.top_player.killCount" required />
+                    </form>
+                    <!-- 어시스트 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">assistCount 어시스트</label>
+                        <input v-model="home.top_player.assistCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.top_player.killCount" required />
+                    </form>
+                </div>
 
                 <label class="inline-flex items-center cursor-pointer mt-3">
                     {{home.top_player}}
@@ -291,41 +293,44 @@
                         </button>
                     </div>
                 </div>
-                <!-- 솔로킬 -->
+                
+                <!-- 솔로데스 -->
                 <div class="flex">
                     <div class="my-4 mr-2">
-                        <label class="block mb-1 text-sm font-medium text-gray-900 ">맞라이너 솔로킬</label>
-                        <label class="block mb-1 text-sm font-medium text-gray-300">(**솔로킬과 중복 카운트)</label>
+                        <label class="block mb-1 text-sm font-medium text-gray-900 ">솔로데스 </label>
+                        <!-- <label class="block mb-1 text-sm font-medium text-gray-300"></label> -->
                     </div>
                     <div class="relative flex items-center">
-                        <button type="button" @click="home.jgl_player.linesoloKills===0?home.jgl_player.linesoloKills=0:home.jgl_player.linesoloKills--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <button type="button" @click="home.jgl_player.soloDeaths===0?home.jgl_player.soloDeaths=0:home.jgl_player.soloDeaths--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
                             </svg>
                         </button>
-                        <input type="text" class="flex-shrink-0 text-gray-900  border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="home.jgl_player.linesoloKills" required />
-                        <button type="button" @click="home.jgl_player.linesoloKills++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <input type="text" class="flex-shrink-0 text-gray-900  border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="home.jgl_player.soloDeaths" required />
+                        <button type="button" @click="home.jgl_player.soloDeaths++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
                             </svg>
                         </button>
                     </div>
                 </div>
-                <!-- 킬 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">killCount 킬</label>
-                    <input v-model="home.jgl_player.killCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="home.jgl_player.killCount" required />
-                </form>
-                <!-- 데스 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">deathCount 데스</label>
-                    <input v-model="home.jgl_player.deathCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="home.jgl_player.killCount" required />
-                </form>
-                <!-- 어시스트 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">assistCount 어시스트</label>
-                    <input v-model="home.jgl_player.assistCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="home.jgl_player.killCount" required />
-                </form>
+                <div class="w-full flex ">
+                    <!-- 킬 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">killCount 킬</label>
+                        <input v-model="home.jgl_player.killCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.jgl_player.killCount" required />
+                    </form>
+                    <!-- 데스 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">deathCount 데스</label>
+                        <input v-model="home.jgl_player.deathCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.jgl_player.killCount" required />
+                    </form>
+                    <!-- 어시스트 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">assistCount 어시스트</label>
+                        <input v-model="home.jgl_player.assistCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.jgl_player.killCount" required />
+                    </form>
+                </div>
 
                 <label class="inline-flex items-center cursor-pointer mt-3">
                     {{home.jgl_player}}
@@ -390,41 +395,44 @@
                         </button>
                     </div>
                 </div>
-                <!-- 솔로킬 -->
+                
+                <!-- 솔로데스 -->
                 <div class="flex">
                     <div class="my-4 mr-2">
-                        <label class="block mb-1 text-sm font-medium text-gray-900 ">맞라이너 솔로킬</label>
-                        <label class="block mb-1 text-sm font-medium text-gray-300">(**솔로킬과 중복 카운트)</label>
+                        <label class="block mb-1 text-sm font-medium text-gray-900 ">솔로데스 </label>
+                        <!-- <label class="block mb-1 text-sm font-medium text-gray-300"></label> -->
                     </div>
                     <div class="relative flex items-center">
-                        <button type="button" @click="home.mid_player.linesoloKills===0?home.mid_player.linesoloKills=0:home.mid_player.linesoloKills--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <button type="button" @click="home.mid_player.soloDeaths===0?home.mid_player.soloDeaths=0:home.mid_player.soloDeaths--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
                             </svg>
                         </button>
-                        <input type="text" class="flex-shrink-0 text-gray-900  border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="home.mid_player.linesoloKills" required />
-                        <button type="button" @click="home.mid_player.linesoloKills++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <input type="text" class="flex-shrink-0 text-gray-900  border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="home.mid_player.soloDeaths" required />
+                        <button type="button" @click="home.mid_player.soloDeaths++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
                             </svg>
                         </button>
                     </div>
                 </div>
-                <!-- 킬 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">killCount 킬</label>
-                    <input v-model="home.mid_player.killCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="home.mid_player.killCount" required />
-                </form>
-                <!-- 데스 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">deathCount 데스</label>
-                    <input v-model="home.mid_player.deathCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="home.mid_player.killCount" required />
-                </form>
-                <!-- 어시스트 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">assistCount 어시스트</label>
-                    <input v-model="home.mid_player.assistCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="home.mid_player.killCount" required />
-                </form>
+                <div class="w-full flex ">
+                    <!-- 킬 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">killCount 킬</label>
+                        <input v-model="home.mid_player.killCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.mid_player.killCount" required />
+                    </form>
+                    <!-- 데스 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">deathCount 데스</label>
+                        <input v-model="home.mid_player.deathCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.mid_player.killCount" required />
+                    </form>
+                    <!-- 어시스트 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">assistCount 어시스트</label>
+                        <input v-model="home.mid_player.assistCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.mid_player.killCount" required />
+                    </form>
+                </div>
 
                 <label class="inline-flex items-center cursor-pointer mt-3">
                     {{home.mid_player}}
@@ -489,41 +497,44 @@
                         </button>
                     </div>
                 </div>
-                <!-- 솔로킬 -->
+                
+                <!-- 솔로데스 -->
                 <div class="flex">
                     <div class="my-4 mr-2">
-                        <label class="block mb-1 text-sm font-medium text-gray-900 ">맞라이너 솔로킬</label>
-                        <label class="block mb-1 text-sm font-medium text-gray-300">(**솔로킬과 중복 카운트)</label>
+                        <label class="block mb-1 text-sm font-medium text-gray-900 ">솔로데스 </label>
+                        <!-- <label class="block mb-1 text-sm font-medium text-gray-300"></label> -->
                     </div>
                     <div class="relative flex items-center">
-                        <button type="button" @click="home.adc_player.linesoloKills===0?home.adc_player.linesoloKills=0:home.adc_player.linesoloKills--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <button type="button" @click="home.adc_player.soloDeaths===0?home.adc_player.soloDeaths=0:home.adc_player.soloDeaths--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
                             </svg>
                         </button>
-                        <input type="text" class="flex-shrink-0 text-gray-900  border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="home.adc_player.linesoloKills" required />
-                        <button type="button" @click="home.adc_player.linesoloKills++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <input type="text" class="flex-shrink-0 text-gray-900  border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="home.adc_player.soloDeaths" required />
+                        <button type="button" @click="home.adc_player.soloDeaths++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
                             </svg>
                         </button>
                     </div>
                 </div>
-                <!-- 킬 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">killCount 킬</label>
-                    <input v-model="home.adc_player.killCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="home.adc_player.killCount" required />
-                </form>
-                <!-- 데스 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">deathCount 데스</label>
-                    <input v-model="home.adc_player.deathCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="home.adc_player.killCount" required />
-                </form>
-                <!-- 어시스트 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">assistCount 어시스트</label>
-                    <input v-model="home.adc_player.assistCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="home.adc_player.killCount" required />
-                </form>
+                <div class="w-full flex ">
+                    <!-- 킬 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">killCount 킬</label>
+                        <input v-model="home.adc_player.killCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.adc_player.killCount" required />
+                    </form>
+                    <!-- 데스 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">deathCount 데스</label>
+                        <input v-model="home.adc_player.deathCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.adc_player.killCount" required />
+                    </form>
+                    <!-- 어시스트 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">assistCount 어시스트</label>
+                        <input v-model="home.adc_player.assistCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.adc_player.killCount" required />
+                    </form>
+                </div>
 
                 <label class="inline-flex items-center cursor-pointer mt-3">
                     {{home.adc_player}}
@@ -588,41 +599,44 @@
                         </button>
                     </div>
                 </div>
-                <!-- 솔로킬 -->
+                
+                <!-- 솔로데스 -->
                 <div class="flex">
                     <div class="my-4 mr-2">
-                        <label class="block mb-1 text-sm font-medium text-gray-900 ">맞라이너 솔로킬</label>
-                        <label class="block mb-1 text-sm font-medium text-gray-300">(**솔로킬과 중복 카운트)</label>
+                        <label class="block mb-1 text-sm font-medium text-gray-900 ">솔로데스 </label>
+                        <!-- <label class="block mb-1 text-sm font-medium text-gray-300"></label> -->
                     </div>
                     <div class="relative flex items-center">
-                        <button type="button" @click="home.sup_player.linesoloKills===0?home.sup_player.linesoloKills=0:home.sup_player.linesoloKills--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <button type="button" @click="home.sup_player.soloDeaths===0?home.sup_player.soloDeaths=0:home.sup_player.soloDeaths--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
                             </svg>
                         </button>
-                        <input type="text" class="flex-shrink-0 text-gray-900  border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="home.sup_player.linesoloKills" required />
-                        <button type="button" @click="home.sup_player.linesoloKills++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <input type="text" class="flex-shrink-0 text-gray-900  border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="home.sup_player.soloDeaths" required />
+                        <button type="button" @click="home.sup_player.soloDeaths++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
                             </svg>
                         </button>
                     </div>
                 </div>
-                <!-- 킬 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">killCount 킬</label>
-                    <input v-model="home.sup_player.killCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="home.sup_player.killCount" required />
-                </form>
-                <!-- 데스 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">deathCount 데스</label>
-                    <input v-model="home.sup_player.deathCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="home.sup_player.killCount" required />
-                </form>
-                <!-- 어시스트 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">assistCount 어시스트</label>
-                    <input v-model="home.sup_player.assistCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="home.sup_player.killCount" required />
-                </form>
+                <div class="w-full flex ">
+                    <!-- 킬 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">killCount 킬</label>
+                        <input v-model="home.sup_player.killCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.sup_player.killCount" required />
+                    </form>
+                    <!-- 데스 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">deathCount 데스</label>
+                        <input v-model="home.sup_player.deathCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.sup_player.killCount" required />
+                    </form>
+                    <!-- 어시스트 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">assistCount 어시스트</label>
+                        <input v-model="home.sup_player.assistCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.sup_player.killCount" required />
+                    </form>
+                </div>
 
                 <label class="inline-flex items-center cursor-pointer mt-3">
                     {{home.sup_player}}
@@ -810,41 +824,44 @@
                         </button>
                     </div>
                 </div>
-                <!-- 맞라이너 -->
+                
+                <!-- 솔로데스 -->
                 <div class="flex">
                     <div class="my-4 mr-2">
-                        <label class="block mb-1 text-sm font-medium text-gray-900 ">맞라이너 솔로킬</label>
-                        <label class="block mb-1 text-sm font-medium text-gray-300">(**솔로킬과 중복 카운트)</label>
+                        <label class="block mb-1 text-sm font-medium text-gray-900 ">솔로데스 </label>
+                        <!-- <label class="block mb-1 text-sm font-medium text-gray-300"></label> -->
                     </div>
                     <div class="relative flex items-center">
-                        <button type="button" @click="away.top_player.linesoloKills===0?away.top_player.linesoloKills=0:away.top_player.linesoloKills--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <button type="button" @click="home.top_player.soloDeaths===0?home.top_player.soloDeaths=0:home.top_player.soloDeaths--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
                             </svg>
                         </button>
-                        <input type="text" class="flex-shrink-0 text-gray-900  border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="away.top_player.linesoloKills" required />
-                        <button type="button" @click="away.top_player.linesoloKills++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <input type="text" class="flex-shrink-0 text-gray-900  border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="home.top_player.soloDeaths" required />
+                        <button type="button" @click="home.top_player.soloDeaths++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
                             </svg>
                         </button>
                     </div>
                 </div>
-                <!-- 킬 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">killCount 킬</label>
-                    <input v-model="away.top_player.killCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="away.top_player.killCount" required />
-                </form>
-                <!-- 데스 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">deathCount 데스</label>
-                    <input v-model="away.top_player.deathCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="away.top_player.killCount" required />
-                </form>
-                <!-- 어시스트 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">assistCount 어시스트</label>
-                    <input v-model="away.top_player.assistCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="away.top_player.killCount" required />
-                </form>
+                <div class="w-full flex ">
+                    <!-- 킬 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">killCount 킬</label>
+                        <input v-model="home.top_player.killCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.top_player.killCount" required />
+                    </form>
+                    <!-- 데스 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">deathCount 데스</label>
+                        <input v-model="home.top_player.deathCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.top_player.killCount" required />
+                    </form>
+                    <!-- 어시스트 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">assistCount 어시스트</label>
+                        <input v-model="home.top_player.assistCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.top_player.killCount" required />
+                    </form>
+                </div>
 
                 <label class="inline-flex items-center cursor-pointer mt-3">
                     {{away.top_player}}
@@ -909,41 +926,44 @@
                         </button>
                     </div>
                 </div>
-                <!-- 솔로킬 -->
+                
+                <!-- 솔로데스 -->
                 <div class="flex">
                     <div class="my-4 mr-2">
-                        <label class="block mb-1 text-sm font-medium text-gray-900 ">맞라이너 솔로킬</label>
-                        <label class="block mb-1 text-sm font-medium text-gray-300">(**솔로킬과 중복 카운트)</label>
+                        <label class="block mb-1 text-sm font-medium text-gray-900 ">솔로데스 </label>
+                        <!-- <label class="block mb-1 text-sm font-medium text-gray-300"></label> -->
                     </div>
                     <div class="relative flex items-center">
-                        <button type="button" @click="away.jgl_player.linesoloKills===0?away.jgl_player.linesoloKills=0:away.jgl_player.linesoloKills--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <button type="button" @click="home.jgl_player.soloDeaths===0?home.jgl_player.soloDeaths=0:home.jgl_player.soloDeaths--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
                             </svg>
                         </button>
-                        <input type="text" class="flex-shrink-0 text-gray-900  border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="away.jgl_player.linesoloKills" required />
-                        <button type="button" @click="away.jgl_player.linesoloKills++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <input type="text" class="flex-shrink-0 text-gray-900  border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="home.jgl_player.soloDeaths" required />
+                        <button type="button" @click="home.jgl_player.soloDeaths++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
                             </svg>
                         </button>
                     </div>
                 </div>
-                <!-- 킬 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">killCount 킬</label>
-                    <input v-model="away.jgl_player.killCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="away.jgl_player.killCount" required />
-                </form>
-                <!-- 데스 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">deathCount 데스</label>
-                    <input v-model="away.jgl_player.deathCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="away.jgl_player.killCount" required />
-                </form>
-                <!-- 어시스트 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">assistCount 어시스트</label>
-                    <input v-model="away.jgl_player.assistCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="away.jgl_player.killCount" required />
-                </form>
+                <div class="w-full flex ">
+                    <!-- 킬 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">killCount 킬</label>
+                        <input v-model="home.jgl_player.killCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.jgl_player.killCount" required />
+                    </form>
+                    <!-- 데스 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">deathCount 데스</label>
+                        <input v-model="home.jgl_player.deathCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.jgl_player.killCount" required />
+                    </form>
+                    <!-- 어시스트 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">assistCount 어시스트</label>
+                        <input v-model="home.jgl_player.assistCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.jgl_player.killCount" required />
+                    </form>
+                </div>
 
                 <label class="inline-flex items-center cursor-pointer mt-3">
                     {{away.jgl_player}}
@@ -1008,41 +1028,44 @@
                         </button>
                     </div>
                 </div>
-                <!-- 솔로킬 -->
+                
+                <!-- 솔로데스 -->
                 <div class="flex">
                     <div class="my-4 mr-2">
-                        <label class="block mb-1 text-sm font-medium text-gray-900 ">맞라이너 솔로킬</label>
-                        <label class="block mb-1 text-sm font-medium text-gray-300">(**솔로킬과 중복 카운트)</label>
+                        <label class="block mb-1 text-sm font-medium text-gray-900 ">솔로데스 </label>
+                        <!-- <label class="block mb-1 text-sm font-medium text-gray-300"></label> -->
                     </div>
                     <div class="relative flex items-center">
-                        <button type="button" @click="away.mid_player.linesoloKills===0?away.mid_player.linesoloKills=0:away.mid_player.linesoloKills--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <button type="button" @click="home.mid_player.soloDeaths===0?home.mid_player.soloDeaths=0:home.mid_player.soloDeaths--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
                             </svg>
                         </button>
-                        <input type="text" class="flex-shrink-0 text-gray-900  border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="away.mid_player.linesoloKills" required />
-                        <button type="button" @click="away.mid_player.linesoloKills++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <input type="text" class="flex-shrink-0 text-gray-900  border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="home.mid_player.soloDeaths" required />
+                        <button type="button" @click="home.mid_player.soloDeaths++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
                             </svg>
                         </button>
                     </div>
                 </div>
-                <!-- 킬 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">killCount 킬</label>
-                    <input v-model="away.mid_player.killCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="away.mid_player.killCount" required />
-                </form>
-                <!-- 데스 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">deathCount 데스</label>
-                    <input v-model="away.mid_player.deathCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="away.mid_player.killCount" required />
-                </form>
-                <!-- 어시스트 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">assistCount 어시스트</label>
-                    <input v-model="away.mid_player.assistCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="away.mid_player.killCount" required />
-                </form>
+                <div class="w-full flex ">
+                    <!-- 킬 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">killCount 킬</label>
+                        <input v-model="home.mid_player.killCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.mid_player.killCount" required />
+                    </form>
+                    <!-- 데스 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">deathCount 데스</label>
+                        <input v-model="home.mid_player.deathCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.mid_player.killCount" required />
+                    </form>
+                    <!-- 어시스트 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">assistCount 어시스트</label>
+                        <input v-model="home.mid_player.assistCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.mid_player.killCount" required />
+                    </form>
+                </div>
 
                 <label class="inline-flex items-center cursor-pointer mt-3">
                     {{away.mid_player}}
@@ -1107,41 +1130,44 @@
                         </button>
                     </div>
                 </div>
-                <!-- 솔로킬 -->
+                
+                <!-- 솔로데스 -->
                 <div class="flex">
                     <div class="my-4 mr-2">
-                        <label class="block mb-1 text-sm font-medium text-gray-900 ">맞라이너 솔로킬</label>
-                        <label class="block mb-1 text-sm font-medium text-gray-300">(**솔로킬과 중복 카운트)</label>
+                        <label class="block mb-1 text-sm font-medium text-gray-900 ">솔로데스 </label>
+                        <!-- <label class="block mb-1 text-sm font-medium text-gray-300"></label> -->
                     </div>
                     <div class="relative flex items-center">
-                        <button type="button" @click="away.adc_player.linesoloKills===0?away.adc_player.linesoloKills=0:away.adc_player.linesoloKills--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <button type="button" @click="home.adc_player.soloDeaths===0?home.adc_player.soloDeaths=0:home.adc_player.soloDeaths--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
                             </svg>
                         </button>
-                        <input type="text" class="flex-shrink-0 text-gray-900  border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="away.adc_player.linesoloKills" required />
-                        <button type="button" @click="away.adc_player.linesoloKills++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <input type="text" class="flex-shrink-0 text-gray-900  border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="home.adc_player.soloDeaths" required />
+                        <button type="button" @click="home.adc_player.soloDeaths++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
                             </svg>
                         </button>
                     </div>
                 </div>
-                <!-- 킬 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">killCount 킬</label>
-                    <input v-model="away.adc_player.killCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="away.adc_player.killCount" required />
-                </form>
-                <!-- 데스 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">deathCount 데스</label>
-                    <input v-model="away.adc_player.deathCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="away.adc_player.killCount" required />
-                </form>
-                <!-- 어시스트 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">assistCount 어시스트</label>
-                    <input v-model="away.adc_player.assistCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="away.adc_player.killCount" required />
-                </form>
+                <div class="w-full flex ">
+                    <!-- 킬 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">killCount 킬</label>
+                        <input v-model="home.adc_player.killCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.adc_player.killCount" required />
+                    </form>
+                    <!-- 데스 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">deathCount 데스</label>
+                        <input v-model="home.adc_player.deathCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.adc_player.killCount" required />
+                    </form>
+                    <!-- 어시스트 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">assistCount 어시스트</label>
+                        <input v-model="home.adc_player.assistCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.adc_player.killCount" required />
+                    </form>
+                </div>
 
                 <label class="inline-flex items-center cursor-pointer mt-3">
                     {{away.adc_player}}
@@ -1206,41 +1232,44 @@
                         </button>
                     </div>
                 </div>
-                <!-- 솔로킬 -->
+                
+                <!-- 솔로데스 -->
                 <div class="flex">
                     <div class="my-4 mr-2">
-                        <label class="block mb-1 text-sm font-medium text-gray-900 ">맞라이너 솔로킬</label>
-                        <label class="block mb-1 text-sm font-medium text-gray-300">(**솔로킬과 중복 카운트)</label>
+                        <label class="block mb-1 text-sm font-medium text-gray-900 ">솔로데스 </label>
+                        <!-- <label class="block mb-1 text-sm font-medium text-gray-300"></label> -->
                     </div>
                     <div class="relative flex items-center">
-                        <button type="button" @click="away.sup_player.linesoloKills===0?away.sup_player.linesoloKills=0:away.sup_player.linesoloKills--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <button type="button" @click="home.sup_player.soloDeaths===0?home.sup_player.soloDeaths=0:home.sup_player.soloDeaths--" class="flex-shrink-0 bg-gray-100  hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
                             </svg>
                         </button>
-                        <input type="text" class="flex-shrink-0 text-gray-900  border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="away.sup_player.linesoloKills" required />
-                        <button type="button" @click="away.sup_player.linesoloKills++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                        <input type="text" class="flex-shrink-0 text-gray-900  border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center" placeholder="" v-model="home.sup_player.soloDeaths" required />
+                        <button type="button" @click="home.sup_player.soloDeaths++" class="flex-shrink-0 bg-gray-100 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 focus:ring-2 focus:outline-none">
                             <svg class="w-2.5 h-2.5 text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
                             </svg>
                         </button>
                     </div>
                 </div>
-                <!-- 킬 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">killCount 킬</label>
-                    <input v-model="away.sup_player.killCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="away.sup_player.killCount" required />
-                </form>
-                <!-- 데스 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">deathCount 데스</label>
-                    <input v-model="away.sup_player.deathCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="away.sup_player.killCount" required />
-                </form>
-                <!-- 어시스트 -->
-                <form class="max-w-xl mx-auto">
-                    <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">assistCount 어시스트</label>
-                    <input v-model="away.sup_player.assistCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="away.sup_player.killCount" required />
-                </form>
+                <div class="w-full flex ">
+                    <!-- 킬 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">killCount 킬</label>
+                        <input v-model="home.sup_player.killCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.sup_player.killCount" required />
+                    </form>
+                    <!-- 데스 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">deathCount 데스</label>
+                        <input v-model="home.sup_player.deathCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.sup_player.killCount" required />
+                    </form>
+                    <!-- 어시스트 -->
+                    <form class="max-w-xl mx-auto w-40">
+                        <label for="number-input" class="block mb-2 text-sm font-medium text-gray-900 ">assistCount 어시스트</label>
+                        <input v-model="home.sup_player.assistCount" type="number" id="number-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-full  " :placeholder="home.sup_player.killCount" required />
+                    </form>
+                </div>
 
                 <label class="inline-flex items-center cursor-pointer mt-3">
                     {{away.sup_player}}
@@ -1365,7 +1394,6 @@ export default {
                     heraldDriveFail:0,
                     soloKills:0,
                     soloDeaths: 0,
-                    linesoloKills:false,
                     killCount:0,
                     deathCount:0,
                     assistCount:0,
@@ -1380,7 +1408,6 @@ export default {
                     heraldDriveFail:0,
                     soloKills:0,
                     soloDeaths: 0,
-                    linesoloKills:false,
                     killCount:0,
                     deathCount:0,
                     assistCount:0,
@@ -1395,7 +1422,6 @@ export default {
                     heraldDriveFail:0,
                     soloKills:0,
                     soloDeaths: 0,
-                    linesoloKills:false,
                     killCount:0,
                     deathCount:0,
                     assistCount:0,
@@ -1410,7 +1436,6 @@ export default {
                     heraldDriveFail:0,
                     soloKills:0,
                     soloDeaths: 0,
-                    linesoloKills:false,
                     killCount:0,
                     deathCount:0,
                     assistCount:0,
@@ -1425,7 +1450,6 @@ export default {
                     heraldDriveFail:0,
                     soloKills:0,
                     soloDeaths: 0,
-                    linesoloKills:false,
                     killCount:0,
                     deathCount:0,
                     assistCount:0,
