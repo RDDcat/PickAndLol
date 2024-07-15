@@ -1682,7 +1682,7 @@ export default {
             await api.postMatchClub(homeBody)
             .then(response=>{
                 console.log(response);
-                homeClubLogId = response.data
+                homeClubLogId = response.data.matchClubId
             })
             .catch(function (e){
                 console.log(e);
@@ -1690,7 +1690,7 @@ export default {
             await api.postMatchClub(awayBody)
             .then(response=>{
                 console.log(response);
-                awayClubLogId = response.data
+                awayClubLogId = response.data.matchClubId
             })
             .catch(function (e){
                 console.log(e);
