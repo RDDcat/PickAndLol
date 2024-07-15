@@ -1434,7 +1434,7 @@
 
         </div>
     </div>
-    <div @click="console.log('submit 제출')" class="flex mx-auto mt-10 rounded-lg w-60 h-12 bg-red-300 ">
+    <div @click="submit()" class="flex mx-auto mt-10 rounded-lg w-60 h-12 bg-red-300 ">
         <div class="m-auto">
             제출하기
         </div>
@@ -1629,6 +1629,7 @@ export default {
     },
     methods: {
         async submit(){
+            console.log('submit!!')
             let homeClubLogId = 0
             let awayClubLogId = 0
 
