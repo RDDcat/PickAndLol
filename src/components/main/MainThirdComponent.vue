@@ -457,17 +457,12 @@
                     class="w-52 h-12 my-3 inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-400 via-red-500 to-red-600 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200">
                     <span class="relative w-52  px-5 py-3 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-gray-100"
                         :class="this.snapStore.myTeamSnap.players.top.name ===player.playerName ||
-                        this.snapStore.myTeamSnap.players.jgl.name ===player.playerName ||
-                        this.snapStore.myTeamSnap.players.mid.name ===player.playerName ||
-                        this.snapStore.myTeamSnap.players.adc.name ===player.playerName ||
-                        this.snapStore.myTeamSnap.players.sup.name ===player.playerName
-                        ? 'bg-opacity-0 group-hover:bg-opacity-0' : ''">
-                        {{ this.snapStore.myTeamSnap.players.top.name ===player.playerName ||
-                        this.snapStore.myTeamSnap.players.jgl.name ===player.playerName ||
-                        this.snapStore.myTeamSnap.players.mid.name ===player.playerName ||
-                        this.snapStore.myTeamSnap.players.adc.name ===player.playerName ||
-                        this.snapStore.myTeamSnap.players.sup.name ===player.playerName
-                        ? '선택됨' : '선택하기'}}
+                                this.snapStore.myTeamSnap.players.jgl.name ===player.playerName ||
+                                this.snapStore.myTeamSnap.players.mid.name ===player.playerName ||
+                                this.snapStore.myTeamSnap.players.adc.name ===player.playerName ||
+                                this.snapStore.myTeamSnap.players.sup.name ===player.playerName
+                            ? 'bg-opacity-0 group-hover:bg-opacity-0' : ''">
+                        {{ buttonText(player)}}
                     </span>
                 </button>
                 </div>
@@ -764,6 +759,22 @@ export default {
                 }
             }
             return false
+        },
+        buttonText(player){
+            // 주장이랑 같은 라인일 경우
+            if(this.isMVP(player)) return '선택 불가능'
+            if(
+            this.snapStore.myTeamSnap.players.top.name ===player.playerName ||
+            this.snapStore.myTeamSnap.players.jgl.name ===player.playerName ||
+            this.snapStore.myTeamSnap.players.mid.name ===player.playerName ||
+            this.snapStore.myTeamSnap.players.adc.name ===player.playerName ||
+            this.snapStore.myTeamSnap.players.sup.name ===player.playerName ){
+                return '선택됨'
+            }
+            else{
+                return '선택하기'
+            }
+
         },
         click(name){
             let players = this.cacheStore.players
