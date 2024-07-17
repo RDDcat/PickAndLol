@@ -308,10 +308,7 @@
                                 <img class="w-4 h-4 object-cover" src="@/assets/icon/vp.png">
                             </div>
                         </div>
-                        {{typeof(snapStore.myTeamSnap.players.adc.id)}}
-                        {{typeof(cacheStore.myTeam.players.adc.id)}}
-                        {{snapStore.myTeamSnap.players.adc.id!=cacheStore.myTeam.players.adc.id}}
-
+                        
                         <!-- 바텀 -->
                         <div class="my-1 py-1 px-3 flex w-full" :class="snapStore.myTeamSnap.players.adc.id!=cacheStore.myTeam.players.adc.id?'bg-yellow-100':''">
                             <!-- 아이콘 -->
