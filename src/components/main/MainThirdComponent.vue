@@ -745,8 +745,7 @@ export default {
             this.modalStore.isPlayerModal=true
             this.modalStore.selectPlayer=player
         },
-        isMVP(player){            
-            console.log(player)
+        isMVP(player){
             let players = this.cacheStore.myTeam.players
             for(let index in players){
                 // mvp 변경 시 못하게 막기
