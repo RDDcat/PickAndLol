@@ -81,18 +81,18 @@ export default {
                 this.cacheStore.isSave=false
             });
             let mvpId = 0
-            for(let index in this.snapStore.myTeamSnap.players){
-                if(this.snapStore.myTeamSnap.players[index].isMvp){
-                    mvpId=this.snapStore.myTeamSnap.players[index].id
+            for(let index in this.cacheStore.myTeam.players){
+                if(this.cacheStore.myTeam.players[index].isMvp){
+                    mvpId=this.cacheStore.myTeam.players[index].id
                 }
             }
             let logBody = {
                 oauthId:this.cacheStore.userId,
-                topId: this.snapStore.myTeamSnap.players.top.id,
-                jglId: this.snapStore.myTeamSnap.players.jgl.id,
-                midId: this.snapStore.myTeamSnap.players.mid.id,
-                adcId: this.snapStore.myTeamSnap.players.adc.id,
-                supId: this.snapStore.myTeamSnap.players.sup.id,
+                topId: this.cacheStore.myTeam.players.top.id,
+                jglId: this.cacheStore.myTeam.players.jgl.id,
+                midId: this.cacheStore.myTeam.players.mid.id,
+                adcId: this.cacheStore.myTeam.players.adc.id,
+                supId: this.cacheStore.myTeam.players.sup.id,
                 mvpId: mvpId
             }
 
