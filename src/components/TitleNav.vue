@@ -26,6 +26,9 @@
             <button class="my-auto" @click="nav(4)">
                 <i class="fa-regular fa-circle-question " :class="index===4?'text-red-600':'hover:text-gray-400'" ></i>
             </button>
+            <button class="my-auto" @click="discord()">
+                <img class="rounded-full bg-gray-100 p-1 w-6 h-6 object-contain hover:bg-gray-300" src="@/assets/discord.svg" alt="">
+            </button>
         </div>
         <!-- 로그인 회원가입 -->
         <div class="flex font-bold w-60" v-if="cacheStore.userId===0">
@@ -70,7 +73,9 @@ export default {
             this.modalStore.isGuideComponent= index === 4
             this.modalStore.isMyComponent= index === 5
         },
-
+        discord(){
+            window.open('https://discord.gg/ZhCgbyGcQk', '_blank');
+        },
     },
 }
 </script>
