@@ -661,28 +661,38 @@ export default {
             this.modalStore.isPlayerModal=true
             this.modalStore.selectPlayer=player
         },
+        // 토탈 vp 계산
+        count(){
+            this.cacheStore.myTeam.totalVP = this.cacheStore.myTeam.players.top.vp + this.cacheStore.myTeam.players.jgl.vp + this.cacheStore.myTeam.players.mid.vp + this.cacheStore.myTeam.players.adc.vp + this.cacheStore.myTeam.players.sup.vp
+        },
+
         click(name){
             let players = this.cacheStore.players
 
             // 선수 재선택시 초기화
             if(this.cacheStore.myTeam.players.top.name===name){
                 this.cacheStore.myTeam.players.top={isMvp: false, id:"", name:"", team:"", vp:0, img: "./assets/logo.png"}
+                this.count()
                 return
             }
             if(this.cacheStore.myTeam.players.jgl.name===name){
                 this.cacheStore.myTeam.players.jgl={isMvp: false, id:"", name:"", team:"", vp:0, img: "./assets/logo.png"}
+                this.count()
                 return
             }
             if(this.cacheStore.myTeam.players.mid.name===name){
                 this.cacheStore.myTeam.players.mid={isMvp: false, id:"", name:"", team:"", vp:0, img: "./assets/logo.png"}
+                this.count()
                 return
             }
             if(this.cacheStore.myTeam.players.adc.name===name){
                 this.cacheStore.myTeam.players.adc={isMvp: false, id:"", name:"", team:"", vp:0, img: "./assets/logo.png"}
+                this.count()
                 return
             }
             if(this.cacheStore.myTeam.players.sup.name===name){
                 this.cacheStore.myTeam.players.sup={isMvp: false, id:"", name:"", team:"", vp:0, img: "./assets/logo.png"}
+                this.count()
                 return
             }
 
@@ -731,8 +741,7 @@ export default {
                     }
                 }
             }
-            // 토탈 vp 계산
-            this.cacheStore.myTeam.totalVP = this.cacheStore.myTeam.players.top.vp + this.cacheStore.myTeam.players.jgl.vp + this.cacheStore.myTeam.players.mid.vp + this.cacheStore.myTeam.players.adc.vp + this.cacheStore.myTeam.players.sup.vp
+            this.count()
         },
     },
 }
