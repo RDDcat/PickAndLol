@@ -57,10 +57,28 @@
                         <!-- 지표 -->
                         <div class="flex flex-col w-20 h-20 rounded-full p-2 bg-red-200">
                             <div class="text-white mx-auto mt-auto text-base">
+                                {{formatNumber(modalStore.selectPlayer.killRate)}}
+                            </div>
+                            <div class="text-white mx-auto mb-auto text-xs">
+                                킬관여율
+                            </div>
+                        </div>
+                        <!-- 지표 -->
+                        <div class="flex flex-col w-20 h-20 rounded-full p-2 bg-red-200">
+                            <div class="text-white mx-auto mt-auto text-base">
                                 {{modalStore.selectPlayer.playCount}}
                             </div>
                             <div class="text-white mx-auto mb-auto text-xs">
                                 출전경기
+                            </div>
+                        </div>
+                        <!-- 지표 -->
+                        <div class="flex flex-col w-20 h-20 rounded-full p-2 bg-red-200">
+                            <div class="text-white mx-auto mt-auto text-base">
+                                {{modalStore.selectPlayer.cs}}
+                            </div>
+                            <div class="text-white mx-auto mb-auto text-xs">
+                                cs
                             </div>
                         </div>
 
