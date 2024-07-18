@@ -39,7 +39,7 @@
                         <!-- 지표 -->
                         <div class="flex flex-col w-20 h-20 rounded-full p-2 bg-red-200">
                             <div class="text-white mx-auto mt-auto text-base">
-                                {{modalStore.selectPlayer.kda}}
+                                {{formatNumber(modalStore.selectPlayer.kda)}}
                             </div>
                             <div class="text-white mx-auto mb-auto text-xs">
                                 KDA
@@ -85,7 +85,14 @@ export default {
     setup(){
         const modalStore = useModalStore()
 
-        return { modalStore }
+        const formatNumber = (number) => {
+            if (number === undefined || number === null || isNaN(number)) {
+                return '';
+            }
+            return number % 1 === 0 ? number : number.toFixed(2);
+        };
+
+        return { modalStore, formatNumber }
     },
     data(){
         return {
