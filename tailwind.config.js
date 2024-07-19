@@ -8,6 +8,11 @@ module.exports = {
         sans: ['SUIT-Extrabold', 'sans-serif'],
         bold: ['SUIT-Heavy', 'sans-serif'],
       },
+      colors: {
+        'gray-dark': '#333333',
+        'point-600': '#D1363A',
+        'point-50': '#FDF5F5',
+      },
     },
   },
   variants: {
