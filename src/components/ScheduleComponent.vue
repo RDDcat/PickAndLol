@@ -27,7 +27,7 @@
             </div>
             <!-- 일정 내용 -->
             <div class="my-2 w-full h-16 flex border-b-1" 
-                v-if="data.homeClubId===selected||data.awayClubId===selected||selected===0">
+                v-if="data.homeClubId==selected||data.awayClubId==selected||selected==0">
                 <div class="w-full px-4 my-auto flex">
                     {{data.time}}
                     <div class="my-auto text-sm text-gray-500 px-2">
