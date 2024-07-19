@@ -120,27 +120,35 @@
                         <img class="absolute rounded-lg mx-auto mt-auto mb-3 w-full h-full object-cover" @error="setDefaultImage($event)" :src="'./assets/player/'+player.clubName+'_'+player.playerName+'.svg'"
                             >
                         <!-- 호버시 스탯창 -->
-                        <div v-show="hover===index" 
-                            class="absolute flex flex-col top-0 left-0 w-full h-full bg-black bg-opacity-90 rounded-lg z-20 break-all">
-                            <!-- 스탯 정보 -->
-                            <div class="mx-auto mt-2 text-gray-400">
-                                KDA {{formatNumber(player.kda)}}
-                            </div>
-                            <div class="my-auto mx-auto flex flex-col">
-                                <div class="mx-auto text-white">
-                                    시즌 획득 점수
+                        <transition
+                            enter-active-class="transition duration-200 ease-in-out"
+                            enter-from-class="opacity-0"
+                            enter-to-class="opacity-100"
+                            leave-active-class="transition duration-200 ease-in-out"
+                            leave-from-class="opacity-100"
+                            leave-to-class="opacity-0">
+                            <div v-show="hover===index" 
+                                class="absolute flex flex-col top-0 left-0 w-full h-full bg-black bg-opacity-90 rounded-lg z-20 break-all">
+                                <!-- 스탯 정보 -->
+                                <div class="mx-auto mt-2 text-gray-400">
+                                    KDA {{formatNumber(player.kda)}}
                                 </div>
-                                <div class="mx-auto  text-white text-2xl font-bold">
-                                    {{player.stat}}
+                                <div class="my-auto mx-auto flex flex-col">
+                                    <div class="mx-auto text-white">
+                                        시즌 획득 점수
+                                    </div>
+                                    <div class="mx-auto  text-white text-2xl font-bold">
+                                        {{player.stat}}
+                                    </div>
+                                </div>
+                                <div class="mx-auto px-2 mt-auto mb-1 text-white whitespace-pre-wrap ">
+                                    {{player.info}}
+                                </div>
+                                <div class="mx-auto px-2 mb-3 text-gray-400 whitespace-pre-wrap ">
+                                    click!
                                 </div>
                             </div>
-                            <div class="mx-auto px-2 mt-auto mb-1 text-white whitespace-pre-wrap ">
-                                <!-- {{player.playerInfo}} -->
-                            </div>
-                            <div class="mx-auto px-2 mb-3 text-gray-400 whitespace-pre-wrap ">
-                                click!
-                            </div>
-                        </div>
+                        </transition>
                     </div>
                 </button>
                 </div>
