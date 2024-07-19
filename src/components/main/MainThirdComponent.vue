@@ -459,14 +459,14 @@
                         (toLowerCase(this.snapStore.mainLineNav) === player.playerPosition || this.snapStore.mainLineNav==='전체') &&
                         (this.snapStore.mainTeamNav=== player.clubName || this.snapStore.mainTeamNav=== 'LCK')"
                     @click="click(player.playerName);"
-                    class="w-52 h-12 my-3 inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-400 via-red-500 to-red-600 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200">
-                    <span class="relative w-52  px-5 py-3 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-gray-100"
-                        :class="this.snapStore.myTeamSnap.players.top.name ===player.playerName ||
-                                this.snapStore.myTeamSnap.players.jgl.name ===player.playerName ||
-                                this.snapStore.myTeamSnap.players.mid.name ===player.playerName ||
-                                this.snapStore.myTeamSnap.players.adc.name ===player.playerName ||
-                                this.snapStore.myTeamSnap.players.sup.name ===player.playerName
-                            ? 'bg-opacity-0 group-hover:bg-opacity-0' : ''">
+                    class="w-52 h-12 my-3 inline-flex items-center justify-center  mb-2 me-2 overflow-hidden text-sm font-medium  rounded-lg group bg-point-50  group group-hover:bg-gray-dark">
+                    <span class="relative w-52  px-5 py-3 transition-all ease-in duration-75 rounded-md  group-hover:text-white group-hover:bg-gray-dark"
+                        :class="this.cacheStore.myTeam.players.top.name ===player.playerName ||
+                        this.cacheStore.myTeam.players.jgl.name ===player.playerName ||
+                        this.cacheStore.myTeam.players.mid.name ===player.playerName ||
+                        this.cacheStore.myTeam.players.adc.name ===player.playerName ||
+                        this.cacheStore.myTeam.players.sup.name ===player.playerName
+                        ? 'bg-point-600 text-white group-hover:bg-gray-dark group-hover:text-white' : 'text-point-600'">
                         {{ buttonText(player)}}
                     </span>
                 </button>
@@ -773,7 +773,7 @@ export default {
             this.snapStore.myTeamSnap.players.mid.name ===player.playerName ||
             this.snapStore.myTeamSnap.players.adc.name ===player.playerName ||
             this.snapStore.myTeamSnap.players.sup.name ===player.playerName ){
-                return '선택됨'
+                return '선택완료'
             }
             else{
                 return '선택하기'
