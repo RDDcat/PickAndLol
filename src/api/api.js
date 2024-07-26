@@ -1,7 +1,7 @@
 import axios from "axios";
 import store from "@/store";
 
-const BASE_URL = "http://pickandol.tasty-site.com:8080/"
+const BASE_URL = "https://pickandlolback.iwiwantit.com/"
 
 export default {
     // sample
