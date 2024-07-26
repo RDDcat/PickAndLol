@@ -29,5 +29,7 @@ jobs:
           aws s3 sync ./dist s3://pickandlol-web
 
       - name: Invalidate CloudFront Cache
+        env: 
+          AWS_DEFAULT_REGION: ap-northeast-2
         run: |
           aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
