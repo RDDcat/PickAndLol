@@ -98,10 +98,6 @@
                     @mouseover="hover=index"
                     @mouseleave="hover=''">
                     
-                    <!--선수 정보 -->
-                    <div class="font-base mx-auto">
-                        {{player.rank}}
-                    </div>
                     <div class="px-4 font-bold">
                         {{player.playerName}}
                     </div>
