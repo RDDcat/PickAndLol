@@ -13,7 +13,7 @@
 </template>
 <script>
 import TitleNav from '@/components/TitleNav.vue'
-import MainComponent from '@/components/MainComponent.vue'
+import MainComponent from '@/components/main/MainComponent.vue'
 import TeamComponent from '@/components/TeamComponent.vue'
 import ScheduleComponent from '@/components/ScheduleComponent.vue'
 import PlayerRankingComponent from '@/components/PlayerRankingComponent.vue'

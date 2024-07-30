@@ -13,9 +13,9 @@
 <script>
 import FooterComponent from '@/components/footer/FooterComponent'
 import LoginWarnModal from '@/components/modal/LoginWarnModal.vue'
-import MainFirstComponent from '@/components/main/MainFirstComponent.vue'
-import MainSecondComponent from '@/components/main/MainSecondComponent.vue'
-import MainThirdComponent from '@/components/main/MainThirdComponent.vue'
+import MainFirstComponent from '@/components/main/pc/MainFirstComponent.vue'
+import MainSecondComponent from '@/components/main/pc/MainSecondComponent.vue'
+import MainThirdComponent from '@/components/main/pc/MainThirdComponent.vue'
 
 import {useCacheStore} from '@/store/cacheStore'
 import {useModalStore} from '@/store/modalStore'
