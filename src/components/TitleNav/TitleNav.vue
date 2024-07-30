@@ -4,11 +4,10 @@
         <WebComponent v-else ></WebComponent>
     </div>
 </template>
-
 <script>
 import { ref, onMounted, onUnmounted } from 'vue'
-import MobileComponent from '@/components/main/mobile/MobileComponent.vue'
-import WebComponent from '@/components/main/web/MainWebComponent.vue'
+import MobileComponent from '@/components/TitleNav/mobile/MobileTitleNav.vue'
+import WebComponent from '@/components/TitleNav/web/WebTitleNav.vue'
 
 export default {
     components: {

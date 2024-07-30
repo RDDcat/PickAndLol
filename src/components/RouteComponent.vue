@@ -12,7 +12,7 @@
     <MyComponent v-if="modalStore.isMyComponent"/>
 </template>
 <script>
-import TitleNav from '@/components/TitleNav.vue'
+import TitleNav from '@/components/TitleNav/TitleNav.vue'
 import MainComponent from '@/components/main/MainComponent.vue'
 import TeamComponent from '@/components/TeamComponent.vue'
 import ScheduleComponent from '@/components/ScheduleComponent.vue'
