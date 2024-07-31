@@ -1,9 +1,27 @@
 <template>
     <!-- 사이드 메뉴 모달 -->
+    <div v-show="isMenuOpen" class="fixed left-0 top-0 w-1/5 h-full z-40" @click="toggleMenu()"></div>
     <transition name="slide" v-show="isMenuOpen">
         <div  class="fixed right-0 top-0 w-4/5 h-full bg-black opacity-95 z-40">
             <!-- 메뉴 내용 -->
-            메뉴매ㅔ뉴메ㅐ뉴
+            <div class="text-white my-12 space-y-6 p-4 flex flex-col">
+                <!-- 메뉴1 -->
+                <button class="mx-auto w-28 text-center " :class="index===0?'text-red-600':'hover:text-gray-400'" @click="nav(0)">
+                    MY선수단
+                </button>
+                <!-- 메뉴2 -->
+                <button class="mx-auto w-28 text-center" :class="index===1?'text-red-600':'hover:text-gray-400'" @click="nav(1)">
+                    일정
+                </button>
+                <!-- 메뉴3 -->
+                <button class="mx-auto w-28 text-center" :class="index===2?'text-red-600':'hover:text-gray-400'" @click="nav(2)">
+                    분석
+                </button>
+                <!-- 메뉴4 -->
+                <button class="mx-auto w-28 text-center" :class="index===3?'text-red-600':'hover:text-gray-400'" @click="nav(3)">
+                    랭킹
+                </button>
+            </div>
         </div>
     </transition>
     <div class="flex py-4 px-6 w-full z-30 bg-white"
@@ -40,8 +58,8 @@ export default {
     },
     data() {
         return {
-        index: 0,
-        isMenuOpen: false,
+            index: 0,
+            isMenuOpen: false,
         };
     },
     methods: {
@@ -100,7 +118,7 @@ export default {
     transition: all 0.3s ease-in-out;
 }
 .slide-enter-from, .slide-leave-to {
-    transform: translateX(60%);
+    transform: translateX(30%);
     opacity: 0;
 }
 </style>
