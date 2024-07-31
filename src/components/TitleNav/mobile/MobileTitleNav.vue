@@ -1,4 +1,11 @@
 <template>
+    <!-- 사이드 메뉴 모달 -->
+    <transition name="slide" v-show="isMenuOpen">
+        <div  class="fixed right-0 top-0 w-4/5 h-full bg-black opacity-95 z-40">
+            <!-- 메뉴 내용 -->
+            메뉴매ㅔ뉴메ㅐ뉴
+        </div>
+    </transition>
     <div class="flex py-4 px-6 w-full z-30 bg-white"
         :class="modalStore.isLoginWarnModal ? 'fixed' : ''">
         <!-- 로고 -->
@@ -7,9 +14,8 @@
         </div>
 
         <!-- 버거메뉴 -->
-        <a class="ml-auto my-auto menu-trigger"
-            :class="{ 'active-2': isMenuOpen }"
-            href="#"
+        <a class="ml-auto my-auto menu-trigger z-50"
+            :class="{'active-2': isMenuOpen }"
             @click.prevent="toggleMenu">
             <span></span>
             <span></span>
@@ -17,9 +23,7 @@
         </a>
     </div>
 
-    <div v-if="isMenuOpen" class="menu-content">
-        <!-- 메뉴 내용 -->
-    </div>
+    
 </template>
 
 <script>
@@ -37,7 +41,7 @@ export default {
     data() {
         return {
         index: 0,
-        isMenuOpen: false, // 메뉴의 상태를 추가
+        isMenuOpen: false,
         };
     },
     methods: {
@@ -91,7 +95,12 @@ export default {
 .menu-trigger.active-2 span:nth-of-type(3) {
     transform: translateY(-8px) rotate(45deg);
 }
-.menu-content {
-    /* 메뉴 내용 스타일링 */
+/* Vue 트랜지션 */
+.slide-enter-active, .slide-leave-active {
+    transition: all 0.3s ease-in-out;
+}
+.slide-enter-from, .slide-leave-to {
+    transform: translateX(60%);
+    opacity: 0;
 }
 </style>
