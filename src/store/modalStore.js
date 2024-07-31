@@ -10,6 +10,7 @@ export const useModalStore = defineStore('modalStore', {
     isSelectCaptainModal: false,
 
     // 모바일 모달
+    isMobileLoginModal:false,
     isMobilePlayerListModal:false,
     isMobileSelectClubModal:false,
 

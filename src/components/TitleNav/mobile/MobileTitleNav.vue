@@ -1,6 +1,6 @@
 <template>
     <!-- 사이드 메뉴 모달 -->
-    <div v-show="isMenuOpen" class="fixed left-0 top-0 w-1/5 h-full z-40" @click="toggleMenu()"></div>
+    <div v-show="isMenuOpen" class="fixed left-0 top-0 w-1/5 h-full z-30" @click="toggleMenu()"></div>
     <transition name="slide" v-show="isMenuOpen">
         <div  class="fixed right-0 top-0 w-4/5 h-full bg-black opacity-95 z-40">
             <!-- 메뉴 내용 -->
@@ -24,7 +24,7 @@
             </div>
         </div>
     </transition>
-    <div class="flex py-4 px-6 w-full z-30 bg-white"
+    <div class="flex py-4 px-6 w-full z-20 bg-white"
         :class="modalStore.isLoginWarnModal ? 'fixed' : ''">
         <!-- 로고 -->
         <div class="flex font-bold ">
@@ -32,7 +32,7 @@
         </div>
 
         <!-- 버거메뉴 -->
-        <a class="ml-auto my-auto menu-trigger z-50"
+        <a class="ml-auto my-auto menu-trigger z-40"
             :class="{'active-2': isMenuOpen }"
             @click.prevent="toggleMenu">
             <span></span>
@@ -106,12 +106,14 @@ export default {
 }
 .menu-trigger.active-2 span:nth-of-type(1) {
     transform: translateY(8px) rotate(-45deg);
+    background-color: white;
 }
 .menu-trigger.active-2 span:nth-of-type(2) {
     opacity: 0;
 }
 .menu-trigger.active-2 span:nth-of-type(3) {
     transform: translateY(-8px) rotate(45deg);
+    background-color: white;
 }
 /* Vue 트랜지션 */
 .slide-enter-active, .slide-leave-active {

@@ -7,6 +7,8 @@
   <WarningModal v-if="modalStore.isWarningModal"/>
   <SetTeamNameModal v-if="modalStore.isSetTeamNameModal"/>
   <SaveWarningModal v-if="modalStore.isSaveWarningModal"/>
+  <!-- 모바일 모달 -->
+  <MobileLoginModal v-if="modalStore.isMobileLoginModal"/>
 
   <router-view />
 </template>
@@ -19,6 +21,7 @@ import PlayerModal from '@/components/modal/PlayerModal.vue'
 import WarningModal from '@/components/modal/WarningModal.vue'
 import SetTeamNameModal from '@/components/modal/SetTeamNameModal.vue'
 import SaveWarningModal from '@/components/modal/SaveWarningModal.vue'
+import MobileLoginModal from '@/components/modal/mobile/MobileLoginModal.vue'
 
 import api from '@/api/api'
 
@@ -36,6 +39,7 @@ export default {
     WarningModal,
     SetTeamNameModal,
     SaveWarningModal,
+    MobileLoginModal,
   },
   setup(){
     const cacheStore = useCacheStore()
