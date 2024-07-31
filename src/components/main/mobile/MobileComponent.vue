@@ -3,8 +3,17 @@
     <MobilePlayerListModal v-if="modalStore.isMobilePlayerListModal" />
     <MobileSelectClubModal v-if="modalStore.isMobileSelectClubModal" />
     <!-- 모바일 메인 화면 -->
-    <div class="sample">
-        모바일 홤면
+    <div class="flex flex-col w-full">
+        <div class="mx-auto my-16">
+            <img src="@/assets/Union.svg" alt="">
+        </div>
+
+        <div class="fixed bottom-6 w-full h-16 px-6">
+            <button class="w-full h-full text-white rounded-lg text-sm bg-point-600  px-5 py-2.5">
+                만들기
+            </button>
+        </div>
+
     </div>
 </template>
 <script>
