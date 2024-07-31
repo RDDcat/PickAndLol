@@ -8,7 +8,7 @@
     <!-- 매치 ID 입력 -->
     <form class="max-w-xl mx-auto">
         <label class="block mb-1 text-sm font-medium text-gray-900 ">매치 ID </label>
-        <input v-model="matchId" type="number" class="mb-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="matchId" required />
+        <input v-model="matchId" type="text" class="mb-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " :placeholder="matchId" required />
     </form>
     <div class="max-w-xl flex mx-auto mb-4">
         <!-- 시간 입력 -->
@@ -1434,7 +1434,7 @@
 
         </div>
     </div>
-    <div @click="submit()" class="flex mx-auto mt-10 rounded-lg w-60 h-12 bg-red-300 ">
+    <div @click="submit(); alert('버튼 클릭됨, 성공 여부 : ', isSuccess)" class="flex mx-auto mt-10 rounded-lg w-60 h-12 bg-red-300 ">
         <div class="m-auto">
             제출하기
         </div>
@@ -1451,7 +1451,8 @@ export default {
     },
     data(){
         return {
-            matchId:0,
+            isSuccess:false,
+            matchId:'',
             playTime:'',
             orderSet:'',
             home:{
@@ -1833,6 +1834,7 @@ export default {
             await api.postMatchClub(homeBody)
             .then(response=>{
                 console.log(response);
+                this.isSuccess = true
                 homeClubLogId = response.data.clubLogId
                 
                 homeTopPlayerBody.clubLogId =homeClubLogId
@@ -1842,11 +1844,14 @@ export default {
                 homeSupPlayerBody.clubLogId =homeClubLogId
             })
             .catch(function (e){
+                
                 console.log(e);
+                this.isSuccess = false
             });
             await api.postMatchClub(awayBody)
             .then(response=>{
                 console.log(response);
+                this.isSuccess = true
                 awayClubLogId = response.data.clubLogId
                 
                 awayTopPlayerBody.clubLogId =awayClubLogId
@@ -1856,7 +1861,9 @@ export default {
                 awaySupPlayerBody.clubLogId =awayClubLogId
             })
             .catch(function (e){
+                
                 console.log(e);
+                this.isSuccess = false
             });
 
             await console.log(homeTopPlayerBody);
@@ -1864,73 +1871,103 @@ export default {
             await api.postMatchPlayer(homeTopPlayerBody)
             .then(response=>{
                 console.log(response);
+                this.isSuccess = true
             })
             .catch(function (e){
+                
                 console.log(e);
+                this.isSuccess = false
             });
             await api.postMatchPlayer(homeJglPlayerBody)
             .then(response=>{
                 console.log(response);
+                this.isSuccess = true
             })
             .catch(function (e){
+                
                 console.log(e);
+                this.isSuccess = false
             });
             await api.postMatchPlayer(homeMidPlayerBody)
             .then(response=>{
                 console.log(response);
+                this.isSuccess = true
             })
             .catch(function (e){
+                
                 console.log(e);
+                this.isSuccess = false
             });
             await api.postMatchPlayer(homeAdcPlayerBody)
             .then(response=>{
                 console.log(response);
+                this.isSuccess = true
             })
             .catch(function (e){
+                
                 console.log(e);
+                this.isSuccess = false
             });
             await api.postMatchPlayer(homeSupPlayerBody)
             .then(response=>{
                 console.log(response);
+                this.isSuccess = true
             })
             .catch(function (e){
+                
                 console.log(e);
+                this.isSuccess = false
             });
             // 선수 데이터 저장
             await api.postMatchPlayer(awayTopPlayerBody)
             .then(response=>{
                 console.log(response);
+                this.isSuccess = true
             })
             .catch(function (e){
+                
                 console.log(e);
+                this.isSuccess = false
             });
             await api.postMatchPlayer(awayJglPlayerBody)
             .then(response=>{
                 console.log(response);
+                this.isSuccess = true
             })
             .catch(function (e){
+                
                 console.log(e);
+                this.isSuccess = false
             });
             await api.postMatchPlayer(awayMidPlayerBody)
             .then(response=>{
                 console.log(response);
+                this.isSuccess = true
             })
             .catch(function (e){
+                
                 console.log(e);
+                this.isSuccess = false
             });
             await api.postMatchPlayer(awayAdcPlayerBody)
             .then(response=>{
                 console.log(response);
+                this.isSuccess = true
             })
             .catch(function (e){
+                
                 console.log(e);
+                this.isSuccess = false
             });
             await api.postMatchPlayer(awaySupPlayerBody)
             .then(response=>{
                 console.log(response);
+                this.isSuccess = true
             })
             .catch(function (e){
+                
                 console.log(e);
+                this.isSuccess = false
             });
     
         }
