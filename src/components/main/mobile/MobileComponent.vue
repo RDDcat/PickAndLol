@@ -8,12 +8,12 @@
             <img src="@/assets/Union.svg" alt="">
         </div>
 
-        <div class="fixed bottom-6 w-full h-16 px-6">
-            <button class="w-full h-full text-white rounded-lg text-sm bg-point-600  px-5 py-2.5">
+        <div class="fixed flex flex-col bottom-6 w-full px-6">
+            <div class="mx-auto text-xs text-gray-400 mb-1" v-if="cacheStore.userId===0">* 로그인 후 이용하실 수 있습니다.</div>
+            <button class="w-full h-14 text-white rounded-lg text-sm bg-point-600  px-5 py-2.5">
                 만들기
             </button>
         </div>
-
     </div>
 </template>
 <script>
@@ -44,9 +44,9 @@ export default {
     },
     // 초기 설정
     mounted(){
-        // 응원팀이 설정되지 않았다면 응원팀 모달 노출
+        // 로그인이 되어있고, 응원팀이 설정되지 않았다면 응원팀 모달 노출
         console.log('응원팀 없나? : ', !this.cacheStore.team)
-        if(!this.cacheStore.team){
+        if(!this.cacheStore.team && this.cacheStore.userId!==0){
             this.modalStore.isMobilePlayerListModal=true
         }
     }
