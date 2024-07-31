@@ -8,6 +8,11 @@ export const useModalStore = defineStore('modalStore', {
     isLoginWarnModal: false,
     isGuideModal: false,
     isSelectCaptainModal: false,
+
+    // 모바일 모달
+    isMobilePlayerListModal:false,
+    isMobileSelectClubModal:false,
+
     // 선수 분석 모달
     isPlayerModal: false,
     selectPlayer:'',
