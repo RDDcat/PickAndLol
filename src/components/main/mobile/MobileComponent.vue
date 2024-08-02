@@ -5,6 +5,9 @@
     <!-- 모바일 메인 화면 -->
     <MoblieIntroComponent v-if="modalStore.isMoblieIntroComponent" />
     <MoblieMapComponent v-if="modalStore.isMoblieMapComponent" />
+    <!-- 플로팅 아이콘 -->
+    <MobileFloatingComponent v-if="modalStore.isMoblieMapComponent"/>
+
     
 </template>
 <script>
@@ -12,6 +15,8 @@ import MobilePlayerListModal from '@/components/main/mobile/MobilePlayerListModa
 import MobileSelectClubModal from '@/components/main/mobile/MobileSelectClubModal.vue'
 import MoblieIntroComponent from '@/components/main/mobile/MoblieIntroComponent.vue'
 import MoblieMapComponent from '@/components/main/mobile/MoblieMapComponent.vue'
+
+import MobileFloatingComponent from '@/components/main/mobile/MobileFloatingComponent.vue'
 
 import {useCacheStore} from '@/store/cacheStore'
 import {useModalStore} from '@/store/modalStore'
@@ -22,6 +27,7 @@ export default {
         MobileSelectClubModal,
         MoblieIntroComponent,
         MoblieMapComponent,
+        MobileFloatingComponent,
     },
     setup(){
         const cacheStore = useCacheStore()
