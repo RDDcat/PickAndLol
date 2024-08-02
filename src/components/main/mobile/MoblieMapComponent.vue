@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col w-full">
         <!-- 가이드 텍스트 -->
-        <div class="my-4">
+        <div class="my-2">
             <div class="flex w-full my-2 px-8 text-point-600 text-sm ">
                 2/3
             </div>
@@ -15,7 +15,7 @@
         </div>
 
         <!-- 지도 -->
-        <div class="flex mx-auto my-4">
+        <div class="flex mx-auto">
             <img class="mx-auto w-96" src="@/assets/map.png" alt="">
         </div>
         
