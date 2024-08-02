@@ -22,6 +22,7 @@ export const useCacheStore = defineStore('cacheStore', {
         temporaryChangeCount: 2,
         temporaryMvpCount: 0,
     
+        limitVp:380,
         myTeam:{
             name:"",
             totalVP:0,

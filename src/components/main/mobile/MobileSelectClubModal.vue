@@ -9,7 +9,7 @@
         <!-- 가이드 텍스트 -->
         <div class="my-4">
             <div class="flex w-full my-2 px-8 text-point-600 text-sm ">
-                1/2
+                1/3
             </div>
             <div class="flex w-full px-8 text-xl">
                 <div class="text-point-600">

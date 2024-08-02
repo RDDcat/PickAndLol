@@ -69,7 +69,7 @@
                 <!-- 에러 텍스트 -->
                 <div class="p-2  my-auto text-base text-gray-600 text-ellipsis break-words">
                     <div class="text-red-600">지출할 수 있는 금액을 초과했습니다. </div> 
-                    <div class="text-sm">최대 지출 가능 vp는 {{limitVp}} 입니다.</div>                     
+                    <div class="text-sm">최대 지출 가능 vp는 {{cacheStore.limitVp}} 입니다.</div>                     
                 </div>
             </div>
             <!--  주장 선택이 안됨 -->
@@ -514,7 +514,6 @@ export default {
             step:0,
 
             selected:0,
-            limitVp:380,
 
             hover: '',
 
@@ -614,7 +613,7 @@ export default {
             }
 
             // vpFlag Validation
-            if(this.cacheStore.myTeam.totalVP > this.limitVp){
+            if(this.cacheStore.myTeam.totalVP > this.cacheStore.limitVp){
                 this.vpFlag = true
                 return true
             } else{
