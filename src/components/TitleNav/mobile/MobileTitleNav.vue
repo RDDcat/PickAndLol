@@ -10,13 +10,13 @@
                     MY선수단
                 </button>
                 <!-- 메뉴2 -->
-                <button class="mx-auto w-28 text-center" :class="index===1?'text-red-600':'hover:text-gray-400'" @click="nav(1)">
+                <!-- <button class="mx-auto w-28 text-center" :class="index===1?'text-red-600':'hover:text-gray-400'" @click="nav(1)">
                     일정
-                </button>
+                </button> -->
                 <!-- 메뉴3 -->
-                <button class="mx-auto w-28 text-center" :class="index===2?'text-red-600':'hover:text-gray-400'" @click="nav(2)">
+                <!-- <button class="mx-auto w-28 text-center" :class="index===2?'text-red-600':'hover:text-gray-400'" @click="nav(2)">
                     분석
-                </button>
+                </button> -->
                 <!-- 메뉴4 -->
                 <button class="mx-auto w-28 text-center" :class="index===3?'text-red-600':'hover:text-gray-400'" @click="nav(3)">
                     랭킹
