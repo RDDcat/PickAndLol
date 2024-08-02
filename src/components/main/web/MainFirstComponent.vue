@@ -646,7 +646,6 @@ export default {
             // 팀명 설정 모달 켜기
             this.modalStore.isSetTeamNameModal = true
 
-        
         },
         lineFilter(index){
             if(this.lines[index].name===this.cacheStore.mainLineNav){

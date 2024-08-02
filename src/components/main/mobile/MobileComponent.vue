@@ -5,6 +5,11 @@
     <!-- 플로팅 아이콘 -->
     <MobileFloatingComponent v-if="modalStore.isMoblieMapComponent"/>
 
+    <!-- 모바일 메인 화면 2 -->
+    <!-- {{this.cacheStore.isSave}} -->
+
+    <!-- 모바일 메인 화면 2 -->
+
 </template>
 <script>
 import MoblieIntroComponent from '@/components/main/mobile/MoblieIntroComponent.vue'
@@ -41,8 +46,8 @@ export default {
 
         // 로그인 이후에 응원팀 모달로 유도
         // 로그인이 되어있고, 응원팀이 설정되지 않았다면 응원팀 모달 노출
-        console.log('응원팀 없나? : ', !this.cacheStore.team)
-        if(!this.cacheStore.team && this.cacheStore.userId!==0){
+        console.log('응원팀 없나? : ', !this.cacheStore.myTeam.team)
+        if(!this.cacheStore.myTeam.team && this.cacheStore.userId!==0){
             this.modalStore.isMobileSelectClubModal=true
             this.modalStore.isMoblieIntroComponent = false
             this.modalStore.isMoblieMapComponent=true

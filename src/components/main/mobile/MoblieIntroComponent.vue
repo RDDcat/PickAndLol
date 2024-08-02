@@ -55,11 +55,13 @@ export default {
                 console.log('로그인 되어있고 응원팀 선택이 안되어있으면')
                 this.modalStore.isMobileSelectClubModal = true
                 this.modalStore.isMoblieMapComponent = true
+                this.modalStore.isMoblieIntroComponent = false
                 return
             }
 
             // 로그인이 되어있으면 지도창
             this.modalStore.isMoblieMapComponent = true
+            this.modalStore.isMoblieIntroComponent = false
         },
 
     },
