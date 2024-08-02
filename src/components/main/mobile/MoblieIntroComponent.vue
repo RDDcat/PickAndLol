@@ -50,15 +50,22 @@ export default {
             }
             console.log('로그인 됨')
 
-            // 로그인이 되어있으면 지도창
-            this.modalStore.isMobileSelectClubModal = true
+            // 로그인이 되어있고 응원팀 선택이 안되어있으면
+            if(this.cacheStore.userId===0&&this.cacheStore.myTeam.team===''){
+                console.log('로그인 되어있고 응원팀 선택이 안되어있으면')
+                this.modalStore.isMobileSelectClubModal = true
+                this.modalStore.isMoblieMapComponent = true
+                return
+            }
 
+            // 로그인이 되어있으면 지도창
+            this.modalStore.isMoblieMapComponent = true
         },
 
     },
     // 초기 설정
     mounted(){
-        
+
     }
 }
 </script>

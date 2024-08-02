@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col w-full">
-        <div class="mx-auto my-16">
-            <img src="@/assets/Union.svg" alt="">
+        <div class="flex mx-auto my-16">
+            <img class="mx-auto w-96" src="@/assets/map.png" alt="">
         </div>
         지도지도지도
 
