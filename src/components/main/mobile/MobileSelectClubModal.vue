@@ -7,14 +7,26 @@
         </div>
 
         <!-- 가이드 텍스트 -->
+        <div class="my-4">
+            <div class="flex w-full my-2 px-8 text-point-600 text-sm ">
+                1/2
+            </div>
+            <div class="flex w-full px-8 text-xl">
+                <div class="text-point-600">
+                    응원팀</div><div>을 선정해주세요.</div>
+            </div>
+            <div class="flex w-full my-4 px-8 text-gray-300 text-sm ">
+                시즌이 끝날때까지 응원팀을 수정할 수 없습니다.
+            </div>
+        </div>
 
         <!-- 팀 선택 스크롤 -->
 
         <!-- 하단고정 -->
         <div class="fixed bottom-4 flex flex-col w-full px-6">
             <!-- 태그 -->
-            <div class="mx-auto px-5 py-1.5 text-sm rounded-full bg-gray-200 mb-2">
-                TAG
+            <div class="mx-auto px-5 py-1.5 text-sm rounded-full bg-gray-200 mb-2 text-point-600" v-if="cacheStore.myTeam.team">
+                {{cacheStore.myTeam.team}}
             </div>
             <!-- 버튼 -->
             <button class="w-full bg-point-600 text-white text-lg py-1.5 rounded-lg">다음</button>
