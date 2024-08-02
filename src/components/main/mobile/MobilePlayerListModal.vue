@@ -3,7 +3,7 @@
         <!-- 상단 -->
         <div class="flex py-10 px-6">
             <!-- 뒤로가기 버튼 -->
-            <img class="w-6 h-6 object-contain" src="@/assets/arrow_back_black.svg" @click.prevent="modalStore.isMobilePlayerListModal=false">
+            <img class="w-6 h-6 object-contain" src="@/assets/arrow_back_black.svg" @click="modalStore.isMobilePlayerListModal=false">
         </div>
         플레이어 리스트
     </div>

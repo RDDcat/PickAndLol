@@ -1,11 +1,4 @@
 <template>
-    <!-- 모바일 모달  -->
-    <transition name="slide" v-show="modalStore.isMobileSelectClubModal">
-        <MobilePlayerListModal  />
-    </transition>
-    <transition name="slide" v-show="modalStore.isMobilePlayerListModal">
-        <MobileSelectClubModal />
-    </transition>
     <!-- 모바일 메인 화면 -->
     <MoblieIntroComponent v-if="modalStore.isMoblieIntroComponent" />
     <MoblieMapComponent v-if="modalStore.isMoblieMapComponent" />
@@ -14,8 +7,6 @@
 
 </template>
 <script>
-import MobilePlayerListModal from '@/components/main/mobile/MobilePlayerListModal.vue'
-import MobileSelectClubModal from '@/components/main/mobile/MobileSelectClubModal.vue'
 import MoblieIntroComponent from '@/components/main/mobile/MoblieIntroComponent.vue'
 import MoblieMapComponent from '@/components/main/mobile/MoblieMapComponent.vue'
 
@@ -26,8 +17,6 @@ import {useModalStore} from '@/store/modalStore'
 
 export default {
     components: {
-        MobilePlayerListModal,
-        MobileSelectClubModal,
         MoblieIntroComponent,
         MoblieMapComponent,
         MobileFloatingComponent,
@@ -64,14 +53,6 @@ export default {
 </script>
 <style scoped>
 
-/* Vue 트랜지션 */
-.slide-enter-active, .slide-leave-active {
-    transition: all 0.3s ease-in-out;
-}
-.slide-enter-from, .slide-leave-to {
-    transform: translateX(30%);
-    opacity: 0;
-}
 
 
 </style>
