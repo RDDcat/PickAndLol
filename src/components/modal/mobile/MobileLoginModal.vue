@@ -18,8 +18,8 @@
                 에
             </div>
             <div class="text-xl">도전하세요!</div>
-
         </div>
+
         <!-- 하단 -->
         <div class="fixed bottom-8 flex flex-col w-full px-6">
             <!--  버튼 -->

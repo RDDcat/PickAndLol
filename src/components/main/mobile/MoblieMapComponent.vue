@@ -1,11 +1,10 @@
 <template>
-    <div class="fixed overscroll-contain flex flex-col bg-white w-full h-screen z-50">
-        <!-- 상단 -->
-        <div class="flex py-10 px-6">
-            <!-- 뒤로가기 버튼 -->
-            <img class="w-6 h-6 object-contain" src="@/assets/arrow_back_black.svg" @click.prevent="modalStore.isMobilePlayerListModal=false">
+    <div class="flex flex-col w-full">
+        <div class="mx-auto my-16">
+            <img src="@/assets/Union.svg" alt="">
         </div>
-        플레이어 리스트
+        지도지도지도
+
     </div>
 </template>
 <script>
@@ -27,8 +26,15 @@ export default {
         }
     },
     methods: {
+        start(){
+
+        },
 
     },
+    // 초기 설정
+    mounted(){
+
+    }
 }
 </script>
 <style scoped>
