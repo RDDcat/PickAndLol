@@ -50,7 +50,10 @@
                 {{cacheStore.myTeam.team}}
             </div>
             <!-- 버튼 -->
-            <button class="w-full bg-point-600 text-white text-lg py-1.5 rounded-lg">다음</button>
+            <button @click="modalStore.isMobileSelectClubModal=false"
+                class="w-full bg-point-600 text-white text-lg py-1.5 rounded-lg">
+                다음
+            </button>
 
         </div>
     </div>
@@ -83,6 +86,7 @@ export default {
 
         const updateSelectedClub = () => {
             cacheStore.myTeam.team = filteredClubs.value[currentIndex.value].clubName
+            cacheStore.myTeam.teamLogo = filteredClubs.value[currentIndex.value].clubLogo
         }
 
         const startDrag = (event) => {
