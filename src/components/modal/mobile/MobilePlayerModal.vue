@@ -1,99 +1,120 @@
 <template>
-<div class="fixed overscroll-contain bg-opacity-90 bg-red-950 flex w-full h-screen z-50" @click.stop="modalStore.isMobilePlayerModal=false">
+<div class="fixed overscroll-contain bg-opacity-90 bg-point-600 flex w-full h-screen z-50" @click.stop="close">
     <!-- 전체 프레임 -->
-    <div class="relative mx-auto w-[1080px] flex flex-col" >
-        <!-- 안내 문구 -->
-        <div class="mx-auto mt-8 text-gray-200 opacity-20">
-            배경 클릭시 꺼짐
-        </div>
-        <!-- 윗 프레임 -->
-        <div class="relative mx-auto mt-8 w-full h-[700px] flex" @click.stop>
-            <!-- 큰 선수 이미지 -->
-            <img class="absolute left-4 bottom-0 w-[400px] object-contain" :src="'./assets/player/'+modalStore.selectPlayer.clubName+'_'+modalStore.selectPlayer.playerName+'.svg'">
-            <!-- 왼쪽 프레임 -->
-            <div class="w-[380px] h-full bg-red-600 rounded-l-lg">
-                <!-- 팀 로고 -->
-                <div class="ml-6 mt-8">
-                    <img class="object-cover w-10 h-10 p-1 rounded-full bg-red-100" :src="'./assets/logo/color_'+modalStore.selectPlayer.clubName+'.png'"
-                        @error="setDefaultImage($event)">
+    <div class="relative w-full flex flex-col" >
+        <!-- 타이틀 -->
+        <div class="w-full flex">
+            <!-- 텍스트 -->
+            <div class="mx-auto my-2 flex flex-col text-white ">
+                <div class="mx-auto text-sm">
+                    {{modalStore.selectPlayer.playerPosition}}
                 </div>
-                <!-- 시즌 누적 점수 -->
-                <div class="text-white ml-6 mt-4">
-                    시즌 누적 점수 {{modalStore.selectPlayer.stat}}
-                </div>
-            </div>
-            <!-- 오른쪽 프레임 -->
-            <div class="flex flex-col w-[700px] h-full bg-white rounded-r-lg ">
-                <!-- 이름 -->
-                <div class="ml-12 mt-8 text-3xl font-bold">
+                <div class="text-xl">
                     {{modalStore.selectPlayer.clubName}} {{modalStore.selectPlayer.playerName}}
                 </div>
-                <!-- 플레이어 정보 -->
-
-                <!-- 플레이어 지표 -->
-                <div class="ml-12">
-                    <!-- 지표 타이틀 -->
-                    <div class="text-red-600">플레이 지표</div>
-                    <!-- 지표 정보 -->
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <!-- 지표 -->
-                        <div class="flex flex-col w-20 h-20 rounded-full p-2 bg-red-200">
-                            <div class="text-white mx-auto mt-auto text-base">
-                                {{formatNumber(modalStore.selectPlayer.kda)}}
-                            </div>
-                            <div class="text-white mx-auto mb-auto text-xs">
-                                KDA
+            </div>
+        </div>        
+        <!-- 윗 프레임 -->
+        <div class="relative mt-10 w-full h-5/6 bg-white flex flex-col" @click.stop>
+            <!-- 첫 섹터 -->
+            <div class="w-full flex mx-auto">
+                <!-- 선수 카드 -->
+                <button @click="close" 
+                    class="w-1/2 my-4 aspect-[2/3] flex flex-col rounded-lg cursor-pointer">
+                    <!-- 카드 -->
+                    <div class="shadow-md m-auto">
+                        <!-- 선수 카드 내용 -->
+                        <div class="px-2 font-bold text-sm">
+                            {{modalStore.selectPlayer.playerName}}
+                        </div>
+                        <div class="w-full px-2 flex text-xs">
+                            <div class="my-auto font-medium text-gray-600" v-if="modalStore.selectPlayer.playerPosition">{{modalStore.selectPlayer.playerPosition.toUpperCase()}} </div>
+                            <img class="object-cover mx-1 w-4 h-4" :src="'./assets/logo/color_'+modalStore.selectPlayer.clubName+'.png'"
+                                @error="setDefaultImage($event)">
+                            <div class="flex my-auto font-medium text-red-600">
+                                {{modalStore.selectPlayer.vp}}
+                                <img class="ml-1 w-3 h-3" src="@/assets/icon/vp.png">
                             </div>
                         </div>
-                        <!-- 지표 -->
-                        <div class="flex flex-col w-20 h-20 rounded-full p-2 bg-red-200">
-                            <div class="text-white mx-auto mt-auto text-base">
-                                {{modalStore.selectPlayer.damage}}
-                            </div>
-                            <div class="text-white mx-auto mb-auto text-xs">
-                                Damage
-                            </div>
-                        </div>
-                        <!-- 지표 -->
-                        <div class="flex flex-col w-20 h-20 rounded-full p-2 bg-red-200">
-                            <div class="text-white mx-auto mt-auto text-base">
-                                {{formatNumber(modalStore.selectPlayer.killRate)}}
-                            </div>
-                            <div class="text-white mx-auto mb-auto text-xs">
-                                킬관여율
+                        <!-- 선수 이미지 -->
+                        <div class="relative w-full pt-[120%]">
+                            <div class="absolute inset-2 bg-gray-100 rounded-lg"></div>
+                            <div class="absolute inset-2 bg-gray-100 rounded-lg flex">
+                                <img class="w-full object-cover object-top rounded-lg"
+                                @error="setDefaultImage($event)"
+                                :src="'./assets/player/'+modalStore.selectPlayer.clubName+'_'+modalStore.selectPlayer.playerName+'.svg'">
                             </div>
                         </div>
-                        <!-- 지표 -->
-                        <div class="flex flex-col w-20 h-20 rounded-full p-2 bg-red-200">
-                            <div class="text-white mx-auto mt-auto text-base">
-                                {{modalStore.selectPlayer.playCount}}
-                            </div>
-                            <div class="text-white mx-auto mb-auto text-xs">
-                                출전경기
-                            </div>
+                    </div>
+                </button>
+                <!-- 선수 정보 -->
+                <div class="w-1/2 flex flex-col">
+                    <div class="text-base my-auto mr-auto px-4">{{ selectedPlayerInfo }}</div>
+                </div>
+            </div>
+            <!-- 지표 섹터 -->
+            <div class="w-full flex flex-col my-2">
+                <!-- 지표 타이틀 -->
+                <div class="mx-auto text-point-600 ">플레이 지표</div>
+                <!-- 지표 정보 -->
+                <div class="px-8 flex flex-wrap justify-center gap-2 mt-4">
+                    <!-- 지표 -->
+                    <div class="flex flex-col w-24 h-24 rounded-full p-2 bg-red-200">
+                        <div class="text-white mx-auto mt-auto text-lg font-bold">
+                            {{formatNumber(modalStore.selectPlayer.kda)}}
                         </div>
-                        <!-- 지표 -->
-                        <div class="flex flex-col w-20 h-20 rounded-full p-2 bg-red-200">
-                            <div class="text-white mx-auto mt-auto text-base">
-                                {{modalStore.selectPlayer.cs}}
-                            </div>
-                            <div class="text-white mx-auto mb-auto text-xs">
-                                cs
-                            </div>
+                        <div class="text-white mx-auto mb-auto text-sm">
+                            KDA
                         </div>
-
+                    </div>
+                    <!-- 지표 -->
+                    <div class="flex flex-col w-24 h-24 rounded-full p-2 bg-red-200">
+                        <div class="text-white mx-auto mt-auto text-lg font-bold">
+                            {{modalStore.selectPlayer.damage}}
+                        </div>
+                        <div class="text-white mx-auto mb-auto text-sm">
+                            Damage
+                        </div>
+                    </div>
+                    <!-- 지표 -->
+                    <div class="flex flex-col w-24 h-24 rounded-full p-2 bg-red-200">
+                        <div class="text-white mx-auto mt-auto text-lg font-bold">
+                            {{formatNumber(modalStore.selectPlayer.killRate)}}
+                        </div>
+                        <div class="text-white mx-auto mb-auto text-sm">
+                            킬관여율
+                        </div>
+                    </div>
+                    <!-- 지표 -->
+                    <div class="flex flex-col w-24 h-24 rounded-full p-2 bg-red-200">
+                        <div class="text-white mx-auto mt-auto text-lg font-bold">
+                            {{modalStore.selectPlayer.playCount}}
+                        </div>
+                        <div class="text-white mx-auto mb-auto text-sm">
+                            출전경기
+                        </div>
+                    </div>
+                    <!-- 지표 -->
+                    <div class="flex flex-col w-24 h-24 rounded-full p-2 bg-red-200">
+                        <div class="text-white mx-auto mt-auto text-lg font-bold">
+                            {{modalStore.selectPlayer.cs}}
+                        </div>
+                        <div class="text-white mx-auto mb-auto text-sm">
+                            cs
+                        </div>
                     </div>
                 </div>
-
-                <img class="m-auto w-80 object-contain" src="@/assets/coming-soon-logo.png">
-
             </div>
+            <!-- 최근경기 섹터 -->
+            <!-- <div class="w-full flex">
+                <img class="m-auto w-80 object-contain" src="@/assets/coming-soon-logo.png">
+            </div> -->
         </div>
     </div>
-    <!-- <img class="mx-auto w-80 object-contain" src="@/assets/coming-soon-logo.png"> -->
 </div>
 </template>
 <script>
+import { computed } from 'vue'
 import {useModalStore} from '@/store/modalStore'
 
 export default {
@@ -110,7 +131,16 @@ export default {
             return number % 1 === 0 ? number : number.toFixed(2);
         };
 
-        return { modalStore, formatNumber }
+        const selectedPlayerInfo = computed(() => {
+            const infoArray = modalStore.selectPlayer.playerInfo
+            if (infoArray && infoArray.length > 0) {
+                const randomIndex = Math.floor(Math.random() * infoArray.length)
+                return infoArray[randomIndex]
+            }
+            return ''
+        })
+
+        return { modalStore, formatNumber, selectedPlayerInfo }
     },
     data(){
         return {
@@ -120,6 +150,9 @@ export default {
     methods: {
         setDefaultImage(event) {
             event.target.src = './assets/logo.png';
+        },
+        close(){
+            this.modalStore.isMobilePlayerModal=false
         },
 
     },
