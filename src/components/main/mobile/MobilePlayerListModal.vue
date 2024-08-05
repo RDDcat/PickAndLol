@@ -2,14 +2,7 @@
     <div class="fixed inset-0 flex flex-col bg-white z-50">
         <!-- 상단 -->
         <div class="flex py-10 px-6">
-            <!-- 뒤로가기 버튼 -->
-            <div class="w-4"></div>
             <img class="w-6 h-6 object-contain" src="@/assets/arrow_back_black.svg" @click="modalStore.isMobilePlayerListModal=false">
-            <div class="flex w-4 h-4 text-white">
-                <div class="m-auto">
-                    X
-                </div>
-            </div>
         </div>
         <!-- 필터 -->
 
@@ -57,18 +50,18 @@
                         <div class="mx-auto mt-2 text-gray-400">
                             KDA {{formatNumber(player.kda)}}
                         </div>
-                        <div class="my-auto mx-auto flex flex-col">
-                            <div class="mx-auto text-white">
-                                시즌 획득 점수
+                        <div class="my-8 mx-auto flex flex-col">
+                            <div class="mx-auto text-black">
+                                시즌 누적 점수
                             </div>
-                            <div class="mx-auto  text-white text-2xl font-bold">
+                            <div class="mx-auto  text-black text-2xl font-bold">
                                 {{player.stat}}
                             </div>
                         </div>
-                        <div class="mx-auto px-2 mt-auto mb-1 text-white whitespace-pre-wrap ">
+                        <div class="mx-auto px-2 mt-auto mb-1 text-black whitespace-pre-wrap ">
                             {{player.info}}
                         </div>
-                        <div v-if="showClickText[player.playerId]" class="mx-auto px-2 mb-3 text-gray-400 whitespace-pre-wrap ">
+                        <div v-if="showClickText[player.playerId]" class="mx-auto mt-auto px-2 mb-3 text-gray-400 whitespace-pre-wrap ">
                             click!
                         </div>
                     </div>

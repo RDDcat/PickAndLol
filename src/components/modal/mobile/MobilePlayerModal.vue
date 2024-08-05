@@ -17,7 +17,7 @@
                 </div>
             </div>
             <img class="my-auto w-6 h-6 object-contain" src="@/assets/arrow_back.svg">
-        </div>        
+        </div>
         <!-- 윗 프레임 -->
         <div class="relative w-full h-5/6 bg-white flex flex-col" @click.stop>
             <!-- 첫 섹터 -->
