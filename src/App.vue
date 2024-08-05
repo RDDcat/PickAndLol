@@ -17,6 +17,7 @@
   <transition name="slide" v-show="modalStore.isMobileSelectClubModal">
       <MobileSelectClubModal />
   </transition>
+  <MobilePlayerModal v-show="modalStore.isMobilePlayerModal"/>
 
   <router-view />
 </template>
@@ -32,6 +33,7 @@ import SaveWarningModal from '@/components/modal/SaveWarningModal.vue'
 import MobileLoginModal from '@/components/modal/mobile/MobileLoginModal.vue'
 import MobilePlayerListModal from '@/components/main/mobile/MobilePlayerListModal.vue'
 import MobileSelectClubModal from '@/components/main/mobile/MobileSelectClubModal.vue'
+import MobilePlayerModal from '@/components/modal/mobile/MobilePlayerModal.vue'
 
 import api from '@/api/api'
 
@@ -52,6 +54,7 @@ export default {
     MobileLoginModal,
     MobilePlayerListModal,
     MobileSelectClubModal,
+    MobilePlayerModal,
   },
   setup(){
     const cacheStore = useCacheStore()

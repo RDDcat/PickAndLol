@@ -17,10 +17,10 @@
                 <!-- 선수 카드 -->
                 <button @click="clickSpin(player.playerId)" 
                         class="relative w-full aspect-[2/3] flex flex-col rounded-lg cursor-pointer"
-                        :class="{'flipped': isFlipped[player.playerId], 'shadow-2xl': isFlipped[player.playerId], 'shadow-md': !isFlipped[player.playerId]}">
+                        :class="{'flipped': isFlipped[player.playerId]}">
 
                     <!-- 카드 앞면 -->
-                    <div class="card-front">
+                    <div class="card-front shadow-md ">
                         <!-- 선수 카드 내용 -->
                         <div class="px-2 font-bold text-sm">
                             {{player.playerName}}
@@ -35,7 +35,7 @@
                             </div>
                         </div>
                         <!-- 선수 이미지 -->
-                        <div class="relative w-full pt-[120%]"> <!-- 4:5 비율 유지 -->
+                        <div class="relative w-full pt-[120%]">
                             <div class="absolute inset-2 bg-gray-100 rounded-lg"></div>
                             <div class="absolute inset-2 bg-gray-100 rounded-lg flex">
                                 <img class="w-full object-cover object-top rounded-lg"
@@ -44,12 +44,26 @@
                             </div>
                         </div>
                     </div>
+
                     <!-- 카드 뒷면 -->
-                    <div class="card-back">
-                        <!-- 여기에 뒷면 컴포넌트를 추가하세요 -->
-                        <div class="p-4">
-                            <h3 class="font-bold">{{ player.playerName }} 상세 정보</h3>
-                            <!-- 추가적인 선수 정보를 여기에 표시 -->
+                    <div class="card-back shadow-xl">
+                        <!-- 스탯 정보 -->
+                        <div class="mx-auto mt-2 text-gray-400">
+                            KDA {{formatNumber(player.kda)}}
+                        </div>
+                        <div class="my-auto mx-auto flex flex-col">
+                            <div class="mx-auto text-white">
+                                시즌 획득 점수
+                            </div>
+                            <div class="mx-auto  text-white text-2xl font-bold">
+                                {{player.stat}}
+                            </div>
+                        </div>
+                        <div class="mx-auto px-2 mt-auto mb-1 text-white whitespace-pre-wrap ">
+                            {{player.info}}
+                        </div>
+                        <div v-if="showClickText[player.playerId]" class="mx-auto px-2 mb-3 text-gray-400 whitespace-pre-wrap ">
+                            click!
                         </div>
                     </div>
                 </button>
@@ -97,6 +111,8 @@ export default {
         const modalStore = useModalStore()
         const staticStore = useStaticStore()
         const isFlipped = ref({})
+        const lastClickTime = ref({})
+        const showClickText = ref({})
 
         const players = computed(() => cacheStore.players || [])
 
@@ -109,11 +125,27 @@ export default {
         }
 
         const clickSpin = (playerId) => {
-            if (playerId in isFlipped.value) {
-                isFlipped.value[playerId] = !isFlipped.value[playerId]
+            const currentTime = new Date().getTime()
+            const timeSinceLastClick = currentTime - (lastClickTime.value[playerId] || 0)
+
+            if (isFlipped.value[playerId] && timeSinceLastClick < 3000) {  // 앞면에서 뒷면으로 갈 때만 더블클릭 처리
+                modalStore.isMobilePlayerModal = true
+                modalStore.selectPlayer = players.value.find(player => player.playerId === playerId)
+                showClickText.value[playerId] = false
             } else {
-                isFlipped.value[playerId] = true
+                isFlipped.value[playerId] = !isFlipped.value[playerId]
+                
+                if (!isFlipped.value[playerId]) {  // 뒷면에서 앞면으로 갈 때
+                    showClickText.value[playerId] = false
+                } else {  // 앞면에서 뒷면으로 갈 때
+                    showClickText.value[playerId] = true
+                    setTimeout(() => {
+                        showClickText.value[playerId] = false
+                    }, 3000)  // 3000ms 후에 "click!" 텍스트 숨김
+                }
             }
+
+            lastClickTime.value[playerId] = currentTime
         }
         const showPlayer = (player) => {
             return (cacheStore.mainLineNav.toLowerCase() === player.playerPosition || cacheStore.mainLineNav === '전체') &&
@@ -135,7 +167,7 @@ export default {
         })
 
 
-        return { cacheStore, modalStore, staticStore, players, isFlipped, initializeIsFlipped, clickSpin, showPlayer, formatNumber }
+        return { cacheStore, modalStore, staticStore, players, isFlipped, showClickText, initializeIsFlipped, clickSpin, showPlayer, formatNumber }
     },
     data(){
         return {
@@ -309,7 +341,7 @@ export default {
 }
 
 .card-back {
-  background-color: #f0f0f0;
+  background-color: #fff;
   transform: rotateY(180deg);
 }
 .relative {
