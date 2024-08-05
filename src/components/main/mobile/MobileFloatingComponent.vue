@@ -1,7 +1,7 @@
 <template>
     <div class="fixed flex flex-col right-0 top-32">
         <!-- 응원팀으로 가기 -->
-        <div class="flex mb-1 w-10 h-10 bg-point-50 rounded-l-lg">
+        <div class="flex mb-1 w-10 h-10 bg-point-600 rounded-l-lg">
             <img class="m-auto w-8 h-8  rounded-lg bg-white object-contain" :src="cacheStore.myTeam.teamLogo" 
                 @click="modalStore.isMobileSelectClubModal=true"/>
         </div>

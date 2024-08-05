@@ -40,7 +40,7 @@
                     <img class="w-6 h-6" src="@/assets/icon/top_icon.png">
                 </div>
                 <!-- 선수 초상화 -->
-                <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.top.img">
+                <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.top.img" @error="setDefaultImage($event)">
                 <!-- 선수 이름 -->
                 <div class="flex my-auto ml-6 text-base ">
                     <div class="font-bold">{{cacheStore.myTeam.players.top.name ? cacheStore.myTeam.players.top.team : ''}}</div>
@@ -62,7 +62,7 @@
                     <img class="w-6 h-6" src="@/assets/icon/jgl_icon.png">
                 </div>
                 <!-- 선수 초상화 -->
-                <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.jgl.img">
+                <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.jgl.img" @error="setDefaultImage($event)">
                 <!-- 선수 이름 -->
                 <div class="flex my-auto ml-6 text-base ">
                     <div class="font-bold">{{cacheStore.myTeam.players.jgl.name ? cacheStore.myTeam.players.jgl.team : ''}}</div>
@@ -85,7 +85,7 @@
                     <img class="w-6 h-6" src="@/assets/icon/mid_icon.png">
                 </div>
                 <!-- 선수 초상화 -->
-                <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.mid.img">
+                <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.mid.img" @error="setDefaultImage($event)">
                 <!-- 선수 이름 -->
                 <div class="flex my-auto ml-6 text-base ">
                     <div class="font-bold">{{cacheStore.myTeam.players.mid.name ? cacheStore.myTeam.players.mid.team : ''}}</div>
@@ -108,7 +108,7 @@
                     <img class="w-6 h-6" src="@/assets/icon/adc_icon.png">
                 </div>
                 <!-- 선수 초상화 -->
-                <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.adc.img">
+                <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.adc.img" @error="setDefaultImage($event)">
                 <!-- 선수 이름 -->
                 <div class="flex my-auto ml-6 text-base ">
                     <div class="font-bold">{{cacheStore.myTeam.players.adc.name ? cacheStore.myTeam.players.adc.team : ''}}</div>
@@ -131,7 +131,7 @@
                     <img class="w-6 h-6" src="@/assets/icon/sup_icon.png">
                 </div>
                 <!-- 선수 초상화 -->
-                <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.sup.img">
+                <img class="my-auto w-10 h-10 rounded-full" :src="cacheStore.myTeam.players.sup.img" @error="setDefaultImage($event)">
                 <!-- 선수 이름 -->
                 <div class="flex my-auto ml-6 text-base ">
                     <div class="font-bold">{{cacheStore.myTeam.players.sup.name ? cacheStore.myTeam.players.sup.team : ''}}</div>
@@ -189,6 +189,10 @@ export default {
         }
     },
     methods: {
+        setDefaultImage(event) {
+            event.target.src = './assets/logo.png';
+            event.target.style.opacity = '0.2';
+        },
         valid(){
             // selectTeamFlag Validation
             if(!this.cacheStore.myTeam.team){
