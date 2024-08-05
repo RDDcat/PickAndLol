@@ -3,7 +3,13 @@
         <!-- 상단 -->
         <div class="flex py-10 px-6">
             <!-- 뒤로가기 버튼 -->
+            <div class="w-4"></div>
             <img class="w-6 h-6 object-contain" src="@/assets/arrow_back_black.svg" @click="modalStore.isMobilePlayerListModal=false">
+            <div class="flex w-4 h-4 text-white">
+                <div class="m-auto">
+                    X
+                </div>
+            </div>
         </div>
         <!-- 필터 -->
 

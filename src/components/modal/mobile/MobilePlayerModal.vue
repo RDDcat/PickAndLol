@@ -3,19 +3,23 @@
     <!-- 전체 프레임 -->
     <div class="relative w-full flex flex-col" >
         <!-- 타이틀 -->
-        <div class="w-full flex">
+        <div class="w-full flex px-8 my-4 ">
+            <div class="w-6"></div>
             <!-- 텍스트 -->
-            <div class="mx-auto my-2 flex flex-col text-white ">
+            <div class="w-full mx-auto flex flex-col text-white ">
                 <div class="mx-auto text-sm">
                     {{modalStore.selectPlayer.playerPosition}}
                 </div>
-                <div class="text-xl">
-                    {{modalStore.selectPlayer.clubName}} {{modalStore.selectPlayer.playerName}}
+                <div class="flex text-xl">
+                    <div class="mx-auto">
+                        {{modalStore.selectPlayer.clubName}} {{modalStore.selectPlayer.playerName}}
+                    </div>
                 </div>
             </div>
+            <img class="my-auto w-6 h-6 object-contain" src="@/assets/arrow_back.svg">
         </div>        
         <!-- 윗 프레임 -->
-        <div class="relative mt-10 w-full h-5/6 bg-white flex flex-col" @click.stop>
+        <div class="relative w-full h-5/6 bg-white flex flex-col" @click.stop>
             <!-- 첫 섹터 -->
             <div class="w-full flex mx-auto">
                 <!-- 선수 카드 -->
