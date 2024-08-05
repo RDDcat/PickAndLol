@@ -20,7 +20,7 @@
             <div class="w-full flex mx-auto">
                 <!-- 선수 카드 -->
                 <button @click="close" 
-                    class="w-1/2 my-4 aspect-[2/3] flex flex-col rounded-lg cursor-pointer">
+                    class="w-1/2 my-2 aspect-[2/3] flex flex-col rounded-lg cursor-pointer">
                     <!-- 카드 -->
                     <div class="shadow-md m-auto">
                         <!-- 선수 카드 내용 -->
@@ -49,7 +49,7 @@
                 </button>
                 <!-- 선수 정보 -->
                 <div class="w-1/2 flex flex-col">
-                    <div class="text-base my-auto mr-auto px-4">{{ selectedPlayerInfo }}</div>
+                    <div class="flex text-base my-auto mx-auto">{{ selectedPlayerInfo }} <div class="w-4"></div> </div>
                 </div>
             </div>
             <!-- 지표 섹터 -->
