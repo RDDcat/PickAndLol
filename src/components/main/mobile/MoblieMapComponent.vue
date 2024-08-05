@@ -151,7 +151,7 @@
         <div class="w-full flex items-center space-x-1 px-6 my-4">
             <!-- 주장 설정하기 -->
             <button class="relative py-2.5 px-2 overflow-hidden text-base font-medium text-gray-900 rounded-lg group bg-white ring-1 ring-point-600 "
-                @click="modalStore.isSelectCaptainModal=true">
+                @click="modalStore.isMobileSelectCaptainModal=true">
                 주장 설정하기
             </button>
 

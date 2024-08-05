@@ -18,6 +18,7 @@
       <MobileSelectClubModal />
   </transition>
   <MobilePlayerModal v-show="modalStore.isMobilePlayerModal"/>
+  <MobileSelectCaptainModal v-show="modalStore.isMobileSelectCaptainModal"/>
 
   <router-view />
 </template>
@@ -34,6 +35,7 @@ import MobileLoginModal from '@/components/modal/mobile/MobileLoginModal.vue'
 import MobilePlayerListModal from '@/components/main/mobile/MobilePlayerListModal.vue'
 import MobileSelectClubModal from '@/components/main/mobile/MobileSelectClubModal.vue'
 import MobilePlayerModal from '@/components/modal/mobile/MobilePlayerModal.vue'
+import MobileSelectCaptainModal from '@/components/modal/mobile/MobileSelectCaptainModal.vue'
 
 import api from '@/api/api'
 
@@ -55,6 +57,7 @@ export default {
     MobilePlayerListModal,
     MobileSelectClubModal,
     MobilePlayerModal,
+    MobileSelectCaptainModal,
   },
   setup(){
     const cacheStore = useCacheStore()
