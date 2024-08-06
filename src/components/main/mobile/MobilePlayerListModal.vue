@@ -41,7 +41,7 @@
                                 @error="setDefaultImage($event)"
                                 :src="'./assets/player/'+player.clubName+'_'+player.playerName+'.svg'">
                             </div>
-                        </div>
+                        </div>``
                     </div>
 
                     <!-- 카드 뒷면 -->

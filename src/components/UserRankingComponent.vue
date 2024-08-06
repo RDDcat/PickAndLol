@@ -1,11 +1,11 @@
 <template>
     <!-- 선수 랭킹 페이지 -->
-    <div class="flex flex-col">
+    <div class="flex flex-col px-4 md:px-0">
         <!-- 타이틀 -->
-        <div class="mx-auto my-4 text-3xl flex">
+        <div class="mx-auto my-4 text-xl md:text-3xl flex">
             2024 LCK 서머 유저 <div class="text-red-600">&nbsp;랭킹</div>
         </div>
-
+        
         <!--  -->
         <div class="flex min-w-[64rem] h-16 bg-red-600 shadow-lg rounded-lg mx-auto" v-if="0">
             <div class="text-white flex my-auto px-4">
@@ -21,9 +21,16 @@
             </button>
         </div>
 
-        <!-- 테이블 -->
-        <div class="relative overflow-x-auto w-[64rem] mx-auto my-4">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+        <!-- 나의 랭킹 (데스크톱에서만 표시) -->
+        <div class="hidden md:flex w-full md:w-[64rem] h-16 bg-red-600 shadow-lg rounded-lg mx-auto" v-if="0">
+            
+        </div>
+
+        <!-- 테이블 / 카드 리스트 -->
+        <div class="w-full md:w-[64rem] mx-auto my-4">
+            <!-- 데스크톱 테이블 -->
+            <table class="hidden md:table w-full text-sm text-left rtl:text-right text-gray-500">
+                <!-- 테이블 -->
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50  ">
                     <tr>
                         <th scope="col" class="px-2 py-3">
@@ -88,12 +95,47 @@
                     </tr>
                 </tbody>
             </table>
+
+            <!-- 모바일 카드 리스트 -->
+            <div class="md:hidden">
+                <div v-for="user, index in sortedUsers" :key="user.oauthId" 
+                    class="bg-white border rounded-lg p-4 mb-4 shadow-md">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="flex items-center">
+                            <div class="font-bold mr-2">{{user.rank}}</div>
+                            <img class="w-10 h-10 rounded-full object-cover mr-2" :src="user.teamLogo">
+                            <div class="font-medium">{{user.name}}</div>
+                        </div>
+                        <button @click="showUserDetail(index)" 
+                                class="text-blue-600 underline text-sm">
+                            {{ index === tableNav ? '접기' : '상세 정보' }}
+                        </button>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <div>이번주 획득 점수: {{user.weekStat?user.weekStat:0}}</div>
+                        <div>이번시즌 획득 점수: {{user.totalStat}}</div>
+                    </div>
+                    <div v-if="index === tableNav" class="mt-4">
+                        <div class="font-medium mb-2 text-right">선수별 라운드 점수 변화도</div>
+                        <div class="flex flex-wrap justify-end">
+                            <div v-for="position in ['top', 'jgl', 'mid', 'adc', 'sup']" 
+                                :key="position" 
+                                class="relative m-1">
+                                <img class="rounded-full w-14 h-14 md:w-20 md:h-20 object-contain" 
+                                    :class="user.players[position].isMvp ? 'ring-2 ring-red-500' : ''"
+                                    :src="`./assets/player-circle/${user.players[position].team}_${user.players[position].name}.svg`">
+                                <div v-if="user.players[position].isMvp" 
+                                    class="absolute left-1/2 -bottom-1 transform -translate-x-1/2 px-1 py-0.5 bg-red-500 text-white rounded-full z-10 text-xs">
+                                    CAPTAIN
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- 페이징 -->
-
-
-
 
     </div>
 </template>
