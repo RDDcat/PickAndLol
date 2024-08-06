@@ -1,91 +1,62 @@
 <template>
     <!-- 주장 설정 모달 -->
-    <div class="fixed overscroll-contain flex bg-white bg-opacity-90 backdrop-blur-sm w-full h-full z-40">
-        <div class="relative mx-auto mt-24 flex flex-col max-w-[70rem]">
-            <!-- back -->
-            <div class="absolute right-4 top-4 text-white" @click="modalStore.isSelectCaptainModal = false">
-                x
+    <div class="fixed overscroll-contain flex flex-col bg-white bg-opacity-90 backdrop-blur-sm w-full h-full z-50">
+        <div class="flex py-10 px-6" @click="modalStore.isMobileSelectCaptainModal=false">
+            <!-- 뒤로가기 버튼 -->
+            <img class="w-6 h-6 object-contain" src="@/assets/arrow_back_black.svg" >
+            <div class="mx-auto">
+                주장선택
             </div>
-            <!-- 타이틀 택스트 -->
-            <div class="mx-auto flex flex-col">
-                <div class="mx-auto mt-4 flex gap-2">
+            <div class="w-6"></div>
+        </div>
+        <div class="relative mx-auto mt-2 md:mt-24 flex flex-col w-full max-w-[90vw] md:max-w-[70rem] px-4">
+            <!-- 타이틀 텍스트 -->
+            <div class="flex flex-col">
+                <div class="mt-2 flex gap-2 ">
                     <!-- 응원팀 아이콘 -->
-                    <img class="w-10 h-10 my-auto object-cover rounded-full" :src="cacheStore.myTeam.teamLogo">
-                    <div class="my-auto text-white text-4xl">원하는 주장을 선택하세요</div>
+                    <img class="w-8 h-8 md:w-10 md:h-10 object-cover rounded-full" :src="cacheStore.myTeam.teamLogo">
+                    <div class="flex text-black text-xl md:text-4xl">
+                        <div class="text-point-600">
+                            원하는 주장
+                        </div>
+                        을 선택하세요
+                    </div>
                 </div>
-                <div class="mx-auto mt-10 text-white text-lg">(주장은 점수 두배)</div>
+                <div class="mt-4 md:mt-10 text-gray-400 text-sm md:text-lg">주장은 점수가 두배로 적용됩니다.</div>
                 
                 <div v-show="isMyTeam" 
-                    class="mx-auto mt-4 text-red-200 text-2xl">
+                    class="mx-auto mt-2 md:mt-4 text-point-600 text-lg md:text-2xl text-center">
                     자신의 응원팀에서 주장을 설정해야합니다.
                 </div>
                 <div v-show="isPlayer" 
-                    class="mx-auto mt-4 text-red-200 text-2xl">
+                    class="mx-auto mt-2 md:mt-4 text-point-600 text-lg md:text-2xl text-center">
                     선수를 선택해주세요.
                 </div>
             </div>
             
             <!-- 주장 선택 창 -->
-            <div class="mx-auto mt-16 flex flex-col">
-                <div class="grid grid-cols-5">
-                    <!-- top -->
-                    <div class="flex flex-col w-48 h-72 ">
-                        <img class="m-auto" src="@/assets/icon/top_white.png">
-                        <img class="mx-auto my-4 rounded-full w-36 h-36 object-cover hover:ring-red-400 hover:ring-4" 
-                            :class="click===1?'outline-none ring-red-500 ring-4':''" 
-                            :src="cacheStore.myTeam.players.top.img"
-                            @click="click=1">
-                        <div class="text-center text-white text-xl">{{cacheStore.myTeam.players.top.name}}</div>
-                    </div>
-                    <!-- jgl -->
-                    <div class="flex flex-col w-48 h-72">
-                        <img class="m-auto" src="@/assets/icon/jgl_white.png">
-                        <img class="mx-auto my-4 rounded-full w-36 h-36 object-cover hover:ring-red-400 hover:ring-4" 
-                            :class="click===2?'outline-none ring-red-500 ring-4':''" 
-                            :src="cacheStore.myTeam.players.jgl.img"
-                            @click="click=2">
-                        <div class="text-center text-white text-xl">{{cacheStore.myTeam.players.jgl.name}}</div>
-                    </div>
-
-                    <!-- mid -->
-                    <div class="flex flex-col w-48 h-72">
-                        <img class="m-auto" src="@/assets/icon/mid_white.png">
-                        <img class="mx-auto my-4 rounded-full w-36 h-36 object-cover hover:ring-red-400 hover:ring-4" 
-                            :class="click===3?'outline-none ring-red-500 ring-4':''" 
-                            :src="cacheStore.myTeam.players.mid.img"
-                            @click="click=3">
-                        <div class="text-center text-white text-xl">{{cacheStore.myTeam.players.mid.name}}</div>
-                    </div>
-
-                    <!-- adc -->
-                    <div class="flex flex-col w-48 h-72">
-                        <img class="m-auto" src="@/assets/icon/adc_white.png">
-                        <img class="mx-auto my-4 rounded-full w-36 h-36 object-cover hover:ring-red-400 hover:ring-4" 
-                            :class="click===4?'outline-none ring-red-500 ring-4':''" 
-                            :src="cacheStore.myTeam.players.adc.img"
-                            @click="click=4">
-                        <div class="text-center text-white text-xl">{{cacheStore.myTeam.players.adc.name}}</div>
-                    </div>
-
-                    <!-- sup -->
-                    <div class="flex flex-col w-48 h-72">
-                        <img class="m-auto" src="@/assets/icon/sup_white.png">
-                        <img class="mx-auto my-4 rounded-full w-36 h-36 object-cover hover:ring-red-400 hover:ring-4" 
-                            :class="click===5?'outline-none ring-red-500 ring-4':''" 
-                            :src="cacheStore.myTeam.players.sup.img"
-                            @click="click=5">
-                        <div class="text-center text-white text-xl">{{cacheStore.myTeam.players.sup.name}}</div>
-                    </div>
+            <div class="mx-auto mt-8 md:mt-16 flex flex-col w-full">
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                    <!-- 각 포지션별 선수 -->
+                    <template v-for="(position, index) in ['top', 'jgl', 'mid', 'adc', 'sup']" :key="index">
+                        <div class="flex flex-col items-center">
+                            <img class="w-8 h-8 md:w-auto md:h-auto" :src="`./assets/icon/${position}_icon.png`">
+                            <img class="my-2 md:my-4 rounded-full w-20 h-20 md:w-36 md:h-36 object-cover" 
+                                :class="click === index + 1 ? 'outline-none ring-red-500 ring-4' : ''" 
+                                :src="cacheStore.myTeam.players[position].img"
+                                @click="click = index + 1">
+                            <div class="text-center text-white text-sm md:text-xl">{{cacheStore.myTeam.players[position].name}}</div>
+                        </div>
+                    </template>
                 </div>
             </div>
-
-            <!-- 선택하기 버튼 -->
-            <div class="mx-auto mt-14">
-                <button type="button" class="text-red-600 bg-gradient-to-r from-gray-100 via-white to-gray-100 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-10 py-2.5 text-center"
-                    @click="select()">
-                    선택하기
-                </button>
-            </div>
+        </div>
+        <!-- 하단 버튼 -->
+        <div class="p-4 mt-auto mb-2">
+            <button @click="select()" 
+                    class="w-full bg-red-600 text-white py-3 rounded-lg font-semibold">
+                선택하기
+            </button>
         </div>
     </div>
 </template>

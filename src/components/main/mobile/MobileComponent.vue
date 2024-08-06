@@ -46,6 +46,7 @@ export default {
 
         // 로그인 이후에 응원팀 모달로 유도
         // 로그인이 되어있고, 응원팀이 설정되지 않았다면 응원팀 모달 노출
+        // 유저 아이디가 있을때를 로그인 시점으로 봄
         console.log('응원팀 없나? : ', !this.cacheStore.myTeam.team)
         if(!this.cacheStore.myTeam.team && this.cacheStore.userId!==0){
             this.modalStore.isMobileSelectClubModal=true
