@@ -42,6 +42,7 @@ export default {
     },
     methods: {
         start(){
+            this.cacheStore.isMaking=true
             // 로그인이 안되어있으면 로그인창
             if(this.cacheStore.userId===0){
                 console.log('로그인 안됨')

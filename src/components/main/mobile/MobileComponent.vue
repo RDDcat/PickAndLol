@@ -53,6 +53,19 @@ export default {
             this.modalStore.isMoblieMapComponent=true
             return
         }
+        
+        // 외부에서 갑자기 접근했을때 
+        // > 로그인 안됨
+        // > 로그인 됨
+        // >> 응원팀이 있을때
+        // >> 팀이 있을때
+        // >> 팀을 만들던중
+        if(this.cacheStore.isMaking && this.cacheStore.userId!==0){
+            this.modalStore.isMoblieIntroComponent = false
+            this.modalStore.isMoblieMapComponent=true
+            return
+        }
+
     }
 }
 </script>
