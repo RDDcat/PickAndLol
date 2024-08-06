@@ -16,9 +16,8 @@ export default {
         });
     },
     // 로그인 검증
-    getToken: function(){
-        const cacheStore = useCacheStore();
-        return axios.get(BASE_URL + `token/${cacheStore.token}`,{
+    getToken: function(token){
+        return axios.get(BASE_URL + `token/${token}`,{
             headers: {
                 withCredentials: true,
             },

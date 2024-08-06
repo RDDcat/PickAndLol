@@ -52,6 +52,7 @@ export default {
         // 토큰으로 가져오기
         if(this.$route.query.token){
             console.log('this.$route.query.token : ', this.$route.query.token)
+            this.cacheStore.token = this.$route.query.token
             // 가져온 토큰으로 access, refresh 요청
             await api.getToken(this.$route.query.token)
             .then(response=>{
