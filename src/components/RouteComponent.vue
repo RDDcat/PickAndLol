@@ -21,6 +21,8 @@ import UserRankingComponent from '@/components/UserRankingComponent.vue'
 import GuideComponent from '@/components/GuideComponent.vue'
 import MyComponent from '@/components/MyComponent.vue'
 
+import api from '@/api/api'
+
 import {useCacheStore} from '@/store/cacheStore'
 import {useModalStore} from '@/store/modalStore'
 
@@ -45,7 +47,27 @@ export default {
     methods: {
 
     },
-    created(){
+    async created(){
+        // 앱의 시작지점
+        // 토큰으로 가져오기
+        if(this.$route.query.token){
+            console.log('this.$route.query.token : ', this.$route.query.token)
+            // 가져온 토큰으로 access, refresh 요청
+            await api.getToken(this.$route.query.token)
+            .then(response=>{
+                console.log('response.data : ', response.data)
+                // 데이터 저장
+
+            })
+            .catch(function (e){
+                console.log(e);
+            });
+        }
+
+        
+
+        // 로그인 토큰 관련 로직
+        // param이 있는지 확인해서 있으면 로그인 절차 실행
         console.log('mounted')
         if(this.$route.query.id && !this.cacheStore.userId){
             this.cacheStore.userId = this.$route.query.id
