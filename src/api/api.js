@@ -45,6 +45,7 @@ export default {
         return axios.post(BASE_URL + 'member', body,{
             headers: {
                 withCredentials: true,
+                'access-token': cacheStore.accessToken,
             },
         });
     },
