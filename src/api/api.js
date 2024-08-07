@@ -35,6 +35,19 @@ export default {
             },
         });
     },
+    // 사용자 정보 가져오기
+    postMember: function(){
+        const cacheStore = useCacheStore();
+        let body = {
+            accessToken:cacheStore.accessToken
+        }
+        console.log('check body : ', body)
+        return axios.post(BASE_URL + 'member', body,{
+            headers: {
+                withCredentials: true,
+            },
+        });
+    },
     // 전체 클럽데이터 조회
     getClubs: function(){
         return axios.get(BASE_URL + `club/all`,{

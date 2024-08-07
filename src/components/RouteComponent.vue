@@ -56,8 +56,23 @@ export default {
             // 가져온 토큰으로 access, refresh 요청
             await api.getToken(this.$route.query.token)
             .then(response=>{
-                console.log('response.data : ', response.data)
+                console.log('getToken response.data : ', response.data)
                 // 데이터 저장
+                this.cacheStore.accessToken=response.data.accessToken
+                this.cacheStore.refreshToken=response.data.refreshToken
+                this.modalStore.isLoginWarnModal=false
+
+            })
+            .catch(function (e){
+                console.log(e);
+            });
+            await api.postMember()
+            .then(response=>{
+                console.log('postMember response.data : ', response.data)
+                // 데이터 저장
+                this.cacheStore.userName=response.data.name
+                this.cacheStore.userId=response.data.oauthId
+                this.modalStore.isLoginWarnModal=false
 
             })
             .catch(function (e){
@@ -65,19 +80,17 @@ export default {
             });
         }
 
-        
-
         // 로그인 토큰 관련 로직
         // param이 있는지 확인해서 있으면 로그인 절차 실행
-        console.log('mounted')
-        if(this.$route.query.id && !this.cacheStore.userId){
-            this.cacheStore.userId = this.$route.query.id
-            console.log('check')
-            this.modalStore.isLoginWarnModal=false
-        }
-        if(this.$route.query.name && !this.cacheStore.name){
-            this.cacheStore.userName = this.$route.query.name
-        }
+        // console.log('mounted')
+        // if(this.$route.query.id && !this.cacheStore.userId){
+        //     this.cacheStore.userId = this.$route.query.id
+        //     console.log('check')
+        //     this.modalStore.isLoginWarnModal=false
+        // }
+        // if(this.$route.query.name && !this.cacheStore.name){
+        //     this.cacheStore.userName = this.$route.query.name
+        // }
     }
 }
 </script>
