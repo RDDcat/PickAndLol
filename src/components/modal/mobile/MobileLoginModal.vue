@@ -23,7 +23,7 @@
         <!-- 하단 -->
         <div class="fixed bottom-8 flex flex-col w-full px-6">
             <!--  버튼 -->
-            <img class="w-full" src="@/assets/login/button_google.svg">
+            <img class="w-full" src="@/assets/login/button_google.svg" @click="login">
             <!-- 가이드 텍스트 -->
             <div class="mx-auto mt-2 flex text-xs text-gray-100">
                 *로그인 진행시&nbsp;<div class="underline ">이용약관</div>과&nbsp;<div class="underline ">개인정보 취급방침</div>에 동의하게 됩니다.
@@ -52,6 +52,15 @@ export default {
         }
     },
     methods: {
+        login(){
+            // window.location.href ="https://accounts.google.com/o/oauth2/auth?client_id=94560297607-at6vc76ph2jqecqp43bd8o8oa6j5fbjs.apps.googleusercontent.com&redirect_uri=http://localhost:8080/login/oauth2/code/google&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile";
+            window.location.href = "https://pickandlolback.iwiwantit.com/oauth2/authorization/google"
+            // axios.get('http://localhost:8080',{
+            //     headers: {
+
+            //     },
+            // });
+        }
 
     },
 }
