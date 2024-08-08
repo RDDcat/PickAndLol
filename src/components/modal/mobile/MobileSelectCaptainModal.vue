@@ -181,7 +181,7 @@ export default {
                 this.cacheStore.myTeam.players.adc.isMvp = false
                 this.cacheStore.myTeam.players.sup.isMvp = true
             }
-            this.modalStore.isSelectCaptainModal = false
+            this.modalStore.isMobileSelectCaptainModal = false
         }
     },
 }
