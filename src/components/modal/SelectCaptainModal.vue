@@ -141,37 +141,38 @@ export default {
             }
 
             // 팀이 맞는지 확인
-            if(this.click===1){
-                if(this.cacheStore.myTeam.team!==this.cacheStore.myTeam.players.top.team){
-                    this.isMyTeam =true
-                    this.isPlayer=false
-                    return true
-                }
-            } else if(this.click===2){
-                if(this.cacheStore.myTeam.team!==this.cacheStore.myTeam.players.jgl.team){
-                    this.isMyTeam =true
-                    this.isPlayer=false
-                    return true
-                }
-            } else if(this.click===3){
-                if(this.cacheStore.myTeam.team!==this.cacheStore.myTeam.players.mid.team){
-                    this.isMyTeam =true
-                    this.isPlayer=false
-                    return true
-                }
-            } else if(this.click===4){
-                if(this.cacheStore.myTeam.team!==this.cacheStore.myTeam.players.adc.team){
-                    this.isMyTeam =true
-                    this.isPlayer=false
-                    return true
-                }
-            } else if(this.click===5){
-                if(this.cacheStore.myTeam.team!==this.cacheStore.myTeam.players.sup.team){
-                    this.isMyTeam =true
-                    this.isPlayer=false
-                    return true
-                }
-            }
+            // 24.08.08 삭제
+            // if(this.click===1){
+            //     if(this.cacheStore.myTeam.team!==this.cacheStore.myTeam.players.top.team){
+            //         this.isMyTeam =true
+            //         this.isPlayer=false
+            //         return true
+            //     }
+            // } else if(this.click===2){
+            //     if(this.cacheStore.myTeam.team!==this.cacheStore.myTeam.players.jgl.team){
+            //         this.isMyTeam =true
+            //         this.isPlayer=false
+            //         return true
+            //     }
+            // } else if(this.click===3){
+            //     if(this.cacheStore.myTeam.team!==this.cacheStore.myTeam.players.mid.team){
+            //         this.isMyTeam =true
+            //         this.isPlayer=false
+            //         return true
+            //     }
+            // } else if(this.click===4){
+            //     if(this.cacheStore.myTeam.team!==this.cacheStore.myTeam.players.adc.team){
+            //         this.isMyTeam =true
+            //         this.isPlayer=false
+            //         return true
+            //     }
+            // } else if(this.click===5){
+            //     if(this.cacheStore.myTeam.team!==this.cacheStore.myTeam.players.sup.team){
+            //         this.isMyTeam =true
+            //         this.isPlayer=false
+            //         return true
+            //     }
+            // }
             
 
         },
