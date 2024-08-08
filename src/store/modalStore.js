@@ -17,7 +17,7 @@ export const useModalStore = defineStore('modalStore', {
     isMobileSelectClubModal:false,
     isMobilePlayerModal:false,
     isMobileSelectCaptainModal:false,
-    isMobileSaveWarningModal:true,
+    isMobileSaveWarningModal:false,
     isMobileSetTeamNameModal:false,
     isMobileSetUserNameModal:false,
 
