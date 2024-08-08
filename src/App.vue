@@ -19,6 +19,9 @@
   </transition>
   <MobilePlayerModal v-show="modalStore.isMobilePlayerModal"/>
   <MobileSelectCaptainModal v-show="modalStore.isMobileSelectCaptainModal"/>
+  <MobileSaveWarningModal v-show="modalStore.isMobileSaveWarningModal"/>
+  <MobileSetTeamNameModal v-show="modalStore.isMobileSetTeamNameModal"/>
+  <MobileSetUserNameModal v-show="modalStore.isMobileSetUserNameModal"/>
 
   <router-view />
 </template>
@@ -36,6 +39,9 @@ import MobilePlayerListModal from '@/components/main/mobile/MobilePlayerListModa
 import MobileSelectClubModal from '@/components/main/mobile/MobileSelectClubModal.vue'
 import MobilePlayerModal from '@/components/modal/mobile/MobilePlayerModal.vue'
 import MobileSelectCaptainModal from '@/components/modal/mobile/MobileSelectCaptainModal.vue'
+import MobileSaveWarningModal from '@/components/modal/mobile/MobileSaveWarningModal.vue'
+import MobileSetTeamNameModal from '@/components/modal/mobile/MobileSetTeamNameModal.vue'
+import MobileSetUserNameModal from '@/components/modal/mobile/MobileSetUserNameModal.vue'
 
 import api from '@/api/api'
 
@@ -58,6 +64,9 @@ export default {
     MobileSelectClubModal,
     MobilePlayerModal,
     MobileSelectCaptainModal,
+    MobileSaveWarningModal,
+    MobileSetTeamNameModal,
+    MobileSetUserNameModal,
   },
   setup(){
     const cacheStore = useCacheStore()

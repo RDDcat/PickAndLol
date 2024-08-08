@@ -282,7 +282,7 @@ export default {
             if(this.valid())return
 
             // 팀명 설정 모달 켜기
-            this.modalStore.isSetTeamNameModal = true
+            this.modalStore.isMobileSaveWarningModal=true
 
         },
 
