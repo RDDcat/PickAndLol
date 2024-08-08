@@ -22,7 +22,8 @@
                         을 선택하세요
                     </div>
                 </div>
-                <div class="mt-4 md:mt-10 text-gray-400 text-sm md:text-lg">주장은 점수가 두배로 적용됩니다.</div>
+                <div class="mt-3 md:mt-8 text-gray-400 text-sm md:text-lg">주장은 점수가 두배로 적용됩니다.</div>
+                <div class="text-gray-400 text-sm md:text-lg">*주장은 시즌 중에 변경이 불가능합니다.</div>
                 
                 <div v-show="isMyTeam" 
                     class="mx-auto mt-2 md:mt-4 text-point-600 text-lg md:text-2xl text-center">
