@@ -579,38 +579,40 @@ export default {
 
 
             // moreThanTwoFlag Validation
-            let count=0;
-            for(let index in this.cacheStore.myTeam.players){
-                if(this.cacheStore.myTeam.players[index].team===this.cacheStore.myTeam.team){
-                    count++
-                }
-            }
-            if(count>2){
-                this.moreThanTwoFlag = true
-                this.moreThanTwoFlagText='응원팀 선수가 너무 많습니다. 다시 구성해주세요.'
-                return true
-            }else if(count <2){
-                this.moreThanTwoFlagText='응원팀 선수가 너무 적습니다. 다시 구성해주세요.'
-                this.moreThanTwoFlag = true
-                return true
+            // 24.08.08 삭제
+            // let count=0;
+            // for(let index in this.cacheStore.myTeam.players){
+            //     if(this.cacheStore.myTeam.players[index].team===this.cacheStore.myTeam.team){
+            //         count++
+            //     }
+            // }
+            // if(count>2){
+            //     this.moreThanTwoFlag = true
+            //     this.moreThanTwoFlagText='응원팀 선수가 너무 많습니다. 다시 구성해주세요.'
+            //     return true
+            // }else if(count <2){
+            //     this.moreThanTwoFlagText='응원팀 선수가 너무 적습니다. 다시 구성해주세요.'
+            //     this.moreThanTwoFlag = true
+            //     return true
 
 
-            } else{
-                this.moreThanTwoFlag = false
-            }
+            // } else{
+            //     this.moreThanTwoFlag = false
+            // }
             
             // oneFromOneFlag Validation
-            let hold=[]
-            for(let index in this.cacheStore.myTeam.players){
-                hold.push(this.cacheStore.myTeam.players[index].team);
-            }
-            let uniqueTeams = new Set(hold);
-            if(uniqueTeams.size<4){
-                this.oneFromOneFlag = true
-                return true
-            } else{
-                this.oneFromOneFlag = false
-            }
+            // 24.08.08 삭제
+            // let hold=[]
+            // for(let index in this.cacheStore.myTeam.players){
+            //     hold.push(this.cacheStore.myTeam.players[index].team);
+            // }
+            // let uniqueTeams = new Set(hold);
+            // if(uniqueTeams.size<4){
+            //     this.oneFromOneFlag = true
+            //     return true
+            // } else{
+            //     this.oneFromOneFlag = false
+            // }
 
             // vpFlag Validation
             if(this.cacheStore.myTeam.totalVP > this.cacheStore.limitVp){
