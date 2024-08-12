@@ -16,7 +16,7 @@
 
         <!-- 지도 -->
         <div class="flex mx-auto">
-            <img class="mx-auto w-96" src="@/assets/map.png" alt="">
+            <MapComponent/>
         </div>
         
         <!-- 현재 선수단 가치 -->
@@ -167,9 +167,11 @@
 <script>
 import {useCacheStore} from '@/store/cacheStore'
 import {useModalStore} from '@/store/modalStore'
+import MapComponent from '@/components/MapComponent'
 
 export default {
     components: {
+        MapComponent,
     },
     setup(){
         const cacheStore = useCacheStore()
