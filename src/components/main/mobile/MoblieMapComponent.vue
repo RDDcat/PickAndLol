@@ -3,7 +3,7 @@
         <!-- 가이드 텍스트 -->
         <div class="my-2">
             <div class="flex w-full my-2 px-8 text-point-600 text-sm ">
-                2/3
+                2/2
             </div>
             <div class="flex w-full px-8 text-xl">
                 <div class="text-point-600">
