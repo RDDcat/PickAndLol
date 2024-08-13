@@ -1,12 +1,13 @@
 <template>
     <!-- 모바일 메인 화면 -->
     <MoblieIntroComponent v-if="modalStore.isMoblieIntroComponent" />
-    <MoblieMapComponent v-if="modalStore.isMoblieMapComponent" />
+    <MoblieMapComponent v-if="routeMap()" />
     <!-- 플로팅 아이콘 -->
-    <MobileFloatingComponent v-if="modalStore.isMoblieMapComponent"/>
+    <MobileFloatingComponent v-if="routeMap()"/>
 
     <!-- 모바일 메인 화면 2 -->
     <!-- {{this.cacheStore.isSave}} -->
+    <MoblieMyTeamComponent v-if="modalStore.isMoblieMyTeamComponent"/>
 
     <!-- 모바일 메인 화면 2 -->
 
@@ -17,6 +18,8 @@ import MoblieMapComponent from '@/components/main/mobile/MoblieMapComponent.vue'
 
 import MobileFloatingComponent from '@/components/main/mobile/MobileFloatingComponent.vue'
 
+import MoblieMyTeamComponent from '@/components/main/mobile/MoblieMyTeamComponent.vue'
+
 import {useCacheStore} from '@/store/cacheStore'
 import {useModalStore} from '@/store/modalStore'
 
@@ -25,6 +28,7 @@ export default {
         MoblieIntroComponent,
         MoblieMapComponent,
         MobileFloatingComponent,
+        MoblieMyTeamComponent,
     },
     setup(){
         const cacheStore = useCacheStore()
@@ -38,7 +42,9 @@ export default {
         }
     },
     methods: {
-
+        routeMap(){
+            return this.modalStore.isMoblieMapComponent && !this.cacheStore.isSave
+        }
     },
     // 초기 설정
     mounted(){
@@ -52,6 +58,7 @@ export default {
             this.modalStore.isMobileSelectClubModal=true
             this.modalStore.isMoblieIntroComponent = false
             this.modalStore.isMoblieMapComponent=true
+            this.modalStore.isMoblieMyTeamComponent=false
             return
         }
         
@@ -64,6 +71,17 @@ export default {
         if(this.cacheStore.isMaking && this.cacheStore.userId!==0){
             this.modalStore.isMoblieIntroComponent = false
             this.modalStore.isMoblieMapComponent=true
+            this.modalStore.isMoblieMyTeamComponent=false
+            return
+        }
+
+        // 
+
+        if(this.cacheStore.isSave){
+            this.modalStore.isMoblieIntroComponent = false
+            this.modalStore.isMoblieMapComponent=false
+            this.modalStore.isMoblieMyTeamComponent=true
+
             return
         }
 
