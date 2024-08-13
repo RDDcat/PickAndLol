@@ -5,6 +5,45 @@
             <img class="w-6 h-6 object-contain" src="@/assets/arrow_back_black.svg" @click="modalStore.isMobilePlayerListModal=false">
         </div>
         <!-- 필터 -->
+        <div class="w-full flex gap-2 px-4">
+            <div class="flex items-center bg-white rounded-full shadow-md px-2">
+                <div class="relative">
+                    <select v-model="cacheStore.mainTeamNav" class="appearance-none bg-transparent pr-8 pl-2 py-1 border-none focus:outline-none">
+                        <option value="LCK" class="w-full">
+                            전체
+                        </option>
+                        <option v-for="team in onlyTeams" :key="team?.team || team?.name" :value="team.team">
+                            {{team?.name}}
+                        </option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-between bg-white rounded-full shadow-md p-2">
+                <div class="relative">
+                    <select v-model="cacheStore.mainLineNav" class="appearance-none bg-transparent pr-8 pl-2 py-1 border-none focus:outline-none">
+                        <option value="LCK" class="w-full">
+                            전체
+                        </option>
+                        <option v-for="(line, index) in lines" :key="index" 
+                            @click="lineFilter(index)"
+                            class="p-2 rounded-lg"
+                            :class="cacheStore.mainLineNav === line.name ? 'bg-red-500 text-white' : 'bg-gray-200'">
+                            {{line?.name}}
+                        </option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- 스크롤 가능한 콘텐츠 영역 -->
         <div class="flex-1 overflow-y-auto overflow-x-hidden hide-scrollbar">
@@ -185,7 +224,12 @@ export default {
                 {name:'OK저축은행', team:'BRO', img:'./assets/logo/BRO.png', colorImg:'./assets/logo/color_BRO.png',}, 
                 {name:'DRX', team:'DRX', img:'./assets/logo/DRX.png', colorImg:'./assets/logo/color_DRX.png',}, 
                 {name:'농심', team:'NS', img:'./assets/logo/NS.png', colorImg:'./assets/logo/color_NS.png',}, 
-            ],
+            ].map(team => ({
+                name: team.name || '',
+                team: team.team || team.name || '',
+                img: team.img || '',
+                colorImg: team.colorImg || '',
+            })),
             lines:[
                 {name:'전체', img:'./assets/icon/total_icon.png'}, 
                 {name:'TOP', img:'./assets/icon/top_icon.png'}, 
