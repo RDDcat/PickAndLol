@@ -531,7 +531,7 @@ export default {
             step:0,
 
             selected:0,
-            limitVp:380,
+            limitVp:1500,
 
             hover: '',
 
