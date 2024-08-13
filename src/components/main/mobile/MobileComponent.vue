@@ -1,28 +1,20 @@
 <template>
-    <!-- 모바일 메인 화면 -->
-    <MoblieIntroComponent v-if="modalStore.isMoblieIntroComponent" />
-    <MoblieMapComponent v-if="routeMap()" />
-    <!-- 플로팅 아이콘 -->
-    <MobileFloatingComponent v-if="routeMap()"/>
-
-    <!-- 모바일 메인 화면 2 -->
-    <!-- {{this.cacheStore.isSave}} -->
-    <MoblieMyTeamComponent v-if="modalStore.isMoblieMyTeamComponent"/>
-
-    <!-- 모바일 메인 화면 2 -->
-
+    <MoblieIntroComponent v-if="showIntro" />
+    <MoblieMapComponent v-if="showMap" />
+    <MobileFloatingComponent v-if="showMap"/>
+    <MoblieMyTeamComponent v-if="showMyTeam"/>
 </template>
+
 <script>
+import { computed, watch } from 'vue'
+
 import MoblieIntroComponent from '@/components/main/mobile/MoblieIntroComponent.vue'
 import MoblieMapComponent from '@/components/main/mobile/MoblieMapComponent.vue'
-
 import MobileFloatingComponent from '@/components/main/mobile/MobileFloatingComponent.vue'
-
 import MoblieMyTeamComponent from '@/components/main/mobile/MoblieMyTeamComponent.vue'
 
-import {useCacheStore} from '@/store/cacheStore'
-import {useModalStore} from '@/store/modalStore'
-
+import { useCacheStore } from '@/store/cacheStore'
+import { useModalStore } from '@/store/modalStore'
 import api from '@/api/api'
 
 export default {
@@ -32,89 +24,76 @@ export default {
         MobileFloatingComponent,
         MoblieMyTeamComponent,
     },
-    setup(){
+    setup() {
         const cacheStore = useCacheStore()
         const modalStore = useModalStore()
 
-        return { cacheStore, modalStore }
-    },
-    data(){
-        return {
-            isMouseDown: false, // 버튼 클릭시 이벤트
-        }
-    },
-    methods: {
-        routeMap(){
-            return this.modalStore.isMoblieMapComponent && !this.cacheStore.isSave
-        },
-        route(){
-            this.modalStore.isMoblieIntroComponent = true
+        const showMap = computed(() => modalStore.isMoblieMapComponent && !cacheStore.isSave)
+        const showMyTeam = computed(() => modalStore.isMoblieMyTeamComponent)
+        const showIntro = computed(() => modalStore.isMoblieIntroComponent)
 
-            // 로그인 이후에 응원팀 모달로 유도
-            // 로그인이 되어있고, 응원팀이 설정되지 않았다면 응원팀 모달 노출
-            // 유저 아이디가 있을때를 로그인 시점으로 봄
-            console.log('응원팀 없나? : ', !this.cacheStore.myTeam.team)
-            if(!this.cacheStore.myTeam.team && this.cacheStore.userId!==0){
-                this.modalStore.isMobileSelectClubModal=true
-                this.modalStore.isMoblieIntroComponent = false
-                this.modalStore.isMoblieMapComponent=true
-                this.modalStore.isMoblieMyTeamComponent=false
-                return
+        watch(() => cacheStore.isSave, (newValue) => {
+            if (newValue) {
+                modalStore.isMoblieIntroComponent = false
+                modalStore.isMoblieMapComponent = false
+                modalStore.isMoblieMyTeamComponent = true
+            } else {
+                updateRoute()
             }
-            
-            // 외부에서 갑자기 접근했을때 
-            // > 로그인 안됨
-            // > 로그인 됨
-            // >> 응원팀이 있을때
-            // >> 팀이 있을때
-            // >> 팀을 만들던중
-            if(this.cacheStore.isMaking && this.cacheStore.userId!==0){
-                this.modalStore.isMoblieIntroComponent = false
-                this.modalStore.isMoblieMapComponent=true
-                this.modalStore.isMoblieMyTeamComponent=false
+        })
+
+        function updateRoute() {
+            modalStore.isMoblieIntroComponent = true
+
+            if (!cacheStore.myTeam.team && cacheStore.userId !== 0) {
+                modalStore.isMobileSelectClubModal = true
+                modalStore.isMoblieIntroComponent = false
+                modalStore.isMoblieMapComponent = true
+                modalStore.isMoblieMyTeamComponent = false
                 return
             }
 
-            // 
-
-            if(this.cacheStore.isSave){
-                this.modalStore.isMoblieIntroComponent = false
-                this.modalStore.isMoblieMapComponent=false
-                this.modalStore.isMoblieMyTeamComponent=true
-
+            if (cacheStore.isMaking && cacheStore.userId !== 0) {
+                modalStore.isMoblieIntroComponent = false
+                modalStore.isMoblieMapComponent = true
+                modalStore.isMoblieMyTeamComponent = false
                 return
+            }
+
+            if (cacheStore.isSave) {
+                modalStore.isMoblieIntroComponent = false
+                modalStore.isMoblieMapComponent = false
+                modalStore.isMoblieMyTeamComponent = true
             }
         }
-        
-    },
-    // 초기 설정
-    mounted(){
-        this.route()
 
+        return { 
+            cacheStore, 
+            modalStore, 
+            showMap, 
+            showMyTeam, 
+            showIntro,
+            updateRoute 
+        }
     },
-    async beforeMount(){
-        if(this.cacheStore.userId){
-            // 팀 데이터 sync 넣기
-            await api.getSync(this.cacheStore.userId)
-            .then(response=>{
-                console.log('response:',response)
+    mounted() {
+        this.updateRoute()
+    },
+    async beforeMount() {
+        if (this.cacheStore.userId) {
+            try {
+                const response = await api.getSync(this.cacheStore.userId)
+                console.log('response:', response)
                 this.cacheStore.myTeam = JSON.parse(response.data.data)
                 this.cacheStore.canChange = response.data.canChange
-                this.cacheStore.isSave=true
-                this.cacheStore.isMaking=false
-            })
-            .catch(function (e){
-                console.log(e);
-            });
+                this.cacheStore.isSave = true
+                this.cacheStore.isMaking = false
+            } catch (e) {
+                console.log(e)
+            }
         }
 
-        await this.route()
-
+        this.updateRoute()
     },
 }
 </script>
-<style scoped>
-
-
-
-</style>

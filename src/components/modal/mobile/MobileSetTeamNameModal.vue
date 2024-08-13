@@ -87,7 +87,7 @@ export default {
     },
     methods: {
         valid() {
-            const validPattern = /^[가-힣a-zA-Z0-9_-]+$/;
+            const validPattern = /^[ㄱ-힣a-zA-Z0-9_-]+$/;
 
             this.isEmpty = !this.cacheStore.myTeam.name;
             this.isOver = this.cacheStore.myTeam.name.length > 6;

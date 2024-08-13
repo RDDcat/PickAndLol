@@ -13,6 +13,7 @@ export const useModalStore = defineStore('modalStore', {
     isMobileLoginModal:false,
     isMoblieIntroComponent:false,
     isMoblieMapComponent:false,
+    isMoblieMyTeamComponent:false,
     isMobilePlayerListModal:false,
     isMobileSelectClubModal:false,
     isMobilePlayerModal:false,
