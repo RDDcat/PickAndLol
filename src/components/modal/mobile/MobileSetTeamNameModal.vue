@@ -114,11 +114,13 @@ export default {
             .then(response=>{
                 console.log(response)
                 this.cacheStore.isSave=true
+                this.cacheStore.isMaking=false
                 this.cacheStore.canChange=false
             })
             .catch(function (e){
                 console.log(e);
                 this.cacheStore.isSave=false
+                this.cacheStore.isMaking=true
             });
             let mvpId = 0
             for(let index in this.cacheStore.myTeam.players){
@@ -140,10 +142,12 @@ export default {
             .then(response=>{
                 console.log(response.data)
                 this.cacheStore.isSave=true
+                this.cacheStore.isMaking=false
             })
             .catch(function (e){
                 console.log(e);
                 this.cacheStore.isSave=false
+                this.cacheStore.isMaking=true
             });
         },
     },

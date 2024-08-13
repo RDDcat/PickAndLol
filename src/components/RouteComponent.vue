@@ -85,6 +85,7 @@ export default {
                 this.cacheStore.myTeam = JSON.parse(response.data.data)
                 this.cacheStore.canChange = response.data.canChange
                 this.cacheStore.isSave=true
+                this.cacheStore.isMaking=false
             })
             .catch(function (e){
                 console.log(e);
