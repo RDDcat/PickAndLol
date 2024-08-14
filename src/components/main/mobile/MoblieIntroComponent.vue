@@ -1,7 +1,8 @@
 <template>
     <div class="flex flex-col w-full">
-        <div class="mx-auto my-16">
+        <div class="mx-auto my-16 flex flex-col">
             <img src="@/assets/Union.svg" alt="">
+            <h2 class="mx-auto mt-6 font-bold text-lg">1500달러 게임단 만들기!!</h2>
         </div>
 
         <div class="fixed flex flex-col bottom-6 w-full px-6">
