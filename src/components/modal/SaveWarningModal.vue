@@ -62,53 +62,56 @@ export default {
     },
     methods: {
         
-        async save(){
-            if(this.cacheStore.canChange===false && this.cacheStore.isSave===true)return
-            // 서버 전송
-            let body = {
-                oauthId:this.cacheStore.userId,
-                data:JSON.stringify(this.cacheStore.myTeam),
-                canChange:false
-            }
-            await api.postTeam(body)
-            .then(response=>{
-                console.log(response)
-                this.cacheStore.isSave=true
-                this.cacheStore.isMaking=false
-                this.cacheStore.canChange=false
-            })
-            .catch(function (e){
-                console.log(e);
-                this.cacheStore.isSave=false
-                this.cacheStore.isMaking=true
-            });
-            let mvpId = 0
-            for(let index in this.cacheStore.myTeam.players){
-                if(this.cacheStore.myTeam.players[index].isMvp){
-                    mvpId=this.cacheStore.myTeam.players[index].id
-                }
-            }
-            let logBody = {
-                oauthId:this.cacheStore.userId,
-                topId: this.cacheStore.myTeam.players.top.id,
-                jglId: this.cacheStore.myTeam.players.jgl.id,
-                midId: this.cacheStore.myTeam.players.mid.id,
-                adcId: this.cacheStore.myTeam.players.adc.id,
-                supId: this.cacheStore.myTeam.players.sup.id,
-                mvpId: mvpId
+        async submit() {
+            if (!this.valid()) return;
+
+            this.modalStore.isMobileSetTeamNameModal = false;
+            if (this.cacheStore.canChange === false && this.cacheStore.isSave === true) {
+                console.log('변경할 수 없습니다.');
+                return;
             }
 
-            await api.postTeamLog(logBody)
-            .then(response=>{
-                console.log(response.data)
-                this.cacheStore.isSave=true
-                this.cacheStore.isMaking=false
-            })
-            .catch(function (e){
+            try {
+                // 서버 전송
+                let body = {
+                    oauthId: this.cacheStore.userId,
+                    data: JSON.stringify(this.cacheStore.myTeam),
+                    canChange: false
+                };
+                
+                const response = await api.postTeam(body);
+                console.log(response);
+                this.cacheStore.isSave = true;
+                this.cacheStore.isMaking = false;
+                this.cacheStore.canChange = false;
+
+                let mvpId = 0;
+                for (let index in this.cacheStore.myTeam.players) {
+                    if (this.cacheStore.myTeam.players[index].isMvp) {
+                        mvpId = this.cacheStore.myTeam.players[index].id;
+                    }
+                }
+
+                let logBody = {
+                    oauthId: this.cacheStore.userId,
+                    topId: this.cacheStore.myTeam.players.top.id,
+                    jglId: this.cacheStore.myTeam.players.jgl.id,
+                    midId: this.cacheStore.myTeam.players.mid.id,
+                    adcId: this.cacheStore.myTeam.players.adc.id,
+                    supId: this.cacheStore.myTeam.players.sup.id,
+                    mvpId: mvpId
+                };
+
+                const logResponse = await api.postTeamLog(logBody);
+                console.log(logResponse.data);
+                this.cacheStore.isSave = true;
+                this.cacheStore.isMaking = false;
+            }
+            catch (e) {
                 console.log(e);
-                this.cacheStore.isSave=false
-                this.cacheStore.isMaking=true
-            });
+                this.cacheStore.isSave = false;
+                this.cacheStore.isMaking = true;
+            }
         },
     },
 }
