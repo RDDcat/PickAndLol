@@ -90,7 +90,7 @@ export default {
             const validPattern = /^[ㄱ-힣a-zA-Z0-9_-]+$/;
 
             this.isEmpty = !this.cacheStore.myTeam.name;
-            this.isOver = this.cacheStore.myTeam.name.length > 6;
+            this.isOver = this.cacheStore.myTeam.name.length > 12;
             this.hasInvalidChars = !validPattern.test(this.cacheStore.myTeam.name);
 
             return !this.isEmpty && !this.isOver && !this.hasInvalidChars;
