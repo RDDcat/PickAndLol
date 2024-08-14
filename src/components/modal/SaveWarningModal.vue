@@ -61,16 +61,8 @@ export default {
         }
     },
     methods: {
-        
-        async submit() {
-            if (!this.valid()) return;
-
-            this.modalStore.isMobileSetTeamNameModal = false;
-            if (this.cacheStore.canChange === false && this.cacheStore.isSave === true) {
-                console.log('변경할 수 없습니다.');
-                return;
-            }
-
+        async save(){
+            if(this.cacheStore.canChange===false && this.cacheStore.isSave===true)return
             try {
                 // 서버 전송
                 let body = {
