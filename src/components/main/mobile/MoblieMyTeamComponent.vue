@@ -4,7 +4,7 @@
         <div class="my-2">
             <div class="flex w-full px-8 text-xl">
                 <div class="text-point-600">
-                    {{cacheStore.userName}}</div><div>님의 선수단</div>
+                    {{cacheStore.myTeam.name}}</div><div> 선수단</div>
             </div>
             <div class="flex w-full my-4 px-8 text-gray-300 text-sm ">
                 현재는 선수단을 변경할 수 없습니다.
