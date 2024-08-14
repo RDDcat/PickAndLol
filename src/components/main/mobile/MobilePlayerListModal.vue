@@ -26,7 +26,7 @@
             <div class="flex justify-between bg-white rounded-full shadow-md p-2">
                 <div class="relative">
                     <select v-model="cacheStore.mainLineNav" class="appearance-none bg-transparent pr-8 pl-2 py-1 border-none focus:outline-none">
-                        <option value="LCK" class="w-full">
+                        <option value="전체" class="w-full">
                             전체
                         </option>
                         <option v-for="(line, index) in lines" :key="index" 
