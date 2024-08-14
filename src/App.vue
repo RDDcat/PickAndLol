@@ -22,6 +22,7 @@
   <MobileSaveWarningModal v-show="modalStore.isMobileSaveWarningModal"/>
   <MobileSetTeamNameModal v-show="modalStore.isMobileSetTeamNameModal"/>
   <MobileSetUserNameModal v-show="modalStore.isMobileSetUserNameModal"/>
+  <MobileErrorModal v-show="modalStore.isMobileErrorModal"/>
 
   <router-view />
 </template>
@@ -42,6 +43,7 @@ import MobileSelectCaptainModal from '@/components/modal/mobile/MobileSelectCapt
 import MobileSaveWarningModal from '@/components/modal/mobile/MobileSaveWarningModal.vue'
 import MobileSetTeamNameModal from '@/components/modal/mobile/MobileSetTeamNameModal.vue'
 import MobileSetUserNameModal from '@/components/modal/mobile/MobileSetUserNameModal.vue'
+import MobileErrorModal from '@/components/modal/mobile/MobileErrorModal.vue'
 
 import api from '@/api/api'
 
@@ -59,6 +61,7 @@ export default {
     WarningModal,
     SetTeamNameModal,
     SaveWarningModal,
+
     MobileLoginModal,
     MobilePlayerListModal,
     MobileSelectClubModal,
@@ -67,6 +70,7 @@ export default {
     MobileSaveWarningModal,
     MobileSetTeamNameModal,
     MobileSetUserNameModal,
+    MobileErrorModal,
   },
   setup(){
     const cacheStore = useCacheStore()
