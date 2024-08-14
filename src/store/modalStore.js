@@ -21,7 +21,7 @@ export const useModalStore = defineStore('modalStore', {
     isMobileSaveWarningModal:false,
     isMobileSetTeamNameModal:false,
     isMobileSetUserNameModal:false,
-    isMobileErrorModal:true,
+    isMobileErrorModal:false,
 
     // 모바일 에러
     mobileErrorTitle:"에러가 발생했습니다.",
