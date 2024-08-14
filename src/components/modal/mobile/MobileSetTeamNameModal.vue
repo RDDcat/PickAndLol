@@ -117,10 +117,10 @@ export default {
                 this.cacheStore.isMaking=false
                 this.cacheStore.canChange=false
             })
-            .catch(function (e){
+            .catch((e) => {  
                 console.log(e);
-                this.cacheStore.isSave=false
-                this.cacheStore.isMaking=true
+                this.cacheStore.isSave = false
+                this.cacheStore.isMaking = true
             });
             let mvpId = 0
             for(let index in this.cacheStore.myTeam.players){
@@ -144,10 +144,10 @@ export default {
                 this.cacheStore.isSave=true
                 this.cacheStore.isMaking=false
             })
-            .catch(function (e){
+            .catch((e) => {  
                 console.log(e);
-                this.cacheStore.isSave=false
-                this.cacheStore.isMaking=true
+                this.cacheStore.isSave = false
+                this.cacheStore.isMaking = true
             });
         },
     },
