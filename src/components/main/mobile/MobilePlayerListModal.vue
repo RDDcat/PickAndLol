@@ -80,7 +80,7 @@
                                 @error="setDefaultImage($event)"
                                 :src="'./assets/player/'+player.clubName+'_'+player.playerName+'.svg'">
                             </div>
-                        </div>``
+                        </div>
                     </div>
 
                     <!-- 카드 뒷면 -->
@@ -340,7 +340,6 @@ export default {
         },
         setDefaultImage(event) {
             event.target.src = './assets/logo.png';
-            event.target.style.opacity = '0.2';
         },
     },
 }

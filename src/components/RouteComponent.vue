@@ -79,17 +79,25 @@ export default {
                 console.log(e);
             });
             // 팀 데이터 sync 넣기
-            await api.getSync(this.cacheStore.userId)
-            .then(response=>{
-                console.log('response:',response)
-                this.cacheStore.myTeam = JSON.parse(response.data.data)
-                this.cacheStore.canChange = response.data.canChange
-                this.cacheStore.isSave=true
-                this.cacheStore.isMaking=false
-            })
-            .catch(function (e){
-                console.log(e);
-            });
+            try {
+                const response = await api.getSync(this.cacheStore.userId);
+                console.log('response:', response);
+                this.cacheStore.myTeam = JSON.parse(response.data.data);
+                this.cacheStore.canChange = response.data.canChange;
+                this.cacheStore.isSave = true;
+                this.cacheStore.isMaking = false;
+            } catch (error) {
+                console.log(error);
+                
+                if (error.response && error.response.status === 401) {
+                    api.get
+                    this.cacheStore.refreshToken
+                } else {
+                    // 401 이외의 에러 처리
+                    console.error('An error occurred:', error);
+                    // 필요한 경우 다른 에러 처리 로직 추가
+                }
+            }
         }
 
         // 로그인 토큰 관련 로직
