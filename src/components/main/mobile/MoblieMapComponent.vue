@@ -197,49 +197,50 @@ export default {
         },
         valid(){
             // selectTeamFlag Validation
-            if(!this.cacheStore.myTeam.team){
-                this.selectTeamFlag = true
-                return true
-            } else{
-                this.selectTeamFlag = false
+            if (!this.cacheStore.myTeam.team) {
+                this.selectTeamFlag = true;
+                this.modalStore.mobileErrorTitle = "팀 선택";
+                this.modalStore.mobileErrorText = "팀을 선택해주세요.";
+                this.modalStore.isMobileErrorModal = true;
+                return true;
             }
 
             // selectAllFlag Validation            
-            if(!this.cacheStore.myTeam.players.top.name ||
+            if (!this.cacheStore.myTeam.players.top.name ||
                 !this.cacheStore.myTeam.players.jgl.name ||
                 !this.cacheStore.myTeam.players.mid.name ||
                 !this.cacheStore.myTeam.players.adc.name ||
-                !this.cacheStore.myTeam.players.sup.name ){
-                this.selectAllFlag = true
-                return true
-            } else{
-                this.selectAllFlag = false
+                !this.cacheStore.myTeam.players.sup.name) {
+                this.selectAllFlag = true;
+                this.modalStore.mobileErrorTitle = "선수 선택";
+                this.modalStore.mobileErrorText = "모든 포지션의 선수를 선택해주세요.";
+                this.modalStore.isMobileErrorModal = true;
+                return true;
             }
 
             // vpFlag Validation
-            if(this.cacheStore.myTeam.totalVP > this.cacheStore.limitVp){
-                this.vpFlag = true
-                return true
-            } else{
-                this.vpFlag = false
+            if (this.cacheStore.myTeam.totalVP > this.cacheStore.limitVp) {
+                this.vpFlag = true;
+                this.modalStore.mobileErrorTitle = "VP 초과";
+                this.modalStore.mobileErrorText = `선수단 총 VP가 제한 VP(${this.cacheStore.limitVp})를 초과했습니다.`;
+                this.modalStore.isMobileErrorModal = true;
+                return true;
             }
-            // console.log(!this.cacheStore.myTeam.players.top.isMvp &&
-            //     !this.cacheStore.myTeam.players.jgl.isMvp &&
-            //     !this.cacheStore.myTeam.players.mid.isMvp &&
-            //     !this.cacheStore.myTeam.players.adc.isMvp &&
-            //     !this.cacheStore.myTeam.players.sup.isMvp)
-            // console.log(this.cacheStore.myTeam.players)
+
             // mvpFlag Validation
-            if(!this.cacheStore.myTeam.players.top.isMvp &&
+            if (!this.cacheStore.myTeam.players.top.isMvp &&
                 !this.cacheStore.myTeam.players.jgl.isMvp &&
                 !this.cacheStore.myTeam.players.mid.isMvp &&
                 !this.cacheStore.myTeam.players.adc.isMvp &&
-                !this.cacheStore.myTeam.players.sup.isMvp ){
-                this.mvpFlag = true
-                return true
-            } else{
-                this.mvpFlag = false
+                !this.cacheStore.myTeam.players.sup.isMvp) {
+                this.mvpFlag = true;
+                this.modalStore.mobileErrorTitle = "주장 선택 오류";
+                this.modalStore.mobileErrorText = "주장을 선택해주세요.";
+                this.modalStore.isMobileErrorModal = true;
+                return true;
             }
+
+            return false; // 모든 검증을 통과한 경우
 
 
         },
