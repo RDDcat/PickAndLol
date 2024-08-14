@@ -117,28 +117,6 @@ export default {
                 this.cacheStore.isSave = true;
                 this.cacheStore.isMaking = false;
                 this.cacheStore.canChange = false;
-
-                let mvpId = 0;
-                for (let index in this.cacheStore.myTeam.players) {
-                    if (this.cacheStore.myTeam.players[index].isMvp) {
-                        mvpId = this.cacheStore.myTeam.players[index].id;
-                    }
-                }
-
-                let logBody = {
-                    oauthId: this.cacheStore.userId,
-                    topId: this.cacheStore.myTeam.players.top.id,
-                    jglId: this.cacheStore.myTeam.players.jgl.id,
-                    midId: this.cacheStore.myTeam.players.mid.id,
-                    adcId: this.cacheStore.myTeam.players.adc.id,
-                    supId: this.cacheStore.myTeam.players.sup.id,
-                    mvpId: mvpId
-                };
-
-                const logResponse = await api.postTeamLog(logBody);
-                console.log(logResponse.data);
-                this.cacheStore.isSave = true;
-                this.cacheStore.isMaking = false;
             }
             catch (e) {
                 console.log(e);
