@@ -111,7 +111,7 @@
                         (this.cacheStore.mainTeamNav=== player.clubName || this.cacheStore.mainTeamNav=== 'LCK')"
                     @click="click(player.playerName);"
                     class="w-full h-10 my-2 inline-flex items-center justify-center overflow-hidden text-xs font-medium rounded-lg group  group-hover:bg-gray-dark">
-                    <span class="relative w-52  px-5 py-3 transition-all ease-in duration-75 rounded-md  group-hover:text-white group-hover:bg-gray-dark"
+                    <span class="relative w-52  px-5 py-3 transition-all ease-in duration-75 rounded-md  "
                         :class="this.cacheStore.myTeam.players.top.name ===player.playerName ||
                         this.cacheStore.myTeam.players.jgl.name ===player.playerName ||
                         this.cacheStore.myTeam.players.mid.name ===player.playerName ||
