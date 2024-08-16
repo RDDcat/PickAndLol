@@ -22,6 +22,7 @@
 <script>
 import {useCacheStore} from '@/store/cacheStore'
 import {useModalStore} from '@/store/modalStore'
+import api from '@/api/api'
 
 
 export default {
@@ -43,6 +44,14 @@ export default {
         yes(){
             if(this.modalStore.warningFrom==='inactive'){
                 console.log('계정 비활성화')
+                api.deleteMember()
+                .then(response=>{
+                    console.log(response);
+                    
+                })
+                .catch(function (e){
+                    console.log(e);
+                });
             } else if(this.modalStore.warningFrom==='logout'){
                 console.log('로그아웃')
                 this.cacheStore.$reset()

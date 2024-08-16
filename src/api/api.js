@@ -143,6 +143,20 @@ export default {
     //         data: body, 
     //     });
     // },
+    // 계정 비활성화
+    deleteMember: function(){
+        const cacheStore = useCacheStore();
+        let body = {
+            oauthId:cacheStore.userId
+        }
+        return axios.delete(BASE_URL + 'member', {
+            headers: {
+                withCredentials: true,
+                'access-token': cacheStore.accessToken,
+            },
+            data: body, 
+        });
+    },
     // 어드민
     postMatchClub: function(body){
         return axios.post(BASE_URL + 'match/club', body,{
