@@ -1,7 +1,7 @@
 <template>
     <div class="flex py-4 px-2 w-full z-30 bg-white" :class="modalStore.isLoginWarnModal?'fixed':''">
         <!-- 로고 -->
-        <div class="flex font-bold md:w-60 w-10">
+        <div class="flex font-bold md:w-60 w-10" @click="nav(0)">
             <img class="my-auto ml-auto w-8 h-8" src="@/assets/logo-beta.png">
             <div class="invisible md:visible flex my-auto mr-auto mx-3 text-2xl ">
                 Pick

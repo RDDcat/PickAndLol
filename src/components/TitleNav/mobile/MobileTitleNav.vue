@@ -27,7 +27,7 @@
     <div class="flex py-4 px-6 w-full z-20 bg-white"
         :class="modalStore.isLoginWarnModal ? 'fixed' : ''">
         <!-- 로고 -->
-        <div class="flex font-bold ">
+        <div class="flex font-bold " @click="nav(0)">
             <img class="my-auto w-8 h-8" src="@/assets/logo-beta.png" />
         </div>
 
