@@ -1,7 +1,7 @@
 <template>
     <div class="fixed overscroll-none flex flex-col bg-black bg-opacity-90 w-full h-screen z-50" @click="modalStore.isTutorialModal=false">
         <!-- 네비게이션의 ? 아이콘 강조 -->
-        <div class="mx-auto flex py-2 px-2">
+        <div class="mx-auto flex py-2 px-2 z-10">
             <!-- blank -->
             <div class="flex space-x-1">
                 <div class="w-24"></div>
@@ -10,19 +10,19 @@
                 <div class="w-24"></div>
             </div>
             <div class="flex my-auto mb-2">
-                <div class="glow-effect my-auto bg-opacity-60 bg-white rounded-full  ">
-                    <i class="p-4 fa-regular fa-circle-question text-gray-700  "></i>
+                <div class="glow-effect my-auto bg-opacity-90 bg-white rounded-full  ">
+                    <i class="p-4 fa-regular fa-circle-question text-point-600  "></i>
                 </div>
                 <div class="p-1 w-6 h-6"></div>
             </div>
         </div>
         <!-- 가이드 라인 -->
-        <div class="flex mx-auto mt-6">
+        <div class="flex mx-auto mt-6 z-0">
             <div class="w-[23rem]"></div>
             <div class="line "></div>
         </div>
         <!-- ? 아이콘과 가이드 텍스트 -->
-        <div class="flex flex-col items-center justify-center mt-10">
+        <div class="flex flex-col items-center justify-center mt-10 z-10">
             <div class="bg-white bg-opacity-90 rounded-full p-4">
                 <i class="aspect-square m-auto fa-regular fa-circle-question text-point-600 text-4xl"></i>
             </div>
@@ -59,9 +59,10 @@ export default {
 .line {
     width: 100%;           /* 선의 길이 */
     height: 2px;            /* 선의 두께 */
-    background-color: white; /* 선의 색상 */
+    background-color: rgb(245, 245, 245); /* 선의 색상 */
     transform: rotate(-32deg); /* 45도 회전 */
     position: relative;
+    opacity: 85%;
 }
 .glow-effect {
     position: relative;
