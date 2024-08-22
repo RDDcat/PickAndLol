@@ -5,26 +5,26 @@
             <img class="my-auto ml-auto w-8 h-8" src="@/assets/logo-beta.png">
             <div class="invisible md:visible flex my-auto mr-auto mx-3 text-2xl ">
                 Pick
-                <div class="text-red-600 text-sm">&</div>
+                <div class="text-point-600 text-sm">&</div>
                 LOL
             </div>
         </div>
         <!-- 네비 -->
         <div class="flex space-x-1 items-center justify-around m-auto font-semibold">
-            <button class="w-24 text-center " :class="index===0?'text-red-600':'hover:text-gray-400'" @click="nav(0)">
+            <button class="w-24 text-center " :class="index===0?'text-point-600':'hover:text-gray-400'" @click="nav(0)">
                 MY선수단
             </button>
-            <button class="w-24 text-center" :class="index===1?'text-red-600':'hover:text-gray-400'" @click="nav(1)">
+            <button class="w-24 text-center" :class="index===1?'text-point-600':'hover:text-gray-400'" @click="nav(1)">
                 일정
             </button>
-            <button class="w-24 text-center" :class="index===2?'text-red-600':'hover:text-gray-400'" @click="nav(2)">
+            <button class="w-24 text-center" :class="index===2?'text-point-600':'hover:text-gray-400'" @click="nav(2)">
                 분석
             </button>
-            <button class="w-24 text-center" :class="index===3?'text-red-600':'hover:text-gray-400'" @click="nav(3)">
+            <button class="w-24 text-center" :class="index===3?'text-point-600':'hover:text-gray-400'" @click="nav(3)">
                 랭킹
             </button>
             <button class="my-auto" @click="nav(4)">
-                <i class="fa-regular fa-circle-question " :class="index===4?'text-red-600':'hover:text-gray-400'" ></i>
+                <i class="fa-regular fa-circle-question " :class="index===4?'text-point-600':'hover:text-gray-400'" ></i>
             </button>
             <button class="my-auto" @click="discord()">
                 <img class="rounded-full bg-gray-100 p-1 w-6 h-6 object-contain hover:bg-gray-300" src="@/assets/discord.svg" alt="">
