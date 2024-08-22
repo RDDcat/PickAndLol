@@ -7,6 +7,7 @@
   <WarningModal v-if="modalStore.isWarningModal"/>
   <SetTeamNameModal v-if="modalStore.isSetTeamNameModal"/>
   <SaveWarningModal v-if="modalStore.isSaveWarningModal"/>
+  <TutorialModal v-if="modalStore.isTutorialModal"/>
   <!-- 모바일 모달 -->
   <transition name="slide" v-show="modalStore.isMobileLoginModal">
       <MobileLoginModal  />
@@ -23,6 +24,7 @@
   <MobileSetTeamNameModal v-show="modalStore.isMobileSetTeamNameModal"/>
   <MobileSetUserNameModal v-show="modalStore.isMobileSetUserNameModal"/>
   <MobileErrorModal v-show="modalStore.isMobileErrorModal"/>
+  <MobileTutorialModal v-show="modalStore.isMobileTutorialModal"/>
 
   <router-view />
 </template>
@@ -35,6 +37,7 @@ import PlayerModal from '@/components/modal/PlayerModal.vue'
 import WarningModal from '@/components/modal/WarningModal.vue'
 import SetTeamNameModal from '@/components/modal/SetTeamNameModal.vue'
 import SaveWarningModal from '@/components/modal/SaveWarningModal.vue'
+import TutorialModal from '@/components/modal/TutorialModal.vue'
 import MobileLoginModal from '@/components/modal/mobile/MobileLoginModal.vue'
 import MobilePlayerListModal from '@/components/main/mobile/MobilePlayerListModal.vue'
 import MobileSelectClubModal from '@/components/main/mobile/MobileSelectClubModal.vue'
@@ -44,6 +47,7 @@ import MobileSaveWarningModal from '@/components/modal/mobile/MobileSaveWarningM
 import MobileSetTeamNameModal from '@/components/modal/mobile/MobileSetTeamNameModal.vue'
 import MobileSetUserNameModal from '@/components/modal/mobile/MobileSetUserNameModal.vue'
 import MobileErrorModal from '@/components/modal/mobile/MobileErrorModal.vue'
+import MobileTutorialModal from '@/components/modal/mobile/MobileTutorialModal.vue'
 
 import api from '@/api/api'
 
@@ -61,6 +65,7 @@ export default {
     WarningModal,
     SetTeamNameModal,
     SaveWarningModal,
+    TutorialModal,
 
     MobileLoginModal,
     MobilePlayerListModal,
@@ -71,6 +76,7 @@ export default {
     MobileSetTeamNameModal,
     MobileSetUserNameModal,
     MobileErrorModal,
+    MobileTutorialModal,
   },
   setup(){
     const cacheStore = useCacheStore()

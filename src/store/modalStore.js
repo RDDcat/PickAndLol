@@ -22,6 +22,7 @@ export const useModalStore = defineStore('modalStore', {
     isMobileSetTeamNameModal:false,
     isMobileSetUserNameModal:false,
     isMobileErrorModal:false,
+    isMobileTutorialModal:false,
 
     // 모바일 에러
     mobileErrorTitle:"에러가 발생했습니다.",
@@ -38,6 +39,7 @@ export const useModalStore = defineStore('modalStore', {
 
     isSetTeamNameModal:false,
     isSaveWarningModal:false,
+    isTutorialModal:false,
 
     // 네비게이션
     isMain: true,
