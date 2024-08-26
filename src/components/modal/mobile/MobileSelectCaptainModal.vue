@@ -2,7 +2,7 @@
 <div>
     <!-- 주장 설정 모달 -->
     <div class="fixed overscroll-contain flex flex-col bg-white bg-opacity-90 backdrop-blur-sm w-full h-full z-50">
-        <div class="flex py-10 px-6" @click="modalStore.isMobileSelectCaptainModal=false">
+        <div class="flex py-8 px-6" @click="modalStore.isMobileSelectCaptainModal=false">
             <!-- 뒤로가기 버튼 -->
             <img class="w-6 h-6 object-contain" src="@/assets/arrow_back_black.svg" >
             <div class="mx-auto">
@@ -55,7 +55,7 @@
         </div>
     </div>
     <!-- 하단 버튼 -->
-    <div class="fixed bottom-6 w-full p-4 z-50">
+    <div class="fixed bottom-2 w-full p-4 z-50">
         <button @click="select()" 
                 class="w-full bg-red-600 text-white py-3 rounded-lg font-semibold">
             선택하기
