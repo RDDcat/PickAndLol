@@ -38,7 +38,7 @@
             
             <!-- 주장 선택 창 -->
             <div class="mx-auto mt-8 md:mt-16 flex flex-col w-full">
-                <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                <div class="grid grid-cols-3 md:grid-cols-5 gap-4">
                     <!-- 각 포지션별 선수 -->
                     <template v-for="(position, index) in ['top', 'jgl', 'mid', 'adc', 'sup']" :key="index">
                         <div class="flex flex-col items-center">
@@ -47,7 +47,7 @@
                                 :class="click === index + 1 ? 'outline-none ring-red-500 ring-4' : ''" 
                                 :src="cacheStore.myTeam.players[position].img"
                                 @click="click = index + 1">
-                            <div class="text-center text-white text-sm md:text-xl">{{cacheStore.myTeam.players[position].name}}</div>
+                            <div class="text-center text-black text-sm md:text-xl">{{cacheStore.myTeam.players[position].name}}</div>
                         </div>
                     </template>
                 </div>
