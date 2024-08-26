@@ -60,7 +60,7 @@ export default {
     width: 100%;           /* 선의 길이 */
     height: 2px;            /* 선의 두께 */
     background-color: rgb(245, 245, 245); /* 선의 색상 */
-    transform: rotate(-32deg); /* 45도 회전 */
+    transform: rotate(-32deg);
     position: relative;
     opacity: 85%;
 }

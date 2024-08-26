@@ -1,6 +1,7 @@
 <template>
+<div>
     <!-- 주장 설정 모달 -->
-    <div class="fixed overscroll-contain flex flex-col bg-white bg-opacity-90 backdrop-blur-sm w-full h-full z-50">
+    <div class="fixed overscroll-contain flex flex-col bg-white bg-opacity-90 backdrop-blur-sm w-full modal-height z-50">
         <div class="flex py-10 px-6" @click="modalStore.isMobileSelectCaptainModal=false">
             <!-- 뒤로가기 버튼 -->
             <img class="w-6 h-6 object-contain" src="@/assets/arrow_back_black.svg" >
@@ -60,6 +61,7 @@
             </button>
         </div>
     </div>
+</div>
 </template>
 <script>
 import {useCacheStore} from '@/store/cacheStore'
@@ -188,7 +190,13 @@ export default {
 }
 </script>
 <style scoped>
+.modal-height{
+    height: 100vh;
+    height: 100dvh;
+    height: -webkit-fill-available;
+    height: fill-available;
 
+}
 
 
 </style>
