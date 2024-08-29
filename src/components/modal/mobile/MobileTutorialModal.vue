@@ -60,7 +60,7 @@
             </div>
         </div>
 
-        <!-- 3 번 화면 -->
+        <!-- 4 번 화면 -->
         <!-- 주장 선택 -->
         <div v-show="tutorial==2">
             <!-- 타이틀 텍스트 -->
@@ -81,7 +81,7 @@
                     주장 설정하기
                 </button>
 
-                <!-- 다음 -->            
+                <!-- 다음 -->
                 <button
                     class="invisible flex-grow bg-point-600 text-white text-base py-2.5 rounded-lg">
                     다음
@@ -143,6 +143,14 @@ export default {
         },
         close(){
             this.modalStore.isMobileTutorialModal=false
+        }
+    },
+    watch: {
+        // 모달이 열릴 때 tutorial 값을 초기화
+        'modalStore.isMobileTutorialModal'(newVal) {
+            if (newVal) {
+                this.tutorial = 0;
+            }
         }
     },
 }
