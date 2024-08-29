@@ -74,7 +74,19 @@
                 <img src="@/assets/tutorial/tutorial3.gif" class="w-full rounded-lg">
             </div>
             <!-- 버튼 강조 -->
-            
+            <div class="fixed bottom-6 w-full flex items-center space-x-1 px-6 ">
+                <!-- 주장 설정하기 -->
+                <button class="glow-effect relative py-2.5 px-2 overflow-hidden text-base font-medium text-gray-900 rounded-lg group bg-white ring-1 ring-point-600 "
+                    >
+                    주장 설정하기
+                </button>
+
+                <!-- 다음 -->            
+                <button
+                    class="invisible flex-grow bg-point-600 text-white text-base py-2.5 rounded-lg">
+                    다음
+                </button>
+            </div>
         </div>
 
         <!-- 4번 화면 -->
@@ -87,7 +99,19 @@
                 </div>
             </div>
             <!-- 버튼 강조 -->
+            <div class="fixed bottom-6 w-full flex items-center space-x-1 px-6 ">
+                <!-- 주장 설정하기 -->
+                <button class="invisible relative py-2.5 px-2 overflow-hidden text-base font-medium text-gray-900 rounded-lg group bg-white ring-1 ring-point-600 "
+                    >
+                    주장 설정하기
+                </button>
 
+                <!-- 다음 -->            
+                <button
+                    class="glow-effect flex-grow bg-point-600 text-white text-base py-2.5 rounded-lg">
+                    다음
+                </button>
+            </div>
         </div>
     </div>
 </template>
