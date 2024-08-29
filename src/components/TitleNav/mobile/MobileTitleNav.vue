@@ -30,9 +30,13 @@
         <div class="flex font-bold " @click="nav(0)">
             <img class="my-auto w-8 h-8" src="@/assets/logo-beta.png" />
         </div>
+        <div class="ml-auto mr-4 flex font-bold " @click="this.modalStore.isMobileTutorialModal = true">
+            <i class="my-auto  fa-regular fa-circle-question hover:text-gray-400" />
+        </div>
+        
 
         <!-- 버거메뉴 -->
-        <a class="ml-auto my-auto menu-trigger z-40"
+        <a class="my-auto menu-trigger z-40"
             :class="{'active-2': isMenuOpen }"
             @click.prevent="toggleMenu">
             <span></span>
