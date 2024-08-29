@@ -98,6 +98,10 @@
                     등록하기!
                 </div>
             </div>
+            <!-- gif -->
+            <div class="p-6 w-3/4">
+                <img src="@/assets/tutorial/tutorial4.gif" class="w-full rounded-lg">
+            </div>
             <!-- 버튼 강조 -->
             <div class="fixed bottom-6 w-full flex items-center space-x-1 px-6 ">
                 <!-- 주장 설정하기 -->
