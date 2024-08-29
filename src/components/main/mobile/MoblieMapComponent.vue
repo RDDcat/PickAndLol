@@ -257,7 +257,7 @@ export default {
     },
     // 초기 설정
     mounted(){
-
+        this.modalStore.isMobileTutorialModal = true
     }
 }
 </script>
