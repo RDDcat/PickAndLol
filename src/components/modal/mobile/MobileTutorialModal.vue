@@ -1,5 +1,5 @@
 <template>
-    <div class="fixed flex flex-col bg-black bg-opacity-75 w-full h-full z-50" @click="change()">
+    <div class="fixed flex flex-col bg-black bg-opacity-90 w-full h-full z-50" @click="change()">
         <!-- 1 번 화면 -->
         <!-- 응원팀 선택 -->
         <div v-show="tutorial==0" class="bg-clip-border flex flex-col">
