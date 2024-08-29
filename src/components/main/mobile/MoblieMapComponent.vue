@@ -146,9 +146,11 @@
                 </div>
             </div>
         </div>
+        <!-- 버튼 여백 -->
+        <div class="h-28"></div>
         
         <!-- 버튼 -->
-        <div class="w-full flex items-center space-x-1 px-6 my-4">
+        <div class="fixed bottom-6 w-full flex items-center space-x-1 px-6 ">
             <!-- 주장 설정하기 -->
             <button class="relative py-2.5 px-2 overflow-hidden text-base font-medium text-gray-900 rounded-lg group bg-white ring-1 ring-point-600 "
                 @click="modalStore.isMobileSelectCaptainModal=true">
